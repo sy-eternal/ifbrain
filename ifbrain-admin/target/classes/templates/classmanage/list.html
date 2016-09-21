@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+	<title>班级管理</title>
+	<!-- DataTables -->
+	<link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+ <script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+<!-- <script th:src="@{/js/util/http-context.js}"></script> -->
+	<script th:src="@{/js/controller/classes-controller.js}"></script>
+</head>
+<body>
+	<div layout:fragment="content" >
+		<div class="page-header">
+			<h1>班级管理</h1>
+		</div>
+			<a class="btn btn-default" id="addTable" th:href="@{/classes/create}">新增</a>
+		<table id="table" class="table table-striped table-bordered table-hover">
+		    <thead>
+		        <tr>
+		           <!--  <th>主键</th>  -->
+		            <th>班级级别</th>
+		            <th>班级名称</th>
+		            <th>班级人数</th>	
+		            <th>开始时间</th>
+		            <th>结束时间</th>	  
+		            <th>操作</th>	            
+		        </tr>
+		    </thead>
+		     <tbody>
+		    	<tr th:each="CourseClass : ${list}"  th:if="${CourseClass!=null}">
+		    	    <td ><input type="text" readonly="readonly" class="form-control" th:value="${CourseClass.courseLevel}"  style="border: 0px;background-color: transparent;"  size="30px"/></td>
+		    		 <td><a  th:href="@{'/classes/childmanagelist/'+*{CourseClass.id}}"  style="text-decoration: underline;"><input type="text"  class="form-control" th:value="${CourseClass.className}"   size="30px" style="border: 0px;background-color: transparent;" /></a></td>
+		    		<td><input  type="text" readonly="readonly" class="form-control"  style="border: 0px;background-color: transparent;" size="30px" th:value="${CourseClass.childNumber}"/></td>
+		    		<td ><input type="text" readonly="readonly" class="form-control" th:value="${#dates.format(CourseClass.startDate,'yyyy-MM-dd')}"   style="border: 0px;background-color: transparent;"  size="30px"/></td>
+		    		 <td><input type="text" readonly="readonly" class="form-control" th:value="${#dates.format(CourseClass.endDate,'yyyy-MM-dd')}"    size="30px" style="border: 0px;background-color: transparent;" /></td>
+		    		<td><a  th:href="@{'/classes/tokenbanklist/'+*{CourseClass.id}}"  style="text-decoration: underline;">代币银行</a></td>  
+		    	</tr>
+		    </tbody>
+		</table>
+	
+	</div>
+	<div layout:fragment="script">
+		<script>
+			$(function() {
+				Metronic.init();
+				Layout.init(); 
+				QuickSidebar.init(); 
+				Demo.init(); 
+				ClassesController.init();
+			});
+		</script>
+	</div>
+</body>
+
+</html>

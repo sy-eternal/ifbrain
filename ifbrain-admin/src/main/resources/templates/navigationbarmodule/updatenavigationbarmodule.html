@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout" data-ng-app="_app">
+<head>
+	<title>导航栏下的模块修改</title>
+	<script th:src="@{/assets/global/plugins/jquery.min.js}" type="text/javascript"></script>
+	<script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+	<script th:src="@{/js/controller/navigationbarmodule/check.js}"></script>	
+<script>
+</script>
+    <script type="text/javascript">
+    function check(value){
+        	var length = value.length;
+        	//假设长度限制为10
+        	if(length>64){
+        		$("#message").css({display:"block",color:"red"});
+        		$("#message").html("请输入小于64个字的标题");
+        		return  false;
+        	}
+    }
+    </script> 
+</head>
+<body >
+	<div layout:fragment="content" >
+		<div class="page-header">
+			<h1>导航栏下的模块修改</h1>
+		</div>
+		<form class="form-horizontal" role="form" method="post" th:action="@{/navigationbarmodule/navigationbarmoduleupdate}"   enctype="multipart/form-data" onsubmit="return submitbefore()"  id="mainFormsubmit">
+			<div class="form-group" >
+							<label for="courseLevel" class="col-xs-3 control-label">导航栏</label>
+							<div class="col-xs-6">
+								<select class="form-control"  id="navigationbar"  name="navigationbar" >
+										<option th:each="navigationbar : ${list}" th:value="${navigationbar.id}" th:text="${navigationbar.name}"  id="name"></option>
+								</select>
+								<span class="text-danger" ></span>
+							 </div>
+			</div> 
+			
+			<div class="form-group" id="title" >
+				<label for="title" class="col-xs-3 control-label">标题封面</label>
+				<div class="col-xs-6">
+					<input type="file" class="form-control"   id="file" name="file"  />
+				</div>
+			</div>
+			<div class="form-group" id="title" >
+				<label for="title" class="col-xs-3 control-label">标题</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:value="${navigationbarModule.title}"  id="title" name="title"  onblur="check(this.value)"/>
+					<span id="message"  style="display: none;"></span>
+				</div>
+			</div>
+			<div class="form-group" id="type" >
+				<label for="title" class="col-xs-3 control-label">类型</label>
+				<div class="col-xs-6">
+					<select class="form-control"  id="type"  name="type" >
+										<option  th:value="0" th:text="0"  ></option>
+										<option  th:value="1" th:text="1"  ></option>
+										<option  th:value="2" th:text="2"  ></option>
+										<option  th:value="3" th:text="3"  ></option>
+										<option  th:value="4" th:text="4"  ></option>
+										<option  th:value="5" th:text="5"  ></option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group" id="author" >
+				<label for="title" class="col-xs-3 control-label">作者</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:value="${navigationbarModule.author}"  id="author" name="author"/>
+				</div>
+			</div>
+		<input type="hidden"  name="id"  th:value="${navigationbarModule.id}"  id="id"/>
+		<div id="tijiao" >
+		<p class="text-center">
+				<button type="submit" class="btn btn-primary"  >提交</button>
+				<a th:href="@{/navigationbarmodule/list}" class="btn btn-default">返回</a>
+		</p>
+		</div>
+		</form>
+	</div>
+	<div layout:fragment="script">
+		<script>
+			$(function() {
+				Metronic.init();
+				Layout.init(); 
+				QuickSidebar.init(); 
+				Demo.init(); 
+			});
+		</script>
+		
+	</div>
+</body>
+
+</html>

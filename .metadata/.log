@@ -1,0 +1,224 @@
+!SESSION 2015-11-26 08:56:10.047 -----------------------------------------------
+eclipse.buildId=3.6.4.201503100339-RELEASE-e44
+java.version=1.8.0_60
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.springsource.sts.ide
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springsource.sts.ide
+
+This is a continuation of log file E:\workwd\ifbrain2015\.metadata\.bak_0.log
+Created Time: 2015-11-26 09:04:51.315
+
+!ENTRY org.tigris.subversion.subclipse.core 4 0 2015-11-26 09:04:51.315
+!MESSAGE org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+!STACK 1
+org.tigris.subversion.subclipse.core.SVNException: org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+	at org.tigris.subversion.subclipse.core.SVNException.wrapException(SVNException.java:101)
+	at org.tigris.subversion.subclipse.core.status.StatusCacheManager.refreshStatus(StatusCacheManager.java:294)
+	at org.tigris.subversion.subclipse.core.resourcesListeners.FileModificationManager.refreshStatusInfitite(FileModificationManager.java:212)
+	at org.tigris.subversion.subclipse.core.resourcesListeners.FileModificationManager.access$3(FileModificationManager.java:208)
+	at org.tigris.subversion.subclipse.core.resourcesListeners.FileModificationManager$2.run(FileModificationManager.java:193)
+	at org.tigris.subversion.subclipse.core.util.JobUtility$1$1.run(JobUtility.java:22)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.tigris.subversion.subclipse.core.util.JobUtility$1.run(JobUtility.java:20)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: org.tigris.subversion.subclipse.core.SVNException: org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+	at org.tigris.subversion.subclipse.core.SVNException.wrapException(SVNException.java:91)
+	at org.tigris.subversion.subclipse.core.status.RecursiveStatusUpdateStrategy.statusesToUpdate(RecursiveStatusUpdateStrategy.java:66)
+	at org.tigris.subversion.subclipse.core.status.StatusCacheManager.refreshStatus(StatusCacheManager.java:271)
+	... 7 more
+Caused by: org.tigris.subversion.svnclientadapter.SVNClientException: org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:606)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:564)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:557)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:550)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:543)
+	at org.tigris.subversion.subclipse.core.status.RecursiveStatusUpdateStrategy.statusesToUpdate(RecursiveStatusUpdateStrategy.java:63)
+	... 8 more
+Caused by: org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+	at org.apache.subversion.javahl.SVNClient.status(Native Method)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:584)
+	... 13 more
+!SUBENTRY 1 org.tigris.subversion.subclipse.core 4 -6 2015-11-26 09:04:51.315
+!MESSAGE org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+!STACK 1
+org.tigris.subversion.subclipse.core.SVNException: org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+	at org.tigris.subversion.subclipse.core.SVNException.wrapException(SVNException.java:91)
+	at org.tigris.subversion.subclipse.core.status.RecursiveStatusUpdateStrategy.statusesToUpdate(RecursiveStatusUpdateStrategy.java:66)
+	at org.tigris.subversion.subclipse.core.status.StatusCacheManager.refreshStatus(StatusCacheManager.java:271)
+	at org.tigris.subversion.subclipse.core.resourcesListeners.FileModificationManager.refreshStatusInfitite(FileModificationManager.java:212)
+	at org.tigris.subversion.subclipse.core.resourcesListeners.FileModificationManager.access$3(FileModificationManager.java:208)
+	at org.tigris.subversion.subclipse.core.resourcesListeners.FileModificationManager$2.run(FileModificationManager.java:193)
+	at org.tigris.subversion.subclipse.core.util.JobUtility$1$1.run(JobUtility.java:22)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.tigris.subversion.subclipse.core.util.JobUtility$1.run(JobUtility.java:20)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: org.tigris.subversion.svnclientadapter.SVNClientException: org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:606)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:564)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:557)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:550)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:543)
+	at org.tigris.subversion.subclipse.core.status.RecursiveStatusUpdateStrategy.statusesToUpdate(RecursiveStatusUpdateStrategy.java:63)
+	... 8 more
+Caused by: org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+	at org.apache.subversion.javahl.SVNClient.status(Native Method)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:584)
+	... 13 more
+!SUBENTRY 2 org.tigris.subversion.subclipse.core 4 -6 2015-11-26 09:04:51.315
+!MESSAGE org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+!STACK 0
+org.tigris.subversion.svnclientadapter.SVNClientException: org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:606)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:564)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:557)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:550)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:543)
+	at org.tigris.subversion.subclipse.core.status.RecursiveStatusUpdateStrategy.statusesToUpdate(RecursiveStatusUpdateStrategy.java:63)
+	at org.tigris.subversion.subclipse.core.status.StatusCacheManager.refreshStatus(StatusCacheManager.java:271)
+	at org.tigris.subversion.subclipse.core.resourcesListeners.FileModificationManager.refreshStatusInfitite(FileModificationManager.java:212)
+	at org.tigris.subversion.subclipse.core.resourcesListeners.FileModificationManager.access$3(FileModificationManager.java:208)
+	at org.tigris.subversion.subclipse.core.resourcesListeners.FileModificationManager$2.run(FileModificationManager.java:193)
+	at org.tigris.subversion.subclipse.core.util.JobUtility$1$1.run(JobUtility.java:22)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.tigris.subversion.subclipse.core.util.JobUtility$1.run(JobUtility.java:20)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+	at org.apache.subversion.javahl.SVNClient.status(Native Method)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:584)
+	... 13 more
+
+!ENTRY org.tigris.subversion.subclipse.core 4 0 2015-11-26 09:04:51.322
+!MESSAGE org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+!STACK 1
+org.tigris.subversion.subclipse.core.SVNException: org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+	at org.tigris.subversion.subclipse.core.SVNException.wrapException(SVNException.java:101)
+	at org.tigris.subversion.subclipse.core.status.StatusCacheManager.refreshStatus(StatusCacheManager.java:294)
+	at org.tigris.subversion.subclipse.core.resourcesListeners.FileModificationManager.refreshStatusInfitite(FileModificationManager.java:212)
+	at org.tigris.subversion.subclipse.core.resourcesListeners.FileModificationManager.access$3(FileModificationManager.java:208)
+	at org.tigris.subversion.subclipse.core.resourcesListeners.FileModificationManager$2.run(FileModificationManager.java:193)
+	at org.tigris.subversion.subclipse.core.util.JobUtility$1$1.run(JobUtility.java:22)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.tigris.subversion.subclipse.core.util.JobUtility$1.run(JobUtility.java:20)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: org.tigris.subversion.subclipse.core.SVNException: org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+	at org.tigris.subversion.subclipse.core.SVNException.wrapException(SVNException.java:91)
+	at org.tigris.subversion.subclipse.core.status.RecursiveStatusUpdateStrategy.statusesToUpdate(RecursiveStatusUpdateStrategy.java:66)
+	at org.tigris.subversion.subclipse.core.status.StatusCacheManager.refreshStatus(StatusCacheManager.java:271)
+	... 7 more
+Caused by: org.tigris.subversion.svnclientadapter.SVNClientException: org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:606)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:564)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:557)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:550)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:543)
+	at org.tigris.subversion.subclipse.core.status.RecursiveStatusUpdateStrategy.statusesToUpdate(RecursiveStatusUpdateStrategy.java:63)
+	... 8 more
+Caused by: org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+	at org.apache.subversion.javahl.SVNClient.status(Native Method)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:584)
+	... 13 more
+!SUBENTRY 1 org.tigris.subversion.subclipse.core 4 -6 2015-11-26 09:04:51.323
+!MESSAGE org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+!STACK 1
+org.tigris.subversion.subclipse.core.SVNException: org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+	at org.tigris.subversion.subclipse.core.SVNException.wrapException(SVNException.java:91)
+	at org.tigris.subversion.subclipse.core.status.RecursiveStatusUpdateStrategy.statusesToUpdate(RecursiveStatusUpdateStrategy.java:66)
+	at org.tigris.subversion.subclipse.core.status.StatusCacheManager.refreshStatus(StatusCacheManager.java:271)
+	at org.tigris.subversion.subclipse.core.resourcesListeners.FileModificationManager.refreshStatusInfitite(FileModificationManager.java:212)
+	at org.tigris.subversion.subclipse.core.resourcesListeners.FileModificationManager.access$3(FileModificationManager.java:208)
+	at org.tigris.subversion.subclipse.core.resourcesListeners.FileModificationManager$2.run(FileModificationManager.java:193)
+	at org.tigris.subversion.subclipse.core.util.JobUtility$1$1.run(JobUtility.java:22)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.tigris.subversion.subclipse.core.util.JobUtility$1.run(JobUtility.java:20)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: org.tigris.subversion.svnclientadapter.SVNClientException: org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:606)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:564)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:557)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:550)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:543)
+	at org.tigris.subversion.subclipse.core.status.RecursiveStatusUpdateStrategy.statusesToUpdate(RecursiveStatusUpdateStrategy.java:63)
+	... 8 more
+Caused by: org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+	at org.apache.subversion.javahl.SVNClient.status(Native Method)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:584)
+	... 13 more
+!SUBENTRY 2 org.tigris.subversion.subclipse.core 4 -6 2015-11-26 09:04:51.323
+!MESSAGE org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+!STACK 0
+org.tigris.subversion.svnclientadapter.SVNClientException: org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:606)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:564)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:557)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:550)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:543)
+	at org.tigris.subversion.subclipse.core.status.RecursiveStatusUpdateStrategy.statusesToUpdate(RecursiveStatusUpdateStrategy.java:63)
+	at org.tigris.subversion.subclipse.core.status.StatusCacheManager.refreshStatus(StatusCacheManager.java:271)
+	at org.tigris.subversion.subclipse.core.resourcesListeners.FileModificationManager.refreshStatusInfitite(FileModificationManager.java:212)
+	at org.tigris.subversion.subclipse.core.resourcesListeners.FileModificationManager.access$3(FileModificationManager.java:208)
+	at org.tigris.subversion.subclipse.core.resourcesListeners.FileModificationManager$2.run(FileModificationManager.java:193)
+	at org.tigris.subversion.subclipse.core.util.JobUtility$1$1.run(JobUtility.java:22)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.tigris.subversion.subclipse.core.util.JobUtility$1.run(JobUtility.java:20)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: org.apache.subversion.javahl.ClientException: Previous operation has not finished; run 'cleanup' if it was interrupted
+
+	at org.apache.subversion.javahl.SVNClient.status(Native Method)
+	at org.tigris.subversion.svnclientadapter.javahl.AbstractJhlClientAdapter.getStatus(AbstractJhlClientAdapter.java:584)
+	... 13 more
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2015-11-26 09:45:10.651
+!MESSAGE Project facet grails.app has not been defined. It is used in plugin com.vmware.vfabric.ide.eclipse.tcserver.core.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2015-11-26 09:45:10.714
+!MESSAGE Project facet grails.app has not been defined. It is used in plugin org.cloudfoundry.ide.eclipse.server.branding.
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2015-11-26 11:59:07.383
+!MESSAGE Connection to http://dist.springsource.com/release/STS/doc/updates.xml failed on Connection timed out: connect. Retry attempt 0 started
+!STACK 0
+java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient4.ECFHttpClientProtocolSocketFactory.connectSocket(ECFHttpClientProtocolSocketFactory.java:84)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:177)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:131)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1077)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1068)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1064)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:73)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

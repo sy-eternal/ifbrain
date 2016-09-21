@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+    <title>微信支付</title>
+    <meta charset="utf-8"/>
+    <script type="text/javascript" th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+    	setTimeout('callpay()', 3000);
+    });
+   
+    
+     function  callpay(){
+    	  var appId=document.getElementById("appId").value;
+    	var timeStamp=document.getElementById("timeStamp").value;
+    	var nonceStr=document.getElementById("nonceStr").value;
+    	var packagevalue=document.getElementById("package").value;
+    	var paySign=document.getElementById("paySign").value;
+		  WeixinJSBridge.invoke('getBrandWCPayRequest',{
+ 		 "appId" : appId,"timeStamp" : timeStamp, "nonceStr" : nonceStr, "package" : packagevalue,"signType" : "MD5", "paySign" : paySign 
+  			},function(res){
+				WeixinJSBridge.log(res.err_msg);
+	            if(res.err_msg == "get_brand_wcpay_request:ok"){  
+	                alert("微信支付成功!");  
+	            }else if(res.err_msg == "get_brand_wcpay_request:cancel"){  
+	                alert("用户取消支付!");  
+	            }else{  
+	               alert("支付失败!");  
+	            }  
+			});   
+	}
+    </script>
+</head>
+<body >
+
+
+
+
+  <input type="hidden"  id="appId" th:value="${appId}"/>
+   <input type="hidden"  id="timeStamp"  th:value="${timeStamp}"/>
+    <input type="hidden"  id="nonceStr" th:value="${nonceStr}"/>
+     <input type="hidden"  id="package"  th:value="${package}"/>
+     <input type="hidden"  id="paySign" th:value="${paySign}"/>
+     
+     
+     
+</body>
+</html>

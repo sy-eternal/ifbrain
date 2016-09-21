@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout-blank">
+<head>
+<meta charset="UTF-8"/>
+	<title>订单结算</title>
+	<link rel="stylesheet" type="text/css"
+	th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script
+	th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+	<script>
+	function doSubmit() {
+		window.close();
+	};
+</script>
+</head>
+<body>
+	<div layout:fragment="content" class="container">
+	<p th:text="付款失败"></p>
+	<button type="button" id="toSubmit" onclick="doSubmit()"></button>
+	</div>
+	</body>
+	</html>
+
+	

@@ -1,0 +1,2828 @@
+<!DOCTYPE html >
+<!-- 
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.2.0
+Version: 3.4
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest (the above link) in order to legally use the theme for your project.
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<!--<![endif]-->
+
+<!-- Head BEGIN -->
+<head>
+<meta charset="utf-8" />
+<title>嘻游定制旅行-参考线路</title>
+
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<meta content="Metronic Shop UI description" name="description" />
+<meta content="Metronic Shop UI keywords" name="keywords" />
+<meta content="keenthemes" name="author" />
+
+<meta property="og:site_name" content="-CUSTOMER VALUE-" />
+<meta property="og:title" content="-CUSTOMER VALUE-" />
+<meta property="og:description" content="-CUSTOMER VALUE-" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="-CUSTOMER VALUE-" />
+<!-- link to image for socio -->
+<meta property="og:url" content="-CUSTOMER VALUE-" />
+
+<link rel="shortcut icon" href="favicon.ico" />
+
+<!-- Fonts START -->
+<link
+	href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all"
+	rel="stylesheet" type="text/css" />
+<!-- Fonts END -->
+
+<!-- Global styles START -->
+<link
+	href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" />
+<link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet" />
+<!-- Global styles END -->
+
+<!-- Page level plugin styles START -->
+<link
+	href="../../assets/global/plugins/fancybox/source/jquery.fancybox.css"
+	rel="stylesheet" />
+<link
+	href="../../assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css"
+	rel="stylesheet" />
+<link
+	href="../../assets/global/plugins/slider-revolution-slider/rs-plugin/css/settings.css"
+	rel="stylesheet" />
+<!-- Page level plugin styles END -->
+
+<!-- Theme styles START -->
+<link href="../../assets/global/css/components.css" rel="stylesheet" />
+<link href="../../assets/frontend/layout/css/style.css" rel="stylesheet" />
+<link href="../../assets/frontend/pages/css/style-revolution-slider.css"
+	rel="stylesheet" />
+<!-- metronic revo slider styles -->
+<link href="../../assets/frontend/layout/css/style-responsive.css"
+	rel="stylesheet" />
+<link href="../../assets/frontend/layout/css/themes/red.css"
+	rel="stylesheet" id="style-color" />
+<link href="../../assets/frontend/layout/css/custom.css"
+	rel="stylesheet" />
+
+<link
+	href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" />
+<link href="../../assets/frontend/onepage/css/style.css"
+	rel="stylesheet" />
+<link href="../../assets/frontend/onepage/css/themes/red.css"
+	rel="stylesheet" id="style-color" />
+<link
+	href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css"
+	rel="stylesheet" type="text/css" />
+<script src="../../assets/frontend/pages/scripts/top.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		//判断游客导游 
+		if (document.getElementById("shows").value == "") {
+			$('#daoyou').css('display', 'none');
+			$('#youke').css('display', 'none');
+			$('#usertyposs').css('display', 'none')
+			$('#denglus').css('display', 'block')
+			$('#usertypos').css('display', 'none')
+		}
+		else if (document.getElementById("shows").value == 1) {
+			$('#youke').css('display', 'block');
+			$('#daoyou').css('display', 'none');
+			$('#usertyposs').css('display', 'block')
+			$('#denglus').css('display', 'none')
+			$('#register').css('display', 'none')
+			$('#usertypos').css('display', 'block')
+		}
+		else if (document.getElementById("shows").value == 2) {
+			$('#youke').css('display', 'none');
+			$('#daoyou').css('display', 'block');
+			$('#usertyposs').css('display', 'block')
+			$('#denglus').css('display', 'none')
+			$('#register').css('display', 'none')
+			$('#usertypos').css('display', 'block')
+		}
+	});
+
+	if ($("#shows").val() == 2) {
+		$("#dingzhi3").css("display", "none");
+		$("#dingzhi2").css("display", "none");
+	}
+</script>
+</head>
+<!-- Head END -->
+
+<style>
+/* Portfolio block */
+.portfolio-block {
+	background: #f6f6f6;
+	padding-top: 60px;
+}
+
+/* Team block */
+.team-block {
+	padding-top: 60px;
+}
+
+.team-block h4 {
+	margin-bottom: 45px;
+}
+
+.team-block .item {
+	margin-bottom: 30px;
+}
+
+.team-block h3 {
+	font-size: 20px;
+	padding-top: 13px;
+	margin-bottom: 2px;
+}
+
+.team-block em {
+	color: #e54a1a;
+	text-transform: uppercase;
+	display: block;
+	font: 400 14px "Open Sans", Arial, sans-serif;
+	margin-bottom: 12px;
+}
+
+.tb-socio {
+	padding-top: 3px;
+	text-align: center;
+}
+
+.tb-socio .fa {
+	width: 33px;
+	height: 33px;
+	color: #b3bdc6;
+	border-radius: 50% !important;
+	border: solid 1px #d5d5d5;
+	font-size: 19px;
+	line-height: 19px;
+	margin: 0 7px;
+	padding-top: 7px;
+}
+
+.tb-socio .fa:hover {
+	color: #e6400c;
+	border: solid 1px #e6400c;
+	text-decoration: none;
+}
+/* h1-h6 */
+h1, h2 {
+	font: 400 37px "PT Sans Narrow", Arial, sans-serif;
+	margin: 0 0 10px;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+h1:after, h2:after {
+	z-index: 2;
+	content: " ";
+	display: block;
+	padding-top: 7px;
+	border-bottom: 2px solid #b7bbbf;
+	width: 73px;
+	margin: 0 auto;
+}
+
+h3, h4, h5, h6 {
+	font: 300 18px "Open Sans", Arial, sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+h1 strong, h2 strong, h3 strong, h4 strong {
+	color: #e54a1a;
+	font-weight: 300;
+}
+
+.carousel-info img {
+	width: 75px;
+	height: 75px;
+	padding: 3px;
+	border-radius: 150px !important;
+	border: solid 1px #f5f5f5;
+}
+
+.carousel-info {
+	overflow: hidden;
+}
+
+.testimonials-name {
+	color: #E6400C;
+	font-size: 16px;
+	font-weight: 300;
+	margin: 23px 0 7px;
+}
+
+.testimonials-post {
+	color: #656565;
+	font-size: 12px;
+	text-decoration: none;
+}
+
+.floating_ck {
+	position: fixed;
+	right: 20px;
+	top: 30%;
+}
+
+.floating_ck dl dd {
+	position: relative;
+	width: 80px;
+	height: 80px;
+	background-color: #646577;
+	border-bottom: solid 1px #555666;
+	text-align: center;
+	background-repeat: no-repeat;
+	background-position: center 20%;
+	cursor: pointer;
+}
+
+.floating_ck dl dd:hover {
+	border-bottom: solid 1px #a40324;
+}
+
+.floating_ck dl dd:hover .floating_left {
+	display: block;
+}
+
+.consult, .words {
+	background-image: url(../../assets/img/kficon.png);
+}
+
+.quote {
+	background-image: url(../../assets/img/font-524.png);
+}
+
+.qrcord {
+	background-image: url(../../assets/img/erweima.png);
+}
+
+.return {
+	background-image: url(../../assets/img/fanhui.png);
+}
+
+.floating_ck dd span {
+	color: #fff;
+	display: block;
+	padding-top: 54px;
+}
+
+.floating_left {
+	position: absolute;
+	left: -160px;
+	top: 0px;
+	width: 160px;
+	height: 80px;
+	background-color: white;
+	border-bottom: solid 1px #a40324;
+	display: none;
+}
+
+.floating_left a {
+	color: gray;
+	line-height: 80px;
+}
+
+.floating_ewm {
+	height: 260px;
+	top: -180px;
+}
+
+.floating_ewm i {
+	background-image: url(../../assets/frontend/onepage/img/wechat.png);
+	display: block;
+	width: 145px;
+	height: 145px;
+	margin: auto;
+	margin-top: 7px;
+}
+
+.floating_ewm p {
+	color: gray;
+	margin-top: 5px;
+}
+
+.floating_ewm .qrcord_p01 {
+	font-size: 12px;
+	line-height: 20px;
+}
+
+.floating_ewm .qrcord_p02 {
+	font-size: 18px;
+}
+</style>
+
+<!-- BEGIN MODAL DATIAL CSS -->
+<style type="text/css">
+.price-availability-blockm {
+	border-bottom: 1px solid #f4f4f4;
+	padding-bottom: 12px;
+	margin-bottom: 17px;
+}
+
+.price-availability-blockm .pricem {
+	float: left;
+	font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.price-availability-blockm .pricem strong {
+	color: #e84d1c;
+	font-size: 35px;
+	font-weight: normal;
+}
+
+.price-availability-blockm .pricem strong span {
+	font-size: 25px;
+}
+
+.price-availability-blockm .pricem em {
+	font-style: normal;
+	color: #bbb;
+	font-size: 17px;
+}
+
+.price-availability-blockm .pricem em span {
+	font-size: 23px;
+	text-decoration: line-through;
+}
+</style>
+
+<style type="text/css">
+.modal-li {
+	font-size: 18px;
+}
+
+.modal-price {
+	font-size: 18px;
+	color: #e6400c;
+	font-weight: bold;
+}
+
+.modal-des-p {
+	font-size: 15px;
+	text-align: left;
+	color: black;
+	line-height: 25px;
+	margin-left: 8%;
+	width: 100%;
+}
+</style>
+
+<!-- Body BEGIN -->
+<body class="corporate">
+	<!-- BEGIN HEADER  -->
+	<div th:replace="partial/header"></div>
+	<!-- END HEADER -->
+	<!-- BEGIN TOP BAR -->
+	<div class="container" style="margin-top: 120px;">
+		<div class="row recent-work " style="margin-bottom: 150px;">
+			<div class="col-md-12">
+				<div class="owl-carousel owl-carousel3">
+					<div class="recent-work-item" th:each="route:${route}">
+						<em> <!-- <img src="../../assets/frontend/onepage/img/portfolio/meidong0.png" alt="Amazing Project" class="img-responsive" /> -->
+							<img th:src="@{'/image/show/' + ${route.image.id}}"
+							alt="Amazing Project" class="img-responsive" /> <!-- <a data-toggle="modal" data-target="#myModa1">
+								<i class="fa fa-link"></i>
+							</a> --> <a href="" class="fancybox-button" title="查看线路"
+							data-rel="fancybox-button"> <i class="fa fa-search"></i>
+						</a>
+						</em> <a class="recent-work-description" href="javascript:;"> <strong
+							th:text="${route.routeName}"></strong>
+
+						</a>
+					</div>
+					<!-- <div class="recent-work-item">
+						<em>
+							<img src="../../assets/frontend/onepage/img/portfolio/1.1-road.jpg" alt="Amazing Project" class="img-responsive" />
+							<a data-toggle="modal" data-target="#myModa2">
+								<i class="fa fa-link"></i>
+							</a>
+							<a href="../../assets/frontend/onepage/img/portfolio/1.1-road.jpg" class="fancybox-button" title="美西小环线"
+								data-rel="fancybox-button">
+								<i class="fa fa-search"></i>
+							</a>
+						</em>
+						<a class="recent-work-description" href="javascript:;">
+							<strong>美西12日小环线</strong>
+
+						</a>
+					</div> -->
+					<!-- <div class="recent-work-item">
+						<em>
+							<img src="../../assets/frontend/onepage/img/portfolio/meixi17.png" alt="Amazing Project" class="img-responsive" />
+							<a data-toggle="modal" data-target="#myModa3">
+								<i class="fa fa-link"></i>
+							</a>
+							<a href="../../assets/frontend/onepage/img/portfolio/meixi17.png" class="fancybox-button" title="美西大环线"
+								data-rel="fancybox-button">
+								<i class="fa fa-search"></i>
+							</a>
+						</em>
+						<a class="recent-work-description" href="javascript:;">
+							<strong>美西17日大环线</strong>
+
+						</a>
+					</div> -->
+				</div>
+			</div>
+			<!-- Begin美东美西全游览 -->
+			<!-- <div class="modal fade" id="myModa1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+				style="margin-top: 80px;">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header" style="border: none;">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h3 class="modal-title" id="myModalLabel" style="font-size: 30px;">美西、美东全游览</h3>
+						</div>
+
+						<div class="modal-body">
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-warning" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-bolt"></i>
+									</li>
+									<li class="modal-li">价格区间：</li>
+									<li class="modal-price">
+										<em>¥28000/人</em>
+									</li>
+								</ul>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-info" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-group"></i>
+									</li>
+									<li class="modal-li">适合人群：</li>
+								</ul>
+								<div class=" col-xs-12 col-md-11 ">
+									<p class="modal-des-p">
+										没错，就是你哦！！！
+										<br />
+									</p>
+								</div>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-success" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-quote-left"></i>
+									</li>
+									<li class="modal-li">活动介绍：</li>
+								</ul>
+								<div class=" col-xs-12 col-md-11">
+									<p class="modal-des-p">
+										美国不悔之旅！！洛杉矶、圣地亚哥、加州1号公路、旧金山、优胜美地、拉斯维加斯、纽约、费城、华盛顿 17日游览全美国之旅！
+										<br />
+										还等什么，赶快随我出发吧！！。
+
+									</p>
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 1：洛杉矶初体验</li>
+								</ul>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px; text-align: center;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/6654c17f87d52cb7bdb3e5f42ba0c8b4-sz_266983.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/326eaf57163d9e123b29277ae785aad7-sz_202315.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									欢迎来到美国，落地天使之城洛杉矶。 洛杉矶是美国第二大城市，世界第六大城市， 也是好莱坞所在地和美国主要的影业基地。
+									<br />
+									机场出来稍事休息，即可驱车前往盖蒂博物馆。
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/3edcf539b6e7c436a704dde8e0ec0f74-sz_791938.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									盖蒂博物馆由石油大亨J·保罗·盖蒂（J.Paul.Getty）兴建，世界顶级建筑师Richard Meier设计。博物馆居于高处，俯瞰名流云集的比佛利山和整个洛杉矶市区，可休憩望远，饱览城市风光。
+									<br />
+									博物馆所在的盖蒂中心以建筑闻名，共由11栋建筑构成，杰出的设计充分运用了开阔空间、自然光线、 几何线条组合和建筑材料（石材与玻璃）的搭配，白色光滑的建筑，与外部空间、花园、雕塑和水流内外融合，
+									加上独特设计的中心水流不时传来潺潺水声，溪畔更有杜鹃等植物点缀，我们可以在在清朗的蓝天下，行游其中移步换景。
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/5e581ed4e37ae281733b3d5220107946-sz_47720.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">盖蒂的建筑与博物馆馆内璀璨的艺术珍品相得益彰，馆内藏珍品无数，年代从中世纪一直延续到现代，
+									以欧洲和北美艺术品为主，其中梵高、塞尚、伦勃朗和雷诺阿等艺术大师的名作给艺术爱好者们带来一场美的饕餮盛宴。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/cfcbea4621a1edcbbb583a48c1b628bb-sz_82707.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">漫步小东京，领略北美日本裔文化风情，也可以在此享用地道的日式料理。小东京形成于20世纪初，是美国三大正式日本街之一。</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 2：游历好莱坞</li>
+								</ul>
+							</div>
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">今天去好莱坞最大的真正在使用的影城和主题公园探险！</p>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">好莱坞环球影城有百年历史，至今仍作为电影制片厂实际使用。在这儿可以一窥好莱坞电影制作幕后的秘密，
+									在影城中心的主题公园中度过有趣刺激的一天：参观影片外景地、观看演出，游玩侏罗纪公园、史莱克、辛普森等电影主题公园、景区， 环球城市大道上还有洛杉矶最好的商店和餐厅供您选择。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/94b011d884e735156c901174bb378c40-sz_49097.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/64287834d6c58f4a37c1e8afe2326194-sz_291647.gif"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									新增的小黄人主题区，
+									<br />
+									也萌萌哒呢！Banana！
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/b14c387fc30a0a7d889da99eba8a4185-sz_225554.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">在环球影城，还可以远观HOLLY WOOD大字牌哦！</p>
+							</div>
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 3：红酒微醺，老城沉醉</li>
+								</ul>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/f3a077b66de06a7fde4f17bd098f8ef5-sz_283346.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/28cdd582346b5c842892f32d24c42da6-sz_84881.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">上午驱车前往马里布家族酒庄，酒庄坐落在山间，俯瞰引名流沉醉的传奇的马里布海岸。在温暖的气候和肥沃的岩石壤中生长的葡萄.</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/53703ba73dbf9ff6711b83b3c8be5603-sz_86993.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">由手工摘取，在法国和美国橡木桶中沉淀，经过时间的酝酿发酵。海风、晴空、沃土和顶级的葡萄——每一口甘美都是当地人用爱与热情酿的记忆。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/e8f2612ce22695fa33db1c698309daf8-sz_48124.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">除了品酒以外，还可以乘坐改装敞篷越野车，探索这个马里布最大的葡萄酒庄园。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/ef5daee4ccb934ec6947a9a42096fbc0-sz_199510.png"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">沿途停留与草泥马、长颈鹿、斑马、水牛等野生动物亲密互动。</p>
+							</div>
+							<div class="center-block" style="padding: 15px;">
+								<div class="row">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/e691f2279ef0a807f9b44bd6f090267b-sz_588522.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">圣地亚哥位于美国与墨西哥接壤的西南边陲，圣地亚哥老城是加州的诞生地，曾分别是印第安人聚居地、
+									西班牙殖民地、墨西哥国土和美国领土，风云变幻的历史沿革和边境重镇的文化交融，形成了老城独具特色的墨西哥印第安风情。</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 4：Balboa博物馆之旅</li>
+								</ul>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/5216c3444fdf7b71ae435a3e89d89efc-sz_79187.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									balboa公园是一
+									<br />
+									个博物馆聚集的综合性公园，这里有圣地亚哥人类博物馆、圣地亚哥艺术馆、圣地亚哥自然历史博物馆、 圣地亚哥汽车博物馆、圣地亚哥现代火车博物馆、航天博物馆等等各类博物馆以及各类剧院， 还有露天管风琴广场，墨西哥古建筑等景点。
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/588dec8d35bbb29e658d740e9ae440c4-sz_99765.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">Balboa博物馆</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 5：中途岛的凯旋和胜利之吻</li>
+								</ul>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/2eb3b02e76c16adf831ad4daf85aa415-sz_264208.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									圣地亚哥是美军重要的军事基地，设有海军、海军陆战队和海岸警卫队。 中途岛号航空母舰博物馆是航空迷必到之处，该舰于1945年3月下水服役，是世界上最大的战舰。
+									<br />
+									1942年6月4日著名的中途岛战役是第二次世界大战太平洋战场的决定性战役， 是最著名的航空母舰之间的交战，此战扭转了盟军珍珠港轰炸后盟军退败的局面，扭转了太平洋战区局势。
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/132fa47dfa4b37eb93c5ab192edc3a52-sz_50092.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">二战胜利的消息传来，一名心情激动的水手，拉过近旁陌生的美女，献上了深情一吻， 这个著名的吻如今也铸成了雕塑，伫立在中途岛航母不远处。不如与恋人一道，也如此深情一吻吧。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/94defda0d3ab98b7c0905ec3d1b2d28a-sz_61765.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">从圣地亚哥出发前往的丹麦村叫做Solvang，丹麦文意“太阳之地”，迄今已有百余年历史了。
+									在这儿能感受到世人关于丹麦的一切印象：夕阳下金色的风车，街畔的鲜花成簇，道旁如童话一般的明艳小屋。 小镇有很多有意思的小店，是个逛街拍照的好地方，如果你热爱美食，我们还会推荐你当地的特色丹麦食品～</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 6：奢华与自然之旅</li>
+								</ul>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/8f3a0048ba2975b233e4c997b06a7240-sz_1063041.png"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">途径莫罗贝巨石赴赫氏古堡</p>
+							</div>
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									二三十年代传媒业大亨威廉·抡道夫·赫斯特历时28年修建了这座极尽奢华的私人城堡， 湛蓝透明的室内外游泳池是整个城堡的点睛之作，室内游泳池底由马塞克拼成，池岸纯金镶嵌；
+									室外游泳池四围堆砌洁白的大理石石雕，与湛蓝池水相呼应，华美异常。大亨其人热爱收藏， 堡内各处可见家具、挂毯、绘画、雕塑等艺术珍品，整个城堡就是一座历史和艺术博物馆。
+									<br />
+									可惜风光过后，煊赫一时的赫氏家族，终因后代无力维持城堡的巨大支出而交给政府， 我们也由此得以对豪富的生活窥之一斑。你是不是想起了《了不起的盖茨比》呢？
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/c82d4a42b1f7fb94ef1f8452fb9492b0-sz_59958.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/9a2d9a36f4e57bf142f92bda7aaf94f3-sz_105540.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/60a8967c7203176947270870d10fe84d-sz_23562.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">沿1号公路边观赏过野生海豹栖息地，再继续北上至蒙特雷，游览1号公路精华17里湾景区。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/0c19ca4663069d0d766bdfefa93e7938-sz_252898.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">17里湾风景线位于加州中部的蒙特利县，是一处闻名世界的旅游胜地。 实际是条环状道路，围绕着著名的卵石滩度假区。17里湾的西侧和南侧紧邻太平洋，东侧则穿越代尔蒙特杉树林。
+									沿途您不仅能看到数处著名海滩，还不时可见壮观的豪华别墅和高尔夫球场。被誉为美国最佳驾车风景路线、世界上最迷人的私家海岸。</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 7：浪漫港都旧金山</li>
+								</ul>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/28a8e141e46ff78bc93f2392975f22ff-sz_98740.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									从蒙特雷北上，抵达旧金山。
+									<br />
+									旧金山是美西的经济文化重镇，19世纪这里是美国加州淘金潮的中心地区，为了与后来的澳洲金矿相区别，于是有了“旧金山”之名。
+									<br />
+									旧金山建筑风格融合丰富，绵延的丘陵地形让城市景观美丽多变，加之其艺术文化的特殊地位，素有“美国诗角”“浪漫港都”之称，又因气候凉爽多雾，被称为“雾城”。浓雾中耀眼兀立的金门大桥是旧金山最为人所熟知的城市名片。
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/33764e0681b862a64a9e426cf772a742-sz_41296.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/74f5c30cca7b4f606386bf6361187023-sz_32953.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/9477fcad8de32206b1514ea8d04ae71f-sz_51313.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									金门大桥的建设要归功于桥梁工程师约瑟夫·斯特劳斯的构想，仅说服北加州的居民同意修建大桥，就花去了斯特劳斯十年光阴。1937年建筑完工时，情怀党斯特劳斯在南桥墩浇筑混凝土之前放入了一块取自他的母校俄亥俄州辛辛那提大学的砖头。
+									金门大桥曾是世界上最长的悬索桥，两个桥墩直到不久之前还是世界上最高的悬索桥桥墩。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/c0d840e98f735cc6f6174b424485b4cd-sz_93413.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">17里湾风景线位于加州中部的蒙特利县，是一处闻名世界的旅游胜地。 实际是条环状道路，围绕着著名的卵石滩度假区。17里湾的西侧和南侧紧邻太平洋，东侧则穿越代尔蒙特杉树林。
+									沿途您不仅能看到数处著名海滩，还不时可见壮观的豪华别墅和高尔夫球场。被誉为美国最佳驾车风景路线、世界上最迷人的私家海岸。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/72243c81d66b5b6d6d07742314bd75bb-sz_102574.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">在旧金山，我们还将游玩的九曲花街、渔人码头、艺术宫、市政厅、双子峰，都是雾城最具有特色的地方。</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 8：自然遗产国家公园</li>
+								</ul>
+							</div>
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									优胜美地有着壁立千仞的花岗岩壁，巨大的落差形成的千百飞瀑奔流坠落，不舍昼夜。 氤氲霭霭的水雾，在日光的照射下变幻跳跃，折射出一弓绚丽的彩虹。
+									<br />
+									半圆丘是优胜美地山谷里最鲜明的主题。这里的视野较开阔，晴时太阳照在峭壁上可见其险峻有力； 天色向晚，斜阳映照的半圆丘呈橙红色，像一团燃烧的烈火；乌云密布时，压顶浓云伴着高耸的半月丘，
+									颇有一种深邃感；雨过天晴时，一簇簇光束依次从云缝中刺出，并随着乌云的消散而变化着，自成宏伟之境。
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/044ee013d7d927e3b4acddf81cc4172a-sz_67451.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/ad2d0dde4d3896b602641dc4fe615a21-sz_384551.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 9：拉斯维加斯！</li>
+								</ul>
+							</div>
+
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/5a7d4187ba3b7e4c30236eebc87740f3-sz_82841.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									嗯，各种秀各种美食各种……
+									<br />
+									嗯，我什么都不用说了吧。
+								</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 10：峡谷奇峻</li>
+								</ul>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/1f9caa1677286b928efbb0c50e06b899-sz_79401.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									赫伯特·胡佛总统为了在大萧条时代提振经济和促进美西南部的发展，推动了水坝的兴建，胡佛水坝由此得名。 胡佛水坝于1936年竣工发电，是当时世界第一大水坝，迄今仍是世界第三大水坝，水坝所御的科罗拉多河，
+									曾是美国水深最深、水流最为湍急的河流。俯瞰时，胡佛水坝宛如一条巨龙盘卧在大地上，显得十分威武； 也正是因为这座水坝，才有如今沙漠之城拉斯维加斯永不熄灭的霓虹灯。
+									<br />
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/3cfd8f970b2592188e725ae71aa4b841-sz_37598.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									科罗拉多大峡谷是世界最长的峡谷之一，被联合国教课文组织列为自然遗产之一。 大峡谷全长446千米，最深处可达1800多米，是世界上最大、最壮观的侵蚀地貌，拱门国家公园、
+									纪念碑谷都属于峡谷的一部分。它像一条巨大的蟒蛇盘卧在凯巴布高原上，谷底是波涛汹涌的科罗拉多河。 从谷底向上，沿崖壁出露着寒武纪到新生代的各期岩系，含有代表性生物化石，大峡谷因此有"活的地质史教科书""美称。
+									还有4000年来印第安人的居住生活遗址，在1979年列入世界遗产名录。
+									<br />
+									大峡谷两岸是棱角分明的红色巨石断层， 在太阳的照射下和水光的映衬下还能变成蓝色或棕色，显示出大自然的诡秘莫测，让人流连忘返。峡谷山石多为红色， 它从谷底到顶部分布着从寒武纪到新生代各个时期的岩层，层次清晰，色调各异。
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/e4f4419a12545cd98ca91e8f0980306c-sz_713341.png"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									S型排版
+									<br />
+									我们将乘坐直升飞机，俯瞰峡谷险峻奇绝的自然美景。
+								</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 11：买买买！</li>
+								</ul>
+							</div>
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">去奥莱！我知道你们想说，给我都包起来！</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/1ada6f73ecd69ffcd65006472df64353-sz_495967.gif"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									科罗拉多大峡谷是世界最长的峡谷之一，被联合国教课文组织列为自然遗产之一。 大峡谷全长446千米，最深处可达1800多米，是世界上最大、最壮观的侵蚀地貌，拱门国家公园、
+									纪念碑谷都属于峡谷的一部分。它像一条巨大的蟒蛇盘卧在凯巴布高原上，谷底是波涛汹涌的科罗拉多河。 从谷底向上，沿崖壁出露着寒武纪到新生代的各期岩系，含有代表性生物化石，大峡谷因此有"活的地质史教科书""美称。
+									还有4000年来印第安人的居住生活遗址，在1979年列入世界遗产名录。
+									<br />
+									大峡谷两岸是棱角分明的红色巨石断层， 在太阳的照射下和水光的映衬下还能变成蓝色或棕色，显示出大自然的诡秘莫测，让人流连忘返。峡谷山石多为红色， 它从谷底到顶部分布着从寒武纪到新生代各个时期的岩层，层次清晰，色调各异。
+								</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 12：休闲一日</li>
+								</ul>
+							</div>
+
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">上午我们去射击，步枪、手枪通通上了膛！哒哒！哒哒！</p>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/bd176e33170713479cd822c9dab96d6c-sz_403069.png"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">然后我们参观洛杉矶市中心NBA湖人队及快船队主场斯坦普斯球馆、迪士尼音乐厅.</p>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/0626361b6b462ccb01eb6bd7ce18d692-sz_192422.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">晚上去圣塔莫尼卡海滨观太平洋日落。</p>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/03c7de468d0cf84696a2321d04195e9e-sz_133444.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 13：潜入美东，落地纽约</li>
+								</ul>
+							</div>
+
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">从洛杉矶到纽约，飞行时间约5小时，我们会乘上午航班飞纽约。</p>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">美西与美东有3小时时差，抵达时间为当地时间晚上，然后入住酒店，休息一个晚上，第二天开游哦。</p>
+							</div>
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 14：纽约地貌全览</li>
+								</ul>
+							</div>
+
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">我们将乘坐游船远观，纽约地标“自由女神”像。</p>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">游览结束之后前往金融界的华尔街，这里有纽约证券交易所（外观），金融铜牛，时代广场，大都会博物馆，帝国大厦。</p>
+								<p class="modal-des-p">帝国大厦与自由女神是纽约的标志性建筑，在世贸大厦落成之前，一直是纽约最高建筑，也曾在很长时间内一直是世界最高建筑。</p>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/ew17days/meidong3.jpg" alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">我们对帝国大厦的印象则多半来自于《西雅图夜未眠》以及向这部电影致敬的《北京遇上西雅图》，两部电影的男女主角最终都在这里相会，为自己的爱情书写了一个圆满的结局。</p>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/ew17days/meidong4.jpg" alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">即使是《金刚》，暴躁的猿类也在这儿深情凝望过女主角。你要不要在这里停下脚步，等待一场邂逅呢？</p>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/ew17days/meidong5.jpg" alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 15：驾车前往费城</li>
+								</ul>
+							</div>
+
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">我们将从纽约乘车赴费城，游览独立纪念馆，自由钟，费城博物馆。</p>
+								<p class="modal-des-p">费城是联邦共和国的诞生地，1776年7月，独立宣言于独立纪念馆发表。其后，又在该处起草合众国宪法，从而诞生了美利坚合众国。</p>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/ew17days/meidong6.jpg" alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 16：乘车赴华盛顿DC</li>
+								</ul>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">早餐后游览巍然屹立的华盛顿纪念碑，举世闻名的总统官邸——白宫，宏伟壮观的国会山庄，传奇神圣的林肯纪念堂，设计独特的越战军人纪念碑，韩战纪念碑杰弗逊纪念堂。</p>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/ew17days/meidong7.jpg" alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 17：华盛顿返回纽约</li>
+								</ul>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">此后我们将你送到洛杉矶机场，带着这段旅程的美好记忆，踏上回国的旅程！</p>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary">
+								<i class="fa fa-heart"></i>
+								&nbsp;&nbsp;很赞哦！
+							</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						</div>
+					</div>
+				</div>
+			</div> -->
+			<!-- END 美西+美东 MODAL  -->
+
+			<!--BEGIN 美西小环线 详情 Modal -->
+			<!-- 	<div class="modal fade" id="myModa2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+				style="margin-top: 40px;">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header" style="border: none;">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h3 class="modal-title" id="myModalLabel" style="font-size: 30px;">美西小环线</h3>
+						</div>
+
+						<div class="modal-body">
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+							<ul class="list-inline pull-left">
+								<li class="label label-sm label-warning" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+									<i class="fa fa-bolt"></i>
+								</li>
+								<li class="modal-li">价格区间：</li>
+								<li class="modal-price">
+									<em>¥28000/人</em>
+								</li>
+							</ul>
+						</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-info" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-group"></i>
+									</li>
+									<li class="modal-li">适合人群：</li>
+								</ul>
+								<div class=" col-xs-12 col-md-11 ">
+									<p class="modal-des-p">
+										没错，就是你哦！！！
+										<br />
+									</p>
+								</div>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-success" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-quote-left"></i>
+									</li>
+									<li class="modal-li">活动介绍：</li>
+								</ul>
+								<div class=" col-xs-12 col-md-11">
+									<p class="modal-des-p">
+										洛杉矶、圣地亚哥、加州1号公路、旧金山、优胜美地、拉斯维加斯12日之旅！
+										<br />
+										还等什么，赶快随我出发吧！！。
+
+									</p>
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 1：洛杉矶初体验</li>
+								</ul>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px; text-align: center;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/6654c17f87d52cb7bdb3e5f42ba0c8b4-sz_266983.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/326eaf57163d9e123b29277ae785aad7-sz_202315.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									欢迎来到美国，落地天使之城洛杉矶。 洛杉矶是美国第二大城市，世界第六大城市， 也是好莱坞所在地和美国主要的影业基地。
+									<br />
+									机场出来稍事休息，即可驱车前往盖蒂博物馆。
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/3edcf539b6e7c436a704dde8e0ec0f74-sz_791938.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									盖蒂博物馆由石油大亨J·保罗·盖蒂（J.Paul.Getty）兴建，世界顶级建筑师Richard Meier设计。博物馆居于高处，俯瞰名流云集的比佛利山和整个洛杉矶市区，可休憩望远，饱览城市风光。
+									<br />
+									博物馆所在的盖蒂中心以建筑闻名，共由11栋建筑构成，杰出的设计充分运用了开阔空间、自然光线、 几何线条组合和建筑材料（石材与玻璃）的搭配，白色光滑的建筑，与外部空间、花园、雕塑和水流内外融合，
+									加上独特设计的中心水流不时传来潺潺水声，溪畔更有杜鹃等植物点缀，我们可以在在清朗的蓝天下，行游其中移步换景。
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/5e581ed4e37ae281733b3d5220107946-sz_47720.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">盖蒂的建筑与博物馆馆内璀璨的艺术珍品相得益彰，馆内藏珍品无数，年代从中世纪一直延续到现代，
+									以欧洲和北美艺术品为主，其中梵高、塞尚、伦勃朗和雷诺阿等艺术大师的名作给艺术爱好者们带来一场美的饕餮盛宴。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/cfcbea4621a1edcbbb583a48c1b628bb-sz_82707.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">漫步小东京，领略北美日本裔文化风情，也可以在此享用地道的日式料理。小东京形成于20世纪初，是美国三大正式日本街之一。</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 2：游历好莱坞</li>
+								</ul>
+							</div>
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">今天去好莱坞最大的真正在使用的影城和主题公园探险！</p>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">好莱坞环球影城有百年历史，至今仍作为电影制片厂实际使用。在这儿可以一窥好莱坞电影制作幕后的秘密，
+									在影城中心的主题公园中度过有趣刺激的一天：参观影片外景地、观看演出，游玩侏罗纪公园、史莱克、辛普森等电影主题公园、景区， 环球城市大道上还有洛杉矶最好的商店和餐厅供您选择。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/94b011d884e735156c901174bb378c40-sz_49097.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/64287834d6c58f4a37c1e8afe2326194-sz_291647.gif"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									新增的小黄人主题区，
+									<br />
+									也萌萌哒呢！Banana！
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/b14c387fc30a0a7d889da99eba8a4185-sz_225554.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">在环球影城，还可以远观HOLLY WOOD大字牌哦！</p>
+							</div>
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 3：红酒微醺，老城沉醉</li>
+								</ul>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/f3a077b66de06a7fde4f17bd098f8ef5-sz_283346.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/28cdd582346b5c842892f32d24c42da6-sz_84881.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">上午驱车前往马里布家族酒庄，酒庄坐落在山间，俯瞰引名流沉醉的传奇的马里布海岸。在温暖的气候和肥沃的岩石壤中生长的葡萄.</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/53703ba73dbf9ff6711b83b3c8be5603-sz_86993.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">由手工摘取，在法国和美国橡木桶中沉淀，经过时间的酝酿发酵。海风、晴空、沃土和顶级的葡萄——每一口甘美都是当地人用爱与热情酿的记忆。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/e8f2612ce22695fa33db1c698309daf8-sz_48124.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">除了品酒以外，还可以乘坐改装敞篷越野车，探索这个马里布最大的葡萄酒庄园。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/ef5daee4ccb934ec6947a9a42096fbc0-sz_199510.png"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">沿途停留与草泥马、长颈鹿、斑马、水牛等野生动物亲密互动。</p>
+							</div>
+							<div class="center-block" style="padding: 15px;">
+								<div class="row">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/e691f2279ef0a807f9b44bd6f090267b-sz_588522.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">圣地亚哥位于美国与墨西哥接壤的西南边陲，圣地亚哥老城是加州的诞生地，曾分别是印第安人聚居地、
+									西班牙殖民地、墨西哥国土和美国领土，风云变幻的历史沿革和边境重镇的文化交融，形成了老城独具特色的墨西哥印第安风情。</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 4：Balboa博物馆之旅</li>
+								</ul>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/5216c3444fdf7b71ae435a3e89d89efc-sz_79187.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									balboa公园是一
+									<br />
+									个博物馆聚集的综合性公园，这里有圣地亚哥人类博物馆、圣地亚哥艺术馆、圣地亚哥自然历史博物馆、 圣地亚哥汽车博物馆、圣地亚哥现代火车博物馆、航天博物馆等等各类博物馆以及各类剧院， 还有露天管风琴广场，墨西哥古建筑等景点。
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/588dec8d35bbb29e658d740e9ae440c4-sz_99765.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">Balboa博物馆</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 5：中途岛的凯旋和胜利之吻</li>
+								</ul>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/2eb3b02e76c16adf831ad4daf85aa415-sz_264208.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									圣地亚哥是美军重要的军事基地，设有海军、海军陆战队和海岸警卫队。 中途岛号航空母舰博物馆是航空迷必到之处，该舰于1945年3月下水服役，是世界上最大的战舰。
+									<br />
+									1942年6月4日著名的中途岛战役是第二次世界大战太平洋战场的决定性战役， 是最著名的航空母舰之间的交战，此战扭转了盟军珍珠港轰炸后盟军退败的局面，扭转了太平洋战区局势。
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/132fa47dfa4b37eb93c5ab192edc3a52-sz_50092.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">二战胜利的消息传来，一名心情激动的水手，拉过近旁陌生的美女，献上了深情一吻， 这个著名的吻如今也铸成了雕塑，伫立在中途岛航母不远处。不如与恋人一道，也如此深情一吻吧。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/94defda0d3ab98b7c0905ec3d1b2d28a-sz_61765.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">从圣地亚哥出发前往的丹麦村叫做Solvang，丹麦文意“太阳之地”，迄今已有百余年历史了。
+									在这儿能感受到世人关于丹麦的一切印象：夕阳下金色的风车，街畔的鲜花成簇，道旁如童话一般的明艳小屋。 小镇有很多有意思的小店，是个逛街拍照的好地方，如果你热爱美食，我们还会推荐你当地的特色丹麦食品～</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 6：奢华与自然之旅</li>
+								</ul>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/8f3a0048ba2975b233e4c997b06a7240-sz_1063041.png"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">途径莫罗贝巨石赴赫氏古堡</p>
+							</div>
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									二三十年代传媒业大亨威廉·抡道夫·赫斯特历时28年修建了这座极尽奢华的私人城堡， 湛蓝透明的室内外游泳池是整个城堡的点睛之作，室内游泳池底由马塞克拼成，池岸纯金镶嵌；
+									室外游泳池四围堆砌洁白的大理石石雕，与湛蓝池水相呼应，华美异常。大亨其人热爱收藏， 堡内各处可见家具、挂毯、绘画、雕塑等艺术珍品，整个城堡就是一座历史和艺术博物馆。
+									<br />
+									可惜风光过后，煊赫一时的赫氏家族，终因后代无力维持城堡的巨大支出而交给政府， 我们也由此得以对豪富的生活窥之一斑。你是不是想起了《了不起的盖茨比》呢？
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/c82d4a42b1f7fb94ef1f8452fb9492b0-sz_59958.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/9a2d9a36f4e57bf142f92bda7aaf94f3-sz_105540.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/60a8967c7203176947270870d10fe84d-sz_23562.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">沿1号公路边观赏过野生海豹栖息地，再继续北上至蒙特雷，游览1号公路精华17里湾景区。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/0c19ca4663069d0d766bdfefa93e7938-sz_252898.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">17里湾风景线位于加州中部的蒙特利县，是一处闻名世界的旅游胜地。 实际是条环状道路，围绕着著名的卵石滩度假区。17里湾的西侧和南侧紧邻太平洋，东侧则穿越代尔蒙特杉树林。
+									沿途您不仅能看到数处著名海滩，还不时可见壮观的豪华别墅和高尔夫球场。被誉为美国最佳驾车风景路线、世界上最迷人的私家海岸。</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 7：浪漫港都旧金山</li>
+								</ul>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/28a8e141e46ff78bc93f2392975f22ff-sz_98740.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									从蒙特雷北上，抵达旧金山。
+									<br />
+									旧金山是美西的经济文化重镇，19世纪这里是美国加州淘金潮的中心地区，为了与后来的澳洲金矿相区别，于是有了“旧金山”之名。
+									<br />
+									旧金山建筑风格融合丰富，绵延的丘陵地形让城市景观美丽多变，加之其艺术文化的特殊地位，素有“美国诗角”“浪漫港都”之称，又因气候凉爽多雾，被称为“雾城”。浓雾中耀眼兀立的金门大桥是旧金山最为人所熟知的城市名片。
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/33764e0681b862a64a9e426cf772a742-sz_41296.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/74f5c30cca7b4f606386bf6361187023-sz_32953.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/9477fcad8de32206b1514ea8d04ae71f-sz_51313.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									金门大桥的建设要归功于桥梁工程师约瑟夫·斯特劳斯的构想，仅说服北加州的居民同意修建大桥，就花去了斯特劳斯十年光阴。1937年建筑完工时，情怀党斯特劳斯在南桥墩浇筑混凝土之前放入了一块取自他的母校俄亥俄州辛辛那提大学的砖头。
+									金门大桥曾是世界上最长的悬索桥，两个桥墩直到不久之前还是世界上最高的悬索桥桥墩。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/c0d840e98f735cc6f6174b424485b4cd-sz_93413.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">17里湾风景线位于加州中部的蒙特利县，是一处闻名世界的旅游胜地。 实际是条环状道路，围绕着著名的卵石滩度假区。17里湾的西侧和南侧紧邻太平洋，东侧则穿越代尔蒙特杉树林。
+									沿途您不仅能看到数处著名海滩，还不时可见壮观的豪华别墅和高尔夫球场。被誉为美国最佳驾车风景路线、世界上最迷人的私家海岸。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/72243c81d66b5b6d6d07742314bd75bb-sz_102574.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">在旧金山，我们还将游玩的九曲花街、渔人码头、艺术宫、市政厅、双子峰，都是雾城最具有特色的地方。</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 8：自然遗产国家公园</li>
+								</ul>
+							</div>
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									优胜美地有着壁立千仞的花岗岩壁，巨大的落差形成的千百飞瀑奔流坠落，不舍昼夜。 氤氲霭霭的水雾，在日光的照射下变幻跳跃，折射出一弓绚丽的彩虹。
+									<br />
+									半圆丘是优胜美地山谷里最鲜明的主题。这里的视野较开阔，晴时太阳照在峭壁上可见其险峻有力； 天色向晚，斜阳映照的半圆丘呈橙红色，像一团燃烧的烈火；乌云密布时，压顶浓云伴着高耸的半月丘，
+									颇有一种深邃感；雨过天晴时，一簇簇光束依次从云缝中刺出，并随着乌云的消散而变化着，自成宏伟之境。
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/044ee013d7d927e3b4acddf81cc4172a-sz_67451.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/ad2d0dde4d3896b602641dc4fe615a21-sz_384551.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 9：拉斯维加斯！</li>
+								</ul>
+							</div>
+
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/5a7d4187ba3b7e4c30236eebc87740f3-sz_82841.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									嗯，各种秀各种美食各种……
+									<br />
+									嗯，我什么都不用说了吧。
+								</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 10：峡谷奇峻</li>
+								</ul>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/1f9caa1677286b928efbb0c50e06b899-sz_79401.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									赫伯特·胡佛总统为了在大萧条时代提振经济和促进美西南部的发展，推动了水坝的兴建，胡佛水坝由此得名。 胡佛水坝于1936年竣工发电，是当时世界第一大水坝，迄今仍是世界第三大水坝，水坝所御的科罗拉多河，
+									曾是美国水深最深、水流最为湍急的河流。俯瞰时，胡佛水坝宛如一条巨龙盘卧在大地上，显得十分威武； 也正是因为这座水坝，才有如今沙漠之城拉斯维加斯永不熄灭的霓虹灯。
+									<br />
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/3cfd8f970b2592188e725ae71aa4b841-sz_37598.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									科罗拉多大峡谷是世界最长的峡谷之一，被联合国教课文组织列为自然遗产之一。 大峡谷全长446千米，最深处可达1800多米，是世界上最大、最壮观的侵蚀地貌，拱门国家公园、
+									纪念碑谷都属于峡谷的一部分。它像一条巨大的蟒蛇盘卧在凯巴布高原上，谷底是波涛汹涌的科罗拉多河。 从谷底向上，沿崖壁出露着寒武纪到新生代的各期岩系，含有代表性生物化石，大峡谷因此有"活的地质史教科书""美称。
+									还有4000年来印第安人的居住生活遗址，在1979年列入世界遗产名录。
+									<br />
+									大峡谷两岸是棱角分明的红色巨石断层， 在太阳的照射下和水光的映衬下还能变成蓝色或棕色，显示出大自然的诡秘莫测，让人流连忘返。峡谷山石多为红色， 它从谷底到顶部分布着从寒武纪到新生代各个时期的岩层，层次清晰，色调各异。
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/e4f4419a12545cd98ca91e8f0980306c-sz_713341.png"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									S型排版
+									<br />
+									我们将乘坐直升飞机，俯瞰峡谷险峻奇绝的自然美景。
+								</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 11：买买买！</li>
+								</ul>
+							</div>
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">去奥莱！我知道你们想说，给我都包起来！</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/1ada6f73ecd69ffcd65006472df64353-sz_495967.gif"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									科罗拉多大峡谷是世界最长的峡谷之一，被联合国教课文组织列为自然遗产之一。 大峡谷全长446千米，最深处可达1800多米，是世界上最大、最壮观的侵蚀地貌，拱门国家公园、
+									纪念碑谷都属于峡谷的一部分。它像一条巨大的蟒蛇盘卧在凯巴布高原上，谷底是波涛汹涌的科罗拉多河。 从谷底向上，沿崖壁出露着寒武纪到新生代的各期岩系，含有代表性生物化石，大峡谷因此有"活的地质史教科书""美称。
+									还有4000年来印第安人的居住生活遗址，在1979年列入世界遗产名录。
+									<br />
+									大峡谷两岸是棱角分明的红色巨石断层， 在太阳的照射下和水光的映衬下还能变成蓝色或棕色，显示出大自然的诡秘莫测，让人流连忘返。峡谷山石多为红色， 它从谷底到顶部分布着从寒武纪到新生代各个时期的岩层，层次清晰，色调各异。
+								</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 12：休闲一日</li>
+								</ul>
+							</div>
+
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">上午我们去射击，步枪、手枪通通上了膛！哒哒！哒哒！</p>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/bd176e33170713479cd822c9dab96d6c-sz_403069.png"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">然后我们参观洛杉矶市中心NBA湖人队及快船队主场斯坦普斯球馆、迪士尼音乐厅.</p>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/0626361b6b462ccb01eb6bd7ce18d692-sz_192422.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">晚上去圣塔莫尼卡海滨观太平洋日落。</p>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/03c7de468d0cf84696a2321d04195e9e-sz_133444.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">此后我们将你送到洛杉矶机场，带着这段旅程的美好记忆，踏上回国的旅程！</p>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary">
+								<i class="fa fa-heart"></i>
+								&nbsp;&nbsp;很赞哦！
+							</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						</div>
+					</div>
+				</div>
+			</div> -->
+			<!-- END 美西小环线 MODAL  -->
+
+			<!-- Begin美西17days -->
+			<!-- <div class="modal fade" id="myModa3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+				style="margin-top: 80px;">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header" style="border: none;">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h3 class="modal-title" id="myModalLabel" style="font-size: 30px;">美西17日大环线</h3>
+						</div>
+
+						<div class="modal-body">
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-warning" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-bolt"></i>
+									</li>
+									<li class="modal-li">价格区间：</li>
+									<li class="modal-price">
+										<em>¥28000/人</em>
+									</li>
+								</ul>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-info" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-group"></i>
+									</li>
+									<li class="modal-li">适合人群：</li>
+								</ul>
+								<div class=" col-xs-12 col-md-11 ">
+									<p class="modal-des-p">
+										没错，就是你哦！！！
+										<br />
+									</p>
+								</div>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-success" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-quote-left"></i>
+									</li>
+									<li class="modal-li">活动介绍：</li>
+								</ul>
+								<div class=" col-xs-12 col-md-11">
+									<p class="modal-des-p">
+										美国不悔之旅！！洛杉矶、圣地亚哥、加州1号公路、旧金山、优胜美地、拉斯维加斯 17日游览全美西！
+										<br />
+										还等什么，赶快随我出发吧！！。
+
+									</p>
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 1：洛杉矶初体验</li>
+								</ul>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px; text-align: center;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/6654c17f87d52cb7bdb3e5f42ba0c8b4-sz_266983.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/326eaf57163d9e123b29277ae785aad7-sz_202315.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									欢迎来到美国，落地天使之城洛杉矶。 洛杉矶是美国第二大城市，世界第六大城市， 也是好莱坞所在地和美国主要的影业基地。
+									<br />
+									机场出来稍事休息，即可驱车前往盖蒂博物馆。
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/3edcf539b6e7c436a704dde8e0ec0f74-sz_791938.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									盖蒂博物馆由石油大亨J·保罗·盖蒂（J.Paul.Getty）兴建，世界顶级建筑师Richard Meier设计。博物馆居于高处，俯瞰名流云集的比佛利山和整个洛杉矶市区，可休憩望远，饱览城市风光。
+									<br />
+									博物馆所在的盖蒂中心以建筑闻名，共由11栋建筑构成，杰出的设计充分运用了开阔空间、自然光线、 几何线条组合和建筑材料（石材与玻璃）的搭配，白色光滑的建筑，与外部空间、花园、雕塑和水流内外融合，
+									加上独特设计的中心水流不时传来潺潺水声，溪畔更有杜鹃等植物点缀，我们可以在在清朗的蓝天下，行游其中移步换景。
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/5e581ed4e37ae281733b3d5220107946-sz_47720.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">盖蒂的建筑与博物馆馆内璀璨的艺术珍品相得益彰，馆内藏珍品无数，年代从中世纪一直延续到现代，
+									以欧洲和北美艺术品为主，其中梵高、塞尚、伦勃朗和雷诺阿等艺术大师的名作给艺术爱好者们带来一场美的饕餮盛宴。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/cfcbea4621a1edcbbb583a48c1b628bb-sz_82707.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">漫步小东京，领略北美日本裔文化风情，也可以在此享用地道的日式料理。小东京形成于20世纪初，是美国三大正式日本街之一。</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 2：游历好莱坞</li>
+								</ul>
+							</div>
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">今天去好莱坞最大的真正在使用的影城和主题公园探险！</p>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">好莱坞环球影城有百年历史，至今仍作为电影制片厂实际使用。在这儿可以一窥好莱坞电影制作幕后的秘密，
+									在影城中心的主题公园中度过有趣刺激的一天：参观影片外景地、观看演出，游玩侏罗纪公园、史莱克、辛普森等电影主题公园、景区， 环球城市大道上还有洛杉矶最好的商店和餐厅供您选择。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/94b011d884e735156c901174bb378c40-sz_49097.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/64287834d6c58f4a37c1e8afe2326194-sz_291647.gif"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									新增的小黄人主题区，
+									<br />
+									也萌萌哒呢！Banana！
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/b14c387fc30a0a7d889da99eba8a4185-sz_225554.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">在环球影城，还可以远观HOLLY WOOD大字牌哦！</p>
+							</div>
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 3：红酒微醺，老城沉醉</li>
+								</ul>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/f3a077b66de06a7fde4f17bd098f8ef5-sz_283346.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/28cdd582346b5c842892f32d24c42da6-sz_84881.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">上午驱车前往马里布家族酒庄，酒庄坐落在山间，俯瞰引名流沉醉的传奇的马里布海岸。在温暖的气候和肥沃的岩石壤中生长的葡萄.</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/53703ba73dbf9ff6711b83b3c8be5603-sz_86993.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">由手工摘取，在法国和美国橡木桶中沉淀，经过时间的酝酿发酵。海风、晴空、沃土和顶级的葡萄——每一口甘美都是当地人用爱与热情酿的记忆。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/e8f2612ce22695fa33db1c698309daf8-sz_48124.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">除了品酒以外，还可以乘坐改装敞篷越野车，探索这个马里布最大的葡萄酒庄园。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/ef5daee4ccb934ec6947a9a42096fbc0-sz_199510.png"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">沿途停留与草泥马、长颈鹿、斑马、水牛等野生动物亲密互动。</p>
+							</div>
+							<div class="center-block" style="padding: 15px;">
+								<div class="row">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/e691f2279ef0a807f9b44bd6f090267b-sz_588522.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">圣地亚哥位于美国与墨西哥接壤的西南边陲，圣地亚哥老城是加州的诞生地，曾分别是印第安人聚居地、
+									西班牙殖民地、墨西哥国土和美国领土，风云变幻的历史沿革和边境重镇的文化交融，形成了老城独具特色的墨西哥印第安风情。</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 4：Balboa博物馆之旅</li>
+								</ul>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/5216c3444fdf7b71ae435a3e89d89efc-sz_79187.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									balboa公园是一
+									<br />
+									个博物馆聚集的综合性公园，这里有圣地亚哥人类博物馆、圣地亚哥艺术馆、圣地亚哥自然历史博物馆、 圣地亚哥汽车博物馆、圣地亚哥现代火车博物馆、航天博物馆等等各类博物馆以及各类剧院， 还有露天管风琴广场，墨西哥古建筑等景点。
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/588dec8d35bbb29e658d740e9ae440c4-sz_99765.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">Balboa博物馆</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 5：中途岛的凯旋和胜利之吻</li>
+								</ul>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/2eb3b02e76c16adf831ad4daf85aa415-sz_264208.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									圣地亚哥是美军重要的军事基地，设有海军、海军陆战队和海岸警卫队。 中途岛号航空母舰博物馆是航空迷必到之处，该舰于1945年3月下水服役，是世界上最大的战舰。
+									<br />
+									1942年6月4日著名的中途岛战役是第二次世界大战太平洋战场的决定性战役， 是最著名的航空母舰之间的交战，此战扭转了盟军珍珠港轰炸后盟军退败的局面，扭转了太平洋战区局势。
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/132fa47dfa4b37eb93c5ab192edc3a52-sz_50092.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">二战胜利的消息传来，一名心情激动的水手，拉过近旁陌生的美女，献上了深情一吻， 这个著名的吻如今也铸成了雕塑，伫立在中途岛航母不远处。不如与恋人一道，也如此深情一吻吧。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/94defda0d3ab98b7c0905ec3d1b2d28a-sz_61765.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">从圣地亚哥出发前往的丹麦村叫做Solvang，丹麦文意“太阳之地”，迄今已有百余年历史了。
+									在这儿能感受到世人关于丹麦的一切印象：夕阳下金色的风车，街畔的鲜花成簇，道旁如童话一般的明艳小屋。 小镇有很多有意思的小店，是个逛街拍照的好地方，如果你热爱美食，我们还会推荐你当地的特色丹麦食品～</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 6：奢华与自然之旅</li>
+								</ul>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/8f3a0048ba2975b233e4c997b06a7240-sz_1063041.png"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">途径莫罗贝巨石赴赫氏古堡</p>
+							</div>
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									二三十年代传媒业大亨威廉·抡道夫·赫斯特历时28年修建了这座极尽奢华的私人城堡， 湛蓝透明的室内外游泳池是整个城堡的点睛之作，室内游泳池底由马塞克拼成，池岸纯金镶嵌；
+									室外游泳池四围堆砌洁白的大理石石雕，与湛蓝池水相呼应，华美异常。大亨其人热爱收藏， 堡内各处可见家具、挂毯、绘画、雕塑等艺术珍品，整个城堡就是一座历史和艺术博物馆。
+									<br />
+									可惜风光过后，煊赫一时的赫氏家族，终因后代无力维持城堡的巨大支出而交给政府， 我们也由此得以对豪富的生活窥之一斑。你是不是想起了《了不起的盖茨比》呢？
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/c82d4a42b1f7fb94ef1f8452fb9492b0-sz_59958.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/9a2d9a36f4e57bf142f92bda7aaf94f3-sz_105540.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/60a8967c7203176947270870d10fe84d-sz_23562.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">沿1号公路边观赏过野生海豹栖息地，再继续北上至蒙特雷，游览1号公路精华17里湾景区。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/0c19ca4663069d0d766bdfefa93e7938-sz_252898.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">17里湾风景线位于加州中部的蒙特利县，是一处闻名世界的旅游胜地。 实际是条环状道路，围绕着著名的卵石滩度假区。17里湾的西侧和南侧紧邻太平洋，东侧则穿越代尔蒙特杉树林。
+									沿途您不仅能看到数处著名海滩，还不时可见壮观的豪华别墅和高尔夫球场。被誉为美国最佳驾车风景路线、世界上最迷人的私家海岸。</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 7：浪漫港都旧金山</li>
+								</ul>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/28a8e141e46ff78bc93f2392975f22ff-sz_98740.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									从蒙特雷北上，抵达旧金山。
+									<br />
+									旧金山是美西的经济文化重镇，19世纪这里是美国加州淘金潮的中心地区，为了与后来的澳洲金矿相区别，于是有了“旧金山”之名。
+									<br />
+									旧金山建筑风格融合丰富，绵延的丘陵地形让城市景观美丽多变，加之其艺术文化的特殊地位，素有“美国诗角”“浪漫港都”之称，又因气候凉爽多雾，被称为“雾城”。浓雾中耀眼兀立的金门大桥是旧金山最为人所熟知的城市名片。
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/33764e0681b862a64a9e426cf772a742-sz_41296.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/74f5c30cca7b4f606386bf6361187023-sz_32953.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/9477fcad8de32206b1514ea8d04ae71f-sz_51313.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									金门大桥的建设要归功于桥梁工程师约瑟夫·斯特劳斯的构想，仅说服北加州的居民同意修建大桥，就花去了斯特劳斯十年光阴。1937年建筑完工时，情怀党斯特劳斯在南桥墩浇筑混凝土之前放入了一块取自他的母校俄亥俄州辛辛那提大学的砖头。
+									金门大桥曾是世界上最长的悬索桥，两个桥墩直到不久之前还是世界上最高的悬索桥桥墩。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/c0d840e98f735cc6f6174b424485b4cd-sz_93413.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">17里湾风景线位于加州中部的蒙特利县，是一处闻名世界的旅游胜地。 实际是条环状道路，围绕着著名的卵石滩度假区。17里湾的西侧和南侧紧邻太平洋，东侧则穿越代尔蒙特杉树林。
+									沿途您不仅能看到数处著名海滩，还不时可见壮观的豪华别墅和高尔夫球场。被誉为美国最佳驾车风景路线、世界上最迷人的私家海岸。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/72243c81d66b5b6d6d07742314bd75bb-sz_102574.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">在旧金山，我们还将游玩的九曲花街、渔人码头、艺术宫、市政厅、双子峰，都是雾城最具有特色的地方。</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 8：自然遗产国家公园</li>
+								</ul>
+							</div>
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									优胜美地有着壁立千仞的花岗岩壁，巨大的落差形成的千百飞瀑奔流坠落，不舍昼夜。 氤氲霭霭的水雾，在日光的照射下变幻跳跃，折射出一弓绚丽的彩虹。
+									<br />
+									半圆丘是优胜美地山谷里最鲜明的主题。这里的视野较开阔，晴时太阳照在峭壁上可见其险峻有力； 天色向晚，斜阳映照的半圆丘呈橙红色，像一团燃烧的烈火；乌云密布时，压顶浓云伴着高耸的半月丘，
+									颇有一种深邃感；雨过天晴时，一簇簇光束依次从云缝中刺出，并随着乌云的消散而变化着，自成宏伟之境。
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/044ee013d7d927e3b4acddf81cc4172a-sz_67451.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/ad2d0dde4d3896b602641dc4fe615a21-sz_384551.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 9：拉斯维加斯！</li>
+								</ul>
+							</div>
+
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/5a7d4187ba3b7e4c30236eebc87740f3-sz_82841.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									嗯，各种秀各种美食各种……
+									<br />
+									嗯，我什么都不用说了吧。
+								</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 10：峡谷奇峻</li>
+								</ul>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/1f9caa1677286b928efbb0c50e06b899-sz_79401.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									赫伯特·胡佛总统为了在大萧条时代提振经济和促进美西南部的发展，推动了水坝的兴建，胡佛水坝由此得名。 胡佛水坝于1936年竣工发电，是当时世界第一大水坝，迄今仍是世界第三大水坝，水坝所御的科罗拉多河，
+									曾是美国水深最深、水流最为湍急的河流。俯瞰时，胡佛水坝宛如一条巨龙盘卧在大地上，显得十分威武； 也正是因为这座水坝，才有如今沙漠之城拉斯维加斯永不熄灭的霓虹灯。
+									<br />
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/3cfd8f970b2592188e725ae71aa4b841-sz_37598.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									科罗拉多大峡谷是世界最长的峡谷之一，被联合国教课文组织列为自然遗产之一。 大峡谷全长446千米，最深处可达1800多米，是世界上最大、最壮观的侵蚀地貌，拱门国家公园、
+									纪念碑谷都属于峡谷的一部分。它像一条巨大的蟒蛇盘卧在凯巴布高原上，谷底是波涛汹涌的科罗拉多河。 从谷底向上，沿崖壁出露着寒武纪到新生代的各期岩系，含有代表性生物化石，大峡谷因此有"活的地质史教科书""美称。
+									还有4000年来印第安人的居住生活遗址，在1979年列入世界遗产名录。
+									<br />
+									大峡谷两岸是棱角分明的红色巨石断层， 在太阳的照射下和水光的映衬下还能变成蓝色或棕色，显示出大自然的诡秘莫测，让人流连忘返。峡谷山石多为红色， 它从谷底到顶部分布着从寒武纪到新生代各个时期的岩层，层次清晰，色调各异。
+								</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/e4f4419a12545cd98ca91e8f0980306c-sz_713341.png"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									S型排版
+									<br />
+									我们将乘坐直升飞机，俯瞰峡谷险峻奇绝的自然美景。
+								</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 11：摩门圣地和盐湖倒影</li>
+								</ul>
+							</div>
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">大盐湖是西半球最大的咸水湖也是世界上最大的咸水湖泊之一，目前面积为3525平方千米，大盐湖行程的沼泽湿地，是诸多鸟类的栖息所在。大盐湖也是位于它东南岸的犹他州首府盐湖城名字的由来。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w17days/meixi17.1jpg" alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w17days/meixi17.2jpg" alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 12：自然之眼</li>
+								</ul>
+							</div>
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">拱门国家公园是世界上自然形成的拱门最为密集的地方，三亿年前这里曾是一片汪洋，地壳变化、海水消失以后，盐层被空气和水中的渣滓所覆盖，并和其它杂物挤压成岩石，经过亿年的挤压、破碎、抬升和风化侵蚀，最终形成了今天的拱门。直到今天，新的拱门仍在自然的力量下不断形成，而老的拱门也因为降水和过度侵蚀逐渐走向毁灭。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w17days/meixi17.3jpg" alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">在拱门国家公园，可以见到各色拱门在裸露的红色地表间或出现，其岩质粗砺、形状宏伟，是奇绝的地质景观。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w17days/meixi17.4jpg" alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">徒步5公里后在精致拱门处观赏日落，黄色的岩面在霞光和夕阳的映照下，因为岩石纹理而呈现出不同层次的朱红色，古朴的拱门呈现出一天中最为明丽的时刻。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w17days/meixi17.5jpg" alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 13-Day 14：峡谷奇峻</li>
+								</ul>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">大峡谷两岸是棱角分明的红色巨石断层，在太阳的照射下和水光的映衬下还能变成蓝色或棕色，
+									显示出大自然的诡秘莫测，让人流连忘返。峡谷山石多为红色，它从谷底到顶部分布着从寒武纪到新生代各个时期的岩层，层次清晰，色调各异。 我们将乘坐直升飞机，俯瞰峡谷险峻奇绝的自然美景。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w17days/meixi17.6jpg" alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">这里是美国西部的代表景观，也是电影名片《阿甘正传》里阿甘跑步的地方，平地拔起的巨大岩石，犹如纪念碑一般出现在地平线上。</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w17days/meixi17.7jpg" alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">根据原住民瓦荷族的历史传述，羚羊谷曾是叉角羚羊栖息处，峡谷里也常有羚羊漫步，因此而得名。</p>
+							</div>
+
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w17days/meixi17.8jpg" alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">羚羊峡谷是柔软的砂岩经过百万年的暴洪、流水和风的侵蚀力所形成，行走在谷底通道上，自身仿佛伫立于一条狭窄河道的河床向上望去，可以看到谷壁上坚硬光滑的纵向纹路如流水一般蜿蜒伸向前方，在光线和时间适宜的时候，还可能有幸得见岩壁的纹路呈现不同的色彩，如飘逸的彩带一般流动。</p>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w17days/meixi17.9jpg" alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">科罗拉多大峡谷是世界最长的峡谷之一，被联合国教课文组织列为自然遗产之一。大峡谷全长446千米，最深处可达1800多米，是世界上最大、最壮观的侵蚀地貌，拱门国家公园、纪念碑谷都属于峡谷的一部分。它像一条巨大的蟒蛇盘卧在凯巴布高原上，谷底是波涛汹涌的科罗拉多河。</p>
+							</div>
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 15：拉斯维加斯！</li>
+								</ul>
+							</div>
+
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w17days/meixi17.10jpg" alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">嗯，各种秀各种美食各种，嗯，我什么都不用说了吧。</p>
+							</div>
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 16：买买买！</li>
+								</ul>
+							</div>
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">去奥莱！我知道你们想说，给我都包起来！</p>
+							</div>
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/1ada6f73ecd69ffcd65006472df64353-sz_495967.gif"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">
+									科罗拉多大峡谷是世界最长的峡谷之一，被联合国教课文组织列为自然遗产之一。 大峡谷全长446千米，最深处可达1800多米，是世界上最大、最壮观的侵蚀地貌，拱门国家公园、
+									纪念碑谷都属于峡谷的一部分。它像一条巨大的蟒蛇盘卧在凯巴布高原上，谷底是波涛汹涌的科罗拉多河。 从谷底向上，沿崖壁出露着寒武纪到新生代的各期岩系，含有代表性生物化石，大峡谷因此有"活的地质史教科书""美称。
+									还有4000年来印第安人的居住生活遗址，在1979年列入世界遗产名录。
+									<br />
+									大峡谷两岸是棱角分明的红色巨石断层， 在太阳的照射下和水光的映衬下还能变成蓝色或棕色，显示出大自然的诡秘莫测，让人流连忘返。峡谷山石多为红色， 它从谷底到顶部分布着从寒武纪到新生代各个时期的岩层，层次清晰，色调各异。
+								</p>
+							</div>
+
+							<div class="col-xs-12 col-md-11 " style="padding: 0px; margin-left: 5px;">
+								<ul class="list-inline pull-left">
+									<li class="label label-sm label-danger" style="padding: 5px 5px 6px 5px; border-radius: 10% !important;">
+										<i class="fa fa-heart"></i>
+									</li>
+									<li class="modal-li" style="color: #e6400c;">Day 17：休闲一日</li>
+								</ul>
+							</div>
+
+
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">上午我们去射击，步枪、手枪通通上了膛！哒哒！哒哒！</p>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/bd176e33170713479cd822c9dab96d6c-sz_403069.png"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">然后我们参观洛杉矶市中心NBA湖人队及快船队主场斯坦普斯球馆、迪士尼音乐厅.</p>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/0626361b6b462ccb01eb6bd7ce18d692-sz_192422.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">晚上去圣塔莫尼卡海滨观太平洋日落。</p>
+							</div>
+
+							<div class="center-block">
+								<div class="row" style="padding: 15px;">
+									<img style="width: 100%; margin-bottom: 10px;"
+										src="http://www.x2our.com/wechatimage/menu/plan/w12days/03c7de468d0cf84696a2321d04195e9e-sz_133444.jpg"
+										alt="美西小环线" class="img-responsive" />
+								</div>
+							</div>
+							<div class=" col-xs-12 col-md-11" style="text-align: center;">
+								<p class="modal-des-p">此后我们将你送到洛杉矶机场，带着这段旅程的美好记忆，踏上回国的旅程！</p>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary">
+								<i class="fa fa-heart"></i>
+								&nbsp;&nbsp;很赞哦！
+							</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						</div>
+					</div>
+				</div>
+			</div> -->
+			<!-- END 美西17days MODAL  -->
+		</div>
+	</div>
+
+	<!-- BEGIN PRE-FOOTER -->
+	<!-- <div class="pre-footer" id="contact">
+		<div class="container">
+			<div class="row">
+				BEGIN BOTTOM ABOUT BLOCK
+				<div class="col-md-4 col-sm-6 pre-footer-col">
+					<h2>关于我们</h2>
+					<p>
+						我们是一个专注于定制导游和目的地活动的公司。我们认为，一个完美的出国旅行应该每一个活动都由专业的旅行规划师量身定制，在旅行的全程都会有专业玩家开着专车去接应，体验旅行目的地真正的风土人情。
+						<a th:href="@{/home/aboutus}">更多</a>
+					</p>
+					<div class="pre-footer-subscribe-box">
+						<h2>邮件订阅</h2>
+						<form action="javascript:void(0);">
+							<div class="input-group">
+								<input type="text" placeholder="在此输入您的邮箱关注我们" class="form-control" />
+								<span class="input-group-btn">
+									<button class="btn btn-primary" type="submit">订阅</button>
+								</span>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				END BOTTOM ABOUT BLOCK
+
+				<div class="col-md-4 col-sm-6 pre-footer-col">
+					<h2>关注我们的微信公众号</h2>
+					<p>
+						<img th:src="@{/assets/frontend/onepage/img/wechatQR.jpg}" />
+					</p>
+				</div>
+
+				<div class="col-md-4 col-sm-6 pre-footer-col">
+					BEGIN BOTTOM CONTACTS
+					<h2>联系方式</h2>
+					<address class="margin-bottom-20">
+						广州总部地址：广州市天河区科韵北路106号
+						<br />
+						美国公司地址：
+						<br />
+						&nbsp;Puente Hills Business Center #305
+						<br />
+						&nbsp;17870 Castleton St.
+						<br />
+						&nbsp;City of Industry, CA 91748
+						<br />
+						北京技术研发中心地址：北京市王府孵化器
+						<br />
+
+						电子邮箱:
+						<a href="service@x2our.com">service@x2our.com</a>
+						<br />
+						客服微信: youseetrip
+					</address>
+					END BOTTOM CONTACTS
+
+				</div>
+			</div>
+		</div>
+	</div> -->
+	<!-- END PRE-FOOTER -->
+	<!-- BEGIN FOOTER -->
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<!-- BEGIN COPYRIGHT -->
+				<div class="col-md-6 col-sm-12 col-sm-12">
+					<div class="copyright">2015 © 广州西游信息科技有限公司. ALL Rights
+						Reserved.&nbsp;&nbsp;粤ICP备15064509号</div>
+				</div>
+				<!-- END COPYRIGHT -->
+				<!-- BEGIN SOCIAL ICONS -->
+				<!-- <div class="col-md-6  col-sm-12 col-sm-12 pull-right">
+					<ul class="social-icons">
+						<li>
+							<a class="rss" data-original-title="rss" href="javascript:void(0);"></a>
+						</li>
+						<li>
+							<a class="facebook" data-original-title="facebook" href="javascript:void(0);"></a>
+						</li>
+						<li>
+							<a class="twitter" data-original-title="twitter" href="javascript:void(0);"></a>
+						</li>
+						<li>
+							<a class="googleplus" data-original-title="googleplus" href="javascript:void(0);"></a>
+						</li>
+						<li>
+							<a class="linkedin" data-original-title="linkedin" href="javascript:void(0);"></a>
+						</li>
+						<li>
+							<a class="youtube" data-original-title="youtube" href="javascript:void(0);"></a>
+						</li>
+						<li>
+							<a class="vimeo" data-original-title="vimeo" href="javascript:void(0);"></a>
+						</li>
+						<li>
+							<a class="skype" data-original-title="skype" href="javascript:void(0);"></a>
+						</li>
+					</ul>
+				</div> -->
+				<!-- END SOCIAL ICONS -->
+			</div>
+		</div>
+	</div>
+	<div class="floating_ck" style="z-index: 9999; opacity: 0.9;">
+		<dl>
+			<dt></dt>
+			<dd class="consult">
+				<span>咨询热线</span>
+				<div class="floating_left">
+					<a style="font-size: 20px;">400-856-5161</a>
+				</div>
+			</dd>
+			<!-- <dd class="quote">
+				<span>QQ客服</span>
+				<div class="floating_left">
+					<a href="#"></a>
+				</div>
+			</dd> -->
+			<dd class="qrcord">
+				<span>扫一扫</span>
+				<div class="floating_left floating_ewm">
+					<i></i>
+					<p class="qrcord_p01">扫一扫</p>
+					<p class="qrcord_p02">领红包</p>
+				</div>
+			</dd>
+
+			<!-- <dd class="return">
+				<span onClick="gotoTop();return false;">返回顶部</span>
+			</dd> -->
+		</dl>
+	</div>
+
+
+	<!-- END FOOTER -->
+
+	<!-- Load javascripts at bottom, this will reduce page load time -->
+	<!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
+	<!--[if lt IE 9]>
+    <script src="../../assets/global/plugins/respond.min.js"></script>
+    <![endif]-->
+	<script src="../../assets/global/plugins/jquery.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/global/plugins/jquery-migrate.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/frontend/layout/scripts/back-to-top.js"
+		type="text/javascript"></script>
+	<!-- END CORE PLUGINS -->
+
+	<!-- BEGIN PAGE LEVEL JAVASCRIPTS (REQUIRED ONLY FOR CURRENT PAGE) -->
+	<script
+		src="../../assets/global/plugins/fancybox/source/jquery.fancybox.pack.js"
+		type="text/javascript"></script>
+	<!-- pop up -->
+	<script
+		src="../../assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js"
+		type="text/javascript"></script>
+	<!-- slider for products -->
+
+	<!-- BEGIN RevolutionSlider -->
+	<script
+		src="../../assets/global/plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../../assets/global/plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/frontend/pages/scripts/revo-slider-init.js"
+		type="text/javascript"></script>
+	<!-- END RevolutionSlider -->
+
+	<script src="../../assets/frontend/layout/scripts/layout.js"
+		type="text/javascript"></script>
+
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+			Layout.init();
+			Layout.initOWL();
+			RevosliderInit.initRevoSlider();
+			Layout.initTwitter();
+			//Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */
+			//Layout.initNavScrolling(); 
+		});
+	</script>
+	<!-- END PAGE LEVEL JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

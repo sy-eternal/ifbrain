@@ -1,0 +1,41 @@
+<html>
+<head>
+<script>
+	function trim(str) {
+		if (str.replace(/(^\s*)|(\s*$)/g, "").length == 0) {
+			str = " ";
+			return str;
+		} else {
+			return str;
+		}
+	}
+	
+	function validateFile() {
+		var field = document.getElementById("theFile");
+		var filePath = field.value;
+		if (field.value == null || field.value == "") {
+			alert("请选择上传文件");
+			return false;
+		}
+	}
+</script>
+<title></title>
+</head>
+<body>
+	<form:form method="post" enctype="multipart/form-data" modelAttribute="uploadedFile" th:action="@{/guidecar/}">
+		<table class="tableinform">
+			<tr>
+				<td>
+				<input type="file" name="file" id="theFile" />
+				</td>
+				<td style="color: red; font-style: italic;">
+					<form:errors path="file" />
+				</td>
+				<td>
+					<input type="submit" value="上传" onclick="return  validateFile();" />
+				</td>
+			</tr>
+		</table>
+	</form:form>
+</body>
+</html>

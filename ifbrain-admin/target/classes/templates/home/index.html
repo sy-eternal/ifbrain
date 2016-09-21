@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<body>
+	<div layout:fragment="content">
+		<!-- BEGIN PAGE HEADER-->
+		<h3 class="page-title">管理控制台</h3>
+		<p>请在左侧菜单中点击进入您想要使用的功能</p>
+		<hr />
+		<!-- END PAGE HEADER-->
+
+		<!-- BEGIN PAGE CONTENT-->
+		<!-- 
+		<div class="row">
+			<form method="POST" enctype="multipart/form-data" action="/home/upload">
+				File to upload:
+				<input type="file" name="file" required="required" />
+				<br />
+				<input type="submit" value="上传文件" class="btn btn-default" />
+			</form>
+			<br />
+			<p>
+				<a class="btn btn-default" th:href="@{/home/sendMail}">发送邮件</a>
+			</p>
+		</div>
+		 -->
+		<!-- END PAGE CONTENT-->
+	</div>
+
+	<div layout:fragment="script">
+		<script>
+			$(function() {
+				Metronic.init(); // init metronic core components
+				Layout.init(); // init current layout
+				QuickSidebar.init(); // init quick sidebar
+				Demo.init(); // init demo features
+			});
+		</script>
+	</div>
+</body>
+</html>

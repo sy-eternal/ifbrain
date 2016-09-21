@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title></title>
+<style type="text/css">
+
+#footerahref a:hover{
+	text-decoration: underline ;
+	color: white;
+}
+
+
+a{
+color:#919191;
+}
+a:hover
+{
+color:#0151a6;
+}
+</style>
+<script type="text/javascript">
+//购物
+function gouwu2(){
+	
+	 var id=$("#tokenfoot").val();
+		if(id==""){
+			window.location.href="/commodity/index";
+		}
+		else{
+			window.location.href="/commodity/index/"+id;
+		}
+	
+}
+//评估
+function pinggu(){
+	window.location.href="/assessment/list";
+}
+
+function renwu2(){
+	 var id=$("#tokenfoot").val();
+	if(id==""){
+		window.location.href="/project/li";
+	}
+	else{
+		window.location.href="/project/li/"+id;
+	} 
+	
+}
+</script>
+</head>
+
+<body style="padding: 0px; margin: 0px;text-align: center;"  >
+ <input type="hidden" th:value="${session.childids}"  id="tokenfoot"/>	
+ <div style="text-align: center;margin-top: 5%;background-color: #f1f1f1;max-width:710px;height:50px;" class="navbar-fixed-bottom container"  >
+       <div style="margin-top: 10px" class="col-md-12 col-xs-12">
+			
+			<div class="col-md-4 col-sm-4 col-xs-4 " style = "padding:0px;">
+			<a href="#" onClick="renwu2()"  id="renwu"  style=""><span class="fa fa-calendar" style="line-height:16px;font-size: 24px;"><br/><span style="font-size: 10px;">易任务</span></span></a>
+			</div>
+			<div class="col-md-4 col-sm-4 col-xs-4 " style = "padding:0px;">
+			<a href="#" onClick="gouwu2()"  id="gouwu" style=""> <span class="glyphicon glyphicon-shopping-cart" style="line-height:14px;font-size: 24px;"><br/><span style="font-size: 10px;">易需求</span></span></a>
+			</div>
+	
+			<div class="col-md-4 col-sm-4 col-xs-4 " style = "padding:0px;">
+		    <a href="#" onclick="pinggu()" id="pinggu" style=""><span class="fa fa-bar-chart-o" style="line-height:16px;font-size: 24px;"><br/><span style="font-size: 10px;">易评估</span></span></a>
+		   </div>
+		</div>
+</div>
+</body>
+</html>

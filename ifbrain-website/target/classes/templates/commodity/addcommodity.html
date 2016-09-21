@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+<meta charset="utf-8" />
+<title>添加商品购买计划</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+ <link rel="shortcut icon" href="../../img/showhtml.ico" /> 
+<!-- 新的代码 -->
+
+<script type="text/javascript" th:src="@{/js/project/projquery.js}"></script>
+<link rel = 'stylesheet' type="text/css" th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}"/>
+<link rel = 'stylesheet' type="text/css" th:href="@{/assets/admin/layout/css/plugins.min.css}"/>
+<link rel = 'stylesheet' type="text/css" th:href="@{/js/project/NewFile.css}"/>
+<script type="text/javascript" th:src="@{/js/project/jquery-1.9.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/project/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/project/jquery.mobile-1.3.2.min.js}"></script>
+<link th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/simple-line-icons/simple-line-icons.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/uniform/css/uniform.default.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/fullcalendar/fullcalendar.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/jqvmap/jqvmap/jqvmap.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/admin/pages/css/tasks.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/css/plugins.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/admin/layout/css/layout.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/admin/layout/css/themes/darkblue.css}" rel="stylesheet" type="text/css" id="style_color"/>
+<link th:href="@{/assets/admin/layout/css/custom.css}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" th:src="@{/js/mytable/jquery-1.8.3.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/mytable/datouwang.js}"></script>
+<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/css/selectstyle/style1.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/selectstyle/style.css}" media="screen"  />
+<link rel="stylesheet" type="text/css"	th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<script type="text/javascript"	th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+<script	th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+<script th:src="@{/assets/frontend/layout/scripts/layout.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-migrate.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-ui/jquery-ui.min.js}"	type="text/javascript"></script>
+<script	th:src="@{/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js}"	type="text/javascript"></script>
+<script	th:src="@{/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.blockui.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.cokie.min.js}"	type="text/javascript"></script>
+<script	th:src="@{/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap/js/bootstrap.min.js}" type="text/javascript"></script>	
+<script	th:src="@{/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js}"></script>
+<script th:src="@{/assets/global/scripts/metronic.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/quick-sidebar.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/demo.js}"></script>
+<script th:src="@{/js/controller/dqproject-controller.js}"></script>
+<link th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}" rel="stylesheet" />
+<link th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+<link th:href="@{/assets/global/plugins/fancybox/source/jquery.fancybox.css}" rel="stylesheet" />
+<link th:href="@{/assets/global/plugins/uniform/css/uniform.default.css}" rel="stylesheet" type="text/css" />
+<link th:href="@{/assets/frontend/layout/css/style.css}" rel="stylesheet" />
+<link th:href="@{/assets/frontend/layout/css/style-responsive.css}" rel="stylesheet" />
+<link th:href="@{/assets/frontend/layout/css/themes/red.css}" rel="stylesheet" id="style-color" />
+<link th:href="@{/assets/frontend/layout/css/custom.css}" rel="stylesheet" />
+<link rel="shortcut icon" href="favicon.ico"/>
+   <link th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}" rel="stylesheet"/>
+  <link  th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/> 
+   <script  th:src="@{/assets/frontend/pages/scripts/top.js}"></script> 
+   <link  th:href="@{/assets/global/plugins/fancybox/source/jquery.fancybox.css}" rel="stylesheet"/>
+  <link  th:href="@{/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css}" rel="stylesheet"/>
+  <link  th:href="@{/assets/global/plugins/uniform/css/uniform.default.css}" rel="stylesheet" type="text/css"/>
+  <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <link  th:href="@{/assets/global/plugins/rateit/src/rateit.css}" rel="stylesheet" type="text/css"/>
+  <link  th:href="@{/assets/frontend/layout/css/style.css}" rel="stylesheet"/>
+  <link  th:href="@{/assets/frontend/pages/css/style-shop.css}" rel="stylesheet" type="text/css"/>
+  <link  th:href="@{/assets/frontend/layout/css/themes/red.css}" rel="stylesheet" id="style-color"/> 
+   <link  th:href="@{/assets/frontend/layout/css/style-responsive.css}" rel="stylesheet"/> 
+ <link  th:href="@{/assets/frontend/layout/css/custom.css}" rel="stylesheet"/>
+   <link  th:href="@{/assets/global/plugins/simple-line-icons/simple-line-icons.min.css}" rel="stylesheet" type="text/css"/>
+ <link  th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}" rel="stylesheet" />
+<script type="text/javascript" th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+<script th:src="@{/assets/global/plugins/bootstrap/js/bootstrap.min.js}" type="text/javascript"></script>
+<link type="text/css" th:href="@{/assets/global/plugins/fancybox/source/jquery.fancybox.css}" rel="stylesheet"/>
+<link type="text/css" th:href="@{/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css}" rel="stylesheet"/>
+<link th:href="@{/assets/global/css/plugins.css}" rel="stylesheet" />
+<link th:href="@{/assets/frontend/layout/css/style.css}" rel="stylesheet" />
+<link th:href="@{/assets/frontend/layout/css/style-responsive.css}" rel="stylesheet" />
+<link th:href="@{/assets/frontend/layout/css/themes/red.css}" rel="stylesheet" id="style-color" />
+<link th:href="@{/assets/frontend/layout/css/custom.css}" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/bootstrap-select/bootstrap-select.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/select2/select2.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/jquery-multi-select/css/multi-select.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/image-picker/image-picker/image-picker.css}" />
+<link type="text/css" rel="stylesheet" th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}" />
+<link type="text/css" rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap-theme.min.css}" />
+<link th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}" rel="stylesheet" />
+<link type="text/css" th:href="@{/css/settings.css}" rel="stylesheet" />
+<link type="text/css" th:href="@{/css/style-revolution-slider.css}" rel="stylesheet" />
+<link th:href="@{/css/layouts.css}" rel="stylesheet" type="text/css" />
+ <link th:href="@{/assets/global/plugins/simple-line-icons/simple-line-icons.min.css}" rel="stylesheet" type="text/css"/> 
+<link th:href="@{/assets/global/css/components.css}" id="style_components" rel="stylesheet" type="text/css"/> 
+<script type="text/javascript" th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.4/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/global/plugins/jquery-migrate.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-ui/jquery-ui.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.blockui.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.cokie.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/uniform/jquery.uniform.min.js}" type="text/javascript"></script>
+<script	th:src="@{/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/scripts/metronic.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/quick-sidebar.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/demo.js}"></script>
+<script type="text/javascript" th:src="@{/js/project/touchmove.js}" ></script>
+<style type="text/css">
+.modal-backdrop, .modal-backdrop.fade.in{
+background-color: #333 !important;
+}
+@font-face {
+	font-family: myfont1;
+       src: url("../../font/PingFang Medium.ttf");
+}
+@font-face {
+	font-family: myfont2;
+       src: url("../../font/PingFangRegular.ttf");
+}
+.img-circlebaby{
+	border-radius:50px !important;
+}
+#moneybaby1 button{
+background-color: #0151a6 ;
+color:white;
+font-family: myfont2;
+font-weight: bold;
+}
+#moneybaby2 button{
+background-color: #0151a6 ;
+color:white;
+
+font-family: myfont2;
+
+font-weight: bold;
+}
+</style>
+
+
+<style type="text/css">
+
+
+@font-face {
+	font-family: myfont1;
+       src: url("/font/PingFangMedium.ttf");
+}
+
+
+.img-circle1{
+border-radius:5% !important;/* 
+opacity:.7;filter:alpha(opacity=70); */
+}
+
+
+.mypanelBorder{
+	border: 1px solid #2cb7fe;
+	box-shadow: 3px 3px 10px #9edeff;
+}
+
+input {
+    -webkit-appearance: textfield;
+    padding: 1px;
+    background-color:transparent;
+    border: 2px inset;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    -webkit-rtl-ordering: logical;
+    -webkit-user-select: text;
+    cursor: auto;
+}
+
+
+
+.menu_list { width: 710px; }
+.menu_head {  cursor: pointer; position: relative;height:250px; font-family: myfont1; font-size:30px; background: white; color:black; margin-top:6px;margin-bottom:0px;}
+.menu_body { display:none; }
+.menu_body{ display:block; height:400px; color:white; background-color:#004986; font-family: myfont1; font-size:30px; margin-top:0px;margin-bottom:0px; text-align:center; }
+
+#tasklistbtn  button{
+background-color: #004986 ;
+color: white;
+border:4px solid white;
+
+}
+#touchspin_list1 button{
+background-color: white ;
+color:black;
+font-size:18px;
+
+}
+
+
+
+/*浮动删除任务*/
+#floatDivBoxs{background:#FF6699;position:absolute;right:-120px;z-index:1;display:none; height:190px;}
+
+
+
+#rightArrow{width:50px;height:45px;background:url(../../img/online_arrow.jpg) no-repeat;position:absolute;right:0;z-index:1;}
+#rightArrow a{display:block;height:45px;}
+
+/*完成任务*/
+ .behind {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        word-wrap:break-word;
+    }
+    .behind a.ui-btn {
+        margin: 0px;
+        float: right;
+        border: none;
+        word-wrap:break-word;
+    }
+    .behind a.delete-btn, .behind a.delete-btn:active, .behind a.delete-btn:visited, .behind a.delete-btn:focus, .behind a.delete-btn:hover {
+        color: white;
+        background-color: red;
+        text-shadow: none;
+    }
+    .behind a.ui-btn.pull-left {
+        float: left;
+    }
+    .behind a.edit-btn, .behind a.edit-btn:active, .behind a.edit-btn:visited, .behind a.edit-btn:focus, .behind a.edit-btn:hover {
+        color: white;
+        background-color: orange;
+        text-shadow: none;
+    }
+#tasklistbtn  button{
+background-color: #004986 ;
+color: white;
+border:4px solid white;
+
+}
+#touchspin_list1 button{
+background-color: white ;
+color:black;
+font-size:18px;
+
+}
+
+ #daibimoney {
+ width:250px;;
+
+ }
+ 
+ #daibimoney1 {
+ width:250px;
+ }
+ #iconplusa:hover{
+ text-decoration: none;
+ }
+</style>
+
+
+   
+<script th:src="@{/js/arttemplate/template.js}"></script>
+<script id="child" type="text/html">
+<ul>
+    {{each list as value}}
+    <li  class="li1" id="li1">
+         <div class="fold" style="display:none;">
+						<span class="img"></span>
+						<span class="txt" >${value.taskname}</span>
+	     </div>
+         <div class="unfold" style="display:block; text-align:center;">	
+                             <dl style="cursor:default;">
+							<dt><img  alt="tp"  width="130px" height="130px;" /></dt>
+							<dt >{{value.taskname}}</dt>
+                             <dd>奖励金币：<span  style="width:30px; " text="{{value.everytimesmoney}}"></span>
+						<input type="text" value="{{value.everytimesmoney}}"  style='border:none;font-size: 18px;background-color:transparent;text-align:center;max-width:30px;' readonly='readonly' />
+						</dd>
+                            <dd><span>完成状态：</span><input  type='text' name='name' value="{{value.times}}/{{value.timeadd}}"    required='required'  style='border:none;font-size: 18px;background-color:transparent;text-align:center;max-width:30px;' readonly='readonly' />
+							</dd>
+							<dd>完成一次：
+							   <a href="#" onclick='wancheng();' class="wangchengc"><img alt='' src='../../img/任务完成.png' width='30px' /> </a> 
+								<input type='hidden' id='{{value.id}}' name='work' value="{{value.id}}" />
+								<input type='hidden' id='child' name='child' value="{{value.childId}}" /> 
+								<input type='hidden' id='time' name='time' value="{{value.times}}" />
+								<input type='hidden' id='times' name='times' value="{{value.timeadd}}" />
+						    </dd>
+							<dd>结束任务：
+								<a href='javascript:;' onclick='end();'  class="jieshuc">
+								<img alt='Amazing Project' src='../../img/任务结束.png' width='30px' /></a>
+							</dd>
+                          </dl>
+        </div>
+    </li>
+    {{/each}}
+</ul>
+</script> 
+
+<script type="text/javascript">
+	$(document).ready(function() {	
+		var childId=$("#childId").val();
+		$.ajax({
+			type : "Get",
+			url : "/project/findByChildId?childId=" + childId,
+			success : function(data) {
+				console.log(data);
+				var html = template('child',eval("("+data+")"));
+				document.getElementById('voice_2').innerHTML = html;
+			}
+		});			
+		$(".portlet-body.mypanel img").each(function() {
+			 $(this).click(function () {
+				 $(this).addClass('mypanelBorder').parent().siblings().find('img').removeClass('mypanelBorder');
+				 document.getElementById("ids").value=$(this).parent().find('input').attr('id');
+				 $.ajax({
+						type : "Get",
+						url : "/child/findById?childId=" + $(this).parent().find('input').attr('value'),
+						success : function(data) {
+							childmoney = data.balance;
+							$("#balance").val(" x" + childmoney);
+						}
+					}); 
+				 $.ajax({
+						type : "Get",
+						url : "/project/findByChildId?childId=" + $(this).parent().find('input').attr('value'),
+						success : function(data) {
+							var html = template('child',eval("("+data+")"));
+							document.getElementById('voice_2').innerHTML = html;
+						}
+					});
+				 
+				 
+			 });
+		});
+		
+		var childCookie = $.cookie('childName');
+
+		if (childCookie == null) {
+			$("#child").val($("#select").val());
+		} else {
+			$("#select").val(childCookie);
+			$("#child").val(childCookie);
+		}
+	});
+	function show() {
+
+		var childName = $("#select").val();
+		$.cookie('childName', childName);
+		window.location.reload();
+
+	}
+	function getBalance() {
+		var childId = $(".childss").val();
+		if($(".childss").val()!=null){
+			$("#caption1").css("display","none");
+			$("#caption").css("display","block");
+		$.ajax({
+			type : "Get",
+			url : "/child/findById?childId=" + childId,
+			success : function(data) {
+				childmoney = data.balance;
+				$("#balance").val(" x" + childmoney);
+			}
+		});
+		}else if($(".childss").val()==null){
+			alert("您还没有宝贝，请在我的里面添加宝贝信息！")
+			
+			$("#caption1").css("display","block");
+			$("#caption").css("display","none");	
+		}
+	 $(".portlet-body.mypanel img").eq(0).addClass('mypanelBorder');
+
+	
+	 document.getElementById("ids").value=$(".childss").val();
+		myselect();
+		//addBorder();
+	}
+	
+	function myselect() {
+		var orb   = $("#orb");
+		var track = $("#track");
+		var rail = $("#platform");
+
+		var trackWidth  = track.width();
+		var cartWidth   = orb.width();
+
+		$(".button").on("click", function() {
+		  var position = $(this).position();
+		  var width    = $(this).width();
+		  var left     = position.left;
+		  var platform = left + width-5; // TODO: Remove magic #
+		  
+		  $(".button").removeClass("active");
+		  $(this).addClass("active");
+		  
+		  rail.addClass("active");
+		  
+		  orb.addClass("hover");
+		  
+		  orb.animate({
+		    "left" : platform - cartWidth
+		  }, 2000, function() {
+		    orb.removeClass("hover");
+		    rail.removeClass("active");
+		  });
+		});
+	}
+	//完成一次
+	function wancheng() {	
+					var child = $("#ids").val();
+					 document.getElementById("works").value=$(".wangchengc").parent().find('input').attr('id');
+					 window.location.href="/project/add/" + $(".wangchengc").parent().find('input').attr('id') + "/" + child;   
+
+	}
+	//完成任务结束
+	function end() {
+		var msg = "您确定结束此任务吗？";
+		$(".jieshuc").click(function () {
+			if (confirm(msg) == true) { 
+				var id = $("#works").val();
+			 	window.location.href = "/project/endadd/" + $(this).parent().prev().find('input').attr('id'); 
+			 	
+		 	} else {
+				return false;
+			} 
+		
+	 });
+	}
+	//分配任务
+	function fenpei(){
+		
+		 var child = $("#ids").val();
+		window.location.href = "/myinformation/searchworktasklist/"  +  child
+	}
+	//历史任务
+	function lishi(){
+		window.location.href="/project/ls/"+$("#childids").val();
+	}
+	//购物
+	function gouwu(){
+		var id=$("#childids").val();
+		window.location.href="/commodity/index/"+id+"";
+	}
+	//前往商城
+	function totheshop(){
+		var id=$("#childids").val();
+		window.location.href="/commodity/index/"+id+"";
+	}
+</script>
+<script type="text/javascript">
+//点击input出现下划线
+function textboxline(){
+	
+	$("#textboxline").css("border-bottom","2px solid #0151a6 ");
+}
+</script>
+<script type="text/javascript">
+
+
+
+
+ $(function(){
+	$(".ui-btn.ui-btn-icon-right.ui-icon-carat-r").each(function(){
+		$(this).on("click",function(){		/* 
+			$(".behind").css("display","none") */
+			$(".ui-btn.ui-btn-icon-right.ui-icon-carat-r").animate({right: '0px'},0);
+		
+			$(this).prev().parent().find('.behind').css("display","block")
+			if($(this).prev().parent().find('.behind').attr('id')){
+				var flag=0;
+				if(flag==1){
+					/* 
+					$(this).animate({right: '0px'},300); */
+					$(this).css('border','none');
+					$(this).css('box-shadow','none');
+					flag=0;
+				}else{
+            		$(this).animate({right: '120px'},0);
+					$(this).css('border','none');
+					$(this).css('box-shadow','none');
+					flag=1;
+				}
+			}	
+			
+		});
+	})
+	
+}); 
+
+
+function shoppingSelect(){
+	 $("#myModal3").css("display","none") 
+
+ var checkValue=$("#select1").val();
+
+	 $("#selectName ").val(checkValue);  
+	/* $("#selectName").val('玩具') 
+	document.getElementById("myModal3").style.display = none;
+	document.getElementById('selectName').value=
+		 document.getElementById('select1').value;  */
+	
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+</head>
+<body style="background-color:#ffd464; text-align:Center; "  >
+
+<div style = "height:54px; background-color:#ffffff;font-family: myfont1; font-size:24px; line-height:50px;">购物计划</div>	
+<!-- 新的代码 -->	
+	
+	<div class="container" style = "max-width:710px;padding:0px;  ">
+<form class="form-horizontal" role="form" method="post" id="mainForm"   th:action="@{/project/li}"  th:object="${worktask}" >
+			 <input type="hidden" id="ids" class="ids" name="ids"/>
+			 <input type="hidden" id="works" class="works" name="works"/>
+	
+		
+		<div class="portlet-body mypanel" style = "height:130px; text-align:center;display: block;margin-top: 0px; margin-left:0px;background-color:#f4f4f4;border: 1px solid transparent; max-width:710px;top:0px;">
+			 
+			 <div  class="button" style = "margin-top: 10px; margin-bottom:10px;" th:each="childs:${child}" >
+				 <input type="hidden"   th:value="${childs.id}" th:id="${childs.id}" name="childs" class="childss"/>
+				 <img  alt="tp"  th:src="@{'/image/show/' + ${childs.image.id}}"  style="border-radius:50% !important; " width="70px" height="70px;"   id="childI"  />
+				<div th:text="${childs.name}" style="font-family: myfont1;font-size: 14px;"></div>
+				<div style = "margin-height:6px;color:#000000;font-size:18px;"><img alt="" src="../../img/小代币.png" style = "float:left; margin-top:5px;"/><span>58</span></div>
+			 </div>						   
+		</div>
+
+
+</form>
+
+</div>
+  <div  class="container" style = "max-width:710px;padding:0px; margin-top:-30px;margin-bottom:-31px;      color: #E02E2E;" >
+  <a href="#" style="background-color: transparent;color: #FE6963" data-toggle="modal" data-target="#myModal2" ><i class="glyphicon glyphicon-plus-sign" style = "font-size: 60px; float:right;z-index:2;"></i>
+  </a></div>   
+  
+  
+  
+  <div class = "col-md-12 col-xs-12"  style = "text-align:center; ">
+
+
+<!--This is the first division of left-->
+
+
+
+  <div id="firstpane" class="menu_list container" style = "max-width:710px;padding:0px; height:250px;">
+  
+  
+  <!-- 第一个任务 -->
+   <div class="menu_head" style = "margin-top:0px; overflow-x: auto; overflow-y:hidden;   ">
+     <ul data-role="listview" class="swipe-delete ui-listview">
+                    <li class="ui-first-child">
+                        <div class="behind" id = "2">
+                            <a href="#" class="ui-btn delete-btn"  style = "height:250px; border:none; background-color:orange;font-family: myfont1; font-size:30px;"> <p>&nbsp;</p><p>&nbsp;</p><p>删除<br/>计划</p></a>
+                           
+                        </div>
+                        <a href="#" id = "Arrow" class="ui-btn ui-btn-icon-right ui-icon-carat-r" style = "height:250px;border:none; background-color:white;">
+                        
+                     <label class = "col-md-4 col-xs-4" style = "margin-top:-10px;margin-left:-20px;">   
+                    <img alt="" src="../../img/财脑训练器.png" class = "img-responsive" style = "width:250px;height:250px;margin-left:-10px; "/>
+         </label>
+         
+           <label class = "col-md-4 col-xs-4" style = "margin-top:20px; text-align:Center;"> 
+           <div ><input type = "text" value = "童话故事书" style = " border:none; margin-top:30px;font-family: myfont1; font-size:30px;text-align:center;"/></div>
+            <div class = "col-md-4 col-xs-4" style = "margin-top:50px;text-align:Center;"><img alt="" src="../../img/小代币.png" style = " width:30px; height:30px;"/></div>
+           <div class = "col-md-8 col-xs-8"><input type = "text" value = "17" style = "border:none; margin-top:30px;margin-left:-20px;font-family: myfont1; font-size:30px;text-align:left;"/></div>
+           </label>
+           
+            <label class = "col-md-4 col-xs-4" style = "margin-top:100px; "> 
+           
+           <div class = "col-md-4 col-xs-4"></div>
+    <div class = "col-md-8 col-xs-8" style = "  border:5px solid #fe6963; border-radius:50px !important;  backgroud-color:transparent; font-family: myfont1; color:#fe6963; font-size:30px;  text-align:center;">购买</div>
+            </label>
+                        </a>
+                    </li>
+             
+                </ul>
+   </div>
+   
+   
+    
+     
+     
+    <!--Code for menu starts here-->
+   
+    
+     
+  </div>
+
+     
+  
+<!-- begin新建购物 -->
+<div class="modal fade" id="myModal2" tabindex="1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true"  > 
+        <div class="modal-dialog">
+             <div class="modal-content">
+           <!-- content -->
+         	<form class="form-horizontal" role="form" method="post" id="mianForm1"   th:action="@{/myinformation/createBabyTasklist}" >
+         	<!-- 获取点击的孩子id -->
+									<input type="hidden" id="clickchildid" name="clickchildid"/>
+						   <div class="col-md-12 col-xs-12"   style="width: 150%;height: 900px;background-color: transparent;padding: 0px;margin-top:112px; " align="left">
+								
+								<div   style="max-width:633px;background-color: #fe6963 ;color:white; height: 900px;padding-top: 20px; position:relative;z-index: 3">
+								<h3 style="text-align: left;font-family: myfont1;font-size: 36px;margin-left: 141px;margin-top: 12px;" >新建购物</h3>
+								<h5 style="font-family:myfont1;font-size: 30px; ;color: white;margin-top: 120%;text-align: right;"><a style="color: white;"  data-dismiss="modal" aria-hidden="true">取消</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="color: white;" onclick="addtaskchild()">确定</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+								</div>	
+								<div  style="max-width:630px;;background-color: white;margin-left: 33px;;height: 675px;position:relative;z-index: 4;top:-109.1%;margin-top: 180px; ">
+								
+								
+								<!-- 选择宝宝 -->
+								<div class="col-md-12 col-xs-12" >
+								<div class="col-md-3 col-xs-3" style="margin-top: -30px;padding: 0px;width: 98px;margin-left: -5px;" align="left">
+								<img src="../../img/kid.jpg" class="img-responsive img-circle" style="padding: 0px;" id="kidfilePath"/>
+								</div>
+								<div  class="col-md-3 col-xs-3" style="margin-top: 30px;text-align: left;margin-left:-27px;"><span style="color: #b2b2b2;font-family: myfont2;font-size: 22px; cursor:default;">选择宝宝</span></div>
+								<div class="col-md-7 col-xs-7 showchildback" style="margin-top: 22px;" align="left" >		
+									 <span th:each="showchild:${child}"  id="showchild" style="background-color:#ffd464;color: #333333; font-family: myfont2;margin-right:10px;font-size: 26px;padding-left: 8px;padding-right: 8px;;" class="img-circlebaby showchild" >
+									<a style="font-family: myfont1;font-size: 26px;color: #333333; text-decoration:none;" th:text="${showchild.name}"></a>
+									 <input type="hidden" th:value="${showchild.id}"  th:id="${showchild.id}" /> 
+									 </span>					
+								<a  href="#" id="iconplusa" style = "text-decoration:none;"><span aria-hidden="true" class="icon-plus img-circle " style="background-color:#fe6963;color:white;font-size: 40px;display: inline;vertical-align:middle;"  ></span></a>
+								</div>
+								
+								</div>
+								<!-- 购物名称 -->
+								<div class="col-md-12 col-xs-12" style="margin-top: 20px;">
+								<div class="col-md-3 col-xs-3" style="padding: 0px;width: 98px;" align="right">
+								&nbsp;
+								</div>
+								<div  class="col-md-3 col-xs-3" style="text-align: left;margin-left:-31px;"><span style="color: #b2b2b2;font-family: myfont2;font-size: 22px;cursor:default;">购物名称</span></div>
+								<div class="col-md-6 col-xs-6" style="" align="left">&nbsp;
+								</div>
+								</div>
+								<!-- 购物选择 -->
+								<div class="col-md-12 col-xs-12" style="margin-top: 9px;">
+								<div class="col-md-3 col-xs-3" style="padding: 0px;width: 98px;" align="right">
+								&nbsp;
+								</div>
+								<div  class="col-md-4 col-xs-4" style="text-align: left;margin-left:-31px;border:1px solid transparent;border-radius:50px !important; background-color:#ffd464 ;">
+								<input id = "selectName" type = "text" value = " 购物选择" readonly = "readonly" style="text-align:center;font-family: myfont1;font-size: 26px;color: #333333;cursor: pointer;"  data-toggle="modal" data-target="#myModal3"  />
+								
+						        
+								
+								</div>
+							
+								</div>
+								<!-- 购物选择 -->
+								<div class="col-md-12 col-xs-12" style="margin-bottom:45px; margin-top:30px; ">
+								<div class="col-md-3 col-xs-3" style="padding: 0px;width: 98px;" align="right">
+								&nbsp;
+								</div>
+								
+								<div class="col-md-9 col-xs-9"   align="left">
+								<div style="border:10px solid  #bfbfbf; background-color: #e4e4e4; height:260px; max-width:260px;">
+								<img alt="" src="" />
+								</div>
+								</div>
+								</div>
+								<!--物品金额 -->
+								<div class="col-md-12 col-xs-12" style="margin-top: 5px;" >
+								<div class="col-md-3 col-xs-3" style="padding: 0px;width: 98px;" align="right">
+								&nbsp;
+								</div>
+								<div  class="col-md-3 col-xs-3" style="text-align: left;margin-left:-31px;"><span style="color: #b2b2b2;font-family: myfont2;font-size: 22px;cursor:default;">物品金额</span></div>
+								<div class="col-md-6 col-xs-6" style="" align="left">&nbsp;
+								</div>
+								
+								</div>
+								<div class="col-md-12 col-xs-12" style="margin-top: 10px;" >
+									<div class="col-md-2 col-xs-2" style="padding: 0px;width: 98px;" align="right">
+								&nbsp;
+								</div>
+								 <div class="col-md-10 col-xs-10" style="margin-left:-40px;">
+								 
+								 <input type="text" class=" form-control container"
+								id="moneynumber" name="moneynumber" required="required"
+								placeholder="请输入人民币金额"
+								style=" border:none;border-bottom: 1px solid; color:#333333;font-family: myfont2;font-size: 22px;"
+								onfocus="if (placeholder =='请输入人民币金额'){placeholder =''; }"
+								onblur="if (placeholder ==''){placeholder ='请输入人民币金额'} validateNumber(this.value)" />
+							</div>
+								</div>
+								<!-- 约合代币 -->
+								<div class="col-md-12 col-xs-12" style="margin-top: 5px">
+								<div class="col-md-3 col-xs-3" style="padding: 0px;width: 98px;" align="right">
+								&nbsp;
+								</div>
+								<div  class="col-md-3 col-xs-3" style="text-align: left;margin-left:-31px;"><span style="color: #b2b2b2;font-family: myfont2;font-size: 22px;cursor:default;">约合代币</span></div>
+								<div class="col-md-6 col-xs-6" style="" align="left">
+								<img alt="" src="../../img/小代币.png" style = " width:30px; height:30px;"/>
+								<span style="font-family: myfont1;font-size: 22px;color: #333333; ">20</span>
+								</div>
+								</div>
+								
+								
+							
+								</div>
+								</div>        
+								</form>     
+             </div>
+         </div>
+     </div>  
+<!-- end分配任务 -->
+<!-- 新的选择页面 -->
+	<div class="modal fade container" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"  style="max-width: 720px;padding: 0px; padding-top:100px;" >
+	<div class="col-md-12 col-xs-12">
+	<div class="col-md-1 col-xs-1" style = "35px">&nbsp;</div>
+	<div class="col-md-11 col-xs-11">
+	 <input type="text" id = "select1"  onclick="shoppingSelect() " value = "玩具" readonly = "readonly" class=" form-control container" style="cursor:pointer; border:none;border-bottom: 1px solid; color:#333333; background-color:white;font-family: myfont2;font-size: 22px;"/>
+	</div>
+	</div>
+	<div class="col-md-12 col-xs-12">
+	<div class="col-md-1 col-xs-1" style = "35px">&nbsp;</div>
+	<div class="col-md-11 col-xs-11">
+	 <input type="text" value = "甜点" readonly = "readonly" class=" form-control container" style="cursor:pointer; border:none;border-bottom: 1px solid; color:#333333; background-color:white;font-family: myfont2;font-size: 22px;"/>
+	</div>
+	</div>
+	<div class="col-md-12 col-xs-12">
+	<div class="col-md-1 col-xs-1" style = "35px">&nbsp;</div>
+	<div class="col-md-11 col-xs-11">
+	 <input type="text" value = "童话故事书" readonly = "readonly" class=" form-control container" style="cursor:pointer; border:none;border-bottom: 1px solid; color:#333333; background-color:white;font-family: myfont2;font-size: 22px;"/>
+	</div>
+	</div>
+	<div class="col-md-12 col-xs-12">
+	<div class="col-md-1 col-xs-1" style = "35px">&nbsp;</div>
+	<div class="col-md-11 col-xs-11">
+	 <input type="text" value = "旅游" readonly = "readonly" class=" form-control container" style="cursor:pointer; border:none;border-bottom: 1px solid; color:#333333; background-color:white;font-family: myfont2;font-size: 22px;"/>
+	</div>
+	</div>
+	<div class="col-md-12 col-xs-12">
+	<div class="col-md-1 col-xs-1" style = "35px">&nbsp;</div>
+	<div class="col-md-11 col-xs-11">
+	 <input type="text" value = "公园游乐场" readonly = "readonly" class=" form-control container" style="cursor:pointer; border:none;border-bottom: 1px solid; color:#333333; background-color:white;font-family: myfont2;font-size: 22px;"/>
+	</div>
+	</div>
+	<div class="col-md-12 col-xs-12">
+	<div class="col-md-1 col-xs-1" style = "35px">&nbsp;</div>
+	<div class="col-md-11 col-xs-11">
+	 <input type="text" value = "数码产品" readonly = "readonly" class=" form-control container" style="cursor:pointer; border:none;border-bottom: 1px solid; color:#333333; background-color:white;font-family: myfont2;font-size: 22px;"/>
+	</div>
+	</div>
+	</div>
+<!-- end新的选择页面 -->
+<script type="text/javascript">
+//显示选择宝贝
+$(".showchildback .showchild ").each(function() {
+			   $(this).click(function () {	 
+				$(this).css("background-color","#b3b3b3");
+				$(this).siblings().css("background-color","#0151a6");
+				 $.ajax({
+					type : "Get",
+					url : "/child/findById?childId=" + $(this).find('input').attr('id'),
+					success : function(data) {
+						$("#kidfilePath").attr("src","/image/show/"+data.id);
+					}
+				}); 
+				//点击选择宝贝id				
+				document.getElementById("clickchildid").value=$(this).find('input').attr('id');
+				
+			 });
+		});
+		//点击确定
+function addtaskchild(){
+	 var obj = document.getElementById("textboxline");
+	 var obj1=document.getElementById("clickchildid");
+	 if(obj.value==""||obj1.value==""){
+	 if(obj.value==""){
+		alert("请输入任务名称！");		
+	 }
+	 else if(obj1.value==""){
+		alert("请选择宝贝！");	
+	 }
+	 }else{
+		  mianForm1.submit();
+	 }
+}		
+</script>
+
+<script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery.pulsate.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/bootstrap-daterangepicker/moment.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+<script src="../../assets/global/scripts/metronic.js" type="text/javascript"></script>
+<script src="../../assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
+<script src="../../assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
+<script src="../../assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
+<script src="../../assets/admin/pages/scripts/index.js" type="text/javascript"></script>
+<script src="../../assets/admin/pages/scripts/tasks.js" type="text/javascript"></script>
+
+<script>
+jQuery(document).ready(function() {    
+   Metronic.init(); // init metronic core componets
+   Layout.init(); // init layout
+   QuickSidebar.init(); // init quick sidebar
+Demo.init(); // init demo features
+   Index.init();   
+   Index.initDashboardDaterange();
+   Index.initJQVMAP(); // init index page's custom scripts
+   Index.initCalendar(); // init index page's custom scripts
+   Index.initCharts(); // init index page's custom scripts
+   Index.initChat();
+   Index.initMiniCharts();
+   Tasks.initDashboardWidget();
+});
+</script>
+</div>	
+		
+		
+		
+		
+		<div class="container"
+			style="background-image: url('../../img/圆点线.png');  max-width: 710px;">
+			<div class="portlet-title">
+				<div class="caption" style="text-align: center; margin-top: 3%;">
+					<a id="buyplan"> <img alt="Amazing Project"
+						src="../../img/购物计划2.png" style="width: 20%; max-width: 200px;" />
+					</a> <a id="create" onclick="create()"> <img alt="Amazing Project"
+						src="../../img/自定义商品.png"
+						style="width: 20%; max-width: 200px; padding-left: 1%" />
+					</a>
+				</div>
+				
+				
+				
+				
+				    <!-- 商品表格 -->
+    <div class=" col-xs-12 col-md-12 circle1" style="font-family: myfont1; height:600px;overflow-x:hidden;overflow-y:auto;scrollbar-base-color:transparent;scrollbar-track-color: transparent;margin-top: 50px; margin-bottom:50px; border:10px solid #FFCC00;">
+		<div class = "sc_menu ">
+			
+			<div style = "display:inline;" class=" col-xs-12 col-md-12" >
+			
+			 <div class=" col-xs-12 col-md-5 circle1" style=" float:left;background:#FFEA00; margin-top:20px;text-align:center;border:5px solid #00FFFF;margin-right: 7%; " th:each="commodities:${commodities}">
+			 <input type="hidden" th:value="${child.id}" id="commodityid" name="commodityid"/>
+				<dl>
+					<dt style = " margin-left:25px;text-align:left; margin-top:20px;" ><img th:src="@{'/image/show/' + ${commodities.image.id}}"  alt="Amazing Project" class="img-responsive"/></dt>
+					<dd>
+						<b th:text="${commodities.name}"></b>
+					</dd>
+					<dd><span th:text="'类型：'+${commodities.commodityType.name}"></span></dd>
+				   <dd><span th:text="'价格：'+${commodities.price}"></span></dd>
+					<dd><input type="checkbox" name="commodity"		th:value="${commodities.id}" style="display: inline-block;max-width: 200px;min-width: 100px;" /></dd>
+				</dl>
+			</div>
+		</div>
+	
+		<div>
+			 <div style="display:inline; text-align:center;float:left;margin-right:20px; width:200px;">
+				<dl>
+					<dt ><img src="../../img/透明.png"/></dt>
+					<dd>
+						<b></b>
+					</dd>
+					<dd></dd>
+				<dd></dd>
+					
+					
+					<dd></dd>
+				</dl>
+			</div>
+			<div style="display:inline; text-align:center;width:200px;margin-right:20px;margin-top:20px;background:#ffe111;">
+				<dl>
+					<dt><img src="../../img/透明.png" /></dt>
+					<dd>
+						<b></b>
+					</dd>
+					<dd></dd>
+				<dd></dd>
+					
+					
+					<dd></dd>
+				</dl>
+			</div>
+		</div>	
+		
+		
+</div>		
+</div>		 
+	
+	<!-- end -->
+
+				
+				<div class="tools container">
+					<a href="javascript:;" class="collapse" data-original-title=""
+						title=""> </a> <a href="#portlet-config" data-toggle="modal"
+						class="config" data-original-title="" title=""> </a> <a
+						href="javascript:;" class="reload" data-original-title="" title="">
+					</a> <a href="javascript:;" class="remove" data-original-title=""
+						title=""> </a>
+				</div>
+			</div>
+			<!-- end 按钮 -->
+			 <!-- <div id="maindiv" class="col-md-12 col-sm-12 col-xs-12"
+				style="margin-top: 30px;">
+				<input type="hidden" id="childId" name="childId"
+					th:value="${child.id}" />
+			
+				<div
+					style="margin-top: 25px; overflow-x: hidden; overflow-y: auto; height: 540px; width: auto;"
+					align="center">
+
+					<div class="row" id="row2" style="padding-top: 20px;"
+						th:each="commodities:${commodities}">
+						<div class="col-md-4 blog-img blog-tag-data">
+							<input type="checkbox" name="commodity"
+								th:value="${commodities.id}" style="display: inline-block;max-width: 200px;min-width: 100px;" /> <img
+								th:src="@{'/image/show/' + ${commodities.image.id}}"
+								alt="Amazing Project" class="img-responsive"
+								style="display: inline-block;" />
+						</div>
+						<div class="col-md-8 blog-article" style="">
+							<h4 th:text="${commodities.name}"></h4>
+							<h4 th:text="'类型：'+${commodities.commodityType.name}"></h4>
+							<h4 th:text="'价格：'+${commodities.price}"></h4>
+
+						</div>
+					</div>
+				</div>
+			</div>  -->
+			<div align="center">
+
+				<a id="tianjia" onclick="jqchk()" href="#"> <img alt=""
+					src="../../img/添加到购物计划.png"  style="width: 30%; max-width: 230px;"/>
+				</a>
+			</div>		
+		</div>
+		<div style="text-align: center; margin-top: 5%" class="navbar-fixed-bottom">
+			<a href="#" onclick="renwu();" id="renwu"> <img
+				alt="Amazing Project" src="../../img/任务1.png"
+				style="width: 15%; max-width: 80px;" />
+			</a> <a href="#" onclick="gouwu()" id="gouwu"> <img
+				alt="Amazing Project" src="../../img/购物2.png"
+				style="width: 15%; max-width: 80px; margin-left: 5%" />
+			</a> <a th:href="@{/analysis/choosechildanalysis}" id="pinggu"> <img
+				alt="Amazing Project" src="../../img/评估1.png"
+				style="width: 15%; max-width: 80px; margin-left: 5%" />
+			</a> <a th:href="@{/myinformation/baby}" id="wode"> <img
+				alt="Amazing Project" src="../../img/我的1.png"
+				style="width: 15%; max-width: 80px; margin-left: 5%" />
+			</a>
+		</div>
+		<!-- 添加到购物计划模态框 -->
+		<div class="modal fade" id="myModals" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="margin-top: 50%;width: 80%;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">提示</h4>
+      </div>
+      <div class="modal-body">
+       您还没有选中任何内容&hellip;
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" >关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+		<!-- 添加到购物计划模态框 -->
+		
+		<!-- 删除购物计划弹出模态框 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="margin-top: 50%;width: 80%;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">提示</h4>
+      </div>
+      <div class="modal-body">
+       您确定将勾选中的商品添加到购物计划吗？&hellip;
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="add()">确认</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" >取消</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end 删除购物计划弹出模态框 -->
+		
+		
+		<!-- <div th:replace="partial/footer-new" class="footer"
+		style="width: auto;"></div> -->
+	<script src="../../assets/global/plugins/jquery.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/global/plugins/jquery-migrate.min.js"
+		type="text/javascript"></script>
+	<!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+	<script src="../../assets/global/plugins/jquery-ui/jquery-ui.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/global/plugins/jquery.blockui.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/global/plugins/jquery.cokie.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/global/plugins/uniform/jquery.uniform.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"
+		type="text/javascript"></script>
+	<!-- END CORE PLUGINS -->
+	<script src="../../assets/global/scripts/metronic.js"
+		type="text/javascript"></script>
+	<script src="../../assets/admin/layout/scripts/layout.js"
+		type="text/javascript"></script>
+	<script src="../../assets/admin/layout/scripts/quick-sidebar.js"
+		type="text/javascript"></script>
+	<script src="../../assets/admin/layout/scripts/demo.js"
+		type="text/javascript"></script>
+
+	<script>
+		jQuery(document).ready(function() {
+			// initiate layout and plugins
+			Metronic.init(); // init metronic core components
+			Layout.init(); // init current layout
+			QuickSidebar.init(); // init quick sidebar
+			Demo.init(); // init demo features
+			ComponentsPickers.init();
+		});
+	</script>
+	<!-- <script type="text/javascript">
+function jqchk(){  //jquery获取复选框值
+	 alert("ss");
+	 var s='';
+	  $('input[name="commodity"]:checked').each(function(){
+	    s+=$(this).val()+',';
+	    alert(s);
+	  });
+	  alert(s==''?'你还没有选择任何内容！':s);
+	  var childId = ${}
+	  if(s!=''){
+		  window.location.href='/commodity/addcommodity';
+	  } */
+	}
+</script> -->
+	<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

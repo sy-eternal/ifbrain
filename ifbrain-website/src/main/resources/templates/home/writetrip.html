@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+<meta charset="utf-8" />
+<title>精彩游记记录</title>
+<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8"> -->
+<meta content="" name="description" />
+<meta content="" name="author" />
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+<!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/> -->
+<link
+	href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="../../assets/global/plugins/uniform/css/uniform.default.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="../../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css"
+	rel="stylesheet" type="text/css" />
+<link href="../../assets/admin/pages/css/news.css" rel="stylesheet"
+	type="text/css" />
+<link href="../../assets/global/css/plugins.css" rel="stylesheet"
+	type="text/css" />
+<link href="../../assets/admin/layout/css/layout.css" rel="stylesheet"
+	type="text/css" />
+<link id="style_color"
+	href="../../assets/admin/layout/css/themes/darkblue.css"
+	rel="stylesheet" type="text/css" />
+<link href="../../assets/admin/layout/css/custom.css" rel="stylesheet"
+	type="text/css" />
+<link rel="shortcut icon" href="favicon.ico" />
+<script src="../../assets/global/plugins/jquery.min.js"
+	type="text/javascript"></script>
+<link href="../../assets/frontend/layout/css/style.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/global/plugins/select2/select2.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/global/plugins/jquery-multi-select/css/multi-select.css}" />
+<!-- 日期 -->
+
+<!-- END GLOBAL MANDATORY STYLES -->
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css"
+	href="../../assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="../../assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="../../assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" />
+<link rel="stylesheet" type="text/css"
+	href="../../assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" />
+
+<!-- 日期 -->
+<!--   <script src="../../assets/frontend/pages/scripts/top.js"></script> -->
+<style type="text/css">
+</style>
+</head>
+
+<style>
+em {
+	float: left;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	background: #d7d7d7;
+	line-height: 24px;
+	font-size: 18px;
+	color: #fff;
+	font-weight: bold;
+	margin-right: 5px;
+	text-align: center;
+}
+
+.purpose {
+	height: 24px;
+	padding: 0px 0px 20px 0px;
+	color: #959595;
+	font-size: 14px;
+	line-height: 24px;
+	overflow: hidden;
+	clear: both;
+}
+
+.delete {
+	
+}
+
+.clear {
+	
+}
+</style>
+<style>
+.fileinput {
+	width: 0px;
+	font-size: 12px;
+	margin-left: -50px;
+	margin-top: -3px;
+	position: absolute;
+	filter: alpha(opacity = 0);
+	-moz-opacity: 0;
+	opacity: 0;
+}
+</style>
+<script type="text/javascript">
+ $(function(){
+	 $("#tijiao").click(function(){
+		 alert("ssss");
+		 var i=0;
+		 var a=5;
+		 //i++;
+		 for(i=0;eval(a) > eval(i);i++){
+			 //alert("ssss");
+			 $("#myform").ajaxSubmit({
+				 dataType:'json',
+				 success:function(data){
+				    	alert("dsfdsfds");
+				 },
+				 error:function(xhr){
+				    	alert("error");
+				 }
+			 });
+		 }
+			/*  $("#myform").ajaxSubmit({
+				 dataType:'json',
+				 success:function(data){
+				    	alert("dsfdsfds");
+				 },
+				 error:function(xhr){
+				    	alert("error");
+				 }
+			 });  */
+		 
+	
+ }); 
+});
+</script>
+<script type="text/javascript">
+$(function(){
+	$("#fen").click(function(){
+		  $("#file").click();
+		  $("#file").change(function(){
+			  //var imgPath = $("#file").val();
+			  // alert("sssss");
+			   //th:action="@{/code/submitsmsvalidation}
+			  //<form id='myupload'    th:action='@{/triplogpost/saveimage}' method='post' enctype='multipart/form-data'></form>
+			   $("#myupload").ajaxSubmit({
+				    dataType:'json',
+				    success:function(data){
+				    	alert("dsfdsfds");
+				    },
+				    uploadProgress:function(event,position,total,percentComplete){
+				    	alert("ou");
+				    },
+				    error:function(xhr){
+				    	
+				    	alert("error");
+				    }
+				});  
+				
+			  
+				
+				/*  $.ajax({
+					    type:"Post",
+					    data:$("#zz").serialize(),
+					    url:"/triplogpost/saveimage",
+					    success: function(data) {
+					    	alert("sssss");
+					    }
+					    
+					});  */
+				
+				
+				
+			    /* $.ajax({
+			    	data: formData,
+			        cache: false,
+			        contentType: false,
+			        processData: false,
+			        url: "/triplogpost/saveimage",  //server script to process data
+			        type: "Post",
+			        /* xhr: function() {  // custom xhr
+			            myXhr = $.ajaxSettings.xhr();
+			            if(myXhr.upload){ // check if upload property exists
+			                myXhr.upload.addEventListener('progress',progressHandlingFunction, false); // for handling the progress of the upload
+			            }
+			            return myXhr;
+			        },
+			        //Ajax事件
+			        beforeSend: beforeSendHandler, */
+			        
+			       /*  success: function(data){
+			        	
+			        } */
+			       // error: errorHandler
+			        // Form数据
+			        
+			    //}); 
+		  });
+	});
+});
+</script>
+<script type="text/javascript">
+$(function(){
+	$("#goon").click(function(){
+		$("#parentpurpose").css("display","block");
+		 $("#goon").css("display","none");
+		 $("#hid").hide();
+		 $("#cang").show();
+	});
+});
+
+</script>
+<script>
+function  goagin(){	
+	var count=0;
+	var str ='<div><img  src="../../img/icon_tag.png" width="14px"  height="29px"/>'+
+					'添加目的地: <select name="city" onchange="change()">'+
+					'<option>北京</option>'+
+					'<option>上海</option>'+
+					' </select><br/> '+
+					'  中文名称:<input type="text"  name="cnname" /><br/><br/>'+
+					' 英文名称:<input type="text"  name="enname" /><br/><br/>'+
+					'小贴士:<input type="text"  name="tips" /><br/><br/>'+
+					' 图    片:<input type="file" name="file"  multiple="multiple" /><br/><br/>'+
+					'    游记故事(这个地方有什么亮点？哪些地方值得推荐.):<br/>'+
+					'<textarea name="neirong" style="width: 400px;height: 200px"></textarea><br/><br/>'+
+					'</div>';
+	$("#pur").append(str);
+	$("#jj").val(count+1);
+	
+	/* newtr.find(":input").each(function(i){
+        if($(this).attr("type")!="button"){//不是button的
+            $(this).val("");
+        }
+    }); */
+	$(".delete").css("display","block");
+	$("#pur div:first-child").find(".delete").css("display","none");
+ };
+ 
+ function change(){
+	 $("#info").css("display","block");
+ }
+   $(function(){
+	 
+		 $("input[name='deleteInfo']").click(function(event) {
+			 var index=$(this).parent().index();
+	            $(this).parent().remove();
+	        });
+	   
+	   
+	   
+	   //标题
+	   
+		// 当鼠标聚焦
+		if($('#title').val()==""){
+		    $('#title').val('为你的游记起一个响亮名字,限100字').css({"color":"#666","font-family":"microsoft YAHEI","font-size":"30px","padding-left":"4%",});
+		};
+		    $('#title').focus(
+		       function() {
+		          if($(this).val() == '为你的游记起一个响亮名字,限100字') {
+		              $(this).val('').css({"color":"#222","font-family":"microsoft YAHEI","font-size":"30px",});
+		          }
+		     }
+		// 当鼠标失去焦点
+		     ).blur(
+		     function(){
+		        if($(this).val() == '') {
+		            $(this).val('为你的游记起一个响亮名字,限100字').css({"color":"#666","font-family":"microsoft YAHEI","font-size":"30px",});
+		        }
+		      }
+		    );
+		
+		 
+		    $("#tags").keypress(function (e) {
+	            if (e.keyCode == 13) {
+	            	var value=$(this).val();
+	            	if(value.length==0){
+	            	}else{
+	            	var id = $("#j").val();
+	            	var ids = Number(id);
+	            	var str='<div id="'+ids+'"  class="btn-group btn-group-devided" data-toggle="buttons"><label class="btn btn-transparent grey-salsa btn-circle btn-sm"><input  type="radio"  name="options" class="toggle" />'+value+'<span class="asdf" id="s'+id+'" style="color:#8895A9;">&nbsp;x</span><div style="display:none;"><textarea name="option">'+value+'</textarea></div></label></div>';
+	            	$("#j").val(ids+1);
+	            	$("#tag").prepend(str);
+	            	$("input[name=options]").click();
+	            	
+	            	$(".btn-group").mouseenter(function(){
+	            		 var index=$(this).index();
+	            		 var id = $(this).attr('id');
+	            		 $("#s"+id).attr("style","color:#FAFCFB;");
+	         	    });
+	            	 $(".asdf").click(function(){
+            			 var sid = $(this).attr('id');
+            			 var id = sid.substring(1, sid.length);
+    	         		 $("#"+id).remove(); 
+     	         	});
+	         	   $(".btn-group").mouseleave(function(){
+	         		  var index=$(this).index();
+	         		 var id = $(this).attr('id');
+	            		 $("#s"+id).attr("style","color:#8895A9;");
+	            		
+	              });
+	            }
+	            	$(this).val('');
+	            }
+	        }); 
+		    
+		    
+   });
+</script>
+<script type="text/javascript">
+//下面用于图片上传预览功能
+function setImagePreview(avalue) {
+var docObj=document.getElementById("doc");
+ 
+var imgObjPreview=document.getElementById("preview");
+//火狐下，直接设img属性
+imgObjPreview.style.display = 'block';
+imgObjPreview.style.width = '150px';
+imgObjPreview.style.height = '180px'; 
+//imgObjPreview.src = docObj.files[0].getAsDataURL();
+ 
+//火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
+imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
+//IE下，使用滤镜
+docObj.select();
+var imgSrc = document.selection.createRange().text;
+var localImagId = document.getElementById("localImag");
+//必须设置初始大小
+localImagId.style.width = "150px";
+localImagId.style.height = "180px";
+//图片异常的捕捉，防止用户修改后缀来伪造图片
+try{
+localImagId.style.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+}
+catch(e)
+{
+alert("您上传的图片格式不正确，请重新选择!");
+return false;
+}
+imgObjPreview.style.display = 'none';
+document.selection.empty();
+return true;
+}
+ 
+</script>
+<body style="background-color: #F5F5F5">
+	<input style="border-radius: 20px; background-color:" />
+
+	<div id="form_modal2" style="padding-left: 12%; padding-top: 300px"
+		class="modal fade" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true"></button>
+					<h4 class="modal-title">Datepickers In Modal</h4>
+				</div>
+				<div class="modal-body">
+					<form action="#" class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-md-4">Default Datepicker</label>
+							<div class="col-md-8">
+								<input id="fileupload" type="file" name="mypic" />
+							</div>
+						</div>
+
+
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+					<button class="btn green" data-dismiss="modal">Save
+						changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- BEGIN HEADER  -->
+	<div th:replace="partial/header"></div>
+
+
+	<!-- END HEADER -->
+	<form id="myform" enctype="multipart/form-data"
+		th:action="@{/triplogpost/save}" method="post">
+		<!-- <div  style="margin-top:85px; border:1px solid LightGrey;width: 45%;height: 200px;margin-left: 30%;padding: 0px;background-color:#ECECEC" onmouseover="this.style.borderColor='#DDA0DD'" onmouseout="this.style.borderColor='LightGrey'" >
+	         <button class="glyphicon glyphicon-upload btn blue btn-block" style="a">上传</button>
+	         
+	         <div style="margin-left: 0%;padding-top: 20px"><a id="fen"  href="@{/triplogpost/saveimage}"><span style="font-size:30px;"> 为你的游记添加耀眼封面（支持jgp、png，1024*683）</span></a></div>
+	        <img src=""  class="img-responsive" alt="酒店"/>
+	
+		<div><img th:src="@{'/image/show/' + *{image.id}}" alt="Amazing Project" class="img-responsive"  width="200px" height="300px;"/></div>
+	</div> -->
+		<!-- <div style="margin-top:185px; border:1px solid LightGrey;width: 45%;height: 200px;margin-left: 30%;padding: 0px;background-color:#ECECEC" onmouseover="this.style.borderColor='#DDA0DD'" onmouseout="this.style.borderColor='LightGrey'">
+	<input type="file" id="headId" name="head" class="fileinput" onchange="loadImage(this);" title="点击上传个人图片"/>  
+<a href="#" onclick="var o=document.getElementById('headId');o.click();">点击上传个人图片</a>
+     </div> -->
+		<div
+			style="margin-top: 185px; border: 1px solid LightGrey; width: 45%; height: 200px; margin-left: 30%; padding: 0px; background-color: #ECECEC"
+			onmouseover="this.style.borderColor='#DDA0DD'"
+			onmouseout="this.style.borderColor='LightGrey'">
+			<div id="localImag">
+				<img id="preview"
+					src="http://blog.chuangling.net/Public/images/top.jpg" width="150"
+					height="180" style="display: block; width: 150px; height: 180px;" />
+			</div>
+			<input type="file" name="file" id="doc" style="width: 150px;"
+				onchange="javascript:setImagePreview();" />
+			<div
+				style="border: 1px solid LightGrey; width: 45%; height: 100px; margin-left: 30%; padding: 0px"
+				onmouseover="this.style.borderColor='#DDA0DD'"
+				onmouseout="this.style.borderColor='LightGrey'">
+				<input id="title"
+					style="color: #666; width: 100%; font-family: microsoft YAHEI; height: 100px; font-size: 30px; padding-left: 4%; padding-top: 10px;"></input>
+			</div>
+		</div>
+		<div
+			style="border: 1px solid LightGrey; width: 45%; height: 100px; margin-left: 30%; padding: 0px"
+			onmouseover="this.style.borderColor='#DDA0DD'"
+			onmouseout="this.style.borderColor='LightGrey'">
+			<input name="time" placeholder="选择你的出游时间"
+				class="form-control input-medium date-picker"
+				style="color: #666; width: 100px; font-family: microsoft YAHEI;"></input>
+			<a class="btn yellow" href="#form_modal2" data-toggle="modal">
+				View Datepicker in modal <i class="fa fa-share"></i>
+			</a>
+		</div>
+		<div
+			style="border: 1px solid LightGrey; width: 45%; height: 200px; margin-left: 30%; padding: 0px"
+			onmouseover="this.style.borderColor='#DDA0DD'"
+			onmouseout="this.style.borderColor='LightGrey'">
+			<textarea name="wenben"
+				placeholder="游记说：说说游记的那点事，简单介绍游记的主要内容是什么，为什么推荐自己的游记呢？"
+				style="font-color: #333; width: 100%; height: 200px; font-size: 28px; font-family: microsoft YAHEI;"></textarea>
+		</div>
+		<div class="tags" id="tag"
+			style="background: #EAEAEA; border: 1px solid LightGrey; width: 45%; min-height: 100px; margin-left: 30%; padding: 0px; position: relative;"
+			onmouseover="this.style.borderColor='#DDA0DD'"
+			onmouseout="this.style.borderColor='LightGrey'">
+			<input type="text" id="tags" placeholder="添加标签,回车确认" class="toggle"
+				style="border-style: none; outline: none; background: #EAEAEA; height: 40px; width: 120px; padding-left: 10px;" />
+
+		</div>
+		<div id="hid"
+			style="border: 1px solid LightGrey; width: 45%; height: 50px; margin-left: 30%; padding: 0px; padding-left: 17%; padding-top: 15px">
+			<input readonly="readonly" width="174px" height="36px" value="继续"
+				style="text-align: center; font-size: 18px; background-color: #3f9f5f; color: #fff;"
+				id="goon" />
+		</div>
+
+		<div id="cang">
+			<div
+				style="border: 1px solid LightGrey; width: 45%; height: 100px; margin-left: 30%; padding: 0px; padding-left: 0%; padding-top: 15px; display: block;"
+				id="parentpurpose">
+				<div class="condent-fluid">
+					<div class="row purpose">
+						<div class="col-md-4">
+							<em>1</em>选择想要推荐的目的地
+						</div>
+						<div class="col-md-4">
+							<em>2</em> 给这些目的地一个推荐理由
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="pur"
+				style="border: 1px solid LightGrey; width: 45%; height: 80%; margin-left: 30%; padding: 0px; padding-left: 0%; padding-top: 15px; display: block;">
+				<div>
+					<!-- <div style="padding-left: 90%">
+	    <img  src="../../img/icon_set.png" width="20px"  height="20px" style="margin-left: 8%" />
+		     <br/> -->
+
+					<input type="button" name="deleteInfo" class="delete" value="删除"
+						style="margin-left: 80%; display: none" /> <input type="button"
+						name="clear" class="clear" value="清空"
+						style="margin-left: 80%; display: none" />
+					<div>
+						<img src="../../img/icon_tag.png" width="14px" height="29px" />添加目的地:
+						<select name="city" onchange="change()">
+							<option>北京</option>
+							<option>上海</option>
+							<option>广州</option>
+							<option>武汉</option>
+							<option>天津</option>
+						</select><br /> 中文名称:<input type="text" name="cnname" /><br />
+						<br /> 英文名称:<input type="text" name="enname" /><br />
+						<br /> 小贴士:<input type="text" name="tips" /><br />
+						<br /> 图 片:<input type="file" name="file" multiple="multiple" /><br />
+						<br /> 游记故事(这个地方有什么亮点？哪些地方值得推荐.):<br />
+						<textarea name="neirong" style="width: 400px; height: 200px"></textarea>
+						<br />
+						<br />
+					</div>
+
+				</div>
+
+			</div>
+			<input type="hidden" id="j" value="1" /> <input type="hidden"
+				id="jj" value="1" />
+
+			<div
+				style="border: 1px solid LightGrey; width: 45%; height: 50px; margin-left: 30%; padding: 0px; padding-left: 0%; padding-top: 15px">
+				<input readonly="readonly" width="174px" height="36px"
+					value="继续添加目的"
+					style="text-align: center; font-size: 18px; background-color: #3f9f5f; color: #fff;"
+					onclick="goagin()" id="continue" />
+			</div>
+			<div
+				style="border: 1px solid LightGrey; width: 45%; height: 50px; margin-left: 30%; padding: 0px; padding-left: 12%; padding-top: 5px">
+				<input id="tijiao" readonly="readonly" width="174px" height="36px"
+					value="分享游记"
+					style="text-align: center; font-size: 18px; height: 40px; background-color: #3f9f5f; color: #fff;" />
+			</div>
+		</div>
+
+	</form>
+	<!-- <div id="divform" style="display:none;">
+	  <form id="myupload"    th:action="@{/triplogpost/saveimage}" method="post" enctype="multipart/form-data" ><input id="file" type="file" name="file" multiple="multiple"  /></form></div> -->
+	<!-- <progress></progress> -->
+
+
+
+	<!-- END FOOTER -->
+	<!-- BEGIN HEADER  -->
+	<div th:replace="partial/footer"></div>
+	<!-- END HEADER -->
+	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+	<!-- BEGIN CORE PLUGINS -->
+	<!--[if lt IE 9]>
+<script src="../../assets/global/plugins/respond.min.js"></script>
+<script src="../../assets/global/plugins/excanvas.min.js"></script> 
+<![endif]-->
+
+	<script src="../../assets/global/plugins/jquery-migrate.min.js"
+		type="text/javascript"></script>
+	<!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+	<script src="../../assets/global/plugins/jquery-ui/jquery-ui.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/global/plugins/jquery.blockui.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/global/plugins/jquery.cokie.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/global/plugins/uniform/jquery.uniform.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"
+		type="text/javascript"></script>
+
+
+
+	<script type="text/javascript"
+		th:src="@{/assets/global/plugins/bootstrap-select/bootstrap-select.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js}"></script>
+	<!-- END CORE PLUGINS -->
+	<script src="../../assets/global/scripts/metronic.js"
+		type="text/javascript"></script>
+	<script src="../../assets/admin/layout/scripts/layout.js"
+		type="text/javascript"></script>
+	<script src="../../assets/admin/layout/scripts/quick-sidebar.js"
+		type="text/javascript"></script>
+	<script src="../../assets/admin/layout/scripts/demo.js"
+		type="text/javascript"></script>
+	<!-- 日期 -->
+	<script type="text/javascript"
+		src="../../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript"
+		src="../../assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+	<script type="text/javascript"
+		src="../../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+	<script type="text/javascript"
+		src="../../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="../../assets/admin/pages/scripts/components-pickers.js"></script>
+	<!-- <script th:src="@{../../js/form/jquery.form.js}"></script>	 -->
+	<script th:src="@{../../js/form/jquery-form.js}"></script>
+
+	<!-- 日期 -->
+
+	<script>
+jQuery(document).ready(function() {    
+   Metronic.init(); // init metronic core components
+Layout.init(); // init current layout
+QuickSidebar.init(); // init quick sidebar
+Demo.init(); // init demo features
+});
+ComponentsPickers.init();
+</script>
+
+	<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+
+<link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<!-- Global styles END -->
+
+<!-- Page level plugin styles START -->
+<link href="../../assets/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
+<link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+<!-- Page level plugin styles END -->
+
+<!-- Theme styles START -->
+<link href="../../assets/global/css/components.css" rel="stylesheet" />
+<link href="../../assets/frontend/layout/css/style.css" rel="stylesheet" />
+<link href="../../assets/frontend/layout/css/style-responsive.css" rel="stylesheet" />
+<link href="../../assets/frontend/layout/css/themes/red.css" rel="stylesheet" id="style-color" />
+<link href="../../assets/frontend/layout/css/custom.css" rel="stylesheet" />
+<link rel="shortcut icon" href="favicon.ico"/>
+       
+   <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/> 
+   <script src="../../assets/frontend/pages/scripts/top.js"></script>
+  
+   <link href="../../assets/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+  <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <link href="../../assets/global/plugins/rateit/src/rateit.css" rel="stylesheet" type="text/css"/>
+ 
+  <link href="../../assets/global/css/components.css" rel="stylesheet"/>
+  <link href="../../assets/frontend/layout/css/style.css" rel="stylesheet"/>
+  <link href="../../assets/frontend/pages/css/style-shop.css" rel="stylesheet" type="text/css"/>
+  <link href="../../assets/frontend/layout/css/themes/red.css" rel="stylesheet" id="style-color"/> 
+   <link href="../../assets/frontend/layout/css/style-responsive.css" rel="stylesheet"/> 
+ <link href="../../assets/frontend/layout/css/custom.css" rel="stylesheet"/>
+   <link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+ <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	  <script type="text/javascript" th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+<script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+
+<link type="text/css" th:href="@{/assets/global/plugins/fancybox/source/jquery.fancybox.css}" rel="stylesheet"/>
+<link type="text/css" th:href="@{/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css}" rel="stylesheet"/>
+<link th:href="@{/assets/global/css/components-trip.css}" rel="stylesheet" />
+<link th:href="@{/assets/global/css/plugins.css}" rel="stylesheet" />
+<link th:href="@{/assets/frontend/layout/css/style.css}" rel="stylesheet" />
+<link th:href="@{/assets/frontend/layout/css/style-responsive.css}" rel="stylesheet" />
+<link th:href="@{/assets/frontend/layout/css/themes/red.css}" rel="stylesheet" id="style-color" />
+<link th:href="@{/assets/frontend/layout/css/custom.css}" rel="stylesheet"/>
+
+	<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/bootstrap-select/bootstrap-select.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/select2/select2.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/jquery-multi-select/css/multi-select.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/image-picker/image-picker/image-picker.css}" />
+
+
+<link type="text/css" rel="stylesheet" th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}" />
+<link type="text/css" rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap-theme.min.css}" />
+<link th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}" rel="stylesheet" />
+<link type="text/css" th:href="@{/css/settings.css}" rel="stylesheet" />
+<link type="text/css" th:href="@{/css/style-revolution-slider.css}" rel="stylesheet" />
+<link th:href="@{/css/layouts.css}" rel="stylesheet" type="text/css" />
+ <link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.4/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/global/plugins/jquery-migrate.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-ui/jquery-ui.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.blockui.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.cokie.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/uniform/jquery.uniform.min.js}" type="text/javascript"></script>
+<script	th:src="@{/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/scripts/metronic.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/quick-sidebar.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/demo.js}"></script>
+
+<script type="text/javascript">
+function jqchk() {
+	
+	if ($("input:checkbox[name='check']:checked").length ==3) {
+
+		$("#threedialog").css("display","none");
+	/* 	mainForm.submit(); */
+	} else {
+	 	alert("只能选择3项！"); 
+	/* $("#onlythree").css("display","block"); */
+	}
+	
+};
+
+
+
+
+
+
+</script>
+<script  type="text/javascript">   
+  var   flag1=0;   
+  var   flag2=0;   
+    
+  function   NumberInc()   
+  {   
+       
+              if(flag1==1)   
+              {   
+                  document.all.TextBox1.value++;   
+                  setTimeout("NumberInc()",100);   
+              }   
+              if(flag2==1)   
+              {   
+                  document.all.TextBox1.value--;   
+                  setTimeout("NumberInc()",100);   
+              }   
+     
+  }   
+    
+  function   md(obj)   
+  {   
+    if(obj.id=="Button1")   flag1=1;   
+    if(obj.id=="Button2")   flag2=1;   
+    NumberInc();   
+  }   
+    
+  function   mo(obj)   
+  {   
+    if(obj.id=="Button1")   flag1=0;   
+    if(obj.id=="Button2")   flag2=0;   
+  }   
+  </script>     
+<style type="text/css">
+	#finish_1{
+	background-image: url("../../img/完成.png") ;
+	background-repeat: no-repeat;	}
+	#finish_1:hover{
+	background-image: url("../../img/完成2.png") ;
+	background-repeat: no-repeat;
+	}
+</style>
+<style type="text/css"> 
+#star{position:relative;width:150px;height:24px;margin-left: -20px;}
+#star ul,#star span{float:left;display:inline;height:19px;line-height:19px;}
+#star ul{margin:0 10px;}
+#star li{float:left;width:24px;cursor:pointer;text-indent:-9999px;background:url(../../img/star.png) no-repeat;}
+#star strong{color:#f60;padding-left:10px;}
+#star li.on{background-position:0 -28px;}
+#star p{position:absolute;top:20px;width:159px;height:60px;display:none;background:url(../../img/icon.gif) no-repeat;padding:7px 10px 0;}
+#star p em{color:#f60;display:block;font-style:normal;}
+.jinbi{
+ background-image:url("../../img/coin_single_gold20x20.png");
+ background-repeat: no-repeat;
+}
+.jinbi1{
+ background-image:url("../../img/coin_single_gold灰20x20.png");
+ background-repeat: no-repeat;
+ 
+}
+
+
+@font-face {
+	font-family: myfont1;
+       src: url("../../font/PingFang Medium.ttf");
+}
+@font-face {
+	font-family: myfont2;
+       src: url("../../font/PingFangRegular.ttf");
+}
+.img-circlebaby{
+	border-radius:35% !important;
+}
+#moneybaby1 button{
+background-color: #0151a6 ;
+color:white;
+font-family: myfont2;
+font-weight: bold;
+}
+#moneybaby2 button{
+background-color: #0151a6 ;
+color:white;
+
+font-family: myfont2;
+
+font-weight: bold;
+}
+</style>
+<script type="text/javascript">
+function dangqian(){
+	window.location.href="/project/li/"+$("#id").val()
+}
+function lishi(){
+	window.location.href="/project/ls/"+$("#id").val()
+}
+
+</script>
+<script type="text/javascript">
+function checktask(){
+		 $(".taskname").click(function () {
+			 var tasknames=document.getElementById("tasknames");
+			 tasknames.value=$(this).parent().find('input').attr('id');
+    });
+}
+</script>
+<script type="text/javascript">
+function renwu(){
+	window.location.href="/project/li/"+$("#childids").val()
+}
+function gouwu(){
+	window.location.href="/commodity/index/"+$("#childids").val()
+}
+</script>
+</head>
+<body style="background-color: #333" class="col-md-12 col-xs-12">
+	<div class="col-md-12 col-xs-12" style="width: 100%;height: 587px;background-color: transparent;padding: 0px;" align="center" >
+	<div   style="max-width:480px;background-color: #ffd464 ;height: 630px;padding-top: 20px; position:relative;z-index: 1">
+	<h3 style="text-align: left;font-family: myfont1;font-size: 24px;margin-left: 33px;" >新建任务</h3>
+	<h5 style="font-family:myfont1;font-size: 20px; ;color: #000;margin-top: 106%;text-align: right;"><a style="color: #000;">取消</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="color: #000;">确定</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h5>
+	</div>	
+	<div  style="max-width:480px;;background-color: white;margin-left: 40px;height: 430px;position:relative;z-index: 2;top:-85% ">
+	<!-- 第一行 -->
+	<div class="col-md-12 col-xs-12" >
+	<div class="col-md-3 col-xs-3" style="margin-top: -30px;padding: 0px;width: 70px;height: 90px;" align="right">
+	<img src="../../img/kid.jpg" class="img-responsive img-circle"/>
+	</div>
+	<div  class="col-md-3 col-xs-3" style="margin-top: 20px;text-align: left;"><span style="color: #b2b2b2;font-family: myfont2;font-size: 15px;">选择宝宝</span></div>
+	<div class="col-md-6 col-xs-6" style="margin-top: 16px;" align="left">
+	<span style="font-family: myfont2;background-color: #0151a6;font-size: 20px;padding-left: 8px;padding-right: 8px;;" class="img-circlebaby"><a style="color: white ;">大宝</a></span>
+	<span style="font-family: myfont2;background-color: #0151a6;font-size: 20px;padding-left: 8px;padding-right: 8px;;" class="img-circlebaby"><a style="color: white ;">小宝</a></span>
+	</div>
+	</div>
+	<!-- 任务名称 -->
+	<div class="col-md-12 col-xs-12" style="margin-top: 30px">
+	<div class="col-md-3 col-xs-3" style="padding: 0px;width: 70px;" align="right">
+	&nbsp;
+	</div>
+	<div  class="col-md-3 col-xs-3" style="text-align: left;"><span style="color: #b2b2b2;font-family: myfont2;font-size: 15px;">任务名称</span></div>
+	<div class="col-md-6 col-xs-6" style="" align="left">&nbsp;
+	</div>
+	</div>
+	<!-- 按时睡觉 -->
+	<div class="col-md-12 col-xs-12" style="margin-top: 16px;">
+	<div class="col-md-3 col-xs-3" style="padding: 0px;width: 70px;" align="right">
+	&nbsp;
+	</div>
+	<div  class="col-md-4 col-xs-4" style="text-align: left;"><span style="font-family: myfont1;font-size: 20px;">早点睡觉</span></div>
+	<div class="col-md-5 col-xs-5" style="" align="right" >
+	<span style="color: white ;font-family: myfont2;background-color: #0151a6;font-size: 15px;padding-left: 8px;padding-right: 8px;" class="img-circlebaby"><a style="color: white;">想法</a></span>
+	</div>
+	</div>
+	<!-- 代币设置 -->
+	<div class="col-md-12 col-xs-12" style="margin-top: 40px">
+	<div class="col-md-3 col-xs-3" style="padding: 0px;width: 70px;" align="right">
+	&nbsp;
+	</div>
+	<div  class="col-md-3 col-xs-3" style="text-align: left;"><span style="color: #b2b2b2;font-family: myfont2;font-size: 15px;">代币设置</span></div>
+	<div class="col-md-6 col-xs-6"  style="" align="left">&nbsp;
+	</div>
+	</div>
+	<!-- 代币数 -->
+	<div class="col-md-12 col-xs-12" style="margin-top: 24px;" id="moneybaby1">
+	<div class="col-md-3 col-xs-3" style="padding: 0px;width: 70px;" align="right">
+	&nbsp;
+	</div>
+	<div  class="col-md-4 col-xs-4" style="text-align: left;"><span style="font-family: myfont1;font-size: 20px;">代币数</span></div>
+	<div class="col-md-5 col-xs-5" style="" align="right">
+	  <input id="touchspin_baby" type="text"  style="border-bottom: 2px solid;border-top: none;border-right: none;border-left: none;background-color: transparent;text-align: center;font-size: 20px;" value="0"	name="peopleNum" class="form-control" />
+	</div>
+	</div>
+	<!-- 次数设置 -->
+	<div class="col-md-12 col-xs-12" style="margin-top: 40px">
+	<div class="col-md-3 col-xs-3" style="padding: 0px;width: 70px;" align="right">
+	&nbsp;
+	</div>
+	<div  class="col-md-3 col-xs-3" style="text-align: left;"><span style="color: #b2b2b2;font-family: myfont2;font-size: 15px;">次数设置</span></div>
+	<div class="col-md-6 col-xs-6" style="" align="left">&nbsp;
+	</div>
+	</div>
+	<!-- 完成次数 -->
+	<div class="col-md-12 col-xs-12" style="margin-top: 16px;" id="moneybaby2">
+	<div class="col-md-3 col-xs-3" style="padding: 0px;width: 70px;" align="right">
+	&nbsp;
+	</div>
+	<div  class="col-md-4 col-xs-4" style="text-align: left;"><span style="font-family: myfont1;font-size: 20px;">完成次数</span></div>
+	<div class="col-md-5 col-xs-5" style="" align="right">
+	<input id="touchspin_babys" type="text" style="border-bottom: 2px solid;border-top: none;border-right: none;border-left: none;background-color: transparent;text-align: center;font-size: 20px;" value="0"	name="peopleNum" class="form-control" />
+	</div>
+	</div>
+	</div>
+	</div>
+	
+	
+
+
+
+<script type="text/javascript"
+				th:src="@{/assets/global/plugins/jquery-validation/js/jquery.validate.min.js}"></script>
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/jquery-validation/js/additional-methods.min.js}"></script>
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js}"></script>
+			<!-- END PAGE LEVEL PLUGINS -->
+
+			<!-- BEGIN PAGE LEVEL SCRIPTS -->
+			<script th:src="@{/assets/global/scripts/metronic.js}"
+				type="text/javascript"></script>
+			<script th:src="@{/assets/admin/layout/scripts/layout.js}"
+				type="text/javascript"></script>
+			<script th:src="@{/assets/admin/pages/scripts/form-wizard.js}"></script>
+			<!-- END PAGE LEVEL SCRIPTS -->
+
+			<!-- BEGIN PAGE LEVEL PLUGINS -->
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/bootstrap-daterangepicker/moment.min.js}"></script>
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js}"></script>
+			<script th:src="@{/assets/admin/pages/scripts/components-pickers.js}"></script>
+			<script
+				th:src="@{/assets/admin/pages/scripts/components-form-tools.js}"></script>
+			<!-- END PAGE LEVEL PLUGINS -->
+
+			<!-- BEGIN PAGE LEVEL PLUGINS -->
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/fuelux/js/spinner.min.js}"></script>
+			<script
+				th:src="@{/assets/global/plugins/bootstrap-touchspin/bootstrap.touchspin.js}"
+				type="text/javascript"></script>
+			<script
+				th:src="@{/assets/global/plugins/typeahead/handlebars.min.js}"
+				type="text/javascript"></script>
+			<script
+				th:src="@{/assets/global/plugins/typeahead/typeahead.bundle.min.js}"
+				type="text/javascript"></script>
+			<!-- END PAGE LEVEL PLUGINS -->
+
+			<!-- BEGIN PAGE LEVEL PLUGINS -->
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/bootstrap-select/bootstrap-select.min.js}"></script>
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js}"></script>
+			<!-- END PAGE LEVEL PLUGINS -->
+
+			<script
+				th:src="@{/assets/global/plugins/image-picker/image-picker/image-picker.js}"
+				type="text/javascript"></script>
+			<script
+				th:src="@{/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js}"
+				type="text/javascript"></script>
+			<script
+				th:src="@{/assets/admin/pages/scripts/components-dropdowns.js}"></script>
+
+			<script th:src="@{/assets/frontend/layout/scripts/layout.js}"
+				type="text/javascript"></script>
+	<script>
+				$(function() {
+					// initiate layout and plugins
+					Metronic.init(); // init metronic core components
+					Layout.init(); // init current layout
+					Layout.initOWL();
+					/* FormWizard.init(); */
+					ComponentsPickers.init();
+					ComponentsDropdowns.init();
+					ComponentsFormTools.init();
+					CustomFormActions.init();
+					$("select").imagepicker();
+					/* trip.init(); */
+				});
+			</script>
+</body>
+</html>

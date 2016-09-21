@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>费率修改</title>
+<!-- 使用jQuery Validation控件进行前端验证 -->
+<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+	function price() {
+		var carratecost = $('#carratecost').val();
+		var rentalCarId = $('#rentalCarId').val();
+		$.ajax({
+			type : "GET",
+			url : "/specialCarRate/price",
+			data : {
+				"carratecost" : carratecost,
+				"rentalCarId" : rentalCarId
+			},
+			success : function(data) {
+				var coefficient = data;
+				var price = carratecost * coefficient;
+				$('#carrateprice').html(price);
+				document.getElementById('carrateprice').value = price;
+			}
+
+		});
+	}
+</script>
+
+
+<script type="text/javascript">
+	$(function() {
+		jQuery.validator.setDefaults({
+			debug : true,
+			success : "valid"
+		});
+
+		$("#mainForm").validate({
+			rules : {
+				"carratecost" : {
+					required : true,
+					number : true
+				}
+			},
+			messages : {
+				"carratecost" : {
+					required : "价格不能为空"
+				}
+			},
+
+			highlight : function(element) {
+				$(element).closest(".form-group").addClass("has-error");
+			},
+			success : function(label) {
+				label.closest(".form-group").removeClass("has-error");
+				label.closest(".form-group").addClass("has-success");
+			},
+			errorPlacement : function(error, element) {
+				element.parent("div").append(error);
+			},
+			submitHandler : function(form) {
+				form.submit();
+			}
+		});
+	});
+</script>
+
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid">
+		<div class="row">
+			<div class="page-header">
+				<h1>费率修改</h1>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<form id="mainForm" class="form-horizontal" role="form" method="post" th:action="@{/specialCarRate/update}"
+						th:object="${specialCarRate}">
+						<input type="hidden" name="_method" value="put" /> <input type="hidden" th:field="*{id}" />
+						
+						<div class="form-group">
+							<label for="specialCar" class="col-xs-3 control-label">租车类型</label>
+							<div class="col-xs-6">
+								<input type="hidden" id="rentalCarId" th:value="${rentalCar.id}" name="rentalCarId" /> <select
+									class="form-control" th:field="*{specialcar}" name="rentalCar" id="rentalCar" disabled="disabled">
+									<option th:each="rentalCar : ${rentalCar}" th:value="${rentalCar.id}" 
+										th:text="${rentalCar.cartype}" id="rentalCar"></option>
+								</select> <span class="text-danger" th:if="${#fields.hasErrors('specialcar')}" th:errors="*{specialcar}"></span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="carratecost" class="col-xs-3 control-label"> 成本价（美元）</label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{carratecost}" required="required" onblur="price();"
+									id="carratecost" /> <span class="text-danger" th:if="${#fields.hasErrors('carratecost')}"
+									th:errors="*{carratecost}"></span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="carrateprice" class="col-xs-3 control-label"> 销售价（美元）</label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{carrateprice}" required="required"
+									id="carrateprice" name="carrateprice" readonly="readonly" /> <span class="text-danger"
+									th:if="${#fields.hasErrors('carrateprice')}" th:errors="*{carrateprice}"></span>
+							</div>
+						</div>
+
+						<p class="text-center">
+							<button type="submit" class="btn btn-primary">提交</button>
+							<a th:href="@{'/specialCar/specialCarRate/'+${rentalCar.id}}" class="btn btn-default">返回</a>
+						</p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+</body>
+</html>

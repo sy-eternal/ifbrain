@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>保费新增</title>
+<!-- 使用jQuery Validation控件进行前端验证 -->
+<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+	$(function() {
+		jQuery.validator.setDefaults({
+			debug : true,
+			success : "valid"
+		});
+
+		$("#mainForm").validate({
+			rules : {
+				"insuranceRateCost" : {
+					required : true,
+					number : true
+				}
+			},
+			messages : {
+				"insuranceRateCost" : {
+					required : "价格不能为空"
+				}
+			},
+
+			highlight : function(element) {
+				$(element).closest(".form-group").addClass("has-error");
+			},
+			success : function(label) {
+				label.closest(".form-group").removeClass("has-error");
+				label.closest(".form-group").addClass("has-success");
+			},
+			errorPlacement : function(error, element) {
+				element.parent("div").append(error);
+			},
+			submitHandler : function(form) {
+				form.submit();
+			}
+		});
+	});
+</script>
+
+<script type="text/javascript">
+	function price() {
+		var insuranceRateCost = $('#insuranceRateCost').val();
+		var insuranceActivityId = $('#insuranceActivityId').val();
+		$.ajax({
+			type : "GET",
+			url : "/insuranceRate/price",
+			data : {
+				"insuranceRateCost" : insuranceRateCost,
+				"insuranceActivityId" : insuranceActivityId
+			},
+			success : function(data) {
+				var coefficient = data;
+				var price = insuranceRateCost * coefficient;
+				$('#insuranceRatePrice').html(price);
+				document.getElementById('insuranceRatePrice').value = price;
+			}
+
+		});
+	}
+</script>
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid">
+		<div class="row">
+			<div class="page-header">
+				<h1>保费新增</h1>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<form id="mainForm" class="form-horizontal" role="form" method="post" th:action="@{/insuranceRate/create}"
+						th:object="${insuranceRate}">
+
+						<div class="form-group" th:classappend="${#fields.hasErrors('insuranceActivity')}? 'has-error'">
+							<label for="insuranceActivity" class="col-xs-3 control-label">险种名称</label>
+							<div class="col-xs-6">
+								<input type="hidden" id="insuranceActivityId" th:value="${insuranceActivity.id}" name="insuranceActivityId" /> <select
+									class="form-control" th:field="*{insuranceActivity}" name="insuranceActivity" id="insuranceActivity"
+									disabled="disabled">
+									<option th:each="insuranceactivity : ${insuranceActivity}" th:value="${insuranceactivity.id}"
+										th:text="${insuranceactivity.insuranceName}" id="insuranceactivity"></option>
+								</select> <span class="text-danger" th:if="${#fields.hasErrors('insuranceActivity')}" th:errors="*{insuranceActivity}"></span>
+							</div>
+						</div>
+
+
+						<div class="form-group" th:classappend="${#fields.hasErrors('insuranceDuration')}? 'has-error'">
+							<label for="insuranceDuration" class="col-xs-3 control-label"> 保险期间 </label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{insuranceDuration}" required="required" /> <span
+									class="text-danger" th:if="${#fields.hasErrors('insuranceDuration')}" th:errors="*{insuranceDuration}"></span>
+							</div>
+						</div>
+
+						<div class="form-group" th:classappend="${#fields.hasErrors('holderType')}? 'has-error'">
+							<label for="holderType" class="col-xs-3 control-label"> 人员类型</label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{holderType}" required="required" /> <span
+									class="text-danger" th:if="${#fields.hasErrors('holderType')}" th:errors="*{holderType}"></span>
+							</div>
+						</div>
+
+						<div class="form-group" th:classappend="${#fields.hasErrors('insuranceRateCost')}? 'has-error'">
+							<label for="insuranceRateCost" class="col-xs-3 control-label"> 成本价（美元）</label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{insuranceRateCost}" required="required" onblur="price();"
+									id="insuranceRateCost" /> <span class="text-danger" th:if="${#fields.hasErrors('insuranceRateCost')}"
+									th:errors="*{insuranceRateCost}"></span>
+							</div>
+						</div>
+
+						<div class="form-group" th:classappend="${#fields.hasErrors('insuranceRatePrice')}? 'has-error'">
+							<label for="insuranceRatePrice" class="col-xs-3 control-label"> 销售价（美元）</label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{insuranceRatePrice}" required="required"
+									id="insuranceRatePrice" name="insuranceRatePrice" readonly="readonly" /> <span class="text-danger"
+									th:if="${#fields.hasErrors('insuranceRatePrice')}" th:errors="*{insuranceRatePrice}"></span>
+							</div>
+						</div>
+
+						<p class="text-center">
+							<button type="submit" class="btn btn-primary">提交</button>
+							<a th:href="@{'/insuranceActivity/insuranceRate/'+${insuranceActivity.id}}" class="btn btn-default">返回</a>
+						</p>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+</body>
+</html>

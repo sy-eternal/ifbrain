@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>  
+    <meta charset="utf-8"/>
+    <title>购物评估</title>
+     <link rel="shortcut icon" href="../../img/showhtml.ico" /> 
+	<script th:src="@{/assets/global/scripts/esl.js}"></script>		
+<script th:src="@{/assets/global/scripts/echarts.js}"></script>		
+
+<style type="text/css">
+#workana{
+	background-image: url("../../img/任务评估.png");
+}
+#workana:hover{
+	background-image: url("../../img/任务评估2.png");
+}
+	
+	#shopana{
+	background-image: url("../../img/购物评估2.png");
+}
+
+	#accountana{
+	background-image: url("../../img/金额评估.png");
+}
+	#accountana:hover{
+	background-image: url("../../img/金额评估2.png");
+}
+#clear{ clear:both} 
+</style>
+</head>
+
+<body >
+	   <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+	   <div layout:fragment="content" class="col-md-9 col-sm-12 col-xs-12">
+     <div style="margin-top: 50px;">
+	   <a th:href="@{/analysis/workanalysis}" style="display: block;width: 200px;height: 62px;float: left;" id="workana"></a>
+	    <a  style="display: block;width: 200px;height: 62px;float: left;" id="shopana"></a>
+	     <a th:href="@{/analysis/accountanalysis}" style="display: block;width: 200px;height: 62px;float: left;" id="accountana"></a>
+	     <div id="clearfix"></div>
+       <div id="main" style="height: 400px;"  ></div>	
+     <input type="hidden"  id="name"  name="name"  th:value="${name}"/>
+	     <input type="hidden"  id="nameandprice"  name="nameandprice"  th:value="${nameandprice}"/>
+	 <script th:src="@{/js/controller/shopanalysiss-controller.js}"></script>
+
+    </div>
+    </div>
+</body>
+</html>

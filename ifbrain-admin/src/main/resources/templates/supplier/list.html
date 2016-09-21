@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+	<title>供应商列表</title>
+	<!-- DataTables -->
+	<!-- <link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+	<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+	<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+	<script th:src="@{/js/controller/supplier-controller.js}"></script> -->
+	<link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+ <script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+<script th:src="@{/js/util/http-context.js}"></script>
+	<script th:src="@{/js/controller/supplier-controller.js}"></script>
+</head>
+<body>
+	<div layout:fragment="content" >
+		<div class="page-header">
+			<h1>供应商列表</h1>
+		</div>
+		<a class="btn btn-default" th:href="@{/supplier/create}">新增</a>
+		<table id="table" class="table table-striped table-bordered table-hover">
+		    <thead>
+		        <tr>
+		        <th>编号</th>
+		            <th>供应商名称</th>
+		            <th>供应商类型</th>
+		            <th>有无API</th>
+		            <th>状态</th>
+		            <th>操作</th>
+		        </tr>
+		    </thead>
+		</table>
+	</div>
+	
+	<!-- <div layout:fragment="script">
+		<script th:src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+		<script>
+			$(function() {
+				Metronic.init(); // init metronic core components
+				Layout.init(); // init current layout
+				QuickSidebar.init(); // init quick sidebar
+				Demo.init(); // init demo features
+			});
+		</script>
+	</div> -->
+		<div layout:fragment="script">
+		<script>
+			$(function() {
+				Metronic.init();
+				Layout.init(); 
+				QuickSidebar.init(); 
+				Demo.init(); 
+				SupplierController.init();
+			});
+		</script>
+	</div>
+	
+</body>
+</html>

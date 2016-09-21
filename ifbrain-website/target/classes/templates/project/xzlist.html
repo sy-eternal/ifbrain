@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="UTF-8"></meta>
+<title>当前任务</title>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script
+	th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+<script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+<!-- <script th:src="@{/js/util/http-context.js}"></script> -->
+
+<!-- 
+<script type="text/javascript" th:src="@{../../js/lib/jquery-validation/jQuery-1.7.1.js}"></script>
+<script type="text/javascript" th:src="@{../../js/lib/jquery-validation/comment.js}"></script> -->
+
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/js/controller/dqproject-controller.js}"></script>
+
+</head>
+<body>
+
+
+	<div layout:fragment="content" class="col-md-9 col-sm-12 col-xs-12"
+		style="margin-top: 130px;">
+		
+		<img alt="Amazing Project" src="../../img/bianjiao.png"  style="position: absolute;left: 880px;width: 30px;top: 410px;z-index: 999" />
+		<div style="margin-top: 50px; width: 1000px;">
+			<div
+				style="margin-top: 50px; background-image: url('../../img/project.png'); height: 1364px; width: 1000px;"
+				class="container">
+				<div class="tabbable-line" style="margin-top: 240px;">
+				<!-- 	<ul class="nav nav-tabs " style="background-color: green; width: 600px; margin-left: 70px;">
+						<li class="active" style="width: 50%;text-align: center; background-color: yellow;"><a
+							th:href="@{/project/li}" style="padding: 10px;"  ><img alt="Amazing Project" src="../../img/dangqian.png" /> </a></li>
+
+						<li style="width: 49%; text-align: center; background-color: yellow;"><a
+							th:href="@{/project/ls}" style="padding: 10px;"><img alt="Amazing Project" src="../../img/lishi.png" /></a></li>
+
+					</ul> -->
+					<a th:href="@{/project/li}" style="margin-left: 220px;"><img alt="Amazing Project" src="../../img/dangqianxuanzhong.png" style=" width: 230px"/></a>
+					<a th:href="@{/project/ls}"><img alt="Amazing Project" src="../../img/lishi1.png" style=" width: 230px"/></a>
+					<div
+						style="margin-left: 20px; margin-right: 20px; padding-top: 20px;" id="xxx">
+						<label><font color="red">*</font>&nbsp;<strong
+							style="font-size: 18px;"></strong></label> <select id="childs"
+							class="form-control select2" name="childs"  style="width: 180px;">
+							<option th:value="-1" th:text="请选择宝贝"></option>
+							<option th:each="childs:${child}" th:value="${childs.id}"
+								th:text="${childs.name}" th:id="${childs.money.id}">1-7</option>
+						</select> 
+					</div> 
+				</div>
+				
+				<div style="margin-top: 40px; width: 82%; margin-left: 80px;">
+					<div class="" style="width: 100%;" >
+						<table id="table"	class=""   style="background-image: url('../../img/project.png');width: 100%;height: 200px;" >
+							<thead>
+								<tr>
+									<th class="col-xs-2">宝贝</th>
+									<th class="col-xs-2">任务名称</th>
+									<th class="col-xs-2">金币</th>
+									<th class="col-xs-2">操作</th>
+									
+								</tr>
+
+							</thead>
+							
+						</table>
+					</div>
+				</div>
+				<div style = "margin-left: 380px; margin-top: 40px;" >
+					<input type ="text" name = "balance" id = "balance" value =" " readonly="readonly" style="width: 180px; height: 30px; text-align: left"/> 
+					</div><div style="margin-top: 40px;"><!-- <a class="btn blue button-next" style="background-image:url('../../img/duihuan.png'); height: 150px; width: 348px; margin-bottom:30px; margin-left: 310px;"
+								th:href="@{/commodity/index}" ></a> --><a th:href="@{/commodity/index}" ><img  src="../../img/duihuan.png" alt="Amazing Project" 
+										class="img-responsive"  style="margin-left: 380px;width: 200px"/></a> 
+				</div>
+				<input type="hidden" name="cc" id="cc" value="-1" />
+				
+			</div>
+		</div>
+	</div>
+	<div layout:fragment="script">
+		<script th:src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+		<script>
+			$(function() {
+				Metronic.init();
+				Layout.init();
+				QuickSidebar.init();
+				Demo.init();
+				ProjectsController.init();
+			});
+		
+		</script>
+	</div>
+</body>
+</html>

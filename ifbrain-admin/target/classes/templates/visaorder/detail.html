@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout">
+<head>
+    <title>签证代办订单详情</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <link th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}" type="text/css" th:type="@{/text/css}"
+          rel="stylesheet"/>
+    <link th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/assets/global/plugins/simple-line-icons/simple-line-icons.min.css}" rel="stylesheet"
+          type="text/css"/>
+    <link th:href="@{/assets/global/plugins/uniform/css/uniform.default.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css}" rel="stylesheet"
+          type="text/css"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/select2/select2.css}"/>
+    <link th:href="@{/assets/global/css/components.css}" id="style_components" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/assets/global/css/plugins.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/assets/admin/layout/css/layout.css}" rel="stylesheet" type="text/css"/>
+    <link id="style_color" href="@{/assets/admin/layout/css/themes/darkblue.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/assets/admin/layout/css/custom.css}" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+</head>
+<body>
+<div class="clearfix">
+</div>
+<div layout:fragment="content">
+    <div class="row">
+        <div class="col-md-9 col-sm-9 col-sm-offset-2">
+            <h1>签证代办订单详情</h1>
+
+            <div class="content-form-page">
+                <div class="row">
+                    <div class="col-md-7 col-sm-7">
+                        <form class="form-horizontal" role="form" method="post" th:object="${visaOrder}"
+                              enctype="multipart/form-data">
+
+                            <input type="hidden" name="_method" value="put"/>
+                            <input type="hidden" th:field="*{id}"/>
+
+                            <div class="form-group" th:classappend="${#fields.hasErrors('createTime')}? 'has-error'">
+                                <label for="createTime" class="col-xs-3 control-label">创建时间</label>
+
+                                <div class="col-xs-6">
+                                    <input id="createTime" type="text" class="form-control" th:field="*{createTime}"
+                                           disabled="disabled"/>
+                                    <span class="text-danger" th:if="${#fields.hasErrors('createTime')}"
+                                          th:errors="*{createTime}"></span>
+                                </div>
+                            </div>
+                            <div class="form-group" th:classappend="${#fields.hasErrors('orderNumber')}? 'has-error'">
+                                <label for="orderNumber" class="col-xs-3 control-label">订单号</label>
+
+                                <div class="col-xs-6">
+                                    <input id="orderNumber" type="text" class="form-control" th:field="*{orderNumber}"
+                                           disabled="disabled"/>
+                                    <span class="text-danger" th:if="${#fields.hasErrors('orderNumber')}"
+                                          th:errors="*{orderNumber}"></span>
+                                </div>
+                            </div>
+                            <div class="form-group"
+                                 th:classappend="${#fields.hasErrors('taobaoOrderNumber')}? 'has-error'">
+                                <label for="taobaoOrderNumber" class="col-xs-3 control-label">淘宝订单号</label>
+
+                                <div class="col-xs-6">
+                                    <input id="taobaoOrderNumber" type="text" class="form-control"
+                                           th:field="*{taobaoOrderNumber}" disabled="disabled"/>
+                                    <span class="text-danger" th:if="${#fields.hasErrors('taobaoOrderNumber')}"
+                                          th:errors="*{taobaoOrderNumber}"></span>
+                                </div>
+                            </div>
+                            <div class="form-group" th:classappend="${#fields.hasErrors('paymentId')}? 'has-error'">
+                                <label for="paymentId" class="col-xs-3 control-label">客户支付宝交易号</label>
+
+                                <div class="col-xs-6">
+                                    <input id="paymentId" type="text" class="form-control" th:field="*{paymentId}"
+                                           disabled="disabled"/>
+                                    <span class="text-danger" th:if="${#fields.hasErrors('paymentId')}"
+                                          th:errors="*{paymentId}"></span>
+                                </div>
+                            </div>
+                            <div class="form-group" th:classappend="${#fields.hasErrors('totalAmount')}? 'has-error'">
+                                <label for="totalAmount" class="col-xs-3 control-label">订单金额</label>
+
+                                <div class="col-xs-6">
+                                    <input id="totalAmount" type="text" class="form-control" th:field="*{totalAmount}"
+                                           disabled="disabled"/>
+                                    <span class="text-danger" th:if="${#fields.hasErrors('totalAmount')}"
+                                          th:errors="*{totalAmount}"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group" th:classappend="${#fields.hasErrors('headCount')}? 'has-error'">
+                                <label for="headCount" class="col-xs-3 control-label">申请人数</label>
+
+                                <div class="col-xs-6">
+                                    <input id="headCount" type="text" class="form-control" th:field="*{headCount}"
+                                           disabled="disabled"/>
+                                    <span class="text-danger" th:if="${#fields.hasErrors('headCount')}"
+                                          th:errors="*{headCount}"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="appNames" class="col-xs-3 control-label">申请人姓名</label>
+
+                                <div class="col-xs-6">
+                                    <dd th:text="${appNames}"></dd>
+
+                                    <!--<input id="appNames" type="text" class="form-control"-->
+                                           <!--th:value="${appNames}" disabled="disabled"/>-->
+                                    <!--<span class="text-danger" th:if="${#fields.hasErrors('${appNames}')}"-->
+                                          <!--th:errors="${appNames}"></span>-->
+                                </div>
+                            </div>
+
+                            <div class="form-group"
+                                 th:classappend="${#fields.hasErrors('expressName')}? 'has-error'">
+                                <label for="expressName" class="col-xs-3 control-label">快递公司</label>
+
+                                <div class="col-xs-6">
+                                    <input id="expressName" type="text" class="form-control" th:field="*{expressName}"
+                                           disabled="disabled"/>
+                                    <span class="text-danger" th:if="${#fields.hasErrors('expressName')}"
+                                          th:errors="*{expressName}"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group" th:classappend="${#fields.hasErrors('expressNumber')}? 'has-error'">
+                                <label for="expressNumber" class="col-xs-3 control-label">快递单号</label>
+
+                                <div class="col-xs-6">
+                                    <input id="expressNumber" type="text" class="form-control"
+                                           th:field="*{expressNumber}" disabled="disabled"/>
+                                    <span class="text-danger" th:if="${#fields.hasErrors('expressNumber')}"
+                                          th:errors="*{expressNumber}"></span>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                                    <a type="button" th:href="@{/visa/orders}" class="btn btn-default">关闭</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/assets/global/plugins/jquery.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-migrate.min.js}" type="text/javascript"></script>
+<!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script th:src="@{/assets/global/plugins/jquery-ui/jquery-ui.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap/js/bootstrap.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js}"
+        type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.blockui.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.cokie.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/uniform/jquery.uniform.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js}" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" th:src="@{/assets/global/plugins/jquery-validation/js/jquery.validate.min.js}"></script>
+<script type="text/javascript"
+        th:src="@{/assets/global/plugins/jquery-validation/js/additional-methods.min.js}"></script>
+<script type="text/javascript"
+        th:src="@{/assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js}"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script th:src="@{/assets/global/scripts/metronic.js}" type="text/javascript"></script>
+<script th:src="@{/assets/admin/layout/scripts/layout.js}" type="text/javascript"></script>
+<script th:src="@{/assets/admin/layout/scripts/quick-sidebar.js}" type="text/javascript"></script>
+<script th:src="@{/assets/admin/layout/scripts/demo.js}" type="text/javascript"></script>
+<script th:src="@{/assets/admin/pages/scripts/form-wizard.js}"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<script>
+    jQuery(document).ready(function () {
+        // initiate layout and plugins
+        Metronic.init(); // init metronic core components
+        Layout.init(); // init current layout
+        QuickSidebar.init(); // init quick sidebar
+        Demo.init(); // init demo features
+        FormWizard.init();
+    });
+</script>
+</body>
+</html>

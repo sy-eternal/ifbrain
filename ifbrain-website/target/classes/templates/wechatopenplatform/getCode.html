@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<script>
+		var doc = document.documentElement;
+		doc.setAttribute('data-useragent', navigator.userAgent);
+	</script>
+	<meta name="keywords" content="微信登录"/>
+	<title>微信登录</title>
+		<script th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+		<script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+	<script>
+	$(function(){
+		var code=$("#code").val();
+		var access_token="";
+		var openid="";
+	 
+			//需要传的参数，可以不传。 
+			var data= {appid:"wxf1b3a25abd08a486",secret:"f75d636b4f6b34c493bb86446e6958c8",code:"001eb2162d287f36ba116a0f6d8ff09V",grant_type:"authorization_code"}; 
+			//注意url一定要以callback=?的形式拼接，callback参数名可以自定义， 
+			//但后台必须也要同步获取的参数名 
+					
+			$.ajax({
+				type : "get",
+				 async:false,
+				//url : "https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxf1b3a25abd08a486&amp;secret=f75d636b4f6b34c493bb86446e6958c8&amp;code=0113198435e2887ee0fe1096a5f2726J&amp;grant_type=authorization_code&amp;callback=?",
+				url : "https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxf1b3a25abd08a486&amp;secret=f75d636b4f6b34c493bb86446e6958c8&amp;code=0318357d88255e021ea39e7dec3e990M&amp;grant_type=authorization_code",
+				       https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID                 &secret=SECRET                              &code=CODE                                &grant_type=authorization_code
+	            contentType:'application/json',
+				success : function(data) {
+					alert(data);
+				}
+				,error: function(XMLHttpRequest, textStatus, errorThrown) {  
+				            alert("status"+XMLHttpRequest.status);  
+					            alert("readyState"+XMLHttpRequest.readyState);  
+				            alert("textstatus"+textStatus);  
+				            alert("responseText"+XMLHttpRequest.responseText); 
+				            alert(errorThrown);  
+			        }  
+			}).done(function(data){
+				return data;
+			}).fail(function(jqXHR) {
+				  var data = jQuery.parseJSON(jqXHR.responseText);
+				  return data;
+				 });;
+			
+			
+		
+			
+			});
+	
+	</script>
+	
+     
+</head>
+<body >
+
+<form  >
+<input type="text"  id="code"   th:value="${code}" />
+
+
+<input type="text"   name="nickname" id="nickname"/>
+
+
+<input type="text"   name="sex" id="sex"/>
+
+
+
+<input type="text"   name="city" id="city"/>
+
+
+
+<input type="text"   name="province" id="province"/>
+
+
+
+<input type="text"   name="headimgurl" id="headimgurl"/>
+
+<input type="text"   name="country" id="country"/>
+
+
+<input type="text"   name="openid" id="openid"/>
+
+<input type="text"   name="language" id="language"/>
+
+
+<input type="text"   name="unionid" id="unionid"/>
+
+
+</form>
+</body>
+</html>

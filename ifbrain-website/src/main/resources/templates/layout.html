@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+
+<!-- Head BEGIN -->
+<head>
+  
+  <title>Layout</title>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+ <link rel="shortcut icon" href="../../img/showhtml.ico" />
+  <meta content="Metronic Shop UI description" name="description"/>
+  <meta content="Metronic Shop UI keywords" name="keywords"/>
+  <meta content="keenthemes" name="author"/>
+
+  <meta property="og:site_name" content="-CUSTOMER VALUE-"/>
+  <meta property="og:title" content="-CUSTOMER VALUE-"/>
+  <meta property="og:description" content="-CUSTOMER VALUE-"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="-CUSTOMER VALUE-"/><!-- link to image for socio -->
+  <meta property="og:url" content="-CUSTOMER VALUE-"/>
+
+  
+
+  <!-- Fonts START -->
+  <!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|
+  	Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css"/> --> 
+  <!-- Fonts END -->
+
+  <!-- Global styles START -->          
+  <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Global styles END --> 
+     <script src="../../assets/frontend/pages/scripts/top.js"></script>
+  <!-- Page level plugin styles START -->
+  <link href="../../assets/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+  <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"/><!-- for slider-range -->
+  <link href="../../assets/global/plugins/rateit/src/rateit.css" rel="stylesheet" type="text/css"/>
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link href="../../assets/global/css/components.css" rel="stylesheet"/>
+  <link href="../../assets/frontend/layout/css/style.css" rel="stylesheet"/>
+  <link href="../../assets/frontend/pages/css/style-shop.css" rel="stylesheet" type="text/css"/>
+  <link href="../../assets/frontend/layout/css/style-responsive.css" rel="stylesheet"/>
+  <link href="../../assets/frontend/layout/css/themes/red.css" rel="stylesheet" id="style-color"/>
+  <link href="../../assets/frontend/layout/css/custom.css" rel="stylesheet"/>
+  <!-- Theme styles END -->
+  <!-- icon -->
+  <link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+<style type="text/css">
+.floating_ck {
+	position: fixed;
+	right: 20px;
+	top: 30%;
+}
+
+.floating_ck dl dd {
+	position: relative;
+	width: 80px;
+	height: 80px;
+	background-color: #646577;
+	border-bottom: solid 1px #555666;
+	text-align: center;
+	background-repeat: no-repeat;
+	background-position: center 20%;
+	cursor: pointer;
+}
+
+.floating_ck dl dd:hover {
+	border-bottom: solid 1px #a40324;
+}
+
+.floating_ck dl dd:hover .floating_left {
+	display: block;
+}
+
+.consult, .words {
+	background-image: url(../../assets/img/kficon.png);
+}
+
+.quote {
+	background-image: url(../../assets/img/font-524.png);
+}
+
+.qrcord {
+	background-image: url(../../assets/img/erweima.png);
+}
+
+.return {
+	background-image: url(../../assets/img/fanhui.png);
+}
+
+.floating_ck dd span {
+	color: #fff;
+	display: block;
+	padding-top: 54px;
+}
+
+.floating_left {
+	position: absolute;
+	left: -160px;
+	top: 0px;
+	width: 160px;
+	height: 80px;
+	background-color: white;
+	border-bottom: solid 1px #a40324;
+	display: none;
+}
+
+.floating_left a {
+	color: gray;
+	line-height: 80px;
+}
+
+.floating_ewm {
+	height: 260px;
+	top: -180px;
+}
+
+.floating_ewm i {
+	background-image: url(../../assets/frontend/onepage/img/wechat.jpg);
+	display: block;
+	width: 145px;
+	height: 145px;
+	margin: auto;
+	margin-top: 7px;
+}
+
+.floating_ewm p {
+	color: gray;
+	margin-top: 5px;
+}
+
+.floating_ewm .qrcord_p01 {
+	font-size: 12px;
+	line-height: 20px;
+}
+
+.floating_ewm .qrcord_p02 {
+	font-size: 18px;
+}
+</style>
+  <script type="text/javascript" th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.4/js/bootstrap.min.js}"></script>
+	<link th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}" rel="stylesheet" />
+	<!-- <script type="text/javascript">
+		$(document).ready(function () {
+		if(document.getElementById("show").value==1){
+			$("#visitorcenterId1").css('display','block');
+			$("#visitorcenterId2").css('display','none');
+			 /* $("#visitorcenterId1").css('height','850px');
+			 $("#visitorcenterId2").css('height','850px'); */
+			}if(document.getElementById("show").value==2){
+				$("#visitorcenterId1").css('display','none');
+				$("#visitorcenterId2").css('display','block');
+				/* $("#visitorcenterId2").css('height','850px');
+				$("#visitorcenterId1").css('height','850px'); */
+			}
+    }	);
+	</script> -->
+  
+  
+  
+</head>
+
+<body class="ecommerce">
+	<div th:replace="partial/header-new" class="header" style="width: auto;">
+	</div>
+	
+	<div class="clearfix">
+	</div>
+	
+	<div class="main" style="">
+    <div class="container">
+		<div class="row">
+		<!-- 注释掉导航 -->
+		
+		
+		<!--去掉旧版本中的任务列表左侧的内容  -->
+			 <!-- <div th:replace="partial/visitorcenter" id="youke" style="float:left;display: inline-block;">
+			</div>  -->
+												
+			<div layout:fragment="content" style="display: inline-block;">
+			</div>
+				
+			</div>
+	</div>
+	</div>
+<!-- <div class="floating_ck" style="z-index: 9999;opacity: 0.9;">
+	<dl>
+    	<dt></dt>
+        <dd class="consult">
+        	<span>在线咨询</span>
+        	<div class="floating_left"><a href="http://sc.chinaz.com">真空技术在线咨询</a></div>
+        </dd>
+        <dd class="quote">
+        	<span>QQ客服</span>
+            <div class="floating_left"><a href="http://sc.chinaz.com"></a></div>
+        </dd>
+        <dd class="qrcord">
+        	<span>扫一扫</span>
+            <div class="floating_left floating_ewm">
+            	<i></i>
+                <p class="qrcord_p01">扫一扫<br/>赠送神秘大礼</p>
+                <p class="qrcord_p02">全国免费服务热线<br/><b>4000-123-123</b></p>
+            </div>
+        </dd>
+
+        <dd class="return">
+        	<span onClick="gotoTop();return false;">返回顶部</span>
+        </dd>
+    </dl>
+</div> -->
+				
+	<div th:replace="partial/footer-new">
+	
+	</div>
+	
+	 <!-- Load javascripts at bottom, this will reduce page load time -->
+    <!-- BEGIN CORE PLUGINS(REQUIRED FOR ALL PAGES) -->
+    <!--[if lt IE 9]>
+    <script src="../../assets/global/plugins/respond.min.js"></script>  
+    <![endif]-->  
+    <!-- <script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>      
+    <script src="../../assets/frontend/layout/scripts/back-to-top.js" type="text/javascript"></script> -->
+    <!-- END CORE PLUGINS -->
+    
+    <!-- 影响手机端的导航下拉菜单的显示 -->
+    <!--<script type="text/javascript" th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script> 
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.4/js/bootstrap.min.js}"></script>-->
+	
+    <!-- BEGIN PAGE LEVEL JAVASCRIPTS (REQUIRED ONLY FOR CURRENT PAGE) -->
+   <!--  <script src="../../assets/global/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>pop up
+    <script src="../../assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>slider for products
+    <script src='../../assets/global/plugins/zoom/jquery.zoom.min.js' type="text/javascript"></script>product zoom
+    <script src="../../assets/global/plugins/bootstrap-touchspin/bootstrap.touchspin.js" type="text/javascript"></script>Quantity
+    <script src="../../assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/rateit/src/jquery.rateit.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>for slider-range -->
+
+   <script src="../../assets/frontend/layout/scripts/layout.js" type="text/javascript"></script> 
+    
+    
+    <script th:src="@{/assets/global/plugins/jquery-migrate.min.js}" type="text/javascript"></script>
+	<script th:src="@{/assets/global/plugins/jquery-ui/jquery-ui.min.js}" type="text/javascript"></script>
+	<script th:src="@{/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js}" type="text/javascript"></script>
+	<script th:src="@{/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js}" type="text/javascript"></script>
+	<script th:src="@{/assets/global/plugins/jquery.blockui.min.js}" type="text/javascript"></script>
+	<script th:src="@{/assets/global/plugins/jquery.cokie.min.js}" type="text/javascript"></script>
+	<!--  <script th:src="@{/assets/global/plugins/uniform/jquery.uniform.min.js}" type="text/javascript"></script>  -->
+	<script th:src="@{/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js}" type="text/javascript"></script> 
+	 <script th:src="@{/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js}"></script>
+	<script th:src="@{/assets/global/scripts/metronic.js}"></script>
+	<script th:src="@{/assets/admin/layout/scripts/quick-sidebar.js}"></script>
+	<script th:src="@{/assets/admin/layout/scripts/demo.js}"></script>
+    
+    
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            Layout.init();    
+            Layout.initOWL();
+            Layout.initTwitter();
+            Layout.initImageZoom();
+            Layout.initTouchspin();
+            Layout.initUniform();
+            Layout.initSliderRange();
+        });
+    </script>
+    <!-- END PAGE LEVEL JAVASCRIPTS -->
+	
+	<!-- 网站根路径 -->
+	<input type="hidden" id="_contextPath" th:value="@{/}" />
+	<script th:src="@{/js/util/web.js}"></script>
+		<div layout:fragment="script">
+		</div>
+</body>
+</html>

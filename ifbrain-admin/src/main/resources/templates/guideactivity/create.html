@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>新增导游管理</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta content="" name="description" />
+<meta content="" name="author" />
+<link type="text/css" th:href="@{/css/font-awesome.min.css}"
+	rel="stylesheet" />
+<link type="text/css" th:href="@{/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link type="text/css" th:href="@{/css/jquery.fancybox.css}"
+	rel="stylesheet" />
+<link type="text/css" th:href="@{/css/owl.carousel.css}"
+	rel="stylesheet" />
+<link type="text/css" th:href="@{/css/settings.css}" rel="stylesheet" />
+<link type="text/css" th:href="@{/css/components.css}" rel="stylesheet" />
+<link type="text/css" th:href="@{/css/style.css}" rel="stylesheet" />
+<link type="text/css" th:href="@{/css/style-revolution-slider.css}"
+	rel="stylesheet" />
+<link type="text/css" th:href="@{/css/style-responsive.css}"
+	rel="stylesheet" />
+<link type="text/css" th:href="@{/css/red.css}" rel="stylesheet"
+	id="style-color" />
+<link type="text/css" th:href="@{/css/custom.css}" rel="stylesheet" />
+<link th:href="@{/css/layouts.css}" rel="stylesheet" type="text/css" />
+<script type="text/javascript"
+	th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+<link
+	th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}"
+	rel="stylesheet" />
+<script th:src="@{/assets/global/plugins/jquery-migrate.min.js}"
+	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-ui/jquery-ui.min.js}"
+	type="text/javascript"></script>
+<script
+	th:src="@{/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js}"
+	type="text/javascript"></script>
+<script
+	th:src="@{/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js}"
+	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.blockui.min.js}"
+	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.cokie.min.js}"
+	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/uniform/jquery.uniform.min.js}"
+	type="text/javascript"></script>
+<script
+	th:src="@{/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js}"
+	type="text/javascript"></script>
+<!--  <script th:src="@{/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js}"></script> -->
+<script th:src="@{/assets/global/scripts/metronic.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/quick-sidebar.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/demo.js}"></script>
+<!-- Theme styles START -->
+<!-- Theme styles END -->
+
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/global/plugins/bootstrap-select/bootstrap-select.min.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/global/plugins/select2/select2.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/global/plugins/jquery-multi-select/css/multi-select.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/global/plugins/image-picker/image-picker/image-picker.css}" />
+
+<!-- 使用jQuery Validation控件进行前端验证 -->
+<script
+	th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+<script
+	th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+<script th:src="@{/assets/admin/pages/scripts/showList.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+
+<script>
+	
+</script>
+<script type="text/javascript">
+	function istrue() {
+		var guideactivitytype = $('#guideactivitytype').val();
+		var cityName = $('#cityName').val();
+		var supplierid = $('#supplierid').val();
+		var theme = $('#theme').val();
+		$.ajax({
+			type : "Post",
+			url : "/spots/valueistrue",
+			data : {
+				"guideactivitytype" : guideactivitytype,
+				"cityName" : cityName,
+				"supplierid" : supplierid,
+				"theme" : theme
+			},
+			success : function(data) {
+				if (data == true) {
+					$('#gaValue').html('');
+					document.getElementById('alltrue').disabled = false;
+				} else {
+					$('#gaValue').css('color', 'red');
+					$('#gaValue').html('该导游活动名称已存在')
+					document.getElementById('alltrue').disabled = true;
+				}
+			}
+		});
+	}
+</script>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="row">
+			<div class="col-md-9 col-sm-9 col-sm-offset-2">
+				<h1>新增导游管理</h1>
+				<div class="content-form-page">
+					<div class="row">
+						<div class="col-md-7 col-sm-7">
+							<form id="mainForm" class="form-horizontal" role="form"
+								method="post" th:action="@{/guideactivity/create}"
+								th:object="${guideactivity}" enctype="multipart/form-data">
+								<!-- 城市名称 -->
+								<div class="form-group">
+									<label for="city" class="col-xs-3 control-label">城市名称</label>
+									<div class="col-xs-6">
+										<select class="form-control" th:field="*{city}"
+											name="city" onchange="istrue()">
+											<option th:each="city: ${cityid}" th:value="${city.id}"
+												th:text="${city.cityName}" id="cityName"></option>
+										</select> <span class="text-danger"
+											th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span>
+									</div>
+								</div>
+								<!-- 供应商名称 -->
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('supplier')}? 'has-error'">
+									<label for="supplier" class="col-xs-3 control-label">供应商名称</label>
+									<div class="col-xs-6">
+										<select class="form-control" th:field="*{supplier}"
+											name="supplier" onchange="istrue()">
+											<option th:each="supplier: ${supplierid}"
+												th:value="${supplier.id}" th:text="${supplier.cnName}"
+												id="cnName"></option>
+										</select> <span class="text-danger"
+											th:if="${#fields.hasErrors('supplier')}"
+											th:errors="*{supplier}"></span>
+									</div>
+								</div>
+
+								<!-- 导游活动 类型-->
+								<div class="form-group">
+									<label for="guideactivitytype" class="col-xs-3 control-label">导游活动类型</label>
+									<div class="col-lg-8">
+										<input type="text" class="form-control"
+											th:field="*{guideActivityType}" required="required"
+											id="guideActivityType" onblur="istrue()" />
+										<!-- <span class="text-danger" th:if="${#fields.hasErrors('guideActivityType')}" th:errors="*{guideActivityType}"></span> -->
+										<span id="gaValue"></span>
+									</div>
+								</div>
+
+								<div class="row">
+									<div
+										class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+										<button type="submit" class="btn btn-primary" 
+											>保存</button>
+										<a type="button" th:href="@{/guideactivity}" class="btn btn-default">关闭</a>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div layout:fragment="script">
+		<!-- BEGIN PAGE LEVEL PLUGINS -->
+		<script type="text/javascript"
+			th:src="@{/assets/global/plugins/jquery-validation/js/jquery.validate.min.js}"></script>
+		<script type="text/javascript"
+			th:src="@{/assets/global/plugins/jquery-validation/js/additional-methods.min.js}"></script>
+		<!-- END PAGE LEVEL PLUGINS -->
+
+		<!-- BEGIN PAGE LEVEL SCRIPTS -->
+		<script th:src="@{/assets/global/scripts/metronic.js}"
+			type="text/javascript"></script>
+		<script th:src="@{/assets/admin/layout/scripts/layout.js}"
+			type="text/javascript"></script>
+		<script th:src="@{/assets/admin/pages/scripts/form-wizard.js}"></script>
+		<!-- END PAGE LEVEL SCRIPTS -->
+
+		<!-- BEGIN PAGE LEVEL PLUGINS -->
+		<script type="text/javascript"
+			th:src="@{/assets/global/plugins/bootstrap-daterangepicker/moment.min.js}"></script>
+		<script type="text/javascript"
+			th:src="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js}"></script>
+		<script th:src="@{/assets/admin/pages/scripts/components-pickers.js}"></script>
+		<script
+			th:src="@{/assets/admin/pages/scripts/components-form-tools.js}"></script>
+		<!-- END PAGE LEVEL PLUGINS -->
+
+		<!-- BEGIN PAGE LEVEL PLUGINS -->
+		<script type="text/javascript"
+			th:src="@{/assets/global/plugins/fuelux/js/spinner.min.js}"></script>
+		<script th:src="@{/assets/global/plugins/typeahead/handlebars.min.js}"
+			type="text/javascript"></script>
+		<script
+			th:src="@{/assets/global/plugins/typeahead/typeahead.bundle.min.js}"
+			type="text/javascript"></script>
+		<!-- END PAGE LEVEL PLUGINS -->
+
+		<!-- BEGIN PAGE LEVEL PLUGINS -->
+		<script type="text/javascript"
+			th:src="@{/assets/global/plugins/bootstrap-select/bootstrap-select.min.js}"></script>
+		<script type="text/javascript"
+			th:src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+		<script type="text/javascript"
+			th:src="@{/assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js}"></script>
+		<!-- END PAGE LEVEL PLUGINS -->
+
+		<script
+			th:src="@{/assets/global/plugins/image-picker/image-picker/image-picker.js}"
+			type="text/javascript"></script>
+		<script
+			th:src="@{/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js}"
+			type="text/javascript"></script>
+		<script
+			th:src="@{/assets/admin/pages/scripts/components-dropdowns.js}"></script>
+
+		<script th:src="@{/assets/frontend/layout/scripts/layout.js}"
+			type="text/javascript"></script>
+
+		<!-- BEGIN CUSTOM SCRIPT -->
+		<script th:src="@{/assets/global/scripts/custom.js}"
+			type="text/javascript"></script>
+	</div>
+	<!-- END CUSTOM SCRIPT -->
+	<!-- END PAGE LEVEL SCRIPTS -->
+	<script>
+		jQuery(document).ready(function() {
+			// initiate layout and plugins
+			/*  Metronic.init(); // init metronic core components
+			Layout.init(); // init current layout
+			QuickSidebar.init(); // init quick sidebar
+			Demo.init(); // init demo features
+			ComponentsDropdowns.init();
+			FormWizard.init(); */
+			Metronic.init(); // init metronic core components
+			Layout.init(); // init current layout
+			Layout.initOWL();
+			FormWizard.init();
+			ComponentsPickers.init();
+			//showList.init();
+			//ComponentsFormTools.init();
+			CustomFormActions.init();
+			$("select").imagepicker();
+
+		});
+	</script>
+</body>
+</html>

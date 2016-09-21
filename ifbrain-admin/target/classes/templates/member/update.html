@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>用户修改</title>
+<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+
+<script type="text/javascript">
+$(function() {
+	jQuery.validator.setDefaults({
+		debug : true,
+		success : "valid"
+	});
+	
+	jQuery.validator.addMethod("isEmail",function(value,element){
+		regEmail=  /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+		return this.optional(element) || (regEmail.test(value));		
+	},"请输入一个有效的Email地址(格式：example@example.com)");
+	
+	$("#mainForm").validate({
+		rules : {
+			"firstName" : {
+				required:true
+			},
+			"lastName" : {
+				required:true				
+			},
+			"email" : {
+				required:true,
+				isEmail:true
+			}
+		},
+
+		messages : {
+			"firstName" : {
+				required : "不能为空"
+			},
+			"lastName" : {
+				required : "不能为空"
+			},
+			"email":{
+				required : "不能为空"
+			}
+		},
+
+		highlight : function(element) {
+			$(element).closest(".form-group").addClass("has-error");
+		},
+		success : function(label) {
+			label.closest(".form-group").removeClass("has-error");
+			label.closest(".form-group").addClass("has-success");
+		},
+		errorPlacement : function(error, element) {
+			element.parent("div").append(error);
+		},
+		submitHandler : function(form) {
+			form.submit();
+		}
+	});
+});
+</script>
+
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid">
+		<div class="row">
+			<div class="page-header">
+				<h1>用户修改</h1>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<form class="form-horizontal" role="form" method="post" th:action="@{/member/update}" th:object="${members}" id="mainForm">
+						<input type="hidden" name="_method" value="put" /> 
+						<input type="hidden" th:field="*{id}" />
+						<div class="form-group">
+							<label for="firstName" class="col-xs-3 control-label">姓<span style="color: #e94d1c;font-size:6px;">*</span></label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{firstName}" required="required" id="firstName" name="firstName" /> <span
+									class="text-warning" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="lastName" class="col-xs-3 control-label">名<span style="color: #e94d1c;font-size:6px;">*</span></label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{lastName}" required="required" id="lastName" name="lastName"/> <span
+									class="text-warning" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="password" class="col-xs-3 control-label">密码<span style="color: #e94d1c;font-size:6px;">*</span></label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{password}" id="password" required="required" name="password" />
+								<p>此密码是加密之后的密码</p>
+								<p class="text-danger" th:text="${message}"></p>
+								<span class="text-warning" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="telephone" class="col-xs-3 control-label">电话<span style="color: #e94d1c;font-size:6px;">*</span></label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{telephone}" id="telephone" name="telephone"/> <span
+									class="text-warning" th:if="${#fields.hasErrors('telephone')}" th:errors="*{telephone}"></span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="col-xs-3 control-label">邮箱<span style="color: #e94d1c;font-size:6px;">*</span></label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{email}" id="email" required="required" name="email"/> <span
+									class="text-warning" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+							</div>
+						</div>
+ 
+						<div class="form-group" th:classappend="${#fields.hasErrors('sex')}? 'has-error'">
+							<label for="sex" class="col-xs-3 control-label">性别</label>
+							<div class="col-xs-6">
+								<select class="form-control" th:field="*{sex}">
+									<option value="0">女</option>
+									<option value="1">男</option>
+								</select>
+							</div>
+						</div>
+
+
+						<div class="form-group">
+							<label for="age" class="col-xs-3 control-label">年龄</label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{age}"/> <span class="text-warning"
+									th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="description" class="col-xs-3 control-label">描述</label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{description}" /> <span class="text-warning"
+									th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+							</div>
+						</div>
+
+						<p class="text-center">
+							<button type="submit" class="btn btn-primary">修改</button>
+							<a th:href="@{/member}" class="btn btn-default">返回</a>
+						</p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div layout:fragment="script">
+		<script th:src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+		<script>
+			$(function() {
+				Metronic.init(); // init metronic core components
+				Layout.init(); // init current layout
+				QuickSidebar.init(); // init quick sidebar
+				Demo.init(); // init demo features
+			});
+		</script>
+	</div>
+</body>
+</html>

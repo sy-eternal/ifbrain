@@ -1,0 +1,199 @@
+@charset "utf-8";
+
+@media all and (max-width:1000px)
+{
+    .wrapper .inside{width:100%;}
+    .nav-baike .inside .nav-wrap{padding: 0 2%;float: left;width: 96%;}
+    .nav-baike .inside .nav-list{
+    width: 15%;
+    height: 60px;
+    line-height: 60px;
+    margin: 0 2% 0 0;
+    font-size: 17px;
+}
+    .nav-baike .inside .nav-list:last-child{margin-right:0;}
+	.container .item-left{width: 74%;border:none;}
+	.container .item-content .load-more{position:relative;left:0;margin: 20px auto;}
+	.showmore-end {
+    position: absolute;
+    bottom: 73px;
+    line-height: 20px;
+    width: 60px;
+    font-size: 14px;
+    }  
+    .container .item-content .art-list li .art-topic{margin-left:32%;}
+}
+
+
+@media all and (max-width:780px){
+.nav-baike .inside .nav-list{font-size:16px;height:68px;line-height:68px;}
+.container .item-content .art-list li .art-banner{ width: 32%;}
+.container .item-content .art-list li .art-banner img,.container .item-content .art-list.hot li .art-banner img{
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+}
+.container .item-content .art-list.hot li .art-topic{
+    margin-right: 32%;
+    padding-right: 20px;
+}
+.container .item-right .lession-like .like{font-size: 13px;}
+.container .item-content .art-list.hot li{height:auto;}
+.container .item-content .art-list.hot li span{margin-right:3px;font-size: 9px;}
+.container .item-content .art-list.hot li .art-topic h4{padding-bottom:10px;}
+.item-right .lession-like{top: 36px;left: 55px;}
+.wrapper .section .inside{
+	width: 96%;
+}
+.section1 .share span{width: 45px;height: 45px;}
+.section2 .art-list li{width:48%;margin-right: 4%;}
+.section2 .art-list li div.left{padding-top:100px;}
+.section2 .art-list li img{width:100%;height:auto;}
+.section2 .art-list li h4{font-size: 16px;margin-bottom: 9px;}
+.section2 .art-list li p{font-size: 13px;}
+.container .item-content .art-list li .lession-like img{width: 18px;}
+.container .item-content .art-list li .lession-like span{}
+.showmore {border-bottom: 1px solid #e8e8e8;}
+.showmore-end {
+    position: absolute;
+    bottom: 73px;
+    line-height: 20px;
+    width: 60px;
+    font-size: 14px;
+    }   
+}
+@media all and (max-width:680px)
+{
+.column{padding: 3px 9px;}
+.nav-baike .inside{padding-bottom:0;background-color:#fff;}
+.nav-baike .inside .nav-wrap{float: left;width: 100%;padding: 0 4% 0 8%;}
+.nav-baike .inside .nav-list{
+	width: 29%;
+	margin-right: 4%;
+	font-size: 17px;
+	height: 60px;
+	line-height: 60px;
+	margin-bottom: 12px;
+	background-image:none!important;
+	}
+
+.mobile-title{
+	display:block;
+	width: 94%;
+	margin: 0 auto;
+	border-top:1px solid #aaa;
+}
+.mobile-title .crumb-baike{
+	padding: 9px 0;
+	border-bottom: 1px solid #aaa;
+	}
+.mobile-title ul li{
+	float:left;
+	position:relative;
+	width:50%;
+	text-align:center;
+	line-height: 36px;
+	border-bottom:1px solid #aaa;
+	margin-bottom: 10px;
+	cursor: pointer;
+	font-size: 12px;
+}
+
+.mobile-title ul li.selected:after,.mobile-title ul li.selected:before{
+	content:"";
+	display:block;
+	position:absolute;
+	bottom:-1px;
+	left: 44%;
+	border: 7px solid #aaa;
+	border-color:transparent transparent  #aaa transparent ;
+}
+.mobile-title ul li.selected:before{border-width: 9px;}
+.mobile-title ul li.selected:after{left: 45%;border-bottom-color:#fff;}
+.container{padding-top:0;padding-bottom: 50px;}
+.container .item-left{width:100%;border:none;}
+.container .item-right .item{float:left;padding: 0 3%;}
+.container .item-left .item{margin: 0 3%;padding: 0;}
+.container .item-right .item{float:none;}
+.container .item-right{width: 100%;display: none;}
+.container .item-right .item .item-title{margin:0;}
+.container .item-right .item .item-content{text-align:center;}
+.container .item-right .item .item-title.item-tags h3{display:block;text-align: center;padding: 20px 0;font-weight: normal;font-size: 13px;}
+.container .item-content .pagination{display:none;}	
+.container .item-content .art-list li .art-topic{padding: 0 0 0 13px;margin-left: 32%;}
+.container .item-content .art-list li .art-topic h4{font-size:14px;padding: 10px 0 13px 0;width: 100%;white-space: inherit;line-height: 16px;}
+.container .item-content .art-list.hot li .art-topic{margin-right: 32%;padding: 0 12px 0 0;}
+.container .item-content .art-list li .art-banner{padding:0;width: 32%;}
+.container .item-content .art-list.hot li .art-banner{width: 32%;}
+.container .item-content .art-list.hot li span{font-size: 12px;margin-right: 20px;}
+.container .item-content .art-list.hot li:first-child{border-top:none;}
+.container .item-content .art-list.hot li{height:auto;}
+.container .item-content .art-list li .art-topic .tags-wrap{width:100%;}
+.container .item-content .art-list.label li{margin-bottom:0;padding: 10px 0;}
+.container .item-title h3{display:none;}
+.container .item-content .art-list li{
+	border-bottom:1px solid #aaa;
+	border-top: none;
+	background-color:#fff;
+	padding: 17px 0;
+	margin-bottom: 0;
+	height: auto;
+	}
+.item-right .lession-like{left: 42%;top:auto;bottom: -18px;}
+.container .item-content .art-list li .art-topic .tags{padding: 0px 16px;font-size: 9px;margin-bottom: 4px;line-height: 18px;}
+.wrapper .section .inside{width:90%;margin:0 auto;}
+.section0 .art-title h1{font-size:18px;}
+.section1 .comment{padding-top:10px;}
+.section1{padding-top: 25px;padding-bottom: 35px;}
+.section1 .middle{position: static;float: none;width:100%;text-align: left;margin: 0;}
+.section1 .lession-like{float: none;width:100%;text-align:center;margin-bottom:30px;margin-top: 30px;}
+.section1 .share{float:none;width: 100%;margin-top: 20px;border-top: 1px solid #5c5c5c;border-bottom: 1px solid #5c5c5c;padding: 10px 0;}
+.section1 .share p{
+    float: left;
+    margin: 10px 0 0;
+}
+.section1 .share span{width: 40px; height: 40px;}
+.section1 .share .fa-weibo{background-image:url(http://source.vipabc.com/Ext/images/website/junior/baike/details/weibo_hover.png);margin-left:0;}
+.section1 .share .email{background-image:url(http://source.vipabc.com/Ext/images/website/junior/baike/details/email_hover.png);}
+.section1 .share .fa-weixin{background-image:url(http://source.vipabc.com/Ext/images/website/junior/baike/details/weChat_hover.png);}
+.section1 .lession-like .like{font-size: 22px;margin: 0 auto;}
+.section1 .lession-like .like img{/* width:22px; */}
+.section1 .middle .tags{font-size: 12px;margin-bottom: 4px;}
+.section2 .art-list li div.left{}
+.section2 .art-list li{width: 380px;margin-bottom: 12px;margin-right: 0;}
+}
+@media all and (max-width:580px){
+.banner-baike{height: auto;}
+.banner-baike .topic h2{font-size: 20px;}
+.container .item-content .art-list li .art-topic p,
+.container .item-content .art-list li .art-topic .more{display:block;}
+}
+
+@media all and (max-width:450px){
+.lession-like dl dd{font-size: 9px;}
+.nav-baike .inside .nav-list{font-size:16px;height: 50px;line-height: 50px;}  
+.section2 .art-list{padding-top: 20px;} 
+.section2 .art-list li {
+    width: 100%;
+    margin-bottom: 12px;
+    margin-right: 0;
+}
+.column{font-size: 8px;padding: 2px 8px 2px;}
+}
+@media all and (max-width:395px){
+.section2 .art-list li img {height:auto;}
+.section2 .art-list li div.left{padding-top: 76px;}
+.section1 .lession-like .like{font-size: 20px;}
+.section1 .lession-like .like img{width:24px;}
+}
+@media all and (max-width:330px){
+
+.nav-baike .inside .nav-list{font-size: 12px;height: 30px;line-height: 30px;border-radius: 4px;}
+.section0 .yinpin{
+    width: 100%;
+} 
+.section1 .share span{width:34px; height:34px;}
+.section1 .lession-like .like{font-size: 18px;}
+.section1 .lession-like .like img{width:22px;}
+.section2 .art-list li div.left{padding-top:50px;} 
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>预约签证面试</title>
+<!-- DataTables -->
+<!-- DataTables -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script
+	th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+
+<script >
+function closess(){
+	window.close();
+}
+</script>
+</head>
+<body>
+	<!--<div layout:fragment="content" class="container"> -->
+	<div layout:fragment="content">
+		<div class="page-header">
+			<h3>预约签证面试详情</h3>
+		</div>
+		<form  class="form-horizontal" id="doCreate" role="form" method="post"  th:object="${visaOrder}" th:action="@{/visa/interview}">
+		<input type="hidden" id="visaOrderId" name="visaOrderId" th:value="${visaOrder.id}"/>
+				<div class="form-group">
+				<label for="interviewDate" class="col-xs-3 control-label">预约面试日期</label>
+				<div class="col-xs-6">
+					<input type="date" class="form-control" id="interviewDate" name="interviewDate" th:field="*{interviewDate}" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="interviewTime" class="col-xs-3 control-label">预约面试时间</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" id="interviewTime" name="interviewTime" th:field="*{interviewTime}" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="interviewPlace"  class="col-xs-3 control-label">预约面试地点</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" id="interviewPlace" name="interviewPlace" th:field="*{interviewPlace}" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="interviewMemo"  class="col-xs-3 control-label">预约备注</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" id="interviewMemo" name="interviewMemo" th:field="*{interviewMemo}" />
+				</div>
+			</div>
+			<div class="text-center">	
+			<button type="submit" class="btn btn-primary">提交</button>		
+				<button type="button" class="btn btn-primary" onclick="closess()">返回</button>
+			</div>
+		</form>
+	</div>
+	<div layout:fragment="script">
+		<script>
+			$(function() {
+				//Metronic.init(); // init metronic core components
+				Layout.init(); // init current layout
+				QuickSidebar.init(); // init quick sidebar
+				Demo.init(); // init demo features
+			});
+		</script>
+	</div>
+
+</body>
+</html>

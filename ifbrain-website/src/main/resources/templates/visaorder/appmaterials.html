@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+	<head>
+	<meta charset="UTF-8"></meta>
+<title>客户上传申请材料扫页面</title>
+<!-- DataTables -->
+<link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/css/components.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/css/plugins.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}" />
+
+
+
+
+
+
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css" />
+  <!-- Fonts END -->
+
+  <!-- Global styles START -->          
+  <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Global styles END --> 
+   
+  <!-- Page level plugin styles START -->
+  <link href="../../assets/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link href="../../assets/global/css/components.css" rel="stylesheet" />
+  <link href="../../assets/global/css/plugins.css" rel="stylesheet" />
+  <link href="../../assets/frontend/layout/css/style.css" rel="stylesheet" />
+  <link href="../../assets/frontend/layout/css/style-responsive.css" rel="stylesheet" />
+  <link href="../../assets/frontend/layout/css/themes/red.css" rel="stylesheet" id="style-color" />
+  <link href="../../assets/frontend/layout/css/custom.css" rel="stylesheet" />
+
+
+<script>
+//限制上传文件的格式
+function checkFileExtension(file) {  
+     var filepath=file.value;
+         var extStart=filepath.lastIndexOf(".");
+         var ext=filepath.substring(extStart,filepath.length).toUpperCase();
+         if(ext!=".ZIP"){
+          alert("请上传.zip格式的文件");
+          return false;
+         }
+}  
+//jquery 提交表单验证
+
+
+		          
+function check(){
+	var nameresult;
+	var fileresult;
+	  //判断上传文件是否完全上传
+		$("input[name='file']").each(function(i,element){
+			var filevalue=$(this).val();
+			 if(filevalue==""){
+				 alert("请上传文件!");
+				 fileresult=false;
+				return false;
+			 }
+		});
+
+		//判断客户姓名是否填写完整    
+		var valArr = new Array;
+		$("input[name='name']").each(function(i,element){
+			var namevalue=$(this).val();
+			 if(namevalue==""){
+				 alert("请填写姓名!");
+				 nameresult=false;
+				return false;
+			 }
+				 valArr[i] =namevalue;
+			      });
+		 var value = valArr.join(',');
+		    $("#allname").val(value);
+		    if(nameresult==false){
+				   return false;
+			   } 
+			    if(fileresult==false){
+			    	return false;
+			    } 
+
+}
+</script>
+</head>
+<body>
+    <div layout:fragment="content" class="col-md-9 col-sm-12 col-xs-12" ><!-- style="margin-top:-25px" -->
+        <!-- <div class="portlet light">
+			<div class="portlet-title">
+				<div class="caption font-green-sharp">
+					<i class="icon-share font-green-sharp"></i> <span class="caption-subject"><a  href="/visa">下载签证申请表</a></span>
+				</div>
+			</div>
+		</div> -->
+		<div class="note note-info">
+								<h4 class="block">审核意见</h4>
+								<p>
+									<dd th:if="${visaOrder.comment!=null}"  th:text="${visaOrder.comment}"></dd> 
+								</p>
+							</div>
+			
+	<!--  <div class="portlet box yellow">
+            <div class="portlet-title">
+              <div class="caption">
+                <i class="fa fa-gift"></i>审核意见
+              </div>
+              <div class="tools">
+                <a class="collapse" href="javascript:;">
+                </a>
+              </div>
+            </div>
+            <div class="portlet-body">
+              <ul class="list-inline">
+               <dd th:if="${visaOrder.comment!=null}"  th:text="${visaOrder.comment}"></dd>
+              </ul>
+            </div>
+          </div> -->
+     
+          <form id="wizard" class="form-horizontal" role="form" method="post" th:action="@{/visaOrder/create}" enctype="multipart/form-data" onsubmit="return check();">
+         <div class="portlet box grey-silver">
+            <div class="portlet-title">
+              <div class="caption" >
+                <i class="fa fa-gift"></i>所有人士共同所需材料
+              </div>
+              <div class="tools">
+                <a class="collapse" href="javascript:;">
+                </a>
+              </div>
+            </div>
+            <div class="portlet-body">
+              <ul class="list-inline">
+               <p>1、个人资料表<a  href="/visa">（请参考网站模板下载）</a></p>
+          	   <p>2、护照首页扫描件(护照有效期需超出在美预定停留期至少六个月; 至少有2页空白页.)</p>
+               <p>3、身份证扫描件(第二代身份证复印件,正反面需复印在同一页.)</p>
+               <p>4、电子版照片*(近6个月内拍摄的白底彩照的电子版文件; 规格5.1cm*5.1cm; 正面可以看到整个面容，颈部以及双耳；若配戴眼镜，镜片无反光.)</p>
+               <p>5、机票酒店订单(如有机票行程单、酒店预订单，请一并提供；请勿在未获知签证结果就先行购买机票.)</p>
+               <p>6、行程安排(若已准备有行程，请告知详细的行程安排，包括：出发时间（年月日），离开时间（年月日），计划游览城市和相关景点; 若跟团，请提供团号.)</p>
+              </ul>
+            </div>
+          </div>
+        
+          <div class="portlet box grey-silver">
+        	<div class="portlet-title">
+        		<div class="caption">
+                	<i class="fa fa-gift"></i>在职人士还需提供
+              	</div>
+              	<div class="tools">
+                	<a class="collapse" href="javascript:;"></a>
+              	</div>
+          	</div>
+        
+         	<div class="portlet-body">
+              <ul class="list-inline">
+          		<p>单位在职证明信<a  href="/visa">（请参考网站模板下载）</a></p>
+          	  </ul>
+         	</div>
+         </div>
+         
+         <div class="portlet box grey-silver">
+        	<div class="portlet-title">
+        		<div class="caption">
+                	<i class="fa fa-gift"></i>无业人士还需提供
+              	</div>
+              	<div class="tools">
+                	<a class="collapse" href="javascript:;"></a>
+              	</div>
+          	</div>
+        
+         	<div class="portlet-body">
+              <ul class="list-inline">
+          		<p>无业人群公证资料扫描件（居委会或者街道办事处出具的待业证明或者家庭主妇证明.）</p>
+          	  </ul>
+         	</div>
+         </div>
+
+           
+           <div class="table-scrollable">
+	           <div class="portlet box blue-madison">
+		        	<div class="portlet-title">
+		        		<div class="caption">
+		                	<i class="fa fa-gift"></i>签证资料上传
+		              	</div>
+		              	<!-- <div class="tools">
+		                	<a class="collapse" href="javascript:;"></a>
+		              	</div> -->
+		          	</div>
+	       		</div>
+	       		<div class="portlet-body">
+	       		
+		           <table class="table table-striped table-bordered table-hover" >
+	          	 <thead>
+	          	 <tr>
+	                <th align="center">
+	                    请填写申请人姓名
+	                 </th>
+	                 <th align="center">
+	                   签证材料<font color="red">(请将您的资料压缩成.zip文件上传)</font>
+	                  </th>
+	           </tr>
+	           </thead>
+	           
+	           
+	           <tbody>
+		           <!-- 重新上传材料 -->
+		           <tr th:each="listApplicationInfo :${listApplicationInfo}" th:if="${listApplicationInfo!=null}">
+		           <input type="hidden" name="orderId" th:value="${orderid}"/>
+		           <input type="hidden" name="allname" id="allname"/>
+		           
+		            <td align="center">
+		              <input type="text" name="HaveName" id="HaveName" th:value="${listApplicationInfo.name}" disabled="disabled" th:if="${listApplicationInfo!=null}"/>
+		            </td>
+		           
+		            <td align="center"><input type="file" name="file" onchange="checkFileExtension(this)" id="file"/></td>
+		           </tr>
+		        
+		           <!-- 新上传材料 -->
+		           <tr th:each="i :${#numbers.sequence(1,headCount)}" th:if="${listApplicationInfo ==null}">
+		           <input type="hidden" name="orderId" th:value="${orderid}"/>
+		           <input type="hidden" name="allname" id="allname"/>
+		            <td align="center">
+		              <input type="text" name="name" id="name" />
+		            </td>
+		            <td align="center"><input type="file" name="file" onchange="checkFileExtension(this)" id="file"/></td>
+		           </tr>
+	           </tbody>
+	           
+	           
+	           
+	           
+	           
+	           </table>
+           </div>
+          </div>
+       
+             <div class="text-left">
+             	<a th:href="@{'/visaOrder'}" class="btn btn red-sunglo">取消</a>
+				<button type="submit" class="btn btn-primary" id="submit" >提交</button>
+				
+			    </div>
+
+          </form>
+    </div>
+
+    <div layout:fragment="script">
+        <script>
+            $(function() {
+                Metronic.init(); // init metronic core components
+                Layout.init(); // init current layout
+                QuickSidebar.init(); // init quick sidebar
+                Demo.init(); // init demo features
+            });
+        </script>
+    </div>
+    
+  <script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>      
+    <script src="../../assets/frontend/layout/scripts/back-to-top.js" type="text/javascript"></script>
+    <!-- END CORE PLUGINS -->
+
+    <!-- BEGIN PAGE LEVEL JAVASCRIPTS (REQUIRED ONLY FOR CURRENT PAGE) -->
+    <script src="../../assets/global/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script><!-- pop up -->
+    <script src="../../assets/global/scripts/metronic.js" type="text/javascript"></script>
+    <script src="../../assets/frontend/layout/scripts/layout.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+        jQuery(document).ready(function() {
+            Metronic.init(); // init global framework features
+            Layout.init();
+            Layout.initTwitter();
+        });
+    </script>  
+ </body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>代码表管理(修改)</title>
+<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+	$(function() {
+		jQuery.validator.setDefaults({
+			debug : true,
+			success : "valid"
+		});
+
+		$("#mainForm").validate({
+			rules : {
+				"type" : {
+					required : true
+				},
+				"classs" : {
+					required : true
+				},
+				"value" : {
+					required : true,
+					number : true
+				}
+			},
+			messages : {
+				"type" : {
+					required : "类型不能为空"
+				},
+				"classs" : {
+					required : "标准不能为空"
+				},
+				"value" : {
+					required : "值不能为空",
+					number : "只能输入数字"
+
+				}
+			},
+
+			highlight : function(element) {
+				$(element).closest(".form-group").addClass("has-error");
+			},
+			success : function(label) {
+				label.closest(".form-group").removeClass("has-error");
+				label.closest(".form-group").addClass("has-success");
+			},
+			errorPlacement : function(error, element) {
+				element.parent("div").append(error);
+			},
+			submitHandler : function(form) {
+				form.submit();
+			}
+		});
+	});
+</script>
+
+<script type="text/javascript">
+	function istrue() {
+		var value = $('#value').val();
+		var type = $('#type').val();
+		$.ajax({
+			type : "Post",
+			url : "/code/valueistrue",
+			data : {
+				"value" : value,
+				"type" : type
+			},
+			success : function(data) {
+				if (data == true) {
+					$('#spValue').css('color', 'green');
+					$('#spValue').html('可以使用');
+					document.getElementById('alltrue').disabled = false;
+				} else {
+					$('#spValue').css('color', 'red');
+					$('#spValue').html('此值已存在')
+					document.getElementById('alltrue').disabled = true;
+				}
+			}
+		});
+	}
+</script>
+
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid">
+		<div class="row">
+			<div class="page-header">
+				<h1>代码表管理(修改)</h1>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<form class="form-horizontal" role="form" method="post" th:action="@{/code/update}" th:object="${code}" id="mainForm">
+						<input type="hidden" name="_method" value="put" /> <input type="hidden" th:field="*{id}" />
+						<div class="form-group">
+							<label for="type" class="col-xs-3 control-label">类型<span style="color: #e94d1c;font-size:6px;">*</span></label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{type}" id="type" name="type" onblur="istrue();"/> <span class="text-warning"
+									th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="classs" class="col-xs-3 control-label">标准<span style="color: #e94d1c;font-size:6px;">*</span></label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{classs}" id="classs" name="classs"/> <span class="text-warning"
+									th:if="${#fields.hasErrors('classs')}" th:errors="*{classs}"></span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="value" class="col-xs-3 control-label">值<span style="color: #e94d1c;font-size:6px;">*</span></label>
+							<div class="col-xs-6">
+								<input type="number" class="form-control" th:field="*{value}" id="value" name="value" onblur="istrue();"/> <span class="text-warning"
+									th:if="${#fields.hasErrors('value')}" th:errors="*{value}"></span><span id="spValue"></span>
+							</div>
+						</div>
+
+						<p class="text-center">
+							<button type="submit" class="btn btn-primary" id="alltrue">修改</button>
+							<a th:href="@{/code}" class="btn btn-default">返回</a>
+						</p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

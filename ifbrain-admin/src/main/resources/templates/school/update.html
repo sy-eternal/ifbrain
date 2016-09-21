@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>学校管理(修改)</title>
+<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+	<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+	<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+	<link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+	<link src="../../assets/global/plugins/bootstrap-select/bootstrap-select.css"/>
+	<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+	<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+	<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script> 
+	<script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+	<link href="../../assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="../../assets/global/plugins/select2/select2.css"/>
+	<script type="text/javascript" src="../../assets/global/plugins/bootstrap-select/bootstrap-select.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		jQuery.validator.setDefaults({
+			debug : true,
+			success : "valid"
+		});
+
+		$("#mainForm").validate({
+			rules : {
+				"type" : {
+					required : true
+				},
+				"classs" : {
+					required : true
+				},
+				"value" : {
+					required : true,
+					number : true
+				}
+			},
+			messages : {
+				"type" : {
+					required : "类型不能为空"
+				},
+				"classs" : {
+					required : "标准不能为空"
+				},
+				"value" : {
+					required : "值不能为空",
+					number : "只能输入数字"
+
+				}
+			},
+
+			highlight : function(element) {
+				$(element).closest(".form-group").addClass("has-error");
+			},
+			success : function(label) {
+				label.closest(".form-group").removeClass("has-error");
+				label.closest(".form-group").addClass("has-success");
+			},
+			errorPlacement : function(error, element) {
+				element.parent("div").append(error);
+			},
+			submitHandler : function(form) {
+				form.submit();
+			}
+		});
+	});
+</script>
+
+
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid">
+		<div class="row">
+			<div class="page-header">
+				<h1>学校管理(修改)</h1>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<form class="form-horizontal" role="form" method="post" th:action="@{/school/update}" th:object="${school}" id="mainForm">
+						<input type="hidden" th:field="*{id}"/>
+							<div class="form-group" >
+						<label for="cityName" class="col-xs-3 control-label">城市</label>
+						<div class="col-xs-6">
+							 <select class="form-control input-xlarge select2me"  id="cityschool"  name="cityschool"  >
+									<option th:each="cityschool : ${cityschool}" th:value="${cityschool.id}" th:text="${cityschool.cityName}"  id="cityschool"></option>
+								</select>
+							<span class="text-danger" ></span>
+						</div>
+					</div>
+						<div class="form-group">
+							<label for="type" class="col-xs-3 control-label">学校名称<span style="color: #e94d1c;font-size:6px;">*</span></label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{scName}" id="scName" name="scName" /> <span class="text-warning"
+									th:if="${#fields.hasErrors('scName')}" th:errors="*{scName}"></span>
+							</div>
+						</div>
+
+						
+						<div class="form-group" >
+							<label for="cityName" class="col-xs-3 control-label">管理用户</label>
+							<div class="col-xs-6">
+								 <select class="form-control input-xlarge select2me"  id="member"  name="member"  >
+										<option th:each="member : ${member}" th:value="${member.id}" th:text="${member.firstName}+${member.lastName}"  id="member"></option>
+									</select>
+								<span class="text-danger" ></span>
+							</div>
+						</div>
+
+						<p class="text-center">
+						<button type="submit" class="btn btn-primary" id="alltrue">提交</button>
+						<a th:href="@{/school/list}" class="btn btn-default">返回</a>
+					</p>
+					</form>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../assets/global/plugins/select2/select2.min.js"></script>
+	<script>
+        jQuery(document).ready(function() {       
+           Metronic.init(); 
+			Layout.init();
+			QuickSidebar.init(); 
+			 ComponentsDropdowns.init();
+			Demo.init();
+          
+        });   
+    </script>
+	</div>
+</body>
+</html>

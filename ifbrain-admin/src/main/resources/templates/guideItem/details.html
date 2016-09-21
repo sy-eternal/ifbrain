@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout"  data-ng-app="_app">
+<head>
+<meta charset="utf-8" />
+<title>订单列表</title>
+<!-- DataTables -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script
+	th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+<script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+ <script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script> 
+<script th:src="@{/js/controller/guideitem-controller.js}"></script>
+<script>
+
+function guideChange(value){
+	
+	var guideName=$("#selectguidename").val();
+	$.ajax({
+		type : "Get",
+		url : "/guideItemOrder/findName?guideId=" + value,
+		success : function(data) {
+			guideName+=data+",";
+			$("#selectguidename").val(guideName);
+		}
+	});
+	//获取选中的导游id
+	var str=$("#guideIds").val();
+	str+=value+",";
+	$("#guideIds").val(str);
+	
+	
+	
+	
+	
+}
+
+
+</script>
+</head>
+<body data-ng-controller="guideitemController">
+	<!--<div layout:fragment="content" class="container">  -->
+	
+  
+  <div layout:fragment="content">
+  <div class="">
+				<div class="portlet box blue-hoki">
+					<div class="portlet-title">
+						<div class="caption ">
+							<i class="icon-share "></i> <span class="caption-subject">导游派单</span>
+						</div>
+					</div>
+					<div class="portlet-body">
+						<dl class="dl-horizontal" th:object="${guideOrder}">
+							<table class="table table-hover" id="iten-table">
+								<tr>
+									<td>
+										 <dt>开始日期：</dt>
+										<dd th:text="*{#dates.format(startdate, 'yyyy-MM-dd')}"></dd>
+										<dt >导游类型：</dt>
+										<dd th:text="*{guidetype}"></dd>
+										<dt>出行人数：</dt>
+										<dd th:text="*{personcount} + ' 人'"></dd>
+										<dt>出行天数：</dt>
+										<dd th:text="*{duration}"></dd>
+										<dt>导游人数：</dt>
+										<dd th:text="*{guidecount}"></dd>
+									</td>
+								</tr>
+							</table>
+						</dl>
+					</div>
+				</div>
+  </div> 
+  <form id="mainForm" class="form-horizontal" role="form" method="post" th:action="@{'/guideItemOrder/send?guideOrderId=' + ${guideOrder.id}}" >
+  <input type="hidden"  name="guideIds" id="guideIds" />
+     <div class="form-group row">
+				<div class="form-field">
+					<label for="cityPlan.fromCity"
+						class="col-md-2 col-xs-12 control-label"> <font
+						color="red">*</font>&nbsp;导游姓名
+					</label>
+					<div class="col-md-3 col-xs-12">
+					<input type="text"   name="selectguidename"   id="selectguidename" readonly="readonly"  style="border: none;width: 80%"/>
+					
+					</div>
+				</div>
+			</div>
+          <div class="form-group row">
+				<div class="form-field">
+					<label for="cityPlan.fromCity"
+						class="col-md-2 col-xs-12 control-label"> <font
+						color="red">*</font>&nbsp;导游城市
+					</label>
+					<div class="col-md-3 col-xs-12">
+						<select class="form-control" required="required" id="City"
+							name="City" data-ng-model="City"  data-ng-change="change(City)">
+							<option value="">--请选择--</option>
+							<option th:each="city : ${city}" th:value="${city.id}"
+								th:text="${city.cityName}"></option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="form-field">
+					<label for="cityPlan.fromCity"
+						class="col-md-2 col-xs-12 control-label"> <font
+						color="red">*</font>&nbsp;导游姓名
+					</label>
+					<div class="col-md-3 col-xs-12">
+						<select id="guideTypeName" name="guideTypeName" class="form-control" data-model="guideName" onchange="guideChange(this.options[this.options.selectedIndex].value)">
+							<option id="cityonline" value="">所有</option>
+							<option id="cityonline" data-ng-repeat="v in guideName" data-ng-bind="v.firstName+v.lastName" value="{{v.guide.id}}"></option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<button type="submit" class="btn btn-primary" style="size: 10px">派单</button>
+				<a  th:href="@{'/guideItemOrder/list'}" class="btn btn-primary">返回</a>
+				<br />
+			</div>
+			</form>
+			
+  </div>
+	
+	<div layout:fragment="script">
+
+	
+	</div>
+</body>
+</html>

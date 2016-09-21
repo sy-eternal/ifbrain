@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>行程规划测试</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+
+    // This example creates an interactive map which constructs a polyline based on
+    // user clicks. Note that the polyline only appears once its path property
+    // contains two LatLng coordinates.
+
+    var index = 1;
+    var poly;
+    var map;
+
+    var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">金门大桥</h1>'+
+            '<div align="left">'+
+            '<div id="bodyContent"  style="width:60%;float: left" align="left" >'+
+            '<p><b>金门大桥</b>, 雄峙于美国加利福尼亚州长1900多米的金门海峡之上，历时4年，利用10万多吨钢材, ' +
+            '耗资达3550万美元建成，由桥梁工程师约瑟夫·施特劳斯（Joseph .Struss, 1870—1938年）设计。'+
+            '金门大桥桥身的颜色为国际橘，因建筑师艾尔文·莫罗认为此色既和周边环境协调， '+
+            '又可使大桥在金门海峡常见的大雾中显得更醒目。由于这座大桥新颖的结构和超凡脱俗的外观， '+
+            '所以它被国际桥梁工程界广泛认为是美的典范，更被美国建筑工程师协会评为现代的世界奇迹之一。 '+
+            '它也是世界上最上镜的大桥之一。 </p>'+
+            '<p>Attribution: 金门大桥, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+            'https://en.wikipedia.org/wiki/Golden_Gate_Bridge</a></p>'+
+            '</div>'+
+//            '<div style="width:38%">'+
+             '<img src=\'http://d.hiphotos.baidu.com/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=4793fdeb59b5c9ea76fe0bb1b450dd65/d1a20cf431adcbef0501b5e6aeaf2edda3cc9f1d.jpg\' height="40%" width="40%">'+
+//            '</div>'+
+            '</div>'+
+            '</div>';
+
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+//            zoom: 7,
+//            center: {lat: 41.879, lng: -87.624}  // Center the map on Chicago, USA.
+            center: {lat: 41.879, lng: -87.624},
+            zoom: 4
+        });
+
+        poly = new google.maps.Polyline({
+            strokeColor: '#000000',
+            strokeOpacity: 1.0,
+            strokeWeight: 3
+        });
+        poly.setMap(map);
+
+        // Add a listener for the click event
+//        map.addListener('click', addLatLng);
+
+
+
+
+        var infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+
+        service.getDetails({
+            placeId: 'ChIJw____96GhYARCVVwg5cT7c0'
+        }, function(place, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                var marker = new google.maps.Marker({
+                    map: map,
+                    label:"1",
+                    position: place.geometry.location
+                });
+                google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.setContent(contentString);
+                    infowindow.open(map, this);
+                });
+
+                var path = poly.getPath();
+                path.push(place.geometry.location);
+
+            }
+        });
+
+        service.getDetails({
+            placeId: 'ChIJVVVVVVXlUVMRu-GPNDD5qKw'
+        }, function(place, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                var marker = new google.maps.Marker({
+                    map: map,
+                    label:"2",
+                    position: place.geometry.location
+                });
+                google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.setContent(place.name);
+                    infowindow.open(map, this);
+                });
+
+                var path = poly.getPath();
+                path.push(place.geometry.location);
+            }
+        });
+
+        service.getDetails({
+            placeId: 'ChIJtcaxrqlZwokRfwmmibzPsTU'
+        }, function(place, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                var marker = new google.maps.Marker({
+                    map: map,
+                    label:"3",
+                    position: place.geometry.location
+                });
+                google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.setContent(place.name);
+                    infowindow.open(map, this);
+                });
+
+                var path = poly.getPath();
+                path.push(place.geometry.location);
+            }
+        });
+
+
+
+    }
+
+    // Handles click events on a map, and adds a new point to the Polyline.
+    function addLatLng(event) {
+        var path = poly.getPath();
+
+        // Because path is an MVCArray, we can simply append a new coordinate
+        // and it will automatically appear.
+        path.push(event.latLng);
+
+        // Add a new marker at the new plotted point on the polyline.
+        var marker = new google.maps.Marker({
+            position: event.latLng,
+            title: '#' + path.getLength(),
+            label: (index++) + "",
+            map: map
+        });
+    }
+
+
+
+
+</script>
+<script async defer src="http://maps.google.cn/maps/api/js?signed_in=false&key=AIzaSyDexg9u5VITxjJCQfpdFp3BmWTdoq19lY0&libraries=geometry,places&callback=initMap"
+        type="text/javascript"></script>
+</body>
+</html>

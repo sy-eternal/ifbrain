@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>保险活动新增</title>
+<!-- 使用jQuery Validation控件进行前端验证 -->
+<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script>
+	$(function() {
+		$("#mainForm").validate({
+
+			highlight : function(element) {
+				$(element).closest(".form-group").addClass("has-error");
+			},
+			success : function(label) {
+				label.closest(".form-group").removeClass("has-error");
+				label.closest(".form-group").addClass("has-success");
+			},
+			errorPlacement : function(error, element) {
+				element.parent("div").append(error);
+			},
+			submitHandler : function(form) {
+				form.submit();
+			}
+		});
+	});
+</script>
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid">
+		<div class="row">
+			<div class="page-header">
+				<h1>保险活动新增</h1>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<form id="mainForm" class="form-horizontal" role="form" method="post" th:action="@{/insuranceActivity/create}">
+
+						<div class="form-group">
+							<label class="col-xs-3 control-label">供应商名称</label>
+							<div class="col-xs-6">
+								<select class="form-control" name="supplier" id="supplier">
+									<option th:each="supplierName : ${supplier}" th:text="${supplierName.cnName}"></option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-xs-3 control-label">保险类型<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control"  required="required"  name="insuranceType" id="insuranceType"/>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-xs-3 control-label">险种<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" required="required" name="insuranceName" id="insuranceName"/>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-xs-3 control-label">保险范围<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+								<textarea rows="5" cols="71" id="insuranceCove" name="insuranceCove" required="required"></textarea>
+							</div>
+						</div>
+
+						<p class="text-center">
+							<button type="submit" class="btn btn-primary">提交</button>
+							<a th:href="@{/insuranceActivity}" class="btn btn-default">返回</a>
+						</p>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+@charset "utf-8";
+/*!VIPABC | Author by Mike Li*/
+/*!v1.0 | 2015-2-27*/
+/*!License: vipabc.com*/
+
+
+.sidebar{
+	position:relative;
+	float:left;
+	width:220px;
+	height:auto;
+	padding-top:116px;
+	margin-top:24px;
+	
+}
+.sidebar .yao-head{
+	position:absolute;
+	width:220px;
+	left:0;
+	top:1px;
+	z-index:10;
+}
+
+.sidebar-form{
+	float:left;
+	width:100%;
+	background-color:#ebebeb;
+}
+
+.sidebar-form h3{
+	float:left;
+	width:100%;
+	line-height:40px;
+	margin-bottom:24px;
+	font-size:16px;
+	text-align:center;
+	color:#fff;
+	background-color:#3ca0ff;
+}
+.sidebar-form-content{
+	float:left;
+	width:90%;
+	padding:0 5%;
+}
+.sidebar-form-content li{
+	float:left;
+	width:100%;
+	margin-bottom:5px;
+}
+.sidebar-form-content li p{
+	padding:6px 10px 7px 10px;
+	background-color:#fff;
+}
+.sidebar-form-content li .sf-left{
+	float:left;
+	width:49%;
+	margin-right:2%;
+}
+.sidebar-form-content li .sf-right{
+	float:left;
+	width:49%;
+}
+
+.sf-input{
+	width:100%;
+	height:100%;
+	color:#bababa;
+	font-size:14px;
+	background-color:#fff;
+}
+.sf-btn{
+	width:100%;
+	height:50px;
+	margin:19px 0 10px 0;
+	line-height:50px;
+	text-align:center;
+	font-size:16px;
+	color:#fff;
+	background-color:#f74c4c;
+	border-radius:0;
+}
+.sf-btn:hover, .sf-btn:active{
+	background-color:#e60012;	
+}
+.goTop{
+	display:block;
+	float:left;
+	width:100%;
+	height:40px;
+	margin:2px 0;
+	cursor:pointer;
+	background:#ebebeb url(../img/goTop.png) no-repeat center center;
+}
+.goTop:hover, .goTop:active{
+	background:#f74c4c url(../img/goTop_hover.png) no-repeat center center;
+}
+
+.sidebar-banner{
+	float:left;
+	width:100%;
+}
+.sidebar-banner a{
+	float:left;
+	display:inline-block;
+}
+.sidebar-banner a.item-a{
+	display:inline-block;
+	width:100%;
+	text-align:center;
+}
+
+
+@media all and (max-width:1000px){
+	
+	
+	
+}
+
+
+@media all and (max-width:790px){
+	
+
+.goTop:hover, .goTop:active{
+	background-color:#ebebeb;
+}
+	
+}
+
+@media all and (max-width:420px){
+.sidebar{
+	display:block;
+	float:left;
+	width:100%;
+	margin-bottom:40px;
+}
+.sidebar .yao-head{
+	left:50%;
+	margin-left:-110px;
+}
+.sidebar-form-content li{margin-bottom:10px;}
+.sidebar-form h3{
+	font-size:22px;
+	line-height:60px;
+}
+.sidebar-form-content li p{
+	padding:10px 10px 10px 10px;
+}
+.sf-btn{font-size:20px;}
+
+
+.sidebar-banner a.item-a{
+	margin-top:30px;
+}
+.sidebar-banner a.item-a img{width:60%;}
+	
+}

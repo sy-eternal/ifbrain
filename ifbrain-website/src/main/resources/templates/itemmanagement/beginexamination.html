@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>财经素养等级考试</title> 
+   <link rel="shortcut icon" href="../../img/showhtml.ico" /> 
+   <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/> 
+   <script src="../../assets/frontend/pages/scripts/top.js"></script>
+ 
+   <link href="../../assets/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+  <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <link href="../../assets/global/plugins/rateit/src/rateit.css" rel="stylesheet" type="text/css"/>
+ 
+  <link href="../../assets/global/css/components.css" rel="stylesheet"/>
+  <link href="../../assets/frontend/layout/css/style.css" rel="stylesheet"/>
+  <link href="../../assets/frontend/pages/css/style-shop.css" rel="stylesheet" type="text/css"/>
+  <link href="../../assets/frontend/layout/css/themes/red.css" rel="stylesheet" id="style-color"/> 
+   <link href="../../assets/frontend/layout/css/style-responsive.css" rel="stylesheet"/> 
+ <link href="../../assets/frontend/layout/css/custom.css" rel="stylesheet"/>
+   <link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+ <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/selectstyle/style.css}" media="screen"  />
+<link th:href="@{/assets/global/css/plugins.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/frontend/layout/css/style-responsive.css}" rel="stylesheet" />
+<script type="text/javascript" th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+<link th:href="@{/assets/global/css/components-rounded.css}" id="style_components" rel="stylesheet" type="text/css"/>
+<script type="text/javascript"	th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/controller/pagecontroller/beginexamination.js}"></script>
+<!-- <script type="text/javascript" th:src="@{/js/controller/pagecontroller/cookietime.js}"></script> -->
+<script type="text/javascript" th:src="@{/js/controller/pagecontroller/toexamination.js}"></script>
+ 	<style type="text/css">
+ 		back{
+ 			background-color: #a3a3a3 !important;
+ 		}
+ 	</style>
+ 		<style type="text/css">
+ 		.tracking10{
+ 			color:red !important;
+ 		}
+ 	</style>
+</head>
+<body style="padding: 0px; margin: 0px;background-color: #e2e2e2;">
+<!-- header -->
+	<div class="v-jr-slide-wrap">
+        
+  <div th:replace="partial/header-new" class="header" style="width: auto;"></div>
+        <div class="v-jr-slide-box v-jr-clear" id="js-slide-box">					
+	<div class="container" style="max-width: 710px; padding: 0px;">
+	<div id="mailsub" class="notification col-md-12 col-xs-12 col-sm-12 " align="center" style="max-width: 710px" th:if="${exam!=null}">		
+		<div style="margin-top: 10px;background-color: white;border-radius:10px !important; height: 30px;line-height: 30px; "  class=" col-md-12 col-xs-12 col-sm-12">
+			<div class="col-xs-4 col-md-4 col-sm-4" style="padding: 0px;">
+				<div class="col-xs-2 col-md-1 col-sm-2" style="text-align: right;height: 30px;padding: 0px;" align="right"><div style="width: 8px;height: 8px;border-radius:50% !important;background-color: #ffd464;margin-top:10px;"></div></div>
+				<div class="col-xs-9 col-md-11 col-sm-9" style="text-align: left;padding: 0px;" align="left"><input type="text" readonly="readonly" style="border: none;background-color: transparent;width: 100%;font-size: 12px;color: #333333 "  value="财经素养等级考试"/></div>
+			</div>
+		</div>
+		<input type="hidden" th:value="${ordernumber}" id="ordernumber"/>
+		<input type="hidden" th:value="${questionsize}" id="questionsize"/>
+		<input type="hidden" th:value="${child.id}" id="childid"/>
+		
+			<input type="hidden"   th:value="${answers}" id="childanswers" class="childanswers" style="border: 1px solid red;"/>
+		 <div class="col-md-12 col-xs-12 col-sm-12" style="padding: 0px;" >
+		   	 <div class="col-md-12 col-xs-12 col-sm-12" style=";margin-top:15px;;padding: 0px;background-color: white;color: #333333;border-radius:10px !important;padding-top: 15px;padding-bottom: 25px;">
+		   		<div class="col-md-12 col-xs-12 col-sm-12" style="text-align: left;margin-bottom: 15px;">欢迎你,<span th:text="${child.name}"></span></div>
+		   		<div class="col-md-12 col-xs-12 col-sm-12 exam" style="text-align: left;margin-bottom: 15px;"  th:each="exam:${exam}">
+		   		 <input type="hidden" id="surtimes" th:value="${exam.examTime}" class="surtimes"/>
+		   		<input type="hidden" id="surtimess" th:value="${exam.examTime}" class="surtimess"/>
+					<div id="timer" style="color:red"></div> 
+		   		</div>
+		   		
+		   		<div class="col-md-1  col-sm-1"></div>
+		   		<div class="col-md-10 col-xs-12 col-sm-10" style="border-radius: 25px !important;padding:0px;;border: 1px solid #e2e2e2;background-color: #f9f9f9;padding-bottom: 32px;">
+		   				<div class="clickname"  style="width:100%;border-radius: 25px !important;border: 1px solid #e2e2e2;background-color: #e9e9e9;height: 32px;cursor: pointer;text-align: left;font-size: 12px;line-height: 28px;padding-left: 15px;"  >题目面板</div>
+		   				
+		   				<div  class="selectcontent"  style="width:100%;border-bottom: 1px solid #e2e2e2;height: 32px;cursor: pointer;text-align: left;font-size: 12px;line-height: 32px;padding-left: 15px;" th:each="temManagementQuestion:${temManagementQuestion}"  >
+		   				
+		   				<input type="hidden" th:value="${temManagementQuestion.ordernumber}" class="temManagementQuestionordernumber" style="width:10%;"/>
+		   				
+		   				<input type="hidden" th:value="${temManagementQuestion.question.questionNameContent}" class="questionNameContent"   style="width:80%;"/>
+		   				
+		   			</div>
+		   				 
+		   		</div>
+		   	 </div>
+		   </div>.
+		  <div class="col-md-12 col-xs-12 col-sm-12" style="padding: 0px;" >
+		   	 <div class="col-md-12 col-xs-12 col-sm-12" style=";margin-top:15px;;padding: 0px;background-color: white;color: #333333;border-radius:10px !important;padding-top: 15px;padding-bottom: 25px;">
+		   		<!-- <div class="col-md-12 col-xs-12 col-sm-12" style="text-align: left;margin-bottom: 15px;font-weight: bold;">第一题</div> -->
+		   		<div class="col-md-12 col-xs-12 col-sm-12 itemManagementQuestion" style="padding: 0px;margin-bottom: 20px;" >
+		   		
+			      <div class="col-xs-12 col-md-12 col-sm-12" style="border:1px dashed #e3e3e3;line-height: 30px;margin-bottom: 10px;">
+			      	<div class="col-xs-12 col-md-12 col-sm-12" style="border-bottom: 1px dashed #e3e3e3;text-align: left;">
+			      	<input type="hidden" th:value="${itemManagementQuestion.question.questionNameContent}" class="NameContent"/>
+			      	<input type="hidden" th:value="${itemManagementQuestion.item.id}" class="perscore"/>
+			      		<span style="color: red;">第<span th:text="${itemManagementQuestion.ordernumber}"></span>题</span>：<span class="questionNameContent"></span>
+			      	</div>
+			      	<input th:value="${itemManagementQuestion.question.questionOptionContent}" type="hidden" class="contentshow"/>
+			      	<div class="col-xs-12 col-md-12 col-sm-12 examcontent" style="text-align: left;">
+			      	</div>
+			      	<div class="col-xs-12 col-md-12 col-sm-12 " >    
+			      
+			      		<div class="col-md-3 col-sm-3 col-xs-3"><input type="radio"  value="A" name="checkradio" class="checkradio1"/>A</div>
+			      		<div class="col-md-3 col-sm-3 col-xs-3"><input type="radio"  value="B" name="checkradio" class="checkradio2"/>B</div>
+			      		<div class="col-md-3 col-sm-3 col-xs-3"><input type="radio"  value="C" name="checkradio" class="checkradio3"/>C</div>
+			      		<div class="col-md-3 col-sm-3 col-xs-3"><input type="radio"  value="D" name="checkradio" class="checkradio4"/>D</div>
+			      	</div>
+			      	
+			      </div>
+			      	
+		     	</div>
+		   	 </div>
+		   </div> 
+		   <div class="col-md-12 col-xs-12 col-sm-12" style="margin-top: 20px;">
+		   	
+		   	   <div class="col-md-5 col-xs-5 col-sm-5 previousquestion" style="background-color: #ffd464;border-radius: 25px !important;height: 30px;line-height: 30px;cursor: pointer;display: block;">上一题</div>
+		   	 <div class="col-md-2 col-xs-2 col-sm-2"></div>
+		   	  <div class="col-md-5 col-xs-5 col-sm-5 nextquestion" style="background-color: #ffd464;border-radius: 25px !important;height: 30px;line-height: 30px;cursor: pointer;" >下一题</div>
+		   	 
+		   	  <div class="col-md-2 col-xs-2 col-sm-2"></div>
+		   	 
+		   </div>
+		    <div class="col-md-12 col-xs-12 col-sm-12" style="margin-top: 20px;">
+		   	 
+		   </div>
+		    <div class="col-md-12 col-xs-12 col-sm-12" style="padding: 0px;border-radius: 25px !important;background-color: #ffd464;font-size: 12px;margin-top:30px;; font-weight: bold;color: #333333;text-align: center;line-height: 30px;height: 30px;cursor: pointer;" data-toggle="modal" data-target="#myModal3" >检查完啦，我要交卷</div>
+	</div>
+	
+	<!-- 交卷提示 -->
+	<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+        <div class="modal-dialog">
+             <div class="modal-content">
+         		<div class="col-md-12 col-xs-12 col-sm-12 container" style="margin-top:150px;" align="center">
+         			<div style="max-width: 710px;background-color: white;height: 150px;border-radius: 25px !important;" >
+         				
+         				<div class="col-md-12 col-xs-12 col-sm-12 "><input type="text"  id="kidbabyname" style="border: none;font-size: 12px;color: #303030;text-align: center;" readonly="readonly"/></div>
+         				<div class="col-md-12 col-xs-12 col-sm-12 " style="margin-top: 10px;"><input type="text"  id="kidbabyname" value="是否确定要交卷？" style="text-align:center;font-size:16px;color:#303030;border: none;color: #303030" readonly="readonly"/></div>
+         			    <div class="col-md-12 col-xs-12 col-sm-12 " style="margin-top: 30px;">
+         			    <a style="color: #333333 ;text-decoration: none; "  data-dismiss="modal" aria-hidden="true"><span style=" font-size: 16px;background-color:#ffd464;;border:2px solid #ffd464;border-radius:50px !important;padding-top: 3px;padding-bottom: 3px;padding-left: 7px;padding-right: 7px;line-height: 45px;height: 45px; " >&nbsp;在检查一下&nbsp;</span></a>&nbsp;&nbsp;&nbsp;	
+				       <a style="color:#333333  ; text-decoration: none;" class="submiteexam"><span style=" font-size: 16px;;;background-color:#ffd464;border:2px solid #ffd464;border-radius:50px !important;padding-top: 3px;padding-bottom: 3px;padding-left: 7px;padding-right: 7px;line-height: 45px;height: 45px;"   >&nbsp;立即交卷&nbsp;</span></a>&nbsp;&nbsp;&nbsp;
+         			    
+         			    </div>
+         			</div>
+         		</div> 
+             </div>
+         </div>
+     </div>
+     
+     
+     
+     <input type="hidden" id="clickmyModal2" data-toggle="modal" data-target="#myModal2" />
+	
+	<!-- 时间限制 -->
+	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+        <div class="modal-dialog">
+             <div class="modal-content">
+         		<div class="col-md-12 col-xs-12 col-sm-12 container" style="margin-top:150px;" align="center">
+         			<div style="max-width: 710px;background-color: white;height: 150px;border-radius: 25px !important;" >
+         				
+         				<div class="col-md-12 col-xs-12 col-sm-12 "><input type="text"  id="kidbabyname" style="border: none;font-size: 12px;color: #303030;text-align: center;" readonly="readonly"/></div>
+         				<div class="col-md-12 col-xs-12 col-sm-12 " style="margin-top: 10px;"><input type="text"  id="kidbabyname" value="您的作答时间已经超过时间限制，试卷自动提交" style="text-align:center;font-size:16px;color:#303030;border: none;color: #303030" readonly="readonly"/></div>
+         			    <div class="col-md-12 col-xs-12 col-sm-12 " style="margin-top: 30px;">
+         			    	
+				       <a style="color:#333333  ; text-decoration: none;"><span style=" font-size: 16px;;;background-color:#ffd464;border:2px solid #ffd464;border-radius:50px !important;padding-top: 3px;padding-bottom: 3px;padding-left: 7px;padding-right: 7px;line-height: 45px;height: 45px;"   onclick="alert('提交成功')">&nbsp;结束考试&nbsp;</span></a>&nbsp;&nbsp;&nbsp;
+         			    
+         			    </div>
+         			</div>
+         		</div> 
+             </div>
+         </div>
+     </div>
+	</div>
+	
+	</div></div>
+	
+	
+	<script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>      
+    <script src="../../assets/frontend/layout/scripts/back-to-top.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <!-- END CORE PLUGINS -->
+
+    <!-- BEGIN PAGE LEVEL JAVASCRIPTS (REQUIRED ONLY FOR CURRENT PAGE) -->
+    <script src="../../assets/global/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script><!-- pop up -->
+    <script src="../../assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js" type="text/javascript"></script><!-- slider for products -->
+    <script src='../../assets/global/plugins/zoom/jquery.zoom.min.js' type="text/javascript"></script><!-- product zoom -->
+    <script src="../../assets/global/plugins/bootstrap-touchspin/bootstrap.touchspin.js" type="text/javascript"></script><!-- Quantity -->
+
+    <!-- BEGIN LayerSlider -->
+    <script src="../../assets/global/plugins/slider-layer-slider/js/greensock.js" type="text/javascript"></script><!-- External libraries: GreenSock -->
+    <script src="../../assets/global/plugins/slider-layer-slider/js/layerslider.transitions.js" type="text/javascript"></script><!-- LayerSlider script files -->
+    <script src="../../assets/global/plugins/slider-layer-slider/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script><!-- LayerSlider script files -->
+    <script src="../../assets/frontend/pages/scripts/layerslider-init.js" type="text/javascript"></script>
+    <!-- END LayerSlider -->
+
+    <script src="../../assets/frontend/layout/scripts/layout.js" type="text/javascript"></script>
+</body>
+</html>

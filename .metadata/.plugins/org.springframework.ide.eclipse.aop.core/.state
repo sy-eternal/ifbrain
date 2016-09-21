@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="travel-admin"/>
+<aop-project name="travel-website"/>
+<aop-project name="travel-data"/>
+</aop-reference-model>

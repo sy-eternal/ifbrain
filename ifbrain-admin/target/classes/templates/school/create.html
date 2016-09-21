@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+	<title>新增学校信息</title>
+	<!-- DataTables -->
+<!-- 使用jQuery Validation控件进行前端验证 -->
+	<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+	<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+	<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+	<link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+	<link src="../../assets/global/plugins/bootstrap-select/bootstrap-select.css"/>
+	<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+	<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+	<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script> 
+	<script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+	<link href="../../assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="../../assets/global/plugins/select2/select2.css"/>
+	<script type="text/javascript" src="../../assets/global/plugins/bootstrap-select/bootstrap-select.js"></script>
+	 <script type="text/javascript">
+	 function istrue(){
+			 var scName=$('#scName').val();
+			var cityschools=$('#cityschools').val();
+			$.ajax({
+			    type: "Post",
+			    url: "/school/valueistrue",
+			    data: {"scName":scName,"cityschools":cityschools
+			    },
+			    success: function (data) {
+			        if(data==true){
+					 	$('#spValue').html(''); 
+						document.getElementById('alltrue').disabled=false;
+					}else{
+						$('#spValue').css('color','red');
+						$('#spValue').html('该学校名称已存在')
+						document.getElementById('alltrue').disabled=true;
+					}        
+			    }
+			}); 
+			}  
+	</script>
+</head>
+
+  
+<body >
+	 <div layout:fragment="content">
+		<div class="page-header">
+	 		<h1>新增学校信息</h1>
+		</div>
+		
+	 	<form id="mainForm" class="form-horizontal" role="form" method="post" th:action="@{/school/create}">
+			
+			<div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">城市</label>
+				<div class="col-xs-6">
+					 <select class="form-control input-xlarge select2me"  id="cityschools"  name="cityschool"  >
+							<option th:each="cityschool : ${cityschool}" th:value="${cityschool.id}" th:text="${cityschool.cityName}"  id="cityschool"></option>
+						</select>
+					<span class="text-danger" ></span>
+				</div>
+			</div>
+				<div class="form-group">
+						<label for="type" class="col-xs-3 control-label">学校名字<span style="color: #e94d1c;font-size:6px;">*</span></label>
+						<div class="col-xs-6">
+							<input type="text" class="form-control"   id="scName"  name="scName"  onblur="istrue();"/> 
+								<span id="spValue"></span>
+						</div>
+					</div>
+			<div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">管理用户</label>
+				<div class="col-xs-6">
+					 <select class="form-control input-xlarge select2me"  id="member"  name="member"  >
+							<option th:each="member : ${member}" th:value="${member.id}" th:text="${member.firstName}+${member.lastName}"  id="member"></option>
+						</select>
+					<span class="text-danger" ></span>
+				</div>
+			</div>
+			<p class="text-center">
+						<button type="submit" class="btn btn-primary" id="alltrue">提交</button>
+						<a th:href="@{/school/list}" class="btn btn-default">返回</a>
+					</p>
+		</form>
+	<script type="text/javascript" src="../../assets/global/plugins/select2/select2.min.js"></script>
+	<script>
+        jQuery(document).ready(function() {       
+           Metronic.init(); 
+			Layout.init();
+			QuickSidebar.init(); 
+			 ComponentsDropdowns.init();
+			Demo.init();
+          
+        });   
+    </script>
+	</div>
+	 
+</body>
+
+</html>

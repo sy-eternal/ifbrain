@@ -1,0 +1,597 @@
+<!DOCTYPE html >
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<!--<![endif]-->
+
+<!-- Head BEGIN -->
+<head>
+<meta charset="utf-8" />
+<title>嘻游定制旅行</title>
+
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<meta content="Metronic Shop UI description" name="description" />
+<meta content="Metronic Shop UI keywords" name="keywords" />
+<meta content="keenthemes" name="author" />
+
+<meta property="og:site_name" content="-CUSTOMER VALUE-" />
+<meta property="og:title" content="-CUSTOMER VALUE-" />
+<meta property="og:description" content="-CUSTOMER VALUE-" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="-CUSTOMER VALUE-" />
+<!-- link to image for socio -->
+<meta property="og:url" content="-CUSTOMER VALUE-" />
+
+<link rel="shortcut icon" href="favicon.ico" />
+
+<!-- Fonts START -->
+<link
+	href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all"
+	rel="stylesheet" type="text/css" />
+<!-- Fonts END -->
+
+<!-- Global styles START -->
+<link
+	href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" />
+<link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet" />
+<!-- Global styles END -->
+
+<!-- Page level plugin styles START -->
+<link
+	href="../../assets/global/plugins/fancybox/source/jquery.fancybox.css"
+	rel="stylesheet" />
+<link
+	href="../../assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css"
+	rel="stylesheet" />
+<link
+	href="../../assets/global/plugins/slider-revolution-slider/rs-plugin/css/settings.css"
+	rel="stylesheet" />
+<!-- Page level plugin styles END -->
+
+<!-- Theme styles START -->
+<link href="../../assets/global/css/components.css" rel="stylesheet" />
+<link href="../../assets/frontend/layout/css/style.css" rel="stylesheet" />
+<link href="../../assets/frontend/pages/css/style-revolution-slider.css"
+	rel="stylesheet" />
+<!-- metronic revo slider styles -->
+<link href="../../assets/frontend/layout/css/style-responsive.css"
+	rel="stylesheet" />
+<link href="../../assets/frontend/layout/css/themes/red.css"
+	rel="stylesheet" id="style-color" />
+<link href="../../assets/frontend/layout/css/custom.css"
+	rel="stylesheet" />
+
+<link
+	href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" />
+<link href="../../assets/frontend/onepage/css/style.css"
+	rel="stylesheet" />
+<link href="../../assets/frontend/onepage/css/themes/red.css"
+	rel="stylesheet" id="style-color" />
+<link
+	href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css"
+	rel="stylesheet" type="text/css" />
+<script src="../../assets/frontend/pages/scripts/top.js"></script>
+<!--   <script type="text/javascript">
+	$(document).ready(function() {
+		//判断游客导游 
+		if (document.getElementById("shows").value == "") {
+			$('#daoyou').css('display', 'none');
+			$('#youke').css('display', 'none');
+			$('#usertyposs').css('display', 'none')
+			$('#denglus').css('display', 'block')
+			$('#usertypos').css('display', 'none')
+		}
+		else if (document.getElementById("shows").value == 1) {
+			$('#youke').css('display', 'block');
+			$('#daoyou').css('display', 'none');
+			$('#usertyposs').css('display', 'block')
+			$('#denglus').css('display', 'none')
+			$('#register').css('display', 'none')
+			$('#usertypos').css('display', 'block')
+		}
+		else if (document.getElementById("shows").value == 2) {
+			$('#youke').css('display', 'none');
+			$('#daoyou').css('display', 'block');
+			$('#usertyposs').css('display', 'block')
+			$('#denglus').css('display', 'none')
+			$('#register').css('display', 'none')
+			$('#usertypos').css('display', 'block')
+		}
+	});
+
+	if ($("#shows").val() == 2) {
+		$("#dingzhi3").css("display", "none");
+		$("#dingzhi2").css("display", "none");
+	}
+</script> -->
+</head>
+<!-- Head END -->
+
+<style>
+/* Portfolio block */
+.portfolio-block {
+	background: #f6f6f6;
+	padding-top: 60px;
+}
+
+.liheader {
+	opacity: 0.8;
+	font-size: 12px;
+}
+
+/* Team block */
+.team-block {
+	padding-top: 60px;
+}
+
+.team-block h4 {
+	margin-bottom: 45px;
+}
+
+.team-block .item {
+	margin-bottom: 30px;
+}
+
+.team-block h3 {
+	font-size: 20px;
+	padding-top: 13px;
+	margin-bottom: 2px;
+}
+
+.team-block em {
+	color: #e54a1a;
+	text-transform: uppercase;
+	display: block;
+	font: 400 14px "Open Sans", Arial, sans-serif;
+	margin-bottom: 12px;
+}
+
+.tb-socio {
+	padding-top: 3px;
+	text-align: center;
+}
+
+.tb-socio .fa {
+	width: 33px;
+	height: 33px;
+	color: #b3bdc6;
+	border-radius: 50% !important;
+	border: solid 1px #d5d5d5;
+	font-size: 19px;
+	line-height: 19px;
+	margin: 0 7px;
+	padding-top: 7px;
+}
+
+.tb-socio .fa:hover {
+	color: #e6400c;
+	border: solid 1px #e6400c;
+	text-decoration: none;
+}
+/* h1-h6 */
+h1, h2 {
+	font: 400 37px "PT Sans Narrow", Arial, sans-serif;
+	margin: 0 0 10px;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+h1:after, h2:after {
+	z-index: 2;
+	content: " ";
+	display: block;
+	padding-top: 7px;
+	border-bottom: 2px solid #b7bbbf;
+	width: 73px;
+	margin: 0 auto;
+}
+
+h3, h4, h5, h6 {
+	font: 300 18px "Open Sans", Arial, sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+h1 strong, h2 strong, h3 strong, h4 strong {
+	color: #e54a1a;
+	font-weight: 300;
+}
+
+h3 {
+	font-size: 18px;
+	font-weight: 600;
+	margin-bottom: 7px;
+}
+
+h4 {
+	font-size: 18px;
+}
+
+h5 {
+	font-size: 18px;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 5px;
+	padding-top: 5px;
+}
+
+h6 {
+	font-size: 15px;
+	line-height: 1.4;
+	font-weight: 700;
+	margin-bottom: 5px;
+	padding-top: 5px;
+}
+
+.container {
+	width: 1180px;
+}
+
+.carousel-info img {
+	width: 75px;
+	height: 75px;
+	padding: 3px;
+	border-radius: 150px !important;
+	border: solid 1px #f5f5f5;
+}
+
+.carousel-info {
+	overflow: hidden;
+}
+
+.testimonials-name {
+	color: #E6400C;
+	font-size: 16px;
+	font-weight: 300;
+	margin: 23px 0 7px;
+}
+
+.testimonials-post {
+	color: #656565;
+	font-size: 12px;
+	text-decoration: none;
+}
+</style>
+<style type="text/css">
+.floating_ck {
+	position: fixed;
+	right: 20px;
+	top: 30%;
+}
+
+.floating_ck dl dd {
+	position: relative;
+	width: 80px;
+	height: 80px;
+	background-color: #646577;
+	border-bottom: solid 1px #555666;
+	text-align: center;
+	background-repeat: no-repeat;
+	background-position: center 20%;
+	cursor: pointer;
+}
+
+.floating_ck dl dd:hover {
+	border-bottom: solid 1px #a40324;
+}
+
+.floating_ck dl dd:hover .floating_left {
+	display: block;
+}
+
+.consult, .words {
+	background-image: url(../../assets/img/kficon.png);
+}
+
+.quote {
+	background-image: url(../../assets/img/font-524.png);
+}
+
+.qrcord {
+	background-image: url(../../assets/img/erweima.png);
+}
+
+.return {
+	background-image: url(../../assets/img/fanhui.png);
+}
+
+.floating_ck dd span {
+	color: #fff;
+	display: block;
+	padding-top: 54px;
+}
+
+.floating_left {
+	position: absolute;
+	left: -160px;
+	top: 0px;
+	width: 160px;
+	height: 80px;
+	background-color: white;
+	border-bottom: solid 1px #a40324;
+	display: none;
+}
+
+.floating_left a {
+	color: gray;
+	line-height: 80px;
+}
+
+.floating_ewm {
+	height: 260px;
+	top: -180px;
+}
+
+.floating_ewm i {
+	background-image: url(../../assets/frontend/onepage/img/wechat.jpg);
+	display: block;
+	width: 145px;
+	height: 145px;
+	margin: auto;
+	margin-top: 7px;
+}
+
+.floating_ewm p {
+	color: gray;
+	margin-top: 5px;
+}
+
+.floating_ewm .qrcord_p01 {
+	font-size: 12px;
+	line-height: 20px;
+}
+
+.floating_ewm .qrcord_p02 {
+	font-size: 18px;
+}
+</style>
+<!-- Body BEGIN -->
+<body class="corporate">
+	<input type="hidden" th:value="${session.usertyoe}" id="shows" />
+	<div class="header"
+		style="position: fixed; top: 0px; height: 60px; width: 100%; z- index: 99999;">
+		<div class="container" style="height: 60px; padding-top: 18px;">
+			<a href="/home/travelindex"> <img
+				src="../../assets/frontend/onepage/img/logo/xylogo.png" alt="嘻游旅行"
+				style="float: left;" />
+			</a> <a href="javascript:void(0);" class="mobi-toggler"> <i
+				class="fa fa-bars"></i>
+
+			</a>
+			<div align="right" th:if="${session.guide}==null">
+				<ul style="list-style: none;">
+					<li><a th:href="@{/guide/login}"> <i class="icon-calendar"></i>
+							&nbsp;&nbsp;导游登录
+					</a></li>
+					<li><a th:href="@{/guide/register}"><i class="icon-user"></i>
+							&nbsp;&nbsp;导游注册 </a></li>
+				</ul>
+
+			</div>
+
+			<div class="header-navigation pull-right"
+				th:if="${session.guide}!=null">
+				<ul>
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" data-target="#" href="javascript:;"
+						style="padding: 0px;"> <span
+							class="username username-hide-on-mobile"
+							style="font-weight: 400; font-size: 18px; opacity: 0.8; color: #e6400c;"
+							th:text="${session.usertyoes}"></span> <span
+							class="username username-hide-on-mobile"></span>
+					</a> <!-- BEGIN DROPDOWN MENU -->
+						<ul class="dropdown-menu">
+							<li class="dropdown-submenu"><a href="/center"> <i
+									class="icon-calendar"></i> &nbsp;&nbsp;导游中心
+							</a></li>
+							<li class="dropdown-submenu"><a
+								th:href="@{/personalCenter/create}"> <i class="icon-user"></i>
+									&nbsp;&nbsp;个人中心
+							</a></li>
+							<li class="dropdown-submenu"><a th:href="@{/home/loginout}">
+									<i class="icon-key"></i> &nbsp;&nbsp;退出
+							</a></li>
+						</ul> <!-- END DROPDOWN MENU --></li>
+				</ul>
+			</div>
+
+			<!-- <div align="right" th:if="${session.guide}!=null" style="border: 1px solid;">
+			<ul style="list-style: none;" >
+			<li class="dropdown dropdown-user" id="usertypos" >
+			<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+			<img alt="" class="img-circle" th:src="@{/assets/admin/layout/img/avatar3_small.jpg}" />
+			<span class="username username-hide-on-mobile" th:text="${session.usertyoes}"  ></span>
+			<span class="username username-hide-on-mobile"></span>
+				<i class="fa fa-angle-down"></i>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-default">
+					<li>
+							<a href="/center">
+							<i class="icon-calendar" th:if="${session.usertyoe}==2"></i>&nbsp;&nbsp;导游中心</a>
+						</li>
+						<li>
+							<a th:href="@{/personalCenter/doCreate1}">
+							<i class="icon-user"></i>&nbsp;&nbsp;个人中心</a>
+						</li>
+						
+						<li>
+							<a th:href="@{/home/loginout}">
+							<i class="icon-key"></i>&nbsp;&nbsp;退出</a>
+						</li>
+						
+					</ul>
+				</li>
+				</ul>
+				</div> -->
+			<!-- BEGIN NAVIGATION -->
+			<!-- <div  align="right" style="width:20%; border: 1px solid;">
+				
+			</div> -->
+		</div>
+
+	</div>
+	<!-- BEGIN TOP BAR -->
+	<div class="container" style="margin-top: 60px;">
+		<div class="row recent-work margin-bottom-40">
+			<h2>
+				我们的 <strong>团队</strong>
+			</h2>
+			<h4>让他们带着你出去玩如何？</h4>
+			<div class="row front-team">
+				<ul class="list-unstyled">
+					<li class="col-md-4" th:each="guides:${guides}">
+						<div class="thumbnail">
+							<a th:href="@{/home/guidedetail(guideId=${guides.guide.id})}"><img
+								alt="" th:src="@{'/image/show/' + ${guides.image.id}}" /></a>
+							<h3>
+								<strong
+									th:text="${guides.guide.user.firstName}+${guides.guide.user.lastName}"></strong>
+								<a th:href="@{/home/guidedetail(guideId=${guides.guide.id})}"><small
+									th:text="${guides.guide.motto}">首席旅行规划师</small></a>
+							</h3>
+							<p
+								th:text="'我在'+${guides.guide.hostCity.cityName}+'停留了'+${guides.guide.stayduration}+'年'">从事私人
+
+								导 游十余年，美国西部最专 业行程规划师，最有温度的攻略和好评如潮的导游大牛</p>
+							<p th:each="targs:${guides.guide.guidetag}"
+								th:text="${targs.tag}">专长领域</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- BEGIN PRE-FOOTER -->
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<!-- BEGIN COPYRIGHT -->
+				<div class="col-md-6 col-sm-6 col-xs-12 padding-top-10">2015 ©
+					广州嘻游信息科技有限公司. ALL Rights Reserved.&nbsp;&nbsp;粤ICP备15064509号</div>
+				<!-- END COPYRIGHT -->
+				<!-- BEGIN PAYMENTS -->
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<ul class="social-icons pull-right">
+						<li><a class="rss" data-original-title="rss"
+							href="javascript:;"></a></li>
+						<li><a class="facebook" data-original-title="facebook"
+							href="javascript:;"></a></li>
+						<li><a class="twitter" data-original-title="twitter"
+							href="javascript:;"></a></li>
+						<li><a class="googleplus" data-original-title="googleplus"
+							href="javascript:;"></a></li>
+						<li><a class="linkedin" data-original-title="linkedin"
+							href="javascript:;"></a></li>
+						<li><a class="youtube" data-original-title="youtube"
+							href="javascript:;"></a></li>
+						<li><a class="vimeo" data-original-title="vimeo"
+							href="javascript:;"></a></li>
+						<li><a class="skype" data-original-title="skype"
+							href="javascript:;"></a></li>
+					</ul>
+				</div>
+				<!-- END PAYMENTS -->
+			</div>
+		</div>
+
+	</div>
+	<!-- END PRE-FOOTER -->
+	<!-- BEGIN FOOTER -->
+	<div class="floating_ck" style="z-index: 9999; opacity: 0.9;">
+		<dl>
+			<dt></dt>
+			<dd class="consult">
+				<span>咨询热线</span>
+				<div class="floating_left">
+					<a>咨询热线</a>
+				</div>
+			</dd>
+			<dd class="quote">
+				<span>QQ客服</span>
+				<div class="floating_left">
+					<a href="#"></a>
+				</div>
+			</dd>
+			<dd class="qrcord">
+				<span>扫一扫</span>
+				<div class="floating_left floating_ewm">
+					<i></i>
+					<p class="qrcord_p01">扫一扫</p>
+					<p class="qrcord_p02">领红包</p>
+				</div>
+			</dd>
+
+			<dd class="return">
+				<span onClick="gotoTop();return false;">返回顶部</span>
+			</dd>
+		</dl>
+	</div>
+	<a href="#promo-block" class="go2top scroll"><i
+		class="fa fa-arrow-up"></i></a>
+	<!-- END FOOTER -->
+
+	<!-- Load javascripts at bottom, this will reduce page load time -->
+	<!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
+	<!--[if lt IE 9]>
+    <script src="../../assets/global/plugins/respond.min.js"></script>
+    <![endif]-->
+	<script src="../../assets/global/plugins/jquery.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/global/plugins/jquery-migrate.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/frontend/layout/scripts/back-to-top.js"
+		type="text/javascript"></script>
+	<!-- END CORE PLUGINS -->
+
+	<!-- BEGIN PAGE LEVEL JAVASCRIPTS (REQUIRED ONLY FOR CURRENT PAGE) -->
+	<script
+		src="../../assets/global/plugins/fancybox/source/jquery.fancybox.pack.js"
+		type="text/javascript"></script>
+	<!-- pop up -->
+	<script
+		src="../../assets/global/plugins/carousel-owl-carousel/owl-
+
+carousel/owl.carousel.min.js"
+		type="text/javascript"></script>
+	<!-- slider for products -->
+
+	<!-- BEGIN RevolutionSlider -->
+	<script
+		src="../../assets/global/plugins/slider-revolution-slider/rs-
+
+plugin/js/jquery.themepunch.revolution.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../../assets/global/plugins/slider-revolution-slider/rs-
+
+plugin/js/jquery.themepunch.tools.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/frontend/pages/scripts/revo-slider-init.js"
+		type="text/javascript"></script>
+	<!-- END RevolutionSlider -->
+
+	<script src="../../assets/frontend/layout/scripts/layout.js"
+		type="text/javascript"></script>
+
+	<script type="text/javascript">
+		jQuery(document).ready(function() {
+			Layout.init();
+			Layout.initOWL();
+			RevosliderInit.initRevoSlider();
+			Layout.initTwitter();
+			//Layout.initFixHeaderWithPreHeader(); /* Switch On Header 
+
+Fixing (only if you have pre-header) */
+			//Layout.initNavScrolling(); 
+		});
+	</script>
+	<!-- END PAGE LEVEL JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+	<title>学校管理</title>
+	<!-- DataTables -->
+	<link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+ <script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+<script th:src="@{/js/util/http-context.js}"></script>
+<script th:src="@{/js/controller/school/school-controller.js}"></script>
+</head>
+<body>
+	<div layout:fragment="content" >
+		<div class="page-header">
+			<h1>学校列表</h1>
+		</div>
+		<a class="btn btn-default" th:href="@{/school/create}">新增</a>
+		<table id="table" class="table table-striped table-bordered table-hover">
+		    <thead>
+		        <tr>
+		        	 <th>城市</th>
+		             <th>学校名称</th>
+		             <th>管理用户</th>
+		             <th>创建时间</th>
+		             <th>操作</th> 
+		           
+		        </tr>
+		    </thead>
+		</table>
+	</div>
+	 <div layout:fragment="script">
+		
+		<script>
+			$(function() {
+				Metronic.init();
+				Layout.init(); 
+				QuickSidebar.init(); 
+				Demo.init(); 
+				SchoolController.init();
+			});
+		</script>
+	</div>
+</body>
+</html>

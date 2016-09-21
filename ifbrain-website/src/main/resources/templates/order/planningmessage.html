@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+	<title>信息提示</title>
+	<!-- DataTables -->
+<!-- DataTables -->
+	<link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+	<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+	<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+	<script th:src="@{/js/controller/visitorCenter-controller.js}"></script>
+</head>
+<body>
+<div layout:fragment="content" class="col-md-9 col-sm-12 col-xs-12" style="margin-top:130px;">
+		
+			<h1>信息提示</h1>
+		
+		<div th:object="${order}">
+						您的订单<span th:text="*{orderNumber}">*TP2015050515130601</span>正在规划中
+						<div class="portlet-body">
+                    <dl class="dl-horizontal" th:object="${order}">
+                        <table class="table table-hover" id="iten-table">
+                            <tr>
+                                <td>
+                                    <dt>开始日期：</dt>
+                                    <dd th:text="*{#dates.format(startDate, 'yyyy-MM-dd')}"></dd>
+                                    <dt>结束日期：</dt>
+                                    <dd th:text="*{#dates.format(endDate, 'yyyy-MM-dd')}"></dd>
+                                    <dt>游玩天数：</dt>
+                                    <dd th:if="*{duration != null}" th:text="*{duration + ' 天'}"></dd>
+                                    <dd th:if="*{duration == null}" ></dd>
+                                    <dt>出行目的：</dt>
+                                    <dd th:text="*{purposes}"></dd>
+                                    <dt>随行人员：</dt>
+                                    <dd th:text="*{personCount - 1} + ' 人'"></dd>
+                                    <dt>旅行主题：</dt>
+                                    <dd th:text="*{themes}"></dd>
+                                    <dt>出行人数：</dt>
+                                    <dd th:text="*{personCount} + ' 人'"></dd>
+                                    <dt>航班标准：</dt>
+                                    <dd th:text="${airPlaneType}"></dd>
+                                    <dt>租车喜好：</dt>
+                                    <dd th:text="${carLikeType}"></dd>
+                                </td>
+                                <td>
+                                    <dt>目的地国家：</dt>
+                                    <dd th:text="*{country.name}"></dd>
+                                    <dt>出发城市：</dt>
+                                    <dd th:text="*{startCity.cityName}"></dd>
+                                    <dt>必去城市：</dt>
+                                    <dd th:text="*{cityConfs}"></dd>
+                                    <dt>感兴趣城市：</dt>
+                                    <dd th:text="*{cityInts}"></dd>
+                                    <dt>规划方式：</dt>
+                                    <dd th:text="*{citysPlaneds}"></dd>
+                                    <dt>城市交通：</dt>
+                                    <dd th:text="*{innerTraffs}"></dd>
+                                    <dt>备注：</dt>
+                                    <dd th:text="*{remark}"></dd>
+                                </td>
+                            </tr>
+                        </table>
+                    </dl>
+                </div>
+		</div>
+</div>
+<div layout:fragment="script">
+		<script th:src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+		<script>
+			$(function() {
+				Metronic.init(); // init metronic core components
+				Layout.init(); // init current layout
+				QuickSidebar.init(); // init quick sidebar
+				Demo.init(); // init demo features
+			});
+		</script>
+	</div>
+	
+</body>
+</html>

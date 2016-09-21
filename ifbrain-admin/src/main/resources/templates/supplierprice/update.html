@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+	<title>修改API供应管理</title>
+	<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script>
+	<!-- 使用jQuery Validation控件进行前端验证 -->
+	<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+	<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+	<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+	
+	<script>
+		$(function() {
+			$("#mainForm").validate({
+				highlight : function(element) {
+					$(element).closest(".form-group").addClass("has-error");
+				},
+				success : function(label) {
+					label.closest(".form-group").removeClass("has-error");
+					label.closest(".form-group").addClass("has-success");
+				},
+				errorPlacement : function(error, element) {
+					element.parent("div").append(error);
+				},
+				submitHandler : function(form) {
+					form.submit();
+				}
+			});
+		});
+		function fromhref(){
+			window.history.go(-1);
+		}
+	</script>
+	<script type="text/javascript">
+	function show(){
+		var code=document.getElementById("code").value;
+		if(code =="2"){
+			document.getElementById("priceCoefficient").disabled=true;
+		}else{
+			document.getElementById("priceCoefficient").disabled=false;
+		}
+	}
+	function Code() {
+		var code=document.getElementById("code").value;
+		if(code =="2"){
+			document.getElementById("priceCoefficient").disabled=true;
+		}else{
+			document.getElementById("priceCoefficient").disabled=false;
+		}
+	}
+	function clearNoNum(obj)
+	{
+	    //先把非数字的都替换掉，除了数字和.
+	    obj.value = obj.value.replace(/[^\d.]/g,"");
+	    //必须保证第一个为数字而不是.
+	    obj.value = obj.value.replace(/^\./g,"");
+	    //保证只有出现一个.而没有多个.
+	    obj.value = obj.value.replace(/\.{2,}/g,".");
+	    //保证.只出现一次，而不能出现两次以上
+	    obj.value = obj.value.replace(".","$#$").replace(/\./g,"").replace("$#$",".");
+	}
+	</script>
+</head>
+<body data-ng-controller="supplierController" onload="show()">
+	<div layout:fragment="content" class="container">
+		<div class="page-header">
+			<h1>修改API供应管理</h1>
+		</div>
+		<div class="row">
+						<div class="col-md-7 col-sm-7">
+		<form class="form-horizontal" role="form" method="post" th:action="@{/supplierpriceruleactive/update}" th:object="${supplierpriceruleactive}">
+			 	     <input type="hidden" name="_method" value="put" />
+				     <input type="hidden" th:field="*{id}" /> 
+					 <div class="form-group" th:classappend="${#fields.hasErrors('code')}? 'has-error'">
+							<label for="code" class="col-xs-3 control-label">供应商类型</label>
+							<div class="col-xs-6">
+								<select class="form-control" th:field="*{code}">
+									<option th:each="code : ${code}" th:value="${code.id}" th:text="${code.classs}"></option>
+								</select>
+								<span class="text-danger" th:if="${#fields.hasErrors('code')}" th:errors="*{code}"></span>
+							 </div>
+					 </div>
+					 <div class="form-group" th:classappend="${#fields.hasErrors('supplier')}? 'has-error'">
+							<label for="supplier" class="col-xs-3 control-label">英文名称</label>
+							<div class="col-xs-6">
+								<select class="form-control" th:field="*{supplier}" disabled="disabled">
+									<option th:each="supplier : ${supplier}" th:value="${supplier.id}" th:text="${supplier.enName}"></option>
+								</select>
+								<span class="text-danger" th:if="${#fields.hasErrors('supplier')}" th:errors="*{supplier}"></span>
+							 </div>
+					 </div>
+					 <div class="form-group" th:classappend="${#fields.hasErrors('supplier')}? 'has-error'">
+							<label for="supplier" class="col-xs-3 control-label">中文名称</label>
+							<div class="col-xs-6">
+								<select class="form-control" th:field="*{supplier}" disabled="disabled"> 
+									<option th:each="supplier : ${supplier}" th:value="${supplier.id}" th:text="${supplier.cnName}"></option>
+								</select>
+								<span class="text-danger" th:if="${#fields.hasErrors('supplier')}" th:errors="*{supplier}"></span>
+							 </div>
+					 </div>
+			<div class="form-group" th:classappend="${#fields.hasErrors('priceCoefficient')}? 'has-error'">
+				<label for="priceCoefficient" class="col-xs-3 control-label">价格系数：</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{priceCoefficient}" required="required" id="priceCoefficient" min="0" onkeyup="clearNoNum(this)" />
+					<span class="text-danger" th:if="${#fields.hasErrors('priceCoefficient')}" th:errors="*{priceCoefficient"></span>
+				</div>
+			</div>
+			<p class="text-center">
+				<button type="submit" class="btn btn-primary">提交</button>
+				<!--  <a th:href="@{'/supplier/supplierpriceruleactive/'+${supplier.id}}" class="btn btn-default" >关闭</a> -->
+					 <a onclick="fromhref();" class="btn btn-default" >关闭</a>
+			</p>
+			
+		</form>
+		</div>
+		</div>
+	</div>
+	
+</body>
+</html>

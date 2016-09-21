@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>购物</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+ <link rel="shortcut icon" href="../../img/showhtml.ico" /> 
+<!-- 新的代码 -->
+
+<script type="text/javascript" th:src="@{/js/project/projquery.js}"></script>
+<link rel = 'stylesheet' type="text/css" th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}"/>
+<link rel = 'stylesheet' type="text/css" th:href="@{/assets/admin/layout/css/plugins.min.css}"/>
+<link rel = 'stylesheet' type="text/css" th:href="@{/js/project/NewFile.css}"/>
+<script type="text/javascript" th:src="@{/js/project/jquery-1.9.1.min.js}"></script> <!-- 
+<script type="text/javascript" th:src="@{/js/project/jquery.min.js}"></script> -->
+<script type="text/javascript" th:src="@{/js/project/jquery.mobile-1.3.2.min.js}"></script>
+<script src="../../assets/global/plugins/jquery.min.js"
+			type="text/javascript"></script>
+<link  rel="stylesheet" type="text/css" th:href="@{/css/swiper.min.css}" />
+<link th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/simple-line-icons/simple-line-icons.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/uniform/css/uniform.default.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/fullcalendar/fullcalendar.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/jqvmap/jqvmap/jqvmap.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/admin/pages/css/tasks.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/css/plugins.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/admin/layout/css/layout.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/admin/layout/css/themes/darkblue.css}" rel="stylesheet" type="text/css" id="style_color"/>
+<link th:href="@{/assets/admin/layout/css/custom.css}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" th:src="@{/js/mytable/jquery-1.8.3.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/mytable/datouwang.js}"></script>
+<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/css/selectstyle/style1.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/selectstyle/style.css}" media="screen"  />
+<link rel="stylesheet" type="text/css"	th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" /><!-- 
+<script type="text/javascript"	th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script> -->
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script th:src="@{/js/lib/jsog/JSOG.js}"></script><!-- 
+<script	th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script> -->
+<script th:src="@{/assets/frontend/layout/scripts/layout.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-migrate.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-ui/jquery-ui.min.js}"	type="text/javascript"></script>
+<script	th:src="@{/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js}"	type="text/javascript"></script>
+<script	th:src="@{/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.blockui.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.cokie.min.js}"	type="text/javascript"></script>
+<script	th:src="@{/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js}"	type="text/javascript"></script><!-- 
+<script th:src="@{/assets/global/plugins/bootstrap/js/bootstrap.min.js}" type="text/javascript"></script>	 -->
+<script	th:src="@{/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js}"></script>
+<script th:src="@{/assets/global/scripts/metronic.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/quick-sidebar.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/demo.js}"></script>
+<script th:src="@{/js/controller/dqproject-controller.js}"></script>
+<link th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}" rel="stylesheet" />
+<link th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+<link th:href="@{/assets/global/plugins/fancybox/source/jquery.fancybox.css}" rel="stylesheet" />
+<link th:href="@{/assets/global/plugins/uniform/css/uniform.default.css}" rel="stylesheet" type="text/css" />
+<!-- <link th:href="@{/assets/frontend/layout/css/style.css}" rel="stylesheet" />
+ --><link th:href="@{/assets/frontend/layout/css/style-responsive.css}" rel="stylesheet" />
+<link th:href="@{/assets/frontend/layout/css/themes/red.css}" rel="stylesheet" id="style-color" />
+<link th:href="@{/assets/frontend/layout/css/custom.css}" rel="stylesheet" />
+<link rel="shortcut icon" href="favicon.ico"/>
+   <link th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}" rel="stylesheet"/>
+  <link  th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/> 
+   <script  th:src="@{/assets/frontend/pages/scripts/top.js}"></script> 
+   <link  th:href="@{/assets/global/plugins/fancybox/source/jquery.fancybox.css}" rel="stylesheet"/>
+  <link  th:href="@{/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css}" rel="stylesheet"/>
+  <link  th:href="@{/assets/global/plugins/uniform/css/uniform.default.css}" rel="stylesheet" type="text/css"/>
+  <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <link  th:href="@{/assets/global/plugins/rateit/src/rateit.css}" rel="stylesheet" type="text/css"/>
+<!--   <link  th:href="@{/assets/frontend/layout/css/style.css}" rel="stylesheet"/>
+ -->  <link  th:href="@{/assets/frontend/pages/css/style-shop.css}" rel="stylesheet" type="text/css"/>
+  <link  th:href="@{/assets/frontend/layout/css/themes/red.css}" rel="stylesheet" id="style-color"/> 
+   <link  th:href="@{/assets/frontend/layout/css/style-responsive.css}" rel="stylesheet"/> 
+ <link  th:href="@{/assets/frontend/layout/css/custom.css}" rel="stylesheet"/>
+   <link  th:href="@{/assets/global/plugins/simple-line-icons/simple-line-icons.min.css}" rel="stylesheet" type="text/css"/>
+ <link  th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}" rel="stylesheet" /><!-- 
+<script type="text/javascript" th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script> --><!-- 
+<script th:src="@{/assets/global/plugins/bootstrap/js/bootstrap.min.js}" type="text/javascript"></script> -->
+<link type="text/css" th:href="@{/assets/global/plugins/fancybox/source/jquery.fancybox.css}" rel="stylesheet"/>
+<link type="text/css" th:href="@{/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css}" rel="stylesheet"/>
+<link th:href="@{/assets/global/css/plugins.css}" rel="stylesheet" />
+<!-- <link th:href="@{/assets/frontend/layout/css/style.css}" rel="stylesheet" />
+ --><link th:href="@{/assets/frontend/layout/css/style-responsive.css}" rel="stylesheet" />
+<link th:href="@{/assets/frontend/layout/css/themes/red.css}" rel="stylesheet" id="style-color" />
+<link th:href="@{/assets/frontend/layout/css/custom.css}" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/bootstrap-select/bootstrap-select.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/select2/select2.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/jquery-multi-select/css/multi-select.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/image-picker/image-picker/image-picker.css}" />
+<link type="text/css" rel="stylesheet" th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}" />
+<!-- <link type="text/css" rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap-theme.min.css}" /> -->
+<link th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}" rel="stylesheet" />
+<link type="text/css" th:href="@{/css/settings.css}" rel="stylesheet" />
+<link type="text/css" th:href="@{/css/style-revolution-slider.css}" rel="stylesheet" />
+<link th:href="@{/css/layouts.css}" rel="stylesheet" type="text/css" />
+<script
+			src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js"
+			type="text/javascript"></script>
+ <link th:href="@{/assets/global/plugins/simple-line-icons/simple-line-icons.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/css/components.css}" id="style_components" rel="stylesheet" type="text/css"/><!-- 
+<script type="text/javascript" th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script> --><!-- 
+<script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.4/js/bootstrap.min.js}"></script> -->
+<script th:src="@{/assets/global/plugins/jquery-migrate.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-ui/jquery-ui.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.blockui.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.cokie.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/uniform/jquery.uniform.min.js}" type="text/javascript"></script>
+<script	th:src="@{/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/scripts/metronic.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/quick-sidebar.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/demo.js}"></script>
+<script type="text/javascript" th:src="@{/js/project/touchmove.js}" ></script>
+<!-- 字体 -->
+
+<style type="text/css">
+/* .modal-backdrop, .modal-backdrop.fade.in{
+background-color: #333 !important;
+} */
+
+.img-circlebaby{
+	border-radius:50px !important;
+}
+#moneybaby1 button{
+background-color: #0151a6 ;
+color:white;
+
+font-weight: bold;
+}
+#moneybaby2 button{
+background-color: #0151a6 ;
+color:white;
+
+
+font-weight: bold;
+}
+
+
+#gouwu
+{
+color:#0151a6;
+}
+</style>
+
+
+<style type="text/css">
+
+
+
+
+.img-circle1{
+border-radius:5% !important;/* 
+opacity:.7;filter:alpha(opacity=70); */
+}
+
+
+.mypanelBorder{
+border: 2px solid #0151a6  ;
+}
+
+input {
+    -webkit-appearance: textfield;
+    padding: 1px;
+    background-color:transparent;
+    border: 2px inset;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    -webkit-rtl-ordering: logical;
+    -webkit-user-select: text;
+    cursor: auto;
+}
+
+
+
+.menu_list { width: 710px; }
+.menu_head {  cursor: pointer; position: relative;height:aoto;  font-size:1.9rem; background: white; color:black; margin-top:6px;margin-bottom:0px;}
+.menu_body { display:none; }
+.menu_body{ display:block; height:400px; color:white; background-color:#004986;  font-size:1.9rem; margin-top:0px;margin-bottom:0px; text-align:center; }
+
+#tasklistbtn  button{
+background-color: #004986 ;
+color: white;
+border:4px solid white;
+
+}
+#touchspin_list1 button{
+background-color: white ;
+color:black;
+font-size:1.2rem;
+
+}
+
+.tracking3{
+    			color: red !important;
+    		}
+
+/*浮动删除任务*/
+#floatDivBoxs{background:#FF6699;position:absolute;right:-120px;z-index:1;display:none; height:190px;}
+
+
+
+#rightArrow{width:50px;height:45px;background:url(../../img/online_arrow.jpg) no-repeat;position:absolute;right:0;z-index:1;}
+#rightArrow a{display:block;height:45px;}
+
+/*完成任务*/
+ .behind {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        word-wrap:break-word;
+    }
+    .behind a.ui-btn {
+        margin: 0px;
+        float: right;
+        border: none;
+        word-wrap:break-word;
+    }
+    .behind a.delete-btn, .behind a.delete-btn:active, .behind a.delete-btn:visited, .behind a.delete-btn:focus, .behind a.delete-btn:hover {
+        color: white;
+        background-color: red;
+        text-shadow: none;
+    }
+    .behind a.ui-btn.pull-left {
+        float: left;
+    }
+    .behind a.edit-btn, .behind a.edit-btn:active, .behind a.edit-btn:visited, .behind a.edit-btn:focus, .behind a.edit-btn:hover {
+        color: white;
+        background-color: orange;
+        text-shadow: none;
+    }
+#tasklistbtn  button{
+background-color: #004986 ;
+color: white;
+border:4px solid white;
+
+}
+#touchspin_list1 button{
+background-color: white ;
+color:black;
+font-size:1.2rem;
+
+}
+
+ #daibimoney {
+ width:250px;;
+
+ }
+ 
+ #daibimoney1 {
+ width:250px;
+ }
+ #iconplusa:hover{
+ text-decoration: none;
+ }
+ .display{
+ display:block;
+ }
+</style>
+
+
+   
+<script th:src="@{/js/arttemplate/template.js}"></script>
+<script id="child" type="text/html">
+<ul>
+    {{each list as value}}
+    <li  class="li1" id="li1">
+         <div class="fold" style="display:none;">
+						<span class="img"></span>
+						<span class="txt" >${value.taskname}</span>
+	     </div>
+         <div class="unfold" style="display:block; text-align:center;">	
+                             <dl style="cursor:default;">
+							<dt><img  alt="tp"  width="130px" height="130px;" /></dt>
+							<dt >{{value.taskname}}</dt>
+                             <dd>奖励金币：<span  style="width:30px; " text="{{value.everytimesmoney}}"></span>
+						<input type="text" value="{{value.everytimesmoney}}"  style='border:none;font-size: 18px;background-color:transparent;text-align:center;max-width:30px;' readonly='readonly' />
+						</dd>
+                            <dd><span>完成状态：</span><input  type='text' name='name' value="{{value.times}}/{{value.timeadd}}"    required='required'  style='border:none;font-size: 18px;background-color:transparent;text-align:center;max-width:30px;' readonly='readonly' />
+							</dd>
+							<dd>完成一次：
+							   <a href="#" onclick='wancheng();' class="wangchengc"><img alt='' src='../../img/任务完成.png' width='30px' /> </a> 
+								<input type='hidden' id='{{value.id}}' name='work' value="{{value.id}}" />
+								<input type='hidden' id='child' name='child' value="{{value.childId}}" /> 
+								<input type='hidden' id='time' name='time' value="{{value.times}}" />
+								<input type='hidden' id='times' name='times' value="{{value.timeadd}}" />
+						    </dd>
+							<dd>结束任务：
+								<a href='javascript:;' onclick='end();'  class="jieshuc">
+								<img alt='Amazing Project' src='../../img/任务结束.png' width='30px' /></a>
+							</dd>
+                          </dl>
+        </div>
+    </li>
+    {{/each}}
+</ul>
+</script> 
+
+<script type="text/javascript">
+	$(document).ready(function() {	
+		var childId=$("#childId").val();
+		$.ajax({
+			type : "Get",
+			url : "/project/findByChildId?childId=" + childId,
+			success : function(data) {
+				console.log(data);
+				var html = template('child',eval("("+data+")"));
+				document.getElementById('voice_2').innerHTML = html;
+			}
+		});			
+		$(".portlet-body.mypanel img").each(function() {
+			 $(this).click(function () {
+				 $(this).addClass('mypanelBorder').parent().siblings().find('img').removeClass('mypanelBorder');
+				 document.getElementById("ids").value=$(this).parent().find('input').attr('id');
+				 $.ajax({
+						type : "Get",
+						url : "/child/findById?childId=" + $(this).parent().find('input').attr('value'),
+						success : function(data) {
+							childmoney = data.balance;
+							$("#balance").val(" x" + childmoney);
+						}
+					}); 
+				 $.ajax({
+						type : "Get",
+						url : "/project/findByChildId?childId=" + $(this).parent().find('input').attr('value'),
+						success : function(data) {
+							var html = template('child',eval("("+data+")"));
+							document.getElementById('voice_2').innerHTML = html;
+						}
+					});
+				 
+				 
+			 });
+		});
+		
+		var childCookie = $.cookie('childName');
+
+		if (childCookie == null) {
+			$("#child").val($("#select").val());
+		} else {
+			$("#select").val(childCookie);
+			$("#child").val(childCookie);
+		}
+	});
+	function show() {
+
+		var childName = $("#select").val();
+		$.cookie('childName', childName);
+		window.location.reload();
+
+	}
+	function getBalance() {
+		var childId = $(".childss").val();
+		if($(".childss").val()!=null){
+			$("#caption1").css("display","none");
+			$("#caption").css("display","block");
+		$.ajax({
+			type : "Get",
+			url : "/child/findById?childId=" + childId,
+			success : function(data) {
+				childmoney = data.balance;
+				$("#balance").val(" x" + childmoney);
+			}
+		});
+		}else if($(".childss").val()==null){
+			/* alert("您还没有宝贝，请在我的里面添加宝贝信息！") */
+			
+			$("#caption1").css("display","block");
+			$("#caption").css("display","none");	
+		}
+	 $(".portlet-body.mypanel img").eq(0).addClass('mypanelBorder');
+
+	
+	 document.getElementById("ids").value=$(".childss").val();
+		myselect();
+		//addBorder();
+	}
+	
+	function myselect() {
+		var orb   = $("#orb");
+		var track = $("#track");
+		var rail = $("#platform");
+
+		var trackWidth  = track.width();
+		var cartWidth   = orb.width();
+
+		$(".button").on("click", function() {
+		  var position = $(this).position();
+		  var width    = $(this).width();
+		  var left     = position.left;
+		  var platform = left + width-5; // TODO: Remove magic #
+		  
+		  $(".button").removeClass("active");
+		  $(this).addClass("active");
+		  
+		  rail.addClass("active");
+		  
+		  orb.addClass("hover");
+		  
+		  orb.animate({
+		    "left" : platform - cartWidth
+		  }, 2000, function() {
+		    orb.removeClass("hover");
+		    rail.removeClass("active");
+		  });
+		});
+	}
+	//完成一次
+	function wancheng() {	
+					var child = $("#ids").val();
+					 document.getElementById("works").value=$(".wangchengc").parent().find('input').attr('id');
+					 window.location.href="/project/add/" + $(".wangchengc").parent().find('input').attr('id') + "/" + child;   
+
+	}
+	//完成任务结束
+	function end() {
+		$(".jieshuc").click(function () {
+				var id = $("#works").val();
+			 	window.location.href = "/project/endadd/" + $(this).parent().prev().find('input').attr('id'); 
+		
+	 });
+	}
+	//分配任务
+	function fenpei(){
+		
+		 var child = $("#ids").val();
+		window.location.href = "/myinformation/searchworktasklist/"  +  child
+	}
+	//历史任务
+	function lishi(){
+		window.location.href="/project/ls/"+$("#childids").val();
+	}
+	//购物
+	function gouwu(){
+		var id=$("#childids").val();
+		window.location.href="/commodity/index/"+id+"";
+	}
+
+	
+	function renwu(){
+		var id=$("#childids").val();
+		window.location.href="/project/li/"+id+"";
+	}
+	
+	function pinggu(){
+		window.location.href="/assessment/list";
+	}
+	function tomyinformation(){
+		window.location.href="/myinformation/baby";
+	}
+</script>
+<script type="text/javascript">
+//点击input出现下划线
+function textboxline(){
+	
+	$("#textboxline").css("border-bottom","2px solid #0151a6 ");
+}
+</script>
+<script type="text/javascript">
+
+
+
+
+ $(function(){
+	$(".ui-btn.ui-btn-icon-right.ui-icon-carat-r").each(function(){
+		$(this).on("click",function(){		/* 
+			$(".behind").css("display","none") */
+			$(".ui-btn.ui-btn-icon-right.ui-icon-carat-r").animate({right: '0px'},0);
+		
+			$(this).prev().parent().find('.behind').css("display","block")
+			if($(this).prev().parent().find('.behind').attr('id')){
+				var flag=0;
+				if(flag==1){
+					/* 
+					$(this).animate({right: '0px'},300); */
+					$(this).css('border','none');
+					$(this).css('box-shadow','none');
+					flag=0;
+				}else{
+            		$(this).animate({right: '120px'},0);
+					$(this).css('border','none');
+					$(this).css('box-shadow','none');
+					flag=1;
+				}
+			}	
+			
+		});
+	})
+	
+}); 
+
+
+/* function shoppingSelect(){
+	  $("#myModal3").css("display","none")  
+
+ var checkValue=$("#select1").val();
+
+	 $("#selectName ").val(checkValue);  
+
+	
+} */
+
+
+</script>
+<script type="text/javascript">
+	$(document).ready(function() {	
+		 $(".portlet-body.mypanel img").eq(0).addClass('mypanelBorder');
+		var childId=$("#childids").val();
+			$("#ids").val(childId);
+			//flag选中第一个
+			 var flagvalue=$("#flag").val();
+			  if(flagvalue==""){  
+				 $(".portlet-body.mypanel img").eq(0).addClass('mypanelBorder');
+				 } 
+		  //根据flagvalue来判断进入该页面后选中第几个图片
+			 if(flagvalue!=""){
+				 $(".portlet-body.mypanel img").each(function() {
+					 var value=$(this).parent().find('input').attr('value');
+					 if(flagvalue==value){
+						 $(this).addClass('mypanelBorder').parent().siblings().find('img').removeClass('mypanelBorder');
+					 }
+				 });
+			 }
+		  
+		  
+		
+		
+		//点击宝贝头像加载对应的商品 
+		$(".portlet-body.mypanel img").each(function() {
+			 $(this).click(function () {
+				 $(this).addClass('mypanelBorder').parent().siblings().find('img').removeClass('mypanelBorder');
+				 document.getElementById("ids").value=$(this).parent().find('input').attr('id');
+				// 点击宝贝头像加载对应宝贝
+					window.location.href="/child/findPlanByChildId?childId="+$(this).parent().find('input').attr('value');
+				
+			 });
+		});
+		
+		//遍历
+		 $.ajax({
+				type : "Get",
+				url : "/child/findByChildCommdity?childId=" +$("#flag").val(),
+				success : function(data) {
+					/* var object= eval("(" + data + ")"); */
+					$("#balances").val( data);
+					
+				}
+			}); 
+		//点击购买
+		 $(".goumaishop").each(function(){
+		 	$(this).on("click",function(){	
+		 		/*  alert($(this).find(".sunprice").val());
+		 		alert($("#balances").val());  */
+		 		if($(this).find(".sunprice").val()-$("#balances").val()>0){
+		 			var bread=$(this).find(".sunprice").val()-$("#balances").val();	
+		 			/* alert($(this).find(".sunprice").val());
+		 			alert(bread); */
+		 			$(this).next().find(".breademoney").val("-"+bread);
+		 			$(this).next().css("display","block");
+		 		}else{
+		 			 var child = $("#ids").val();
+						  if($("#flag").val()==""){
+							 window.location.href = '/commodity/tocommoditys?commodityId=' + $(this).find(".sunprice").val()	+ '&amp;childId=' + $("#childids").val()+"&amp;buyplanid="+$(this).find(".classname3").val(); 
+						 }else{
+							 window.location.href = '/commodity/tocommoditys?commodityId=' + $(this).find(".sunprice").val()	+ '&amp;childId=' + $("#flag").val()+"&amp;buyplanid="+$(this).find(".classname3").val();
+					 	 } 						
+					 		
+		 		}
+		 	
+		 	});
+		 })
+		
+		 
+		
+		var childCookie = $.cookie('childName');
+
+		if (childCookie == null) {
+			$("#child").val($("#select").val());
+		} else {
+			$("#select").val(childCookie);
+			$("#child").val(childCookie);
+		}
+		
+		
+		
+		//选中商品加载信息
+		 $(".addcomdity").each(function(){
+		 	$(this).on("click",function(){	
+		 		 $("#myModal3").css("display","none"); 
+		 		 var checkValue=$(this).find(".select1").attr("value");
+		 		 $("#selectName ").val(checkValue); 
+		 		 $("#selectidval").val($(this).find(".selectid").attr("value"));
+		 		 //根据名称获得商品相对应的图片 
+		 		  $.ajax({
+					type : "Get",
+					url : "/child/findByCommdityImage?commodityId=" +$(this).find(".selectid").attr("value"),
+					success : function(data) {
+						$("#commdityimg").attr("src","/image/showType/"+data);	
+					}
+				});   
+		 	})
+		 });
+	});
+	
+	
+	function show() {
+
+		var childName = $("#select").val();
+		$.cookie('childName', childName);
+		window.location.reload();
+
+	}
+
+	
+	function myselect() {
+		var orb   = $("#orb");
+		var track = $("#track");
+		var rail = $("#platform");
+
+		var trackWidth  = track.width();
+		var cartWidth   = orb.width();
+
+		$(".button").on("click", function() {
+		  var position = $(this).position();
+		  var width    = $(this).width();
+		  var left     = position.left;
+		  var platform = left + width-5; // TODO: Remove magic #
+		  
+		  $(".button").removeClass("active");
+		  $(this).addClass("active");
+		  
+		  rail.addClass("active");
+		  
+		  orb.addClass("hover");
+		  
+		  orb.animate({
+		    "left" : platform - cartWidth
+		  }, 2000, function() {
+		    orb.removeClass("hover");
+		    rail.removeClass("active");
+		  });
+		});
+	}
+
+	//购物
+	function gouwu(){
+		var id=$("#childids").val();
+		window.location.href="/commodity/index/"+id+"";
+	}
+	//我的
+	function tomyinformation(){
+	window.location.href="/myinformation/baby"
+}
+	//任务
+	function renwu(){
+		var id=$("#childids").val();
+		window.location.href="/project/li/"+id;
+	}
+</script>
+<script type="text/javascript">
+//点击input出现下划线
+function textboxline(){
+	
+	$("#textboxline").css("border-bottom","2px solid #0151a6 ");
+}
+</script>
+<script type="text/javascript">
+
+
+
+
+ $(function(){
+	$(".ui-btn.ui-btn-icon-right.ui-icon-carat-r").each(function(){
+		$(this).on("click",function(){		
+			var value=$("#finishid").val();
+			if(value=="0"){
+				$(this).animate({right: '120px'},0);
+				$(this).css('box-shadow','none');
+				$("#finishid").val("1"); 
+			}else{
+				$(this).animate({right: '-4px'},0);
+				$(this).css('box-shadow','none');
+				$("#finishid").val("0");
+				$(this).css("height","85px","border","none","background-color","white");
+			}
+			
+			
+		});
+	})
+	//删除购物计划
+	 $(".menu_head .deletea").each(function(){
+		$(this).on("click",function(){	
+			$.ajax({
+				type: "DELETE",
+				url: '/commodity/deletebuyplan?buyplanIds='+$(this).find('.classname1').attr('id') ,
+				success: function () {
+					window.location.href ="/commodity/index/"+$("#childids").val();
+				}
+			});
+		});
+		}); 
+	
+	
+	//删除购物计划
+	 $(".menu_head .deleteshophistory").each(function(){
+		$(this).on("click",function(){	
+			$.ajax({
+				type: "DELETE",
+				url: '/commodity/deleteshophistorys?historyshop='+$(this).find('.deleteshophistoryclass1').attr('id') ,
+				success: function () {
+					window.location.href ="/commodity/index/"+$("#childids").val();
+				}
+			});
+		});
+		}); 
+	});
+ 
+
+
+//
+function blurmoney(){
+	document.getElementById("zhuanhuan").value=document.getElementById("moneynumber").value;
+}
+
+function hidehistory() {
+
+	if ($("#history").css("display") == "none") {
+
+		$("#history").show();
+		$("#hidehistory1").css("display","none");
+		$("#hidehistory2").css("display","block");
+
+	} else {
+
+		$("#history").hide();
+		$("#hidehistory2").css("display","none");
+		$("#hidehistory1").css("display","block");
+
+	}
+
+}
+</script>
+</head>
+<body style="background-color:#ffd464; text-align:Center;"  >
+ <!-- 根据此id来判断选中第几个宝宝头像-->
+<input type="hidden"  id="flag" th:value="${flagvalue}" />
+<input type="hidden" th:value="${session.childids}" id="childids" class="childids" name="childids"/>
+ <input type="hidden" id="ids" class="ids" name="ids"/>
+ <input type="hidden" id="balances" name="balances" class="balances"/>
+	<div class="v-jr-slide-wrap">
+        
+  <div th:replace="partial/header-new" class="header" style="width: auto;"></div>
+        <div class="v-jr-slide-box v-jr-clear" id="js-slide-box">		
+<!-- 新的代码 -->	
+	
+	<!-- <div class="container" style = "max-width:710px;padding:0px;  ">
+<form class="form-horizontal" role="form" method="post" id="mainForm"   th:action="@{/project/li}"  th:object="${worktask}" >
+			
+			 <input type="hidden" id="works" class="works" name="works"/>
+		
+		<div class="portlet-body mypanel" style = "height:130px; text-align:left;padding-left:40px;display: block;margin-top: 0px; margin-left:0px;background-color:#f4f4f4;border: 1px solid transparent; max-width:710px;top:0px;">
+			 
+			 <div  class="button" style = "margin-top: 10px; margin-bottom:10px;margin-right:46px;" th:each="childs:${child}" >
+				 <input type="hidden"   th:value="${childs.id}" th:id="${childs.id}" name="childs" class="childsmoneys"/>
+				  <img alt="tp"	 th:if="${childs.image==null  or childs.image=='' or childs.image.id==0}"	src="../../img/chird.png"		style="border-radius: 50% !important;" width="70px" height="70px;" id="childI" />
+				 <img  alt="tp"  th:if="${childs.image!=null}" th:src="@{'/image/show/' + ${childs.image.id}}"  style="border-radius:50% !important; " width="70px" height="70px;"   id="childI"  />
+				<div th:text="${childs.name}" style="font-family: myfont1;font-size: 14px;"></div>
+				<div style = "margin-height:6px;color:#000000;font-size:18px;margin: 0px;padding: 0px;"><img alt="" src="../../img/小代币.png" style = "float:left; margin-top:5px;"/>
+				<span id="span1"><input type="text" id="moneybalance" class="moneybalance" th:text="${childs.money.balance}" th:value="${childs.money.balance}" style="position:relative;top:-25px;;text-align: center;width: 50px;border: none;" readonly="readonly"/></span>
+				</div>
+			 </div>						   
+		</div>
+
+
+</form>
+
+</div> -->
+
+<div class="container" style="max-width: 710px; padding: 0px;">
+	 <input type="hidden" th:value="${session.childids}"  id="childids"/>	
+		<!-- <form class="form-horizontal" role="form" method="post" id="mainForm"
+			th:action="@{/project/li}" th:object="${worktask}"> -->
+			<!-- <input type="text" id="ids" class="ids" name="ids" />  --><input
+				type="hidden" id="works" class="works" name="works" />
+			<div class="portlet-body mypanel col-md-12 col-xs-12 col-sm-12"
+				style="height:106px; text-align: left; display: block; margin-top: 0px;margin-bottom:25px;margin-left: 0px; background-color: #f4f4f4; border: 1px solid transparent; position:relative;z;max-width: 710px; top: 0px;overflow-x:auto;overflow-y:hidden ">
+				
+				<!-- <div class="button " style="margin-top: 5px;;margin-bottom: 10px;padding: 0px;margin-right: -20px;text-align: center;"
+					th:each="child:${child}">
+					 <input type="hidden"   th:value="${child.id}" th:id="${child.id}" name="childs" class="childsmoneys"/>
+					    <img alt="tp"	 th:if="${child.image==null  or child.image=='' or child.image.id==0}"	src="../../img/chird.png"		style="border-radius: 50% !important;padding: 0px;" width="30px" height="30px"  id="childI" />
+					    <img alt="tp"	th:if="${child.image!=null}"	th:src="@{'/image/show/' + ${child.image.id}}"	class=" "	style="border-radius: 50% !important;padding: 0px;" width="30px" height="30px"    id="childI" />			
+					<div th:text="${child.name}" 	style="font-family:  myfontregular; font-size: 0.62rem;padding: 0px;margin-top: 3px;"></div>
+					<div style = "color:#000000;font-size:1.1rem;margin: 0px;padding-left:30%;margin-top: 3px;"><img alt="" src="../../img/小代币.png" style = "float:left;" height="12px;" width="12px;"/>
+						<span id="span1"><input type="text" id="moneybalance" class="moneybalance" th:text="${child.money.balance}" th:value="${child.money.balance}" style="position:relative;top:-25px;;text-align: left;width: 50px;border: none;" readonly="readonly"/></span>
+					</div>
+				</div>  -->
+				<div class="swiper-container"  id="swiper-container" style="height:106px;margin-left: 0px;margin-top: 0px;">
+	            <div class="swiper-wrapper">
+	             <div class="swiper-slide" th:each="child:${child}" style="width: 120px;margin-right: 0px; margin-top:5px;">
+				 <input type="hidden"   th:value="${child.id}" th:id="${child.id}" name="childs" class="childsmoneys"/>
+					    <img alt="tp"	 th:if="${child.image==null  or child.image=='' or child.image.id==0}"	src="../../img/chird.png"		style="border-radius: 50% !important;padding: 0px;" width="46px" height="46px"  id="childI" />
+					    <img alt="tp"	th:if="${child.image!=null}"	th:src="@{'/image/show/' + ${child.image.id}}"	class=" "	style="border-radius: 50% !important;padding: 0px;" width="42px" height="42px"    id="childI" />			
+					<div th:text="${child.name}" 	style="font-size:14px;padding: 0px; padding-left:2px;margin-top: 3px;"></div>
+					<!-- <div style = "color:#000000;font-size:1.1rem;margin: 0px;padding-left:30%;margin-top: 3px;"> -->
+					<div>
+					<img alt="" src="../../img/小代币.png" style = "float:left;" height="15px;" width="15px;"/>
+					<input type="text" th:if="${child.money==null}" id="moneybalance" class="moneybalance"  th:value="0" style="position:relative;text-align: left;width: 50px;border: none; font-size:12px" readonly="readonly"/><!-- </span> -->
+					<input type="text" id="moneybalance" class="moneybalance" th:if="${child.money!=null}"  th:value="${child.money.balance}" style="position:relative;text-align: left;width: 50px;border: none; font-size:12px" readonly="readonly"/><!-- </span> -->
+					</div>
+					<!-- </div> -->
+				</div>
+				</div>
+				</div> 
+				
+				
+				
+			</div>
+			<!-- <div class="col-md-12 col-xs-12 col-sm-12" style="text-align: right;position: relative;top:-95px;left:10px;">
+					  <label class="" style="padding:0px;height: 65px;line-height: 65px;text-align: right;border: 1px solid transparent;font-size:3.0rem;color: #333333; "><span class="fa fa-angle-right" ></span></label>
+					</div> -->
+		<!-- </form> -->
+	</div>
+  <div  class="container" style = "max-width:710px;padding:0px; color: #E02E2E;" >
+  <a href="#" style="background-color: transparent;color: #FE6963" data-toggle="modal" data-target="#myModal2" >
+<span aria-hidden="true" class="icon-plus img-circle " style="background-color:#fe6963;color:white;font-size: 32px;display: inline;float: right; z-index: 2;position: relative;top:-80px;left: -25px;"  ></span>
+ 
+  </a>
+  </div>   
+  
+  
+  
+  <div class = "container"  style = "text-align:center;max-width:710px;padding:0px; ">
+
+
+<!--This is the first division of left-->
+
+
+
+  <div id="firstpane" class="col-md-12 col-xs-12 col-sm-12" style = "padding:0px;margin-top: -66px;" >
+  
+  
+  <!-- 第一个任务 -->
+
+    <div class="menu_head" style = "margin-top:0px; overflow-x: hidden; overflow-y:hidden;border-bottom:1px solid #ebebeb;height:85px; " th:each="buyPlan:${buyPlanss}"  th:if="${buyPlan!=null}">
+    
+     <ul data-role="listview" class="swipe-delete ui-listview">
+                    <li class="ui-first-child">
+                        <div class="behind" id = "2">
+                            <a href="#" class="ui-btn delete-btn deletea"  style = "height:85px; border:none; background-color: #fe6963; padding-left:8px;padding-right:8px;  font-size: 16px;" id="deletea"> 
+                             <input type="hidden" th:value="${buyPlan.id}" th:id="${buyPlan.id}" class="classname1"/>
+      						<input type="hidden" th:value="${buyPlan.commodityType.name}" th:id="${buyPlan.commodityType.name}"  class="classname2"/> 
+                           <p style="line-height: 20px" >
+									<br/>删&nbsp;除<br />计&nbsp;划
+								</p>
+                           </a>
+                        </div>
+                        <a href="#" id = "Arrow" class="ui-btn ui-btn-icon-right ui-icon-carat-r" style = "height:85px;border:none; background-color:white;">
+                       <!--   <label class = "col-md-1  "></label> -->
+                     <label class = "col-md-4 col-xs-4" style = "padding:0px;">   
+                    <img alt="Amazing" th:src="@{'/image/showType/'+${buyPlan.commodityType.id}}" class = "img-responsive" style = "height:75px; width:75px; margin-top:5px;"/> 
+         </label>
+         
+           <label class = "col-md-4 col-xs-5 col-sm-5" style = " text-align:Center; padding:0px;height: 75px;"> 
+           <div class = "col-md-12 col-xs-12 col-sm-12" style = "padding:0px;margin-bottom: 10px;margin-top: 10px;"><input type = "text"   id="commdityname" th:value="${buyPlan.commodityType.name}" style = " border:none;  font-size:16px;text-align:center; width:100%; cursor:default;letter-spacing: 1px;" readonly="readonly"/></div>
+
+
+            <div class = "col-md-12 col-xs-12 col-sm-12" style = "">
+            <div class = "col-md-5  col-xs-5 col-sm-3" style="text-align: right;padding: 0px;margin-right: 5px;"  >  <img alt="" src="../../img/小代币.png" style="height: 12px; width: 12px;"/></div>
+           <div class = "col-md-5 col-xs-6 col-sm-7" style="padding: 0px;text-align: left;" align="center"><input type = "text" id="commditymoney" th:value="${buyPlan.price}" readonly="readonly" style = " background-repeat: no-repeat; border:none;  font-size:16px;text-align:left;width:100%; cursor:default;"/></div>
+           </div>
+           </label>
+          <label class="col-md-4 col-xs-3 col-sm-3" style="height: 75px;padding: 0px;vertical-align: middle;padding-top: 15px;">
+          <!--  <label class = "col-md-2 "></label> -->
+            <label class = "col-md-8 col-xs-12 col-sm-12 goumaishop" style = "padding:0px; margin-left:20%;margin-top:10px; border:3px solid #fe6963; border-radius:50px !important;  backgroud-color:transparent; color:#fe6963; font-size:16px;  text-align:center;cursor: pointer;" > 
+           <input type="hidden" th:value="${buyPlan.id}" th:id="${buyPlan.id}" class="classname3"/>
+			<input type="hidden" id="chae" class="chae"/>
+			
+			<input type="hidden" th:value="${buyPlan.price}" class="sunprice"/>
+           
+            购买
+            </label>
+            <label class = "col-md-8 col-xs-12 col-sm-12  breadprice" id="breadprice" style = "padding:0px;height:25px;; margin-left:10%;   text-align:center;display: none;" > 
+         		<input type="text" style="line-height:25px;color: #777777;border: none;padding: 0px;text-align: right;padding-right: 2%" readonly="readonly"   class="col-md-8 col-xs-8 col-sm-8 breademoney"/>
+         		<img alt="" src="../../img/lessmoney.png"  class="col-md-4 col-xs-4 col-sm-4" style=";padding: 0px;height: 19px;width: 13px;padding-top: 6px;" height="13px;" width="13px;"/>
+            </label>
+            </label>
+            
+                        </a>
+                    </li>
+             
+                </ul>
+   </div> 
+   
+    
+    
+     
+     
+    <!--Code for menu starts here-->
+   
+    
+     
+  </div>
+
+<!-- begin新建购物 -->
+<div class="modal fade" id="myModal2" tabindex="1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true"  > 
+        <div class="modal-dialog">
+             <div class="modal-content">
+           <!-- content -->
+       	<form class="form-horizontal" role="form" method="post" id="mianForm1"   th:action="@{/commodity/createcommdity}" > 
+         	<!-- 获取点击的孩子id -->
+         	<input type="hidden" id="selectidval" name="selectidval" class="selectidval"/>
+									<input type="hidden" id="clickchildid" name="clickchildid"/>
+						   <div class="col-md-12 col-xs-12 col-sm-12"   style="height: 510px;background-color: transparent;padding: 0px;margin-top:50px;margin-bottom:20px; " align="left">
+								
+									<div   style="background-color: #ffd464 ;color:white; height: 510px;padding-top:10px;padding-bottom: 10px;">
+								<h3 style="text-align: left;font-size: 16px;margin-left: 100px;margin-top: 20px;color:#000000;" >新建购物</h3>
+							
+				<div class="col-md-12 col-xs-12 col-sm-12" style = "padding:0px; padding-left:15px; padding-right:15px;">				
+	       <div class="col-md-12 col-xs-12 container" style="padding:0px; background-color: white;height: 390px;margin-top: 10px;  ">
+								
+								
+								<!-- 选择宝宝 -->
+								<div class="col-md-12 col-xs-12 col-sm-12" style = "padding:0px;padding-left:6px; padding-right:6px;" >
+								<div class="col-md-2 col-xs-2 col-sm-2" style="margin-top: -30px;padding: 0px; align:left;" >
+								<img src="../../img/chird.png" class=" img-circle" style="padding: 0px;" id="kidfilePath" width="46px" height="46px;"/>
+								</div>
+								<div  class="col-md-12 col-xs-12 col-sm-12" style="margin-top: 8px;text-align: left; padding:0px;"><input type = "text" readonly = "readonly" value = "选择宝宝" style="background-color:transparent; border:none; color: #333333; font-size: 12px; cursor:default; width:100%;"/></div>
+								<div class="col-md-12 col-xs-12 col-sm-12 showchildback" style="padding:0px; margin-top: 10px;  margin-bottom:10px;" align="left" >		
+									
+									
+									
+									 <!-- <span th:each="showchild:${child}"  id="showchild" style="background-color:#0151a6;color: #333333; font-size: 0.9rem; margin-left:6px; margin-right:6px;" class="img-circlebaby showchild" >
+									<a style="font-family: myfontMedias;font-size: 14px;color: white; text-decoration:none; margin-left:6px;cursor:pointer;" th:text="${showchild.name}"></a>
+									 <input type="hidden" th:value="${showchild.id}"  th:id="${showchild.id}" /> 
+									 </span> -->
+									   <div class="swiper-container col-md-12 col-xs-12 col-sm-12"  style="height: 30px;margin-left: 0px;margin-top: 0px;padding: 0px;padding-right: 60px"  id="swiper-container1">
+													<div class="swiper-wrapper" style="padding: 0px;">
+														<div class="swiper-slide " th:each="showchild:${child}" style="width: 40%;">
+														    <span   id="showchild" style="background-color:#b3b3b3;color: #333333; font-size: 1.5rem;padding:5px 0px 5px 0px;text-align:center;" class="img-circlebaby showchild col-md-5 col-xs-10" >
+									                        <a style="font-size: 14px;color: white; text-decoration:none; margin-left:6px;line-height:20px; padding-left:3px; padding-right:3px;" th:text="${showchild.name}"></a>
+									                        <input type="hidden" th:value="${showchild.id}"  th:id="${showchild.id}" /> 
+									                        </span>
+									                        
+									                        
+									                    </div>
+									                   <a  href="#" id="iconplusa"><span aria-hidden="true" class="icon-plus img-circle " style="background-color:#fe6963;color:white;font-size:32px;display: inline;vertical-align:middle; margin-left:20px;"  ></span></a>
+                                                    </div>
+                                      </div>
+									 	
+								  
+								
+								
+								
+								
+								</div>
+								
+								</div>
+								<!-- 购物类别 -->
+								<div class="col-md-12 col-xs-12 col-sm-12" style="padding:0px; padding-left:6px;">
+						
+						     	<input type = "text" readonly = "readonly" value = "购物类别**" style="color: #333333; font-size: 12px;cursor:default;width:100%;background-color:transparent; border:none;"/>
+							
+								</div>
+								<!-- 购物选择 -->
+								<div class="col-md-12 col-xs-12 col-sm-12" style="margin-top: 10px;padding:0px; padding-left:6px;">
+								
+								<div  class="col-md-2 col-xs-4 col-sm-2" style="padding: 0px;">
+								<input id = "selectName" class=" form-control " type = "text" value = "购物选择" readonly = "readonly" style="width:100%; color:white;border:1px solid transparent;border-radius:50px !important; background-color:#0151a6; height:25px; text-align:center;font-size: 14px;cursor: pointer;"  data-toggle="modal" data-target="#myModal3"  />
+								
+						        
+								
+								</div>
+							
+								</div>
+								<!-- 购物选择 -->
+								<div class="col-md-12 col-xs-12 col-sm-12" style=" margin-top:10px;padding:0px; padding-left:6px; ">
+								<div class="col-md-3 col-xs-6 col-sm-3" style="padding: 0px;" >
+								<div style="border:5px solid  #bfbfbf; background-color: #e4e4e4; height:130px; width:130px; ">
+								<img alt="商城图片" src="../../img/nochooseshop.png"  id="commdityimg" class="commdityimg " height="120px;" width="100%"/>
+								</div>
+								</div>
+								</div>
+								<!--物品金额 -->
+								<div class="col-md-12 col-xs-12 col-sm-12" style=" margin-top:10px;padding:0px; padding-left:6px; ">
+								<input type = "text" readonly = "readonly" value = "物品金额" style="color: #333333;font-size: 12px;cursor:default;width:100%;background-color:transparent; border:none;"/>
+								<!-- <span class="col-md-6 col-xs-4"><img alt="" src="../../img/小代币.png" style = " width:30px; height:30px;"/></span> -->
+								</div>
+								<div class="col-md-12 col-xs-12 col-sm-12" style="padding:0px; padding-left:6px;" >
+									
+								 <div class="col-md-4 col-xs-6 col-sm-6" style="padding: 0px;">
+								 
+								 <input type="text" class=" form-control container"
+								id="moneynumber" name="moneynumber" required="required" 
+								placeholder="请输入代币金额"
+								style="background-color:transparent; background-image: url('../../img/小代币.png');background-repeat: no-repeat;background-position:right; margin-left:-10px;border:none;border-bottom:1px solid #ccc;box-shadow:none; color:#333333;font-size:14px;width:100%;text-align:left;"
+								onfocus="if (placeholder =='请输入代币金额'){placeholder =''; }"
+								       onkeyup="value=value.replace(/[^\d]/g,'') "  onblur="blurmoney()" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+							     </div>
+							     <div class="col-md-3 col-xs-6 col-sm-6" style="padding: 0px;">
+							     <span style="font-size: 14px;color: red;display: none;margin-top: 10px" id="tishi" >代币金额不能为0</span>
+							     </div>
+								</div>
+								<!-- 约合代币 -->
+								<input type="hidden" id="zhuanhuan" name="zhuanhuan" class="zhuanhuan" style="border: none;font-size: 1.4rem;color: #333333;" readonly="readonly"/>
+								</div>
+								<div class="col-md-12 col-xs-12 col-sm-12" style=" padding:0px;margin-top:10px;display:inline">
+								<div  style="font-size: 1.5rem; color: #ffffff;text-align: right;">
+								<div class = "col-md-6 col-xs-4 col-sm-4"></div>	
+								<div class = "col-md-2 col-xs-3 col-sm-2" style = " height:30px;padding-top:3px;background-color:#0151a6; border-radius:20px !important;text-align:Center;"><a style="color: white; cursor: pointer;font-size:16px; "  data-dismiss="modal" aria-hidden="true">取消</a></div>
+								<div class = "col-md-1 col-xs-1 col-sm-1">&nbsp;</div>
+								<div class = "col-md-2 col-xs-3 col-sm-2" style = " height:30px;padding-top:3px;background-color:#0151a6; border-radius:20px !important;text-align:Center;"><a style="color: white;cursor: pointer;font-size:16px;" onclick="addcommdityplan()">确定</a></div>
+								</div>
+								</div>
+								</div>	
+</div>
+								</div>        
+							</form>    
+             </div>
+         </div>
+     </div>    
+<!-- end分配任务 -->
+<!-- 新的选择页面 -->
+	<div class="modal fade container" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"  style="max-width: 720px;padding: 0px; padding-top:100px; " >
+	<div class="col-md-12 col-xs-12 col-sm-12 addcomdity" th:each="commodities:${commoditietype}" >
+	 <input type="text" id = "select1"  th:value = "${commodities.name}" readonly = "readonly" class=" form-control container select1" style="cursor:pointer; border:none;border-bottom: 1px solid; color:#333333; background-color:white;font-size: 16px;border-radius: 50px !important;margin-bottom: 5px;height: 40px;width: 175px;text-align: center"/>
+	<input type="hidden" id = "selectid"  th:value = "${commodities.id}" class="selectid" /> 
+	</div>
+	<div class="col-md-12 col-xs-12 col-sm-12"  style="position: relative; z-index: 90">
+	 <input type="text" value = "取消" readonly = "readonly" class=" form-control container"  data-dismiss="modal" aria-hidden="true" style="cursor:pointer;text-align:center; border:none;border-bottom: 1px solid; color:#333333; background-color:white;font-size: 16px;border-radius: 50px !important;width: 175px;text-align: center"/>
+	</div>
+</div>
+
+
+	</div>
+	
+	
+<!-- end新的选择页面 -->
+
+<!-- 隐藏历史任务按钮 -->
+
+<div class = "container" style = "max-width:710px; padding:0px; " th:if="${session.childids}!=''">
+<div class = "col-md-4 col-xs-4 col-sm-4" style = "padding:0px;"></div>
+<div class = "col-md-4 col-xs-4 col-sm-4"  th:if=" ${shoplistnum}>0"  onClick = "hidehistory()" style = "padding:0px;border-radius:50px !important;  background-color:#f4f4f2;margin-top:20px; margin-bottom:20px;">
+  <span     style = "border:none; cursor:default;width:100%; height:100%;line-height:25px; font-size:14px;color:#3f3f3f; text-align:center;"><span id = "hidehistory1">显示历史购物</span><span id = "hidehistory2" style="display: none;">隐藏历史购物</span></span>
+</div>
+
+<div class = "col-md-4 col-xs-4 col-sm-4" style = "padding:0px;"></div>
+</div>
+
+
+<!-- 历史购物计划 -->
+ <div class = "container" id = "history" style = "display:none; text-align:center;max-width:710px;padding:0px; margin-bottom: 150px; ">
+
+
+<!--This is the first division of left-->
+
+
+
+  <div  class="col-md-12 col-xs-12 col-sm-12" style = "padding:0px;" >
+    <div class="menu_head" style = "background-color:#ebebeb; margin-top:0px; overflow-x: hidden; overflow-y:hidden;border-bottom:1px solid #a5a5a5;" th:each="shopHistories:${shopHistories}" >
+    
+     <ul data-role="" class=" ui-listview">
+                    <li class="">
+                     <!--    <div class="behind" id = "2">
+                            <a href="#" class="ui-btn delete-btn deleteshophistory"  style = "height: 85px; border: none; background-color: #5d97d2; padding-left:8px;padding-right:8px; font-family: myfontlight; font-size: 0.75rem;" id="deleteshophistory"> 
+                             <input type="hidden" th:value="${shopHistories.id}" th:id="${shopHistories.id}" class="deleteshophistoryclass1"/>
+      						<input type="hidden" th:value="${shopHistories.name}" th:id="${shopHistories.name}"  class="deleteshophistoryclass2"/> 
+								<p style="line-height: 20px" >
+								<br />
+									删&nbsp;除<br />历&nbsp;史
+								</p>
+							</a>
+                           
+                        </div> -->
+                        <a href="#" id = "" class="" style = "height:85px;border:none; background-color:#ebebeb;">
+                      <!--   <label class="col-md-1  "></label> -->
+                     <label class = "col-md-4 col-xs-4 col-sm-4" style = "padding:0px;">   
+                    <img alt="Amazing" th:src="@{'/image/showType/'+${shopHistories.commodityType.id}}" class = "img-responsive" style = "height:75px;width:75px; margin-top:5px; "/>
+         </label>
+         
+           <!-- <label class = "col-md-5 col-xs-5 col-sm-5" style = "margin-top:20px; text-align:Center;"> 
+           <div class = "col-md-12 col-xs-12"  style = "padding:0px;"><input type = "text"   id="" th:value="${shopHistories.name}" style = " border:none; font-family: myfontMedias; font-size:0.87rem;text-align:center; width:100%; cursor:default;letter-spacing: 1px;" readonly="readonly"/></div>
+            <div class = "col-md-12 col-xs-12" style = "margin-top:30px;padding:0px;">
+            <div class = "col-md-3 " style = "padding:0px;">&nbsp;</div>
+
+           <div class = "col-md-9 " style = "padding:0px;"><input type = "text" id="commditymoney" th:value="${shopHistories.price}" readonly="readonly" style = "color:#323232;background-image: url('../../img/小代币.png'); background-repeat: no-repeat; border:none; font-family: myfont1; font-size:15px;text-align:center;width:100%; cursor:default;"/></div>
+           </div>
+           </label> -->
+              <label class = "col-md-4 col-xs-5 col-sm-5" style = "margin-top:10px; text-align:Center; padding:0px;"> 
+           <div class = "col-md-12 col-xs-12 col-sm-12" style = "padding:0px;margin-bottom: 10px;"><input type = "text"   id="commdityname" th:value="${shopHistories.commodityType.name}"  style = " border: none; backgroud-color: transparent;  font-size:16px; text-align: left; width: 97px;padding: 0px; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;pointer-events: none;text-decoration:line-through; " readonly="readonly"/></div>
+
+          <!--  <div class = "col-md-12 col-xs-12 col-sm-12" style = "padding:0px;margin-bottom: 10px;"><input type = "text"   id="commdityname" th:value="${shopHistories.name}" style = " border:none; font-family: myfontMedias; font-size:1.0rem;text-align:center; width:100%; cursor:default;letter-spacing: 1px;" readonly="readonly"/>
+           <input type = "text"   id="commdityname" th:value="${shopHistories.name}" style = " border: none; backgroud-color: transparent; font-family: myfontblod; font-size:16px; text-align: left; width: 97px;padding: 0px; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;pointer-events: none;text-decoration:line-through; " readonly="readonly"/>
+           </div> -->
+
+            <div class = "col-md-12 col-xs-12 col-sm-12" style = "">
+            <div class = "col-md-4  col-xs-3 col-sm-2" style="text-align: right;padding: 0px;margin-right: 5px;"  >  <img alt="" src="../../img/小代币.png" style="height: 12px; width: 12px;"/></div>
+	      
+           <div class = "col-md-6 col-xs-6 col-sm-7" style="padding: 0px;text-align: left;" align="center"><input type = "text" id="commditymoney" th:value="${shopHistories.price}" readonly="readonly" style = " background-repeat: no-repeat; border:none;  font-size:16px;text-align:left;width:100%; cursor:default;"/></div>
+           </div>
+           </label>
+           
+            <!-- <label class = "col-md-3 col-xs-3 col-sm-3 " style = "color:#323232;width:19%;padding:0px; margin-left:5%;margin-top:10px; border:3px solid #323232; border-radius:50px !important;  backgroud-color:transparent; font-family: myfontregular; font-size:0.87rem;  text-align:center;cursor: pointer;" > 
+           <input type="hidden" th:value="${shopHistories.id}" th:id="${shopHistories.id}" class="deleteshophistoryclass3"/>
+            已购买
+            </label> -->
+            <label class="col-md-4 col-xs-3 col-sm-3" style="height: 75px;padding: 0px;vertical-align: middle;padding-top: 15px;">
+          <!--  <lable class="col-md-2"></lable> -->
+            <label class = "col-md-8 col-xs-12 col-sm-12 " style = "padding:0px;padding:0px;; margin-top:10px; border:3px solid #323232; line-height:20px;border-radius:50px !important;  backgroud-color:transparent; color:#323232; font-size:16px;  text-align:center;cursor: pointer;" >     已购买
+            </label>
+            </label>
+                        </a>
+                    </li>
+             
+                </ul>
+   </div> 
+   </div>
+   </div>
+
+<script type="text/javascript">
+//显示选择宝贝
+$(".showchildback .showchild ").each(function() {
+			   $(this).click(function () {	 
+				$(this).css("background-color","#0151a6");
+				$(this).parents('.swiper-slide').siblings('.swiper-slide').children('.showchild').css("background-color","#b3b3b3");
+				 $.ajax({
+					type : "Get",
+					url : "/child/findById?childId=" + $(this).find('input').attr('id'),
+					success : function(data) {
+						if(data==0){
+							$("#kidfilePath").attr("src","../../img/chird.png");
+						}else{
+						$("#kidfilePath").attr("src","/image/show/"+data);
+						}
+					}
+				}); 
+				//点击选择宝贝id				
+				document.getElementById("clickchildid").value=$(this).find('input').attr('id');
+				
+			 });
+		});
+		//点击确定
+function addcommdityplan(){
+	 var moneynumber = document.getElementById("moneynumber");
+	var moneyval=$("#moneynumber").val();
+	 if(moneyval==0){
+		 $("#tishi").css('display','block');
+		 return false;
+	 }
+	 var obj1=document.getElementById("clickchildid");
+	 var selectName=document.getElementById("selectName");
+	 if(moneynumber.value==""||obj1.value==""||selectName.value=="购物选择"){
+	 if(moneynumber.value==""){
+	/* 	alert("请输入商品金额！");	 */	
+	 }
+	 else if(obj1.value==""){
+		/* alert("请选择宝贝！");	 */
+	 }else if(selectName.value=="购物选择"){
+		/*  alert("请选择购物!") */
+	 }
+	 }else{
+		// window.location.href= "/commodity/createcommdity?childId="+$("#clickchildid").val()+"&amp;commoditys="+$("#selectidval").val()+"&amp;price="+$("#zhuanhuan").val();
+		/*  $.ajax({
+				type: "GET",
+				url:
+				success: function () {
+					alert(1);
+				}
+			}); */
+			mianForm1.submit();
+	 }
+}		
+</script>
+<!-- 宝贝名字滑动 -->
+		                    <script src="../../js/project/swiper.min.js" type="text/javascript"></script>
+												<!-- Initialize Swiper -->
+												<script>
+													var swiper = new Swiper('#swiper-container',
+															{
+																pagination :'.swiper-pagination',
+																slidesPerView : 4,
+																paginationClickable : true,
+																spaceBetween :11,
+																freeMode : true,
+																grabCursor:true,
+																mousewheelControl : true
+															});
+												</script>
+												 <script>
+													var swiper1 = new Swiper('#swiper-container1',
+															{
+																pagination :'.swiper-pagination',
+																slidesPerView : 'auto',
+																paginationClickable : true,
+																spaceBetween : 0,
+																freeMode : true,
+																observer:true,//修改swiper自己或子元素时，自动初始化swiper
+															    observeParents:true,//修改swiper的父元素时，自动初始化swiper
+															    grabCursor : true,
+															    mousewheelControl : true
+															});
+												</script>
+<script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+<!-- <script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> -->
+<script src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery.pulsate.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/bootstrap-daterangepicker/moment.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+<script src="../../assets/global/scripts/metronic.js" type="text/javascript"></script>
+<script src="../../assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
+<script src="../../assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
+<script src="../../assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
+<script src="../../assets/admin/pages/scripts/index.js" type="text/javascript"></script>
+<script src="../../assets/admin/pages/scripts/tasks.js" type="text/javascript"></script>
+
+<script>
+jQuery(document).ready(function() {    
+   Metronic.init(); // init metronic core componets
+   Layout.init(); // init layout
+   QuickSidebar.init(); // init quick sidebar
+Demo.init(); // init demo features
+   Index.init();   
+   Index.initDashboardDaterange();
+   Index.initJQVMAP(); // init index page's custom scripts
+   Index.initCalendar(); // init index page's custom scripts
+   Index.initCharts(); // init index page's custom scripts
+   Index.initChat();
+   Index.initMiniCharts();
+   Tasks.initDashboardWidget();
+});
+</script>
+		
+		</div></div>
+		
+<div th:replace="partial/tokennavibars" class="header" style="width: auto;"></div> 
+
+		<!-- 添加到购物计划模态框 -->
+		<div class="modal fade" id="myModals" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="margin-top: 50%;width: 80%;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">提示</h4>
+      </div>
+      <div class="modal-body">
+       您还没有选中任何内容&hellip;
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" >关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+		<!-- 添加到购物计划模态框 -->
+		
+		<!-- 删除购物计划弹出模态框 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="margin-top: 50%;width: 80%;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">提示</h4>
+      </div>
+      <div class="modal-body">
+       您确定将勾选中的商品添加到购物计划吗？&hellip;
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="add()">确认</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" >取消</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end 删除购物计划弹出模态框 -->
+
+<!-- 滑动标识 -->
+		<input type="hidden"  th:value="0"   id="finishid"/>	
+		
+		<!-- <div th:replace="partial/footer-new" class="footer"
+		style="width: auto;"></div> -->
+	<script src="../../assets/global/plugins/jquery.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/global/plugins/jquery-migrate.min.js"
+		type="text/javascript"></script>
+	<!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+	<script src="../../assets/global/plugins/jquery-ui/jquery-ui.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/global/plugins/jquery.blockui.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/global/plugins/jquery.cokie.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/global/plugins/uniform/jquery.uniform.min.js"
+		type="text/javascript"></script>
+	<script
+		src="../../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"
+		type="text/javascript"></script>
+	<!-- END CORE PLUGINS -->
+	<script src="../../assets/global/scripts/metronic.js"
+		type="text/javascript"></script>
+	<script src="../../assets/admin/layout/scripts/layout.js"
+		type="text/javascript"></script>
+	<script src="../../assets/admin/layout/scripts/quick-sidebar.js"
+		type="text/javascript"></script>
+	<script src="../../assets/admin/layout/scripts/demo.js"
+		type="text/javascript"></script>
+
+	<script>
+		jQuery(document).ready(function() {
+			// initiate layout and plugins
+			Metronic.init(); // init metronic core components
+			Layout.init(); // init current layout
+			QuickSidebar.init(); // init quick sidebar
+			Demo.init(); // init demo features
+			ComponentsPickers.init();
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+	<title>酒店详情</title>
+	<meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+  <meta content="Metronic Shop UI description" name="description"/>
+  <meta content="Metronic Shop UI keywords" name="keywords"/>
+  <meta content="keenthemes" name="author"/>
+
+  <meta property="og:site_name" content="-CUSTOMER VALUE-"/>
+  <meta property="og:title" content="-CUSTOMER VALUE-"/>
+  <meta property="og:description" content="-CUSTOMER VALUE-"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="-CUSTOMER VALUE-"/><!-- link to image for socio -->
+  <meta property="og:url" content="-CUSTOMER VALUE-"/>
+  
+  <link rel="shortcut icon" href="favicon.ico"/>
+
+  <!-- Fonts START -->
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|
+  	Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css"/> 
+  <!-- Fonts END -->
+
+  <!-- Global styles START -->          
+  <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Global styles END --> 
+   
+  <!-- Page level plugin styles START -->
+  <link href="../../assets/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+  <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"/><!-- for slider-range -->
+  <link href="../../assets/global/plugins/rateit/src/rateit.css" rel="stylesheet" type="text/css"/>
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link href="../../assets/global/css/components.css" rel="stylesheet"/>
+  <link href="../../assets/frontend/layout/css/style.css" rel="stylesheet"/>
+  <link href="../../assets/frontend/pages/css/style-shop.css" rel="stylesheet" type="text/css"/>
+  <link href="../../assets/frontend/layout/css/style-responsive.css" rel="stylesheet"/>
+  <link href="../../assets/frontend/layout/css/themes/red.css" rel="stylesheet" id="style-color"/>
+  <link href="../../assets/frontend/layout/css/custom.css" rel="stylesheet"/>
+  <!-- Theme styles END -->
+  <!-- icon -->
+  <link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+  
+  
+  
+  
+  
+	<!-- DataTables -->
+	<!-- DataTables -->
+	<link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+		
+	<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+	<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+	<script th:src="@{/js/controller/visitorCenter-controller.js}"></script>
+
+	
+</head>
+<body>
+<!--<div layout:fragment="content" class="container"> -->
+<div layout:fragment="content" class="col-md-9 col-sm-12 col-xs-12" style="background-color:#fff;">
+		
+				<h1 style="margin-top:10px;">酒店详情</h1>
+		
+				<div class="col-md-2 col-xs-12">
+					<img src="../../assets/admin/pages/media/gallery/image4.jpg"  class="img-responsive" alt="酒店"/>
+				</div>
+				<div class="col-md-3 col-xs-12">
+					<h2>
+						Here Any Title 
+					</h2>
+					<h2>
+						假日酒店 
+					</h2>
+				</div>
+				<div class="col-md-7 col-xs-12" >
+					<p class="panel-body" style="margin-top:2%;font-size:14px;">
+						酒店介绍... 
+					</p>
+				</div>
+				
+				<div class="clearfix"></div>
+				<div class="portlet-body form">
+					<!-- BEGIN 酒店详情-->
+					<form class="form-horizontal" role="form" >
+						<div class="form-body" >
+							<h3 class="form-section">关于酒店</h3>
+								<!--/row-->
+								<div class="row">
+									<div class="col-md-4 col-xs-12">
+										<div class="form-group">
+											<label class=" col-md-4 col-xs-4">免费早餐:</label>
+											<label class=" col-md-8 col-xs-8">是</label>
+										</div>
+									</div>
+								<!--/span-->
+								<div class="col-md-4">
+									<div class="form-group">
+										<label class=" col-md-4 col-xs-4">免费网络:</label>
+										<label class=" col-md-8 col-xs-8">是</label>
+									</div>
+								</div>
+								<!--/span-->
+								
+								<!--/span-->
+								<div class="col-md-4">
+									<div class="form-group">
+										<label class=" col-md-4 col-xs-4">免费停车:</label>
+										<label class=" col-md-8 col-xs-8">是</label>
+									</div>
+								</div>
+								<!--/span-->
+								</div>
+								
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class=" col-md-4 col-xs-4">机场班车:</label>
+											<label class=" col-md-8 col-xs-8">是</label>
+										</div>
+									</div>
+									<!--/span-->
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class=" col-md-4 col-xs-4">健身中心:</label>
+											<label class=" col-md-8 col-xs-8">是</label>
+										</div>
+									</div>
+									<!--/span-->
+								</div>
+
+								<!--/row-->
+								<div class="row">
+									<!--/span-->
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class=" col-md-4">标签1、</label>
+											<label class=" col-md-4">标签2</label>
+										</div>
+									</div>
+									<!--/span-->
+								</div>
+
+								<div class="row">
+									<!--/span-->
+									<div class="col-md-12">
+										<div class="form-group">
+											<label class=" col-md-3 col-xs-6" >酒店地址:</label>
+											<label class="col-md-8  col-xs-12">纽约</label>
+											
+										</div>
+									</div>
+									<!--/span-->
+								</div>
+							</div>
+						</form>
+						<!-- 酒店详情END-->
+						
+						<!-- BEGIN 房间类型-->
+						<h3 class="form-section">房间类型</h3>
+						<div class="row">
+							<div class="col-md-12">
+								
+								<div class="portlet">
+									<table class="table table-hover">
+										<thead>
+											<tr>
+												<th>
+													 房间类型
+												</th>
+												<th>
+													 能否取消预订
+												</th>
+												<th>
+													 房间数量	
+												</th>
+												
+											</tr>
+										</thead>
+										
+										<tbody>
+											<tr>
+												<td>
+													 Mark
+												</td>
+												<td>
+													 Otto
+												</td>
+												<td>
+													 makr124
+												</td>
+												
+											</tr>
+											
+											<tr>
+												
+												<td>
+													 Sandy
+												</td>
+												<td>
+													 Lim
+												</td>
+												<td>
+													 sanlim
+												</td>
+												
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- END 房间类型-->
+						
+						<div class="inner-content" style="margin-bottom:2%;">
+							<button class="btn btn-success"><i class="icon-settings"></i> 返回</button>
+						</div>
+					</div>
+</div>
+<div layout:fragment="script">
+		<script th:src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+<!-- 		<script>
+			$(function() {
+				Metronic.init(); // init metronic core components
+				Layout.init(); // init current layout
+				QuickSidebar.init(); // init quick sidebar
+				Demo.init(); // init demo features
+			});
+		</script> -->
+</div>
+	
+</body>
+</html>

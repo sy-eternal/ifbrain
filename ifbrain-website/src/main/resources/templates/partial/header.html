@@ -1,0 +1,588 @@
+<link rel="shortcut icon" href="favicon.ico"/>
+
+  <!-- Fonts START -->
+  <!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|
+  	Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css"/> --> 
+  <!-- Fonts END -->
+
+  <!-- Global styles START -->          
+  <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Global styles END --> 
+     <script src="../../assets/frontend/pages/scripts/top.js"></script>
+  <!-- Page level plugin styles START -->
+  <link href="../../assets/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+  <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"/><!-- for slider-range -->
+  <link href="../../assets/global/plugins/rateit/src/rateit.css" rel="stylesheet" type="text/css"/>
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link href="../../assets/global/css/components.css" rel="stylesheet"/>
+  <link href="../../assets/frontend/layout/css/style.css" rel="stylesheet"/>
+ <!--  <link href="../../assets/frontend/pages/css/style-shop.css" rel="stylesheet" type="text/css"/> -->
+  <link href="../../assets/frontend/layout/css/themes/red.css" rel="stylesheet" id="style-color"/> 
+   <link href="../../assets/frontend/layout/css/style-responsive.css" rel="stylesheet"/> 
+  <link href="../../assets/frontend/layout/css/custom.css" rel="stylesheet"/>
+  <!-- Theme styles END -->
+  <!-- icon -->
+  <link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+
+
+
+
+<style type="text/css">
+/***
+Pre-Header and pre-header elements
+***/
+.pre-header {
+	color: #616b76;
+	border-bottom: 1px solid #eee;
+	padding-top: 10px;
+	line-height: 1.2;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	background: #fff;
+	top: 0;
+	bottom: auto;
+	position: fixed;
+	z-index: 9999;
+	width: 100%;
+}
+
+.pre-header a {
+	color: #616b76;
+}
+
+.pre-header a:hover {
+	color: #E02222;
+}
+
+.pre-header a:focus {
+	text-decoration: none;
+}
+
+ .pre-header li {
+	padding-left: 11px;
+	padding-right: 15px;
+	border: none;
+}  
+
+.pre-header li:last-child {
+	border: none;
+}
+
+.additional-shop-info li:first-child {
+	padding-left: 0;
+}
+
+.additional-nav li:last-child {
+	padding-right: 0;
+}
+
+.pre-header .fa {
+	margin-right: 4px;
+}
+
+.shop-currencies a {
+	margin-right: 6px;
+}
+
+.shop-currencies a:last-child {
+	margin-right: 0;
+}
+
+.shop-currencies a.current {
+	color: #E02222;
+}
+</style>
+
+<style type="text/css">
+.floating_ck {
+	position: fixed;
+	right: 20px;
+	top: 30%;
+}
+
+.floating_ck dl dd {
+	position: relative;
+	width: 80px;
+	height: 80px;
+	background-color: #646577;
+	border-bottom: solid 1px #555666;
+	text-align: center;
+	background-repeat: no-repeat;
+	background-position: center 20%;
+	cursor: pointer;
+}
+
+.floating_ck dl dd:hover {
+	border-bottom: solid 1px #a40324;
+}
+
+.floating_ck dl dd:hover .floating_left {
+	display: block;
+}
+
+.consult, .words {
+	background-image: url(../../assets/img/kficon.png);
+}
+
+.quote {
+	background-image: url(../../assets/img/font-524.png);
+}
+
+.qrcord {
+	background-image: url(../../assets/img/erweima.png);
+}
+
+.return {
+	background-image: url(../../assets/img/fanhui.png);
+}
+
+.floating_ck dd span {
+	color: #fff;
+	display: block;
+	padding-top: 54px;
+}
+
+.floating_left {
+	position: absolute;
+	left: -160px;
+	top: 0px;
+	width: 160px;
+	height: 80px;
+	background-color: white;
+	border-bottom: solid 1px #a40324;
+	display: none;
+}
+
+.floating_left a {
+	color: gray;
+	line-height: 80px;
+}
+
+.floating_ewm {
+	height: 260px;
+	top: -180px;
+}
+
+.floating_ewm i {
+	background-image: url(../../assets/frontend/onepage/img/wechat.jpg);
+	display: block;
+	width: 145px;
+	height: 145px;
+	margin: auto;
+	margin-top: 7px;
+}
+
+.floating_ewm p {
+	color: gray;
+	margin-top: 5px;
+}
+
+.floating_ewm .qrcord_p01 {
+	font-size: 12px;
+	line-height: 20px;
+}
+
+.floating_ewm .qrcord_p02 {
+	font-size: 18px;
+}
+</style>
+
+<style>
+a.detail:hover {
+	font-size: 130%;
+	text-decoration: none;
+}
+</style>
+
+
+
+
+
+<style>
+.header-navigation {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.header-navigation li {
+	float: left;
+	font-size: 14px;
+}
+
+.header-navigation li>a {
+	color: #333;
+	display: block;
+	padding: 8px 10px 11px;
+}
+
+.header-navigation li.active>a, .header-navigation li>a:hover,
+	.header-navigation li>a:focus, .header-navigation li.open>a,
+	.header-navigation li.open>a:hover, .header-navigation li.open>a:focus
+	{
+	color: #ffffff;
+	background: #ff9d00;
+	text-decoration: none;
+}
+</style>
+
+
+<!-- 后加的样式，橙色背景色，白色字体 -->
+<style>
+.header-navigation ul > li.active > a,
+.header-navigation ul > li > a:hover,
+.header-navigation ul > li > a:focus,
+.header-navigation ul > li.open > a,
+.header-navigation ul > li.open > a:hover,
+.header-navigation ul > li.open > a:focus {
+	color: white;
+	background-color: #ff9d00;
+}
+</style>
+
+
+<input type="hidden" name="returnUrl" th:value="${returnUrl}" />
+<input type="hidden" th:value="${session.usertyoe}" id="shows" />
+<!-- 定义了一个id 为shows的input，用于判断id为dengls是否显示 -->
+<!-- <div class="header" style="position: fixed; top: 0px; height: 60px; width: 100%; z-index: 99999;">
+	<div class="container" style="height: 60px; padding-top: 18px;">
+		<a href="/home/travelindex">
+			<img src="../../assets/frontend/onepage/img/logo/xylogo.png" alt="嘻游旅行" />
+		</a>
+		<a href="javascript:void(0);" class="mobi-toggler">
+			<i class="fa fa-bars"></i>
+		</a>
+		BEGIN NAVIGATION
+		<div class="header-navigation pull-right">
+			<ul>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;" style="padding: 0px;">
+						<span class="username username-hide-on-mobile"
+							style="font-weight: 400; font-size: 18px; opacity: 0.8; color: #e6400c;" th:text="${session.usertyoes}"></span>
+						<span class="username username-hide-on-mobile"></span>
+					</a>
+
+					BEGIN DROPDOWN MENU
+					<ul class="dropdown-menu">
+						<li class="dropdown-submenu">
+							<a href="/center">
+								<i class="icon-calendar"></i>
+								&nbsp;&nbsp;游客中心
+								<i class="fa fa-angle-right"></i>
+							</a>
+							<ul class="dropdown-menu" role="menu">
+                    <li><a href="shop-product-list.html">定制旅游订单</a></li>
+                    <li><a href="shop-product-list.html">定制签证订单</a></li>                   
+                  </ul>
+						</li>
+						<li class="dropdown-submenu">
+							<a th:href="@{/personalCenter/create}">
+								<i class="icon-user"></i>
+								&nbsp;&nbsp;个人中心
+								 <i class="fa fa-angle-right"></i>
+							</a>
+							<ul class="dropdown-menu" role="menu">
+                    <li><a href="shop-product-list.html">个人资料</a></li>
+                    <li><a href="shop-product-list.html">密码修改</a></li>                   
+                  </ul>
+						</li>
+						<li class="dropdown-submenu">
+							<a th:href="@{/home/loginout}">
+								<i class="icon-key"></i>
+								&nbsp;&nbsp;退出
+							</a>
+						</li>
+					</ul>
+					END DROPDOWN MENU
+				</li>
+			</ul>
+		</div>
+	</div>
+	<input type="hidden" th:value="${session.usertyoe}" id="show" />
+	<input type="hidden" th:value="${session.ordersstatus}" id="ordersstatus" />
+</div> -->
+
+
+
+<style>
+element.style {
+    padding-top: 7px;
+    padding-bottom: 20px;
+}
+.pre-header a {
+    color: #616b76;
+}
+.site-logo {
+    float: left;
+    padding-top: 19px;
+}
+a, a:focus, a:hover, a:active {
+    color: #e6400c;
+}
+a, a:focus, a:hover, a:active {
+    color: #e6400c;
+    outline: 0;
+    text-decoration: none;
+}
+a {
+    text-shadow: none;
+    color: #5b9bd1;
+}
+div, input, select, textarea, span, img, table, label, td, th, p, a, button, ul, code, pre, li {
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+}
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+a {
+    background-color: transparent;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+user agent stylesheeta:-webkit-any-link {
+    color: -webkit-link;
+    text-decoration: underline;
+    cursor: auto;
+}
+Inherited from 
+.pre-header {
+    color: #616b76;
+    border-bottom: 1px solid #eee;
+    padding-top: 10px;
+    line-height: 1.2;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    background: #fff;
+    top: 0;
+    bottom: auto;
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+}
+Inherited from 
+body {
+    color: #5f6f7e;
+    direction: ltr;
+    font: 300 14px/1.4 "Open Sans", Arial, sans-serif;
+    background: #fff;
+}
+body {
+    color: #333333;
+    font-family: "Open Sans", sans-serif;
+    padding: 0px !important;
+    margin: 0px !important;
+    font-size: 13px;
+    direction: ltr;
+}
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+Inherited from 
+html {
+    font-size: 10px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+Pseudo ::before element
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+Pseudo ::after element
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+Pseudo ::selection element
+::selection {
+    color: #fff;
+    background: #e6400c;
+}
+::selection {
+    color: #fff;
+    background: #e6400c;
+}
+
+.site-logo {
+  float: left;
+  font-size: 23px;
+  font-weight: 400;
+
+  margin-right: 0px;
+  padding-top: 22px;
+  padding-bottom: 22px;
+  
+}
+
+
+
+
+</style>
+
+
+
+
+
+
+<div class="header" style="position: fixed; top: 0px; height: 40px; width: 100%; z-index: 99999;">
+	<div class="pre-header">
+		<div class="container">
+			<div class="row">
+				<!-- Logo BEGIN -->
+				<div class="col-md-4 col-sm-6 col-xs-6">
+					<!-- <a class="scroll site-logo" href="/home/travelindex" style="padding-top: 7px; padding-bottom: 10px;margin-right: 0px;padding-right: 0px;">
+						<img src="../../assets/frontend/onepage/img/logo/xylogo.png" alt="嘻游旅行" />
+					</a> -->
+					<span>LOGO</span>
+					&nbsp;
+					<!-- <p style="font-family: Microsoft YaHei; font-weight: bold; font-size: 12px; color: #ff9d00;">&nbsp;&nbsp;最专业的美国旅游顾问！</p> -->
+				</div>
+				
+				<!-- Logo END -->
+				<!-- BEGIN TOP BAR MENU -->
+				<!-- <div class="col-md-2 col-sm-3" style="padding: 0px; margin-top: 10px;margin-left:-50px;"></div> -->
+				<div class="col-md-3 col-md-push-1 col-sm-6 col-xs-4 col-sm-offset-2 col-xs-pull-1 col-xs-offset-2" style="padding: 0px; margin-top: 10px;">
+					<ul class="list-unstyled list-inline"
+						style="border: solid 1px #c6c6c6; padding: 0px; border-radius: 6% !important;">
+						<li class="label label-sm label-default" style="padding: 7px; border-radius: 10% !important; margin-right: 0px;">
+							<i class="fa fa-phone" style="margin: 0px;"></i>
+						</li>
+						<li style="margin-left: -1%;">
+							<span style="border: none;">
+								<!-- <font style="font-size: 12px;">中国</font>
+								<font style="font-weight: bold; color: #ff9d00; font-size: 13px;">400-856-5161</font>
+								<font style="font-size: 12px;">美国</font> -->
+								<font style="font-weight: bold; color: #ff9d00; font-size: 13px;">626-371-6750</font>
+							</span>
+						</li>
+					</ul>
+				</div>
+			
+				<!-- <div class=" col-md-2 col-sm-2 tb-socio" style="padding: 0px; margin-top: 10px;margin-left:-50px;">
+					<a href="javascript:void(0);" class="fa fa-wechat"></a>
+					<a href="javascript:void(0);" class="fa fa-phone"></a>
+				</div> -->
+				<div class="col-md-2 col-sm-2 col-xs-12" style="padding: 0px; margin-top: 10px;margin-left: 1%;height: 20px;">
+					<ul class="list-unstyled list-inline pull-right" style="margin-left: 1%;margin-top: 10px;">
+							<!-- 之前是	th:if="${session.guide}==null"，现在改成判断游客类型是否为空 th:if="${session.usertyoes}!=null"-->
+						<li class="dropdown dropdown-user" id="usertypos" th:if="${session.usertyoes}!=null"
+							style="height: 0px; margin: 0px; padding: 0px;">
+							
+							<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+								data-close-others="true" style="position: fixed;">
+								<span class="username username-hide-on-mobile" th:text="${session.usertyoes}"></span>
+								<span class="username username-hide-on-mobile"></span>
+								<i class="fa fa-angle-down"></i>
+							</a>
+							<ul class="dropdown-menu dropdown-menu-default" style="margin-top: 20px;">
+								<li>
+									<a href="/center">
+										<i class="icon-calendar" th:if="${session.usertyoe}==1"></i>
+										&nbsp;&nbsp;游客中心
+									</a>
+								</li>
+								<li>
+									<a th:href="@{/personalCenter/create}">
+										<i class="icon-user"></i>
+										&nbsp;&nbsp;个人中心
+									</a>
+								</li>
+
+								<li>
+									<a th:href="@{/home/loginout}">
+										<i class="icon-key"></i>
+										&nbsp;&nbsp;退出
+									</a>
+								</li>
+
+							</ul>
+						</li>
+
+						<li style="border-right: 1px solid  #d8d8d8;float: left;">
+							<a th:href="@{/user/login}" id="denglus" style="font-size: 12px;" th:if="${session.usertyoes}==null">登录</a>
+
+						</li>
+						<li class="liheader pull-right" >
+							<a href="/user/register" id="register" style="display: block;font-size: 12px;" th:if="${session.usertyoes}==null">注册</a>
+						</li>
+					</ul>
+				</div>
+				<!-- END TOP BAR MENU -->
+			</div>
+		</div>
+		
+		
+<!-- 		<div class="container" style="background-color: white;top: 60px;"> -->
+      <!--  <a class="site-logo" href="index.html"><img src="../../assets/frontend/layout/img/logos/logo-corp-red.png" alt="Metronic FrontEnd" /></a>  -->
+
+		
+        <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+        <!-- BEGIN NAVIGATION -->
+        <div class="header-navigation pull-right font-transform-inherit col-xs-12 col-md-12 " style="display: none;border: 1px solid;border-top-color:#d8d8d8;border-style:solid none none none;">
+         <div class="col-md-offset-2">
+          <ul>
+            <li><a th:href="@{/home/index}" style="color: white">首页</a></li>
+            <li><a href=""  style="color: white">关于我们</a></li>
+			<li><a href=""  style="color: white">公司产品</a></li>
+			  <li><a href=""  style="color: white">合作联盟</a></li>
+            <li><a href=""  style="color: white">加入我们</a></li>
+			<li><a href=""  style="color: white">联系我们</a></li>
+						
+						
+           <!-- <li class="dropdown dropdown-user">
+							<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+								data-close-others="true">
+								<span class="username username-hide-on-mobile" th:text="关于我们"></span>
+								<span class="username username-hide-on-mobile"></span>
+								<i class="fa fa-angle-down"></i>
+							</a>
+							<ul class="dropdown-menu dropdown-menu-default">
+								<li>
+									<a th:href="@{/home/aboutus}">中国公司</a>
+								</li>
+								<li>
+									<a th:href="@{/home/usaincintroduction}">美国公司</a>
+								</li>
+							</ul>
+						</li> -->
+          </ul>
+          </div>
+        </div>
+        <!-- END NAVIGATION -->
+<!--       </div> -->
+		
+		
+	</div>
+	<input type="hidden" th:value="${session.usertyoe}" id="show" />
+	<input type="hidden" th:value="${session.ordersstatus}" id="ordersstatus" />
+	
+	
+	
+	
+	
+	
+	
+	
+</div>

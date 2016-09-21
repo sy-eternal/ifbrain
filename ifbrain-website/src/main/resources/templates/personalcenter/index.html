@@ -1,0 +1,446 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<meta charset="utf-8" />
+<title>个人信息</title>
+<link rel="shortcut icon" href="../../img/showhtml.ico" />
+   <link href="../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/layouts/layout/css/layout.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/layouts/layout/css/themes/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color" />
+        <link href="../assets/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css" />
+        
+         <link href="../css/default-min.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+</style>    
+    <script type="text/javascript">
+    function cancle(){
+    	window.location.href="/myinformation/baby"
+    }
+    function btnfinish(){
+    	$("#firstname").val($("#text").val())
+    }
+    function renwu(){
+    	var id=$("#ids").val();
+    	window.location.href="/project/li/"+id;
+    }
+    function gouwu(){
+    	var id=$("#ids").val();
+    	window.location.href="/commodity/index/"+id;
+    }
+    //评估
+    function pinggu(){
+    	window.location.href="/assessment/list";
+    }
+    //wode
+    function tomyinformation(){
+    	window.location.href="/myinformation/baby";
+    }
+    function finishinfo(){
+    	if($("#text").val()==""){
+    		alert("请输入昵称");
+    	}else{
+    		doCreate.submit();
+    	}
+    }
+    </script>
+
+      
+</head>
+<body style="background-color: #ffd464">
+
+								
+								
+							
+	
+	
+	
+	
+	<script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="../js/personcenter/jquery.bootstrap-pureClearButton.js" type="text/javascript"></script>
+	<script src="../js/personcenter/myexample.js" type="text/javascript"></script>
+	<script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+       <!--  <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> -->
+        <script src="../assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
+        <script src="../assets/global/scripts/app.min.js" type="text/javascript"></script>
+        <script src="../assets/layouts/layout/scripts/layout.min.js" type="text/javascript"></script>
+        <script src="../assets/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
+        <script src="../assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
+	<!-- head -->
+	<div class="v-jr-slide-wrap">
+        
+  <div th:replace="partial/header-new" class="header" style="width: auto;"></div>
+        <div class="v-jr-slide-box v-jr-clear" id="js-slide-box">		
+		<input type="hidden" th:value="${session.childids}"  id="ids"/>	
+	<!-- end head -->
+	<!-- 新的代码 -->
+<form class="form-horizontal" id="doCreate" role="form"			method="post" th:action="@{/personalCenter/doCreate}"		th:object="${userInfo}" align="center" enctype="multipart/form-data">
+		<input type="hidden" th:field="*{id}" />
+		<input type="hidden"  id="firstname"  name="firstname" th:value="${userInfo.firstName}"/>
+	<div class = "container " style = "max-width:710px;padding:0px; height:70px;background-color:#f4f4f4;margin-top:0px;">
+	
+	
+            
+                                    <form action="#" class="form-horizontal form-bordered" style = "text-align:center; " >
+                                     
+                                          
+                                               
+                                
+                                                     <div class=" fileinput-preview fileinput    img-circle  " data-provides="fileinput" style="margin-top:5px;">
+                                                        <div class="fileinput-preview thumbnail img-circle " data-trigger="fileinput" style="width:56px; height: 56px;">
+                                                         <input type="hidden" id="childimg" name="childimg" class="childimg" th:value="${userInfo.id}"/>
+                                                          
+													<div th:if="${session.userwechat}==''">
+														<div th:with="condition=${userInfo.image==null or userInfo.image.id==0}">
+															<div  th:if="${condition}">
+											                 <img alt="USer" src="../../img/peple.png" class=" img-circle imgs" height="46px"  width="46px"   />
+											                </div>
+															<div  th:unless="${condition}" >
+															<img alt="USer"  th:src="@{'/image/show/' + ${userInfo.image.id}}"  class="img-circle imgs"  style=""  height="46px"  width="46px"   th:value="${userInfo.image.id}" />
+															</div>
+														</div>
+													</div>
+													<div th:if="${session.userwechat}!=''">
+													<img alt="USer"  th:src="@{${session.userwechat}}"  class="img-circle imgs"  style=""  height="56px"  width="56px"    />
+
+													</div>
+		
+							             </div>
+                                                        
+                                                       <div>
+                                                            <span class="btn red btn-outline btn-file" style="border: none;">
+                                                            
+                                                                <input type="file" name="file" id="file" style="border: none;" accept="image/*"/> </span>
+                                                        </div> 
+                                                    </div> 
+                                                  
+
+														
+														                                                   
+                                                       <div>
+                                                            <span class="btn red btn-outline btn-file" style="border: none ;">
+                                                               <input type="file" name="file" id="file" class="file"   style="border: none;" accept="image/*"/> </span>
+                                                        </div> 
+                                                        
+                                                
+                                             
+                                         
+                                      
+                                    </form>
+	
+	</div>
+	
+	
+	<div class = "container " style = "max-width:710px;padding:0px; height:180px; margin-top:30px;background-color:white;margin-top:0px;">
+	<div style = "margin-top:30px;margin-left:31px;  font-size:14px;color:#a4a4a4;">昵称</div>
+	<div  style = "margin-top:20px; ">
+			<!-- form -->
+
+			<!-- search框 -->
+			<div class="form-group has-feedback">
+
+				<div class="input-group container "
+					style="max-width: 650px; padding: 0px; margin:0px;margin-left:31px;">
+					<input type="text" id = "text" class="form-control input-md"  name="text" onkeyup = "defineBtnfinish();" onblur="btnfinish()"
+						th:value="${userInfo.firstName}"  tabindex="1"
+						data-pure-clear-button="true"
+						style="font-size:16px;color:#333333;height: 25px; width: 100%; border: 1px solid transparent; border-radius: 50px !important; background-color: #f4f4f4;" /><span
+						aria-hidden="true"
+						class="glyphicon glyphicon-remove-circle form-control-feedback"
+						data-pure-clear-button="event"
+						style="cursor: pointer; pointer-events: auto; right: 5px; font-size: 20px; top: -5px;"></span>
+				</div>
+             </div>
+			<div>
+				
+			</div>
+			<div>
+			<p class="text-danger" th:text="${message}"></p>
+		   
+		    <div class = "col-md-12  col-xs-12 col-sm-12">
+		    <div class = "col-md-7 col-xs-2"></div>
+		    <div class = "col-md-2 col-xs-3"  style = "width:80px;line-height:25px; height:25px; margin-top:30px;border:1px solid transparent;border-radius:50px !important; text-align:center; background-color:#004986;  font-size:16px;color:#eeeeee; cursor:pointer;" onclick="cancle();"> 取消</div>
+		
+			<div class = "col-md-1 col-xs-1">&nbsp;</div>
+			
+		<div class = "col-md-2 col-xs-3"  style = " width:80px; line-height:25px; height:25px; margin-top:30px;border:1px solid transparent;border-radius:50px !important; text-align:center;  font-size:16px;background-color:#004986; color:#eeeeee; cursor:pointer;" onclick="finishinfo()"> 完成</div>
+			</div>
+			</div>
+			
+		
+</div>
+
+
+
+
+	</div>
+	</form>
+	
+<div th:replace="partial/tokennavibar" class="header" style="width: auto;"></div> 
+</div></div>
+	<!-- <div class = "container " style = "max-width:710px;padding:0px; height:410px;background-color:#f4f4f4;margin-top:0px;">
+	
+	</div> -->
+	<!-- 	<table width="100%" border="0" cellspacing="0" cellpadding="0"
+			style="min-width: 320px;">
+			<tr>
+				<td align="center" bgcolor="#eff3f8">
+					<table border="0" cellspacing="0" cellpadding="0"
+						class="table_width_100" width="100%"
+						style="max-width: 710px; min-width: 300px;">
+						header
+						<tr>
+							<td>
+								<div th:replace="partial/header-new" class="header"
+									style="width: auto;"></div>
+							</td>
+						</tr>
+						header END
+
+						content 1
+						<tr>
+							<td align="center" bgcolor="#f8f8f8">
+								<table width="100%" border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td align="center">
+											<div style="width: 100%; color: #F1D33A;padding-top: 3%;background-color: white;">
+												<img src="../../img/个人信息(1).png" width="100%"
+													class="img-responsive" />
+											</div> padding <div style="height: 70px; line-height: 70px; font-size: 10px;">&nbsp;</div> 
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						content 1 END
+
+
+
+
+
+						content 2-1
+						<tr>
+							<td align="center" bgcolor="#ffffff">
+								<table width="90%" border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td align="center">
+											<div
+												style="height: 114px; line-height: 114px; font-size: 10px;">&nbsp;</div>
+
+											<table width="100%" border="0" cellspacing="0"
+												cellpadding="0">
+												<tr>
+													<td align="center">
+														<form class="form-horizontal" id="doCreate" role="form"
+															method="post" th:action="@{/personalCenter/doCreate}"
+															th:object="${userInfo}" align="center">
+															<input type="hidden" th:field="*{id}" />
+																<input type="text" th:field="*{guide.standardGuide.id}" />
+															
+															
+															
+
+
+<div class=" col-xs-12 col-md-12 " style="font-family: myfont1;margin-top: 50px; margin-bottom:50px; border:10px solid #66FFFF; border-radius:5% !important; text-align:Center;">
+		
+		<div id="mycontainer"  style=" font-family:myfont1; text-align:center;" > 
+		
+            <div id="top">
+            <div class = "shield" style = "width:100%; height:40px; float:left; text-align:center;"><p style = " font-size:30px;">欢迎您！</p></div>
+		
+			</div>  
+            <div id="middle" align="center"> <img class="fadeIn pulse " src="../../img/user.gif"  style = " margin-top:50px;margin-bottom:50px; border-radius:50px !important;"/></div>  
+            <div id="buttom" class="" style = " font-size:20px;" >
+            <div class = "shield slideRight" style = "width:50%; height:60px; float:left;">&nbsp;&nbsp;姓:
+            <input type="text" th:field="*{firstName}"  style="width:180px; height:40px; text-align:center; border-radius:10px !important;" /> 
+            <span	class="text-warning"  th:if="${#fields.hasErrors('firstName')}"	th:errors="*{number}"></span>
+            <input style="width:80px; height:40px; text-align:center; border-radius:10px !important;"/>
+            </div>
+            <div class = "shield slideLeft" style = "width:50%; height:60px; float:right;">&nbsp;&nbsp;名:
+             <input type="text" th:field="*{lastName}"  style="width:180px; height:40px; text-align:center; border-radius:10px !important;" /> 
+             <span	class="text-warning" th:if="${#fields.hasErrors('lastName')}"	th:errors="*{number}"></span>
+			 </div>
+			<div class = "shield slideLeft" style = "width:50%; height:60px; float:right;">邮箱:
+			<input type="text"	th:field="*{email}" readonly="readonly"  style="width:180px; height:40px; text-align:center; border-radius:10px !important;"/> 
+			</div>
+			</div>  
+			<div   style="height:40px; margin-top:70px;font-size:20px; ">
+			 <div class = "shield slideRight" style = "width:50%; height:60px; float:left;">手机:
+			 <input type="text" 		th:field="*{mobile}"  readonly="readonly" style="width:180px; height:40px; text-align:center; border-radius:10px !important;"/> 
+			 </div>
+		
+			</div>
+ </div>	
+ 
+
+
+ </div>	
+ 
+ 
+ 
+ 
+ 
+															
+
+															
+submit
+															<div class="col-md-12 col-xs-12" style="margin-top: 5%;">
+															<p class="text-danger" th:text="${message}"></p>
+																<div class="col-lg-12 col-md-offset-3" align="center">
+																	<div class="col-md-3 col-xs-6" style="float: left;">
+																		<button type="submit"
+																			style="width: 100%; background-color: transparent; padding: 0; border: none;">
+																			<a><img alt="" src="../../img/modify.png"
+																				class="img-responsive" style="min-height: 19px;" id="tijiao"/></a>
+																		</button>
+																	</div>
+																	<div class="col-md-3 col-xs-6" style="">
+																		<a href="/home/index"
+																			style="display: block; width: 100%;"> <img alt=""
+																			src="../../img/reset.png" class="img-responsive"
+																			style="min-height: 19px;" />
+																		</a>
+
+																	</div>
+																</div>
+															</div>
+
+															end submit														
+															
+															
+															
+												
+															<div class="form-group">
+																	<div class="row">
+																		<label for="firstName"
+																			class=" col-md-3 col-sm-4 col-xs-4 control-label">姓</label>
+
+																		<div class=" col-md-6 col-sm-8 col-xs-8">
+																			<input type="text" class="form-control"
+																				th:field="*{firstName}" /> <span
+																				class="text-warning"
+																				th:if="${#fields.hasErrors('firstName')}"
+																				th:errors="*{number}"></span>
+																		</div>
+																	</div>
+															</div>
+
+
+
+															<div class="form-group " style="padding-top: 20px;">
+																	<div class="row">
+																		<label for="lastName"
+																			class="col-md-3 col-sm-4 col-xs-4 control-label">名</label>
+																		<div class="col-md-6 col-sm-8 col-xs-8">
+																			<input type="text" class="form-control"
+																				th:field="*{lastName}" /> <span
+																				class="text-warning"
+																				th:if="${#fields.hasErrors('lastName')}"
+																				th:errors="*{number}"></span>
+																		</div>
+																	</div>
+																</div>
+
+															<div class="form-group" style="padding-top: 20px;">
+																	<div class="row">
+																		<label for="reveiverName"
+																			class="col-md-3 col-sm-4 col-xs-4 control-label">邮箱</label>
+																		<div class="col-md-6 col-sm-8 col-xs-8">
+																			<input type="text" class="form-control"
+																				th:field="*{email}" readonly="readonly" /> <span
+																				class="text-warning"
+																				th:if="${#fields.hasErrors('email')}"
+																				th:errors="*{number}"></span>
+																		</div>
+																	</div>
+																</div>
+
+															<div class="form-group" style="padding-top: 20px;">
+																	<div class="row">
+																		<label for="reveiverName"
+																			class="col-md-3 col-sm-4 col-xs-4 control-label">手机号</label>
+																		<div class="col-md-6 col-sm-8 col-xs-8">
+																			<input type="text" class="form-control"
+																				th:field="*{mobile}" /> <span class="text-warning"
+																				th:if="${#fields.hasErrors('mobile')}"
+																				th:errors="*{number}"></span>
+																		</div>
+																	</div>
+																</div>
+
+															submit
+															<div class="col-md-12 col-xs-12" style="margin-top: 5%;">
+															<p class="text-danger" th:text="${message}"></p>
+																<div class="col-lg-12 col-md-offset-3" align="center">
+																	<div class="col-md-3 col-xs-6" style="float: left;">
+																		<button type="submit"
+																			style="width: 100%; background-color: transparent; padding: 0; border: none;">
+																			<img alt="" src="../../img/modify.png"
+																				class="img-responsive" style="min-height: 19px;" id="tijiao"/>
+																		</button>
+																	</div>
+																	<div class="col-md-3 col-xs-6" style="">
+																		<a href="/home/index"
+																			style="display: block; width: 100%;"> <img alt=""
+																			src="../../img/reset.png" class="img-responsive"
+																			style="min-height: 19px;" />
+																		</a>
+
+																	</div>
+																</div>
+															</div>
+
+															end submit
+															<div 
+																style="font-size: 14px; padding-top: 5%;margin-left: 70%">
+																<a href="/personalCenter/passwordmain">修改密码</a>
+															</div>
+														</form>
+													</td>
+												</tr>
+											</table>
+
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+											<div
+												style="height: 200px; line-height: 200px; font-size: 10px;">&nbsp;</div>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<div th:replace="partial/footer-new" class="footer"
+									style="width: auto;"></div>
+							</td>
+						</tr>
+					</table> [if gte mso 10]>
+</td></tr>
+</table>
+<![endif]
+
+				</td>
+			</tr>
+		</table> -->
+</body>
+</html>

@@ -1,0 +1,20 @@
+/* CSS Document */
+/* [1. Body] */
+mark, rp, rt, ruby, summary, time{ display: inline }
+
+img {vertical-align:top; border:0;page-break-inside:avoid;max-width:100% !important; }
+
+abbr[title]:after{content:" (" attr(title) ")"}
+
+
+
+/*Gallery*/
+#gallery {margin:0 auto;height:150px;with:300px; overflow:hidden; z-index:1; padding-top:0px;text-align:center;}
+.container_image{margin:0 auto;position:relative;width:100%;font-size:.8125em;}	
+/*===== gallery =====*/
+.roundabout-holder{width:250px;height:196px;margin:0 auto;}
+.roundabout-moveable-item {width: 150px;height: 116px;cursor: pointer;border:3px solid #ccc;border:3px solid rgba(0, 0, 0, 0.08);border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;}
+.roundabout-moveable-item img{width:100%;}
+.roundabout-in-focus {border:3px solid rgba(0, 0, 0, 0.2);}
+
+

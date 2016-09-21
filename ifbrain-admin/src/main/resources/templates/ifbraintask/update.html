@@ -1,0 +1,165 @@
+ <!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout" data-ng-app="_app">
+<head>
+	<title></title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+<meta content="" name="description"/>
+<meta content="" name="author"/>
+<!-- 使用jQuery Validation控件进行前端验证 -->
+	<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+	<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+	<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+	<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+	<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script> 
+	<script th:src="@{/js/controller/childinformation/childinformation-controller.js}"></script>
+	<script>
+	//查询班级对应的课程
+	function getLesson(id){
+		$.ajax({
+			async : false,
+		    type: "Get",
+		    url: "/childinformation/findByClassId?id="+id,
+		    success: function (data) {
+		    
+		    	$("#lessonname").val(data);
+		    }
+		 });
+	}
+		$(function() {
+			$("#mainForm").validate({
+				highlight : function(element) {
+					$(element).closest(".form-group").addClass("has-error");
+				},
+				success : function(label) {
+					label.closest(".form-group").removeClass("has-error");
+					label.closest(".form-group").addClass("has-success");
+				},
+				errorPlacement : function(error, element) {
+					element.parent("div").append(error);
+				},
+				submitHandler : function(form) {
+					form.submit();
+				}
+			});
+		});
+	</script>
+	
+	  <script type="text/javascript">
+	
+	</script>  
+</head>
+<body  data-ng-controller="childInformationController">
+<div class="clearfix">
+</div>
+	<div layout:fragment="content" class="container">
+		<div class="page-header">
+			<h1>修改学生信息</h1>
+		</div>
+		<form class="form-horizontal" role="form" method="post" th:action="@{/childinformation/createinfo}"   enctype="multipart/form-data">
+			<div class="form-group" >
+							<label for="country" class="col-xs-3 control-label">级别名称</label>
+							<div class="col-xs-6">
+								<select class="form-control"  id="Course" data-ng-model="Course" name="Course" data-ng-change="change(Course)">
+										<option th:each="course : ${courseList}" th:value="${course.id}" th:text="${course.courseLevel}"></option>
+								</select>
+								<span class="text-danger" ></span>
+							 </div>
+			</div>
+			
+			<div class="form-group" >
+							<label for="country" class="col-xs-3 control-label">班级名称</label>
+							<div class="col-xs-6">
+								<select class="form-control" id="CourseClass" name="CourseClass" data-model="CourseClass" onchange="getLesson(this.value)">
+										<option  data-ng-repeat="c in CourseClass" value="{{c.id}}" >{{c.className}}</option>
+								</select>
+								<span class="text-danger" ></span>
+							 </div>
+			</div>
+			<div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">课程名称</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" id="lessonname"  required="required"/>
+					<span class="text-danger" ></span>
+				</div>
+			</div>
+			<div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">家长姓名</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:value="${user.firstName+user.lastName}" required="required" disabled="disabled"/>
+					<span class="text-danger" ></span>
+				</div>
+			</div>
+			<div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">学生姓名</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control"  th:value="${child.name}"  required="required" readonly="readonly"/>
+					<input type="hidden" class="form-control"  name="ChildName" th:value="${child.id}" />
+					<span class="text-danger" ></span>
+				</div>
+			</div>
+			<div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">上传视频</label>
+				<div class="col-xs-6">
+					<input type="file" name="file" multiple="multiple"/>
+					<span class="text-danger" ></span>
+				</div>
+			</div>
+			<div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">财脑指数</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control"  required="required"/>
+					<span class="text-danger" ></span>
+				</div>
+			</div>
+			<p class="text-center">
+				<button type="submit" class="btn btn-primary" id="alltrue">提交</button>
+				<a th:href="@{/childinformation/list}" class="btn btn-default">返回</a>
+			</p>
+			
+		                      
+			
+		</form>
+	</div>
+<script th:src="@{/assets/global/plugins/jquery.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-migrate.min.js}" type="text/javascript"></script>
+<!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script th:src="@{/assets/global/plugins/jquery-ui/jquery-ui.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap/js/bootstrap.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.blockui.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.cokie.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/uniform/jquery.uniform.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js}" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" th:src="@{/assets/global/plugins/jquery-validation/js/jquery.validate.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/global/plugins/jquery-validation/js/additional-methods.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js}"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script th:src="@{/assets/global/scripts/metronic.js}" type="text/javascript"></script>
+<script th:src="@{/assets/admin/layout/scripts/layout.js}" type="text/javascript"></script>
+<script th:src="@{/assets/admin/layout/scripts/quick-sidebar.js}" type="text/javascript"></script>
+<script th:src="@{/assets/admin/layout/scripts/demo.js}" type="text/javascript"></script>
+<script th:src="@{/assets/admin/pages/scripts/form-wizard.js}"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<script>
+jQuery(document).ready(function() {       
+   // initiate layout and plugins
+   Metronic.init(); // init metronic core components
+Layout.init(); // init current layout
+QuickSidebar.init(); // init quick sidebar
+Demo.init(); // init demo features
+   FormWizard.init();
+});
+</script>
+</body>
+</html>

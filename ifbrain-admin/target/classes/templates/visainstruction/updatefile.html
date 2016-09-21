@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>签证服务介绍文件修改</title>
+<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!--  新增上传文件  -->
+<script type="text/javascript">
+	function add() {
+		var add = document.getElementById('add');
+		var br = document.createElement('br');
+		var fileInput = document.createElement('input');
+		fileInput.type = 'file';
+		fileInput.name = 'file';
+		fileInput.id = 'file';
+		var buttonInput = document.createElement('input');
+		buttonInput.type = 'button';
+		buttonInput.value = 'remove';
+		buttonInput.onclick = function() {
+			add.removeChild(fileInput);
+			add.removeChild(buttonInput);
+			add.removeChild(br);
+		}
+		add.appendChild(fileInput);
+		add.appendChild(buttonInput);
+		add.appendChild(br);
+	}
+</script>
+
+<script type="text/javascript">
+	$(function() {
+		jQuery.validator.setDefaults({
+			debug : true,
+			success : "valid"
+		});
+
+		$("#mainForm").validate({
+			rules : {
+				"file" : {
+					required : true
+				},
+				"processName" : {
+					required : true
+				}
+			},
+			messages : {
+				"file" : {
+					required : "上传文件不能为空"
+				},
+				"processName" : {
+					required : "名字不能为空"
+				}
+			},
+
+			highlight : function(element) {
+				$(element).closest(".form-group").addClass("has-error");
+			},
+			success : function(label) {
+				label.closest(".form-group").removeClass("has-error");
+				label.closest(".form-group").addClass("has-success");
+			},
+			errorPlacement : function(error, element) {
+				element.parent("div").append(error);
+			},
+			submitHandler : function(form) {
+				form.submit();
+			}
+		});
+	});
+</script>
+
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid">
+		<div class="row">
+			<div class="page-header">
+				<h1>签证服务介绍文件修改</h1>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<form id="mainForm" class="form-horizontal" role="form" method="post" th:object="${visainstruction}" th:action="@{'/visainstruction/updatefile?visainstructionId='+ ${visainstruction.id}}" enctype="multipart/form-data">
+
+				<!-- 		<div class="form-group">
+							<label class="col-xs-3 control-label">上次修改时间</label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" readonly="readonly" id="updateTime" name="updateTime" th:value="${document.updateTime}"/>
+							</div>
+						</div> -->
+
+						<div class="form-group">
+							<label class="col-xs-3 control-label">流程名称<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" required="required" id="processName" name="processName" th:value="${visainstruction.processName}" />
+							</div>
+						</div>
+
+
+						<div class="form-group">
+							<label class="col-xs-3 control-label">文件</label>
+							<div class="col-xs-6">
+								<input type="file" name="file" id="file" />
+								<small style="color: red;">一旦修改，之前的文件将被抵消</small>
+								<p class="text-danger" th:text="${errorMessage}"></p>
+							</div>
+						</div>
+						<div class="form-group">
+							<div id="add" style="margin-left: 290px;"></div>
+							<p align="center">
+							<button type="button" class="btn btn-primary" onclick="add();" value="addmore">添加上传文件</button>
+							</p>
+						</div>
+
+						<div class="row">
+							<div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+								<button type="submit" class="btn btn-primary" id="alltrue">保存</button>
+								<a type="button" th:href="@{/visainstruction}" class="btn btn-default">返回</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

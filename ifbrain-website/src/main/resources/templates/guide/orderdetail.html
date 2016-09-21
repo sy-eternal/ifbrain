@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+	<title>我的导游订单</title>
+	<meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+  <meta content="Metronic Shop UI description" name="description"/>
+  <meta content="Metronic Shop UI keywords" name="keywords"/>
+  <meta content="keenthemes" name="author"/>
+
+  <meta property="og:site_name" content="-CUSTOMER VALUE-"/>
+  <meta property="og:title" content="-CUSTOMER VALUE-"/>
+  <meta property="og:description" content="-CUSTOMER VALUE-"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="-CUSTOMER VALUE-"/><!-- link to image for socio -->
+  <meta property="og:url" content="-CUSTOMER VALUE-"/>
+  
+  <link rel="shortcut icon" href="favicon.ico"/>
+
+  <!-- Fonts START -->
+  <!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|
+  	Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css"/>  -->
+  <!-- Fonts END -->
+
+  <!-- Global styles START -->          
+  <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Global styles END --> 
+   
+  <!-- Page level plugin styles START -->
+  <link href="../../assets/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+  <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"/><!-- for slider-range -->
+  <link href="../../assets/global/plugins/rateit/src/rateit.css" rel="stylesheet" type="text/css"/>
+  <!-- Page level plugin styles END -->
+
+  <!-- Theme styles START -->
+  <link href="../../assets/global/css/components.css" rel="stylesheet"/>
+  <link href="../../assets/frontend/layout/css/style.css" rel="stylesheet"/>
+  <link href="../../assets/frontend/pages/css/style-shop.css" rel="stylesheet" type="text/css"/>
+  <link href="../../assets/frontend/layout/css/style-responsive.css" rel="stylesheet"/>
+  <link href="../../assets/frontend/layout/css/themes/red.css" rel="stylesheet" id="style-color"/>
+  <link href="../../assets/frontend/layout/css/custom.css" rel="stylesheet"/>
+  <!-- Theme styles END -->
+  <!-- icon -->
+  <link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+		<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+     <script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+	<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+	<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+
+
+	<script th:src="@{/js/controller/guideCenter-controller.js}"></script>
+</head>
+<body>
+<div layout:fragment="content" class="col-md-9 col-sm-12 col-xs-12" style="margin-top:130px;">
+		
+			<form class="form-horizontal" role="form" method="post" th:action="@{/guidecenter/detail}" th:object="${guideorder}" >
+		  <div class="form-group" th:classappend="${#fields.hasErrors('city')}? 'has-error'">
+							<label for="country" class="col-xs-3 control-label">目的城市：</label>
+							<div class="col-xs-6">
+								<select class="form-control" th:field="*{city}" name="country" onchange="istrue();" disabled="disabled">
+									<option th:each="city : ${city}" th:value="${city.id}" th:text="${city.cityName}" id="city"></option>
+								</select>
+								<span class="text-danger" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span>
+							 </div>
+			</div>
+			
+			<div class="form-group" th:classappend="${#fields.hasErrors('guidetype')}? 'has-error'">
+				<label for="guidetype" class="col-xs-3 control-label">导游类型：</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{guidetype}" required="required" id="cityName" onblur="istrue();" readonly="readonly"/>
+					<span class="text-danger" th:if="${#fields.hasErrors('guidetype')}" th:errors="*{guidetype}"></span><span id="spValue"></span>
+				</div>
+			</div>
+			<div class="form-group" th:classappend="${#fields.hasErrors('startdate')}? 'has-error'">
+				<label for="startdate" class="col-xs-3 control-label">出行日期：</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{startdate}" required="required" id="startdate" onblur="istrue();" readonly="readonly"/>
+					<span class="text-danger" th:if="${#fields.hasErrors('startdate')}" th:errors="*{startdate}"></span><span id="spValue"></span>
+				</div>
+			</div>
+			<div class="form-group" th:classappend="${#fields.hasErrors('personcount')}? 'has-error'">
+				<label for="personcount" class="col-xs-3 control-label">出行人数：</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{personcount}" required="required" id="personcount" onblur="istrue();" readonly="readonly"/>
+					<span class="text-danger" th:if="${#fields.hasErrors('personcount')}" th:errors="*{personcount}"></span><span id="spValue"></span>
+				</div>
+			</div>
+			<div class="form-group" th:classappend="${#fields.hasErrors('duration')}? 'has-error'">
+				<label for="duration" class="col-xs-3 control-label">出行天数：</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{duration}" required="required" id="duration" readonly="readonly"/>
+					<span class="text-danger" th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}"></span><span id="spValue"></span>
+				</div>
+			</div>
+			<div class="form-group" th:classappend="${#fields.hasErrors('guidecount')}? 'has-error'">
+				<label for="guidecount" class="col-xs-3 control-label">导游人数：</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{guidecount}" required="required" id="guidecount" readonly="readonly" />
+					<span class="text-danger" th:if="${#fields.hasErrors('guidecount')}" th:errors="*{guidecount}"></span><span id="spValue"></span>
+				</div>
+			</div>
+			<div class="form-group" th:classappend="${#fields.hasErrors('guideserviceammount')}? 'has-error'">
+				<label for="guideserviceammount" class="col-xs-3 control-label">导游服务费：</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{guideserviceammount}" required="required" id="guideserviceammount" readonly="readonly" />
+					<span class="text-danger" th:if="${#fields.hasErrors('guideserviceammount')}" th:errors="*{guideserviceammount}"></span><span id="spValue"></span>
+				</div>
+			</div>
+			<div class="form-group" th:classappend="${#fields.hasErrors('guidetipsammount')}? 'has-error'">
+				<label for="guidetipsammount" class="col-xs-3 control-label">导游小费：</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{guidetipsammount}" required="required" id="guidetipsammount" readonly="readonly"/>
+					<span class="text-danger" th:if="${#fields.hasErrors('guidetipsammount')}" th:errors="*{guidetipsammount}"></span>
+				</div>
+			</div>
+			<p class="text-center">
+				<a th:href="@{/guidecenter}" class="btn btn-default">关闭</a>
+			</p>
+		</form>
+				</div>
+			
+<div layout:fragment="script">
+		
+		<script>
+				$(function() {
+					Metronic.init();
+					Layout.init(); 
+					QuickSidebar.init(); 
+					Demo.init(); 
+					//GuideCentersController.init();
+				});
+			</script>
+</div>
+	
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-cn"  xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<meta charset="UTF-8"></meta>
+<title>需求计划</title>
+
+ <link rel="shortcut icon" href="../../img/showhtml.ico" /> 
+<!-- 新的代码 -->
+<link rel="stylesheet" type="text/css" th:href="@{/css/selectstyle/style.css}" media="screen"  />
+<link th:href="@{/assets/global/css/plugins.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/frontend/layout/css/style-responsive.css}" rel="stylesheet" />
+
+<link th:href="@{/assets/global/css/components-rounded.css}" id="style_components" rel="stylesheet" type="text/css"/>
+<!-- <link th:href="@{/css/percent/radialindicator.css}"  rel="stylesheet" type="text/css"/> -->
+<link  rel="stylesheet" type="text/css" th:href="@{/css/swiper.min.css}" />
+<!-- 视频部分 -->
+<script type="text/javascript" th:src="@{/scripts/video/video.js}"></script>
+<script type="text/javascript"	th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+<!-- 圆点样式 -->
+<link  href="../../scripts/video/video-js.css" rel="stylesheet" type="text/css"/>
+	<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script> 
+ 	<script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+
+
+
+<style type="text/css">
+
+ #formcontroller {
+  
+  background-color:white;
+    opacity: 1;
+}
+
+#pinggu
+{
+color:#0151a6;
+}
+</style>
+<style>
+#indicatorContainerWrap,#indicatorContainer{
+    display:inline-block;
+    position:relative;
+}
+#indicatorContainerWrap1,#indicatorContainer1{
+    display:inline-block;
+    position:relative;
+}
+
+.mypanelBorder{
+	border: 2px solid #0151a6  ;
+}
+
+
+</style>
+<!-- 分享样式 -->
+
+
+<style type="text/css">
+
+#gouwu
+{
+color:#0151a6;
+}
+</style>
+
+<script type="text/javascript">
+$(function(){
+	 var flagvalue=$("#flagaa").val();
+	 if(flagvalue!=""){
+		 $(".portlet-body.mypanel img").each(function() {
+			 var value=$(this).parent().find('input').attr('value');
+			 if(flagvalue==value){
+				 $(this).addClass('mypanelBorder').parent().siblings().find('img').removeClass('mypanelBorder');
+				
+			 }
+		 });
+	 }
+	
+	//根据孩子id获得相应孩子的评估信息
+	$(".portlet-body.mypanel img").each(function() {
+		 $(this).click(function () {
+			 var id=$(this).parent().find('input').attr('value');
+			 $("#flagaa").val(id);
+			 $(this).addClass('mypanelBorder').parent().siblings().find('img').removeClass('mypanelBorder');
+			});
+	});
+	
+});
+</script>
+
+<script type="text/javascript">
+//前往马斯洛需求
+function tomaslowdemand(){
+	var childid=$("#flagaa").val();
+	window.location.href="/demandcityshopping/maslowdemand?childid="+childid
+}
+</script>
+
+</head>
+<body style="background-color:#ffd464; text-align:Center; "  data-ng-controller="assementController">
+<div th:replace="partial/header-new" class="header" style="width: auto;"></div> 
+<!-- 根据此id来判断选中第几个宝宝头像-->
+		<input type="hidden"  id="flagaa" th:value="${flagvalue}" />
+    <!-- 获取登录用户的孩子-->
+	<div class="container" style="max-width: 710px; padding: 0px;">
+		<form class="form-horizontal" role="form" method="post" id="mainForm">
+			<input type="hidden" id="ids" class="ids" name="ids" /> 
+			<div class="portlet-body mypanel"
+				style="background-color:#f4f5f2; height: 76px; text-align: center; display: block; margin-top: 0px; margin-left: 0px;border: 1px solid transparent; max-width: 710px; top: 0px;">
+				<div class="swiper-container col-md-12 col-xs-12 col-sm-12"  style="height: 76px;;margin-left: 0px;margin-top: 0px;padding: 0px"  id="swiper-container">
+				<div class="swiper-wrapper" style="padding: 0px;margin-top: 4px">
+				<div class="swiper-slide" th:each="child:${childs}" style="width: 25%;height: 30px;">	
+					
+					<input type="hidden" th:value="${child.id}" th:id="${child.id}"
+						name="childs" class="childss" />
+						<img th:if="${child.image==null  or child.image=='' or child.image.id==0}" alt="tp"  src="../../img/chird.png" style="border-radius: 50% !important;" width="46px" height="46px;"	id="childI" />
+					    <img alt="tp"  th:if="${child.image!=null}"		th:src="@{'/image/show/' + ${child.image.id}}"	style="border-radius: 50% !important;" width="46px" height="46px;"		id="childI" />
+					<div th:text="${child.name}"
+						style="font-size:14px;"></div>
+						
+				</div>
+				</div>
+				</div>		
+			</div>
+			
+		</form>
+		
+		<div class="col-xs-12 col-md-12 col-sm-12" style="margin-bottom: 100px;margin-top: 20px;">
+		<!-- 需求计划单 -->
+				<div class="col-xs-12 col-md-12 col-sm-12" style="border-radius: 10px;height: 650px;background-color: white;padding: 0px;">
+					<table  class="table table-striped table-bordered "  >
+						<thead>
+							<tr>
+								<th class="col-md-6 col-xs-6 col-sm-6" style="border-bottom: none;">需求分类占比</th>
+								<th class="col-md-6 col-xs-6 col-sm-6" colspan="2">需求计划</th>
+							</tr>
+							<tr>
+								<th class="col-md-6 col-xs-6 col-sm-6" style="border-top: none">&nbsp;</th>
+								<th class="col-md-3 col-xs-3 col-sm-3">需求商品名称</th>
+								<th class="col-md-3 col-xs-3 col-sm-3">估计金额</th>
+							</tr>
+						</thead>
+						<tbody >
+							<tr style="height: 70px">
+								<td class="col-md-6 col-xs-6 col-sm-6">自我实现需求<br/>（道德、创造力、自觉性、问题解决能力、公正度、接受现实能力)</td>
+								<td class="col-md-3 col-xs-3 col-sm-3"><input type="text" style="height:70px;border: none;background-color: transparent; " class="form-control" readonly="readonly"/></td>
+								<td class="col-md-3 col-xs-3 col-sm-3"><input type="text" style="height:70px;border: none;background-color: transparent; " class="form-control" readonly="readonly"/></td>
+							</tr>
+							<tr style="height: 70px">
+								<td class="col-md-6 col-xs-6 col-sm-6">尊重需求<br/>（自我尊重、信心、成就、对他人尊重、被他人尊重）</td>
+								<td class="col-md-3 col-xs-3 col-sm-3"><input type="text" style="height:70px;border: none;background-color: transparent; " class="form-control" readonly="readonly"/></td>
+								<td class="col-md-3 col-xs-3 col-sm-3"><input type="text" style="height:70px;border: none;background-color: transparent; " class="form-control" readonly="readonly"/></td>
+							</tr>
+							<tr style="height: 70px">
+								<td class="col-md-6 col-xs-6 col-sm-6">社交需求<br/>（情感和归属、友情、爱情、性亲密）</td>
+								<td class="col-md-3 col-xs-3 col-sm-3"><input type="text" style="height:70px;border: none;background-color: transparent; " class="form-control" readonly="readonly"/></td>
+								<td class="col-md-3 col-xs-3 col-sm-3"><input type="text" style="height:70px;border: none;background-color: transparent; " class="form-control" readonly="readonly"/></td>
+							</tr>
+							<tr style="height: 70px">
+								<td class="col-md-6 col-xs-6 col-sm-6">安全需求<br/>（人身安全　 健康保障、资源所有性、财产所有性、道德保障、工作职位保障、家庭安全）</td>
+								<td class="col-md-3 col-xs-3 col-sm-3"><input type="text" style="height:70px;border: none;background-color: transparent; " class="form-control" readonly="readonly"/></td>
+								<td class="col-md-3 col-xs-3 col-sm-3"><input type="text" style="height:70px;border: none;background-color: transparent; " class="form-control" readonly="readonly"/></td>
+							</tr>
+							<tr style="height: 70px">
+								<td class="col-md-6 col-xs-6 col-sm-6">生理需求<br/>（呼吸、水、食物、睡眠、生理平衡、分泌、性）</td>
+								<td class="col-md-3 col-xs-3 col-sm-3"><input type="text" style="height:70px;border: none;background-color: transparent; " class="form-control" readonly="readonly"/></td>
+								<td class="col-md-3 col-xs-3 col-sm-3"><input type="text" style="height:70px;border: none;background-color: transparent; " class="form-control" readonly="readonly"/></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="col-xs-12 col-md-12 col-sm-12" style="margin-top: 20px;font-size: 12px;">
+					注:根据小朋友的心愿需求，财脑上传将会不定期添加商品，快来完善你的心愿单吧~
+				</div>
+				</div>
+				
+				<div class="col-xs-12 col-md-12 col-sm-12" style="margin-top: 20px;">
+					<div class="col-md-4 col-xs-4 col-sm-4"></div>
+					<div class="col-md-4 col-xs-4 col-sm-4" style="border-radius: 25px;height: 30px;background-color: white;line-height: 30px;"><input type="button" style="background-color: transparent;border: none;width: 100%" value="下一步" onclick="tomaslowdemand()"/></div>
+					<div class="col-md-4 col-xs-4 col-sm-4"></div>
+				</div>
+				
+		</div>
+	</div>
+	
+
+		<!-- 底层背景色 -->
+
+    <script src="../../js/project/swiper.min.js" type="text/javascript"></script>
+												<!-- Initialize Swiper -->
+												<script>
+													var swiper = new Swiper('#swiper-container',
+															{
+																pagination :'.swiper-pagination',
+																slidesPerView : 5,
+																paginationClickable : true,
+																spaceBetween :4,
+																freeMode : true,
+																grabCursor:true,
+																mousewheelControl : true
+															});
+							</script>
+
+ <script src="../../js/percent/radialIndicator.js"
+		type="text/javascript"></script>
+		
+</body>
+</html>

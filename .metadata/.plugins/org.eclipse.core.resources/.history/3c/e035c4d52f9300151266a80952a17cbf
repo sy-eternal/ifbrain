@@ -1,0 +1,96 @@
+spring:
+  profiles:
+    active: work
+
+# Server settings
+server:
+  address: localhost
+  port: 80
+  sessionTimeout: 3000
+
+# Mmultipart settings
+multipart:
+  maxFileSize: 10Mb
+  maxRequestSize: 10Mb
+
+# Mail settings
+mail:
+  host: smtp.exmail.qq.com
+  port: 465
+  username: do_not_reply@x2our.com
+  password: x2ourDnr
+  from: do_not_reply@x2our.com
+
+# File upload settings
+file-upload:
+  root-path: /home/travel/upload/
+  visa-path: visa/
+  hotel-path: hotel/
+  spot-path: spot/
+
+# Web url settings
+web-url:
+ root-url: http://localhost:80
+---
+
+# Spring settings
+spring:
+  profiles: work
+
+  thymeleaf:
+    suffix: .html
+    mode: HTML5
+    cache: false
+    encoding: UTF-8
+
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.252:3306/ifbrain?characterEncoding=UTF-8
+    #url: jdbc:mysql://transenly.mysql.rds.aliyuncs.com:3306/ifbrain?characterEncoding=UTF-8
+    username: root
+    password: root
+    initialSize: 8
+    maxActive: 40
+    maxIdle: 4
+    minIdle: 4
+    testOnBorrow: false
+    testOnReturn: false
+    testWhileIdle: true
+    maxWait: 60000
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+
+---
+
+# Spring settings
+spring:
+  profiles: home
+
+  thymeleaf:
+    suffix: .html
+    mode: HTML5
+    cache: false
+    encoding: UTF-8
+
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.252:3306/ifbrain?characterEncoding=UTF-8
+    #url: jdbc:mysql://transenly.mysql.rds.aliyuncs.com:3306/ifbrain?characterEncoding=UTF-8
+    username: root
+    password: root
+    initialSize: 8
+    maxActive: 40
+    maxIdle: 4
+    minIdle: 4
+    testOnBorrow: false
+    testOnReturn: false
+    testWhileIdle: true
+    maxWait: 60000
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none

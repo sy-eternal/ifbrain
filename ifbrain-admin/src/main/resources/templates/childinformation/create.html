@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout" data-ng-app="_app">
+<head>
+	<title>新增学生信息</title>
+	<!-- DataTables -->
+<!-- 使用jQuery Validation控件进行前端验证 -->
+	<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+	<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+	<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+	<link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+	<link src="../../assets/global/plugins/bootstrap-select/bootstrap-select.css"/>
+	<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+	<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+	<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script> 
+	<script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+	<link href="../../assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="../../assets/global/plugins/select2/select2.css"/>
+	<script th:src="@{/js/controller/childinformation/childinformation-controller.js}"></script>
+	<script type="text/javascript" src="../../assets/global/plugins/bootstrap-select/bootstrap-select.js"></script>
+	<script>
+	//查询班级对应的课程
+	function getLesson(id){
+		$.ajax({
+			async : false,
+		    type: "Get",
+		    url: "/childinformation/findByClassId?id="+id,
+		    success: function (data) {
+		    
+		    	$("#lessonname").val(data);
+		    }
+		 });
+	}
+		$(function() {
+			$("#mainForm").validate({
+				highlight : function(element) {
+					$(element).closest(".form-group").addClass("has-error");
+				},
+				success : function(label) {
+					label.closest(".form-group").removeClass("has-error");
+					label.closest(".form-group").addClass("has-success");
+				},
+				errorPlacement : function(error, element) {
+					element.parent("div").append(error);
+				},
+				submitHandler : function(form) {
+					form.submit();
+				}
+			});
+		});
+		
+		   /*  */
+		function checktrue(){
+			var course =$("#Course").val();
+			var CourseCode=$("#CourseCode").val();
+			var childid=$("#ChildName").val();
+			var CourseClass=$("#CourseClass").val();
+			
+			
+			
+			$.ajax({
+				async : false,
+			    type: "Get",
+			    url: "/childinformation/findcheckByClassId?course="+course+"&amp;CourseCode="+CourseCode+"&amp;childid="+childid+"&amp;CourseClass="+CourseClass,
+			    success: function (data) {
+			    	if(data==true){
+			    		 $("#alltrues").attr("disabled","disabled");  
+			    		 $("#mainForm").submit();
+			    	}else{
+			    		alert("该孩子的财脑信息课程已经添加了！")
+			    	}
+			    	
+			    }
+			 }); 
+			/* $(".appendknowledge").each(function(){
+				 var knowledgename=	$(this).attr('value')
+				 alert(knowledgename)
+				 if( knowledgename!=""){
+					 $(".appendapplications").each(function(){
+						 var appendapplications=$(this).attr('value');
+						 alert(appendapplications)
+						 if(appendapplications!=""){
+							 $.ajax({
+									async : false,
+								    type: "Get",
+								    url: "/childinformation/findcheckByClassId?course="+course+"&amp;CourseCode="+CourseCode+"&amp;childid="+childid+"&amp;CourseClass="+CourseClass,
+								    success: function (data) {
+								    	if(data==true){
+								    		 $("#alltrues").attr("disabled","disabled");  
+								    	 	  mainForm.submit(); 
+								    	}else{
+								    		alert("该孩子的财脑信息课程已经添加了！")
+								    	}
+								    	
+								    }
+								 }); 
+						 }
+					})
+				 }
+			}) */
+	
+		/* 	$(".knowledgename").each(function(){
+				var knowledgename =$(this).attr('value');
+				if(knowledgename!=""){
+					$(".knowledcount").each(function(){
+						var knowledcount =$(this).attr('value');
+						if(knowledcount!=""){
+							$(".applicationsgename").each(function(){
+								var applicationsgename =$(this).attr('value');
+								if(applicationsgename!=""){
+									$(".applicationscount").each(function(){
+										var applicationscount =$(this).attr('value');
+										if(applicationscount!=""){
+											$.ajax({
+												async : false,
+											    type: "Get",
+											    url: "/childinformation/findcheckByClassId?course="+course+"&amp;CourseCode="+CourseCode+"&amp;childid="+childid+"&amp;CourseClass="+CourseClass,
+											    success: function (data) {
+											    	if(data==true){
+											    		 $("#alltrues").attr("disabled","disabled");  
+											    		 $("#mainForm").submit();
+											    	}else{
+											    		alert("该孩子的财脑信息课程已经添加了！")
+											    	}
+											    	
+											    }
+											 }); 
+										}
+									})
+								}
+							})
+						}
+					})
+				}
+			}) */
+			
+			
+			
+	
+		} 
+		 
+	</script>
+</head>
+<body data-ng-controller="childInformationController">
+	 <div layout:fragment="content">
+		<div class="page-header">
+	 		<h1>新增学生信息</h1>
+		</div>
+		
+	 	<form class="form-horizontal" role="form" method="post"  id="mainForm" th:action="@{/childinformation/createinfo}"   enctype="multipart/form-data">
+			<div class="form-group" >
+							<label for="country" class="col-xs-3 control-label">级别名称</label>
+							<div class="col-xs-6">
+								<select class="form-control"  id="Course" data-ng-model="Course" name="Course" data-ng-change="change(Course)">
+										<option th:each="course : ${courseList}" th:value="${course.id}" th:text="${course.courseLevel}"  id="course"></option>
+								</select>
+								<span class="text-danger" ></span>
+							 </div>
+			</div>
+			
+			<div class="form-group" >
+							<label for="country" class="col-xs-3 control-label">班级名称</label>
+							<div class="col-xs-6">
+								<select class="form-control" id="CourseClass" name="CourseClass" data-model="CourseClass" onchange="getLesson(this.value)">
+										<option  data-ng-repeat="c in CourseClass" value="{{c.id}}"  >{{c.className}}</option>
+								</select>
+								<span class="text-danger" ></span>
+							 </div>
+			</div>
+			
+			<div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">课程名称</label>
+				<div class="col-xs-6">
+					 <select class="form-control" id="CourseCode" name="CourseCode"  data-model="CourseCode" >
+										<option  data-ng-repeat="c in CourseCode" value="{{c.id}}" id="ordinalNumber" >第{{ c.ordinalNumber}}节课--{{c.lessonName}}</option>
+								</select>
+					<span class="text-danger" ></span>
+				</div>
+			</div>
+			<!-- <div class="form-group">
+							<label for="ordinalNumber" class="col-xs-3 control-label">第</label>
+							<div class="col-xs-6 col-md-4">
+								<select class="form-control"    name="ordinalNumber" id="ordinalNumber">
+										<option   th:each="ordinalNum: ${ordinalNum}" th:value="${ordinalNum.id}" th:text="${ordinalNum.ordinalNumber}" ></option>
+								</select>
+								
+							 </div>
+							 <label for="ordinalNumber" class="col-xs-3 control-label col-md-1">节</label>
+			</div>  -->
+			<div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">家长姓名</label>
+				<div class="col-xs-6">
+					 <select class="form-control input-xlarge select2me"  id="User" data-ng-model="User" data-ng-change="change1(User)"  >
+										<option th:each="user : ${userList}" th:value="${user.id}" th:text="${user.firstName}+${user.lastName}"></option>
+								</select>
+					<span class="text-danger" ></span>
+				</div>
+			</div>
+			<div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">学生姓名</label>
+				<div class="col-xs-6">
+					<select class="form-control" id="ChildName" name="ChildName" data-model="ChildName" >
+						<option  data-ng-repeat="child in ChildName" value="{{child.id}}" id="childid">{{child.name}}</option>
+					</select>
+					<span class="text-danger" ></span>
+				</div>
+			</div>
+			<!-- <div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">上传视频</label>
+				<div class="col-xs-6">
+					<input type="file" name="file" multiple="multiple"/>
+					<span class="text-danger" ></span>
+				</div>
+			</div> -->
+		
+			
+			<div class="form-group " >
+				<label for="knowledgeifbrain" class="col-xs-3 control-label ">知识财脑指数</label>
+				<div class="col-xs-6 ">
+				<div id="appendknowledge" name="appendknowledge">
+					<input type="text" class=" form-control knowledgename" name="knowledgename"  style="width: 20%;display:inline !important" required="required" value=""/>&nbsp;
+					<input type="text"  class=" form-control knowledcount" name="knowledcount" style="width: 20%;display:inline !important"  required="required" value=""/>
+				</div>
+					<input type="button"  class=" btn btn-primary" style="margin-top: 10px;" value="添加知识财脑指数" id="addknowledge"/>
+					<span class="text-danger" id="textdanger1" style="display: none;">知识财脑指数最多添加三项!</span>
+				</div>
+			</div>
+			
+			
+			<div class="form-group " >
+				<label for="applicationsifbrain" class="col-xs-3 control-label ">应用财脑指数</label>
+				<div class="col-xs-6 ">
+				<div id="appendapplications" name="appendapplications">
+					<input type="text" class="form-control applicationsgename" name="applicationsgename"  style="width: 20%;display:inline !important" required="required" value=""/>&nbsp;
+					<input type="text"  class="form-control applicationscount" name="applicationscount" style="width: 20%;display:inline !important"  required="required" value=""/> 
+				</div>
+					<input type="button"  class=" btn btn-primary" style="margin-top: 10px;" value="添加应用财脑指数" id="addapplications"/>
+					
+					<span class="text-danger" id="textdanger2" style="display: none;">应用财脑指数最多添加三项!</span>
+				</div>
+			</div>
+			<div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">课后训练收入</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" required="required" id="afterclassIncome" name="afterclassIncome" value="0"/>
+					<span class="text-danger" ></span>
+				</div>
+			</div>
+			<div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">补充代币</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" required="required" id="supplementaryTokens" name="supplementaryTokens" value='0'/>
+					<span class="text-danger" ></span>
+				</div>
+			</div>
+			<!-- <div class="form-group" >
+				<label for="expense" class="col-xs-3 control-label">支出</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" required="required" id="expense" name="expense"/>
+					<span class="text-danger" ></span>
+				</div>
+			</div> -->
+			<!-- <div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">财脑指数/初期财脑指数</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" required="required" id="ifbrainIndex" name="ifbrainIndex"/>
+					<span class="text-danger" ></span>
+				</div>
+			</div> -->
+			<p class="text-center">
+			<input type="button" onclick="checktrue()" class="btn btn-primary" id="alltrues" value="提交"/>
+				<a th:href="@{/childinformation/list}" class="btn btn-default">返回</a>
+			</p>
+			
+		                      
+			
+		</form>
+	<script type="text/javascript" src="../../assets/global/plugins/select2/select2.min.js"></script>
+	<script>
+        jQuery(document).ready(function() {       
+           Metronic.init(); 
+			Layout.init();
+			QuickSidebar.init(); 
+			 ComponentsDropdowns.init();
+			Demo.init();
+          
+        });   
+    </script>
+	</div>
+	 
+</body>
+
+</html>

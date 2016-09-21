@@ -1,0 +1,7 @@
+.table-responsive {
+	overflow-x: hidden;
+}
+
+.table-responsive th, .table-responsive td {
+	white-space: nowrap;
+}

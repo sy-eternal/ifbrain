@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout" data-ng-app="_app">
+<head>
+	<title>新增学生购物信息</title>
+	<!-- DataTables -->
+<!-- 使用jQuery Validation控件进行前端验证 -->
+	<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+	<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+	<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+	<link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+    <!-- <link src="../../assets/global/plugins/bootstrap-select/bootstrap-select.css"/> -->
+	<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+	<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+		<link rel="stylesheet" type="text/css" href="../../assets/global/plugins/select2/select2.css"/>
+	<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script> 
+	<script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+	<script th:src="@{/js/controller/childinformation/childinformation-controller.js}"></script>
+<!-- 	<script type="text/javascript" src="../../assets/global/plugins/bootstrap-select/bootstrap-select.js"></script>
+ -->	
+	<script>
+	
+	function getdemandandcommodity(id){
+		$.ajax({
+			async : false,
+		    type: "Get",
+		    url: "/childshoppingmall/findDemandById?id="+id,
+		    success: function (data) {
+		    	$("#demandvalue").val(data.demandName);
+		    
+		    }
+		 });
+		$.ajax({
+			async : false,
+		    type: "Get",
+		    url: "/childshoppingmall/findcommodityById?id="+id,
+		    success: function (data) {
+		    	$("#commoditytype").val(data.commodityType);
+		    }
+		 });
+		
+	}
+	
+	</script>
+	<script>
+		$(function() {
+			$("#mainForm").validate({
+				highlight : function(element) {
+					$(element).closest(".form-group").addClass("has-error");
+				},
+				success : function(label) {
+					label.closest(".form-group").removeClass("has-error");
+					label.closest(".form-group").addClass("has-success");
+				},
+				errorPlacement : function(error, element) {
+					element.parent("div").append(error);
+				},
+				submitHandler : function(form) {
+					form.submit();
+				}
+			});
+		});
+	</script>
+</head>
+<body data-ng-controller="childInformationController">
+	 <div layout:fragment="content">
+		<div class="page-header">
+	 		<h1>新增学生购物信息</h1>
+		</div>
+	 	<form class="form-horizontal" role="form" method="post"  id="mainForm" th:action="@{/childshoppingmall/createinfo}" >
+			<div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">家长姓名</label>
+				<div class="col-xs-6">
+					 <select class="form-control input-xlarge select2me"  id="User"   data-ng-model="User" data-ng-change="change1(User)"  >
+										<option th:each="user : ${userList}" th:value="${user.id}" th:text="${user.firstName}+${user.lastName}"></option>
+								</select>
+					<span class="text-danger" ></span>
+				</div>
+			</div>
+			<div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">学生姓名</label>
+				<div class="col-xs-6">
+					<select class="form-control" id="chidid" name="chidid" data-model="ChildName" >
+						<option  data-ng-repeat="child in ChildName" value="{{child.id}}" id="childid">{{child.name}}</option>
+					</select>
+					<span class="text-danger" ></span>
+				</div>
+			</div>
+			<div class="form-group" >
+							<label for="country" class="col-xs-3 control-label">级别名称</label>
+							<div class="col-xs-6">
+								<select class="form-control"  id="Course" data-ng-model="Course" name="Course" data-ng-change="change(Course)">
+										<option th:each="course : ${course}" th:value="${course.id}" th:text="${course.courseLevel}"  id="course"></option>
+								</select>
+								<span class="text-danger" ></span>
+							 </div>
+			</div>			
+			<div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">第几节课</label>
+				<div class="col-xs-6">
+					 <select class="form-control" id="CourseCode" name="CourseCode"  data-model="CourseCode" >
+										<option  data-ng-repeat="c in CourseCode" value="{{c.ordinalNumber}}" id="ordinalNumber" >第{{ c.ordinalNumber}}节课</option>
+								</select>
+					<span class="text-danger" ></span>
+				</div>
+			</div>
+			<div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">商品名称</label>
+				<div class="col-xs-6">
+					<select class="form-control"  id="commodity"   name="commodity" onchange="getdemandandcommodity(this.value)">
+										<option th:each="commodity : ${list}" th:value="${commodity.id}" th:text="${commodity.commodityName}"></option>
+								</select>
+					<span class="text-danger" ></span>
+				</div>
+			</div>
+			<div class="form-group" >
+				<label class="col-xs-3 control-label">需求层次</label>
+				<div class="col-xs-6">
+				<input type="text" class="form-control" required="required" id="demandvalue" name="demandvalue" readonly="readonly"/>
+				</div>
+			</div>
+			<div class="form-group" >
+				<label  class="col-xs-3 control-label">商品类型</label>
+				<div class="col-xs-6">
+			<input type="text" class="form-control" required="required" id="commoditytype" name="commoditytype" readonly="readonly"/>
+					<span class="text-danger" ></span>
+				</div>
+			</div>
+			<div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">商品数量</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" required="required" id="commodityQuantity" name="commodityQuantity"/>
+					<span class="text-danger" ></span>
+				</div>
+			</div>
+			
+			<p class="text-center">
+				<button type="submit" class="btn btn-primary" id="alltrue">提交</button>
+				<a th:href="@{/childshoppingmall/list}" class="btn btn-default">返回</a>
+			</p>
+			<p class="text-center" style="font-size: 30px;">
+		           <span class="text-danger"  th:if="${message!=''}"  th:text="${message}"></span>           
+			</p>
+		</form>
+	<script type="text/javascript" src="../../assets/global/plugins/select2/select2.min.js"></script>
+	 <script>
+        jQuery(document).ready(function() {       
+           Metronic.init(); 
+			Layout.init();
+			QuickSidebar.init(); 
+			Demo.init();
+           ComponentsDropdowns.init();
+        });   
+    </script>
+	</div>
+	 	
+</body>
+
+</html>

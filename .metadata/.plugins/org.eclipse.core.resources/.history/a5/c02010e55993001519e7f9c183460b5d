@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<meta charset="utf-8" />
+<title>注册</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<meta content="Metronic Shop UI description" name="description" />
+<meta content="Metronic Shop UI keywords" name="keywords" />
+<meta content="keenthemes" name="author" />
+
+<meta property="og:site_name" content="-CUSTOMER VALUE-" />
+<meta property="og:title" content="-CUSTOMER VALUE-" />
+<meta property="og:description" content="-CUSTOMER VALUE-" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="-CUSTOMER VALUE-" />
+<!-- link to image for socio -->
+<meta property="og:url" content="-CUSTOMER VALUE-" />
+
+<link rel="shortcut icon" href="favicon.ico" />
+
+
+
+<!-- Global styles START -->
+<link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<!-- Global styles END -->
+
+<!-- Page level plugin styles START -->
+<link href="../../assets/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
+<link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+<!-- Page level plugin styles END -->
+
+<!-- Theme styles START -->
+<link href="../../assets/global/css/components.css" rel="stylesheet" />
+<link href="../../assets/frontend/layout/css/style.css" rel="stylesheet" />
+<link href="../../assets/frontend/layout/css/style-responsive.css" rel="stylesheet" />
+<link href="../../assets/frontend/layout/css/themes/red.css" rel="stylesheet" id="style-color" />
+<link href="../../assets/frontend/layout/css/custom.css" rel="stylesheet" />
+<link rel="shortcut icon" href="favicon.ico"/>
+       
+   <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet"/> 
+   <script src="../../assets/frontend/pages/scripts/top.js"></script>
+  
+   <link href="../../assets/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+  <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <link href="../../assets/global/plugins/rateit/src/rateit.css" rel="stylesheet" type="text/css"/>
+ 
+  <link href="../../assets/global/css/components.css" rel="stylesheet"/>
+  <link href="../../assets/frontend/layout/css/style.css" rel="stylesheet"/>
+  <link href="../../assets/frontend/pages/css/style-shop.css" rel="stylesheet" type="text/css"/>
+  <link href="../../assets/frontend/layout/css/themes/red.css" rel="stylesheet" id="style-color"/> 
+   <link href="../../assets/frontend/layout/css/style-responsive.css" rel="stylesheet"/> 
+ <link href="../../assets/frontend/layout/css/custom.css" rel="stylesheet"/>
+   <link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+ <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+
+<style type="text/css">
+	.clearfix{
+		clear: both;
+	}
+	
+</style>
+<style type="text/css">
+
+	#userregisters{
+	background-image: url("../../img/注册1.png");
+	}
+	#userregisters:hover{
+	background-image: url("../../img/注册2.png");
+	}
+	#buttonlogin{
+	background-image: url("../../img/登录1.png");
+	}
+	#buttonlogin:hover{
+	background-image: url("../../img/登录2.png");
+	}
+	
+	#button1{
+	background-image: url("../../img/关于财脑.png") ;
+	}
+	#button1:hover{
+	background-image: url("../../img/关于财脑鼠标置上状态.png") ;
+	}
+	#button_1:visited{
+	    background-image: url("../../关于财脑选中状态.png");
+	
+	}
+	#button2{
+	background-image: url("../../img/进入试用_03.png") ;
+	}
+	#button2:hover{
+	background-image: url("../../img/进入试用鼠标置上状态.png") ;
+	}
+	#shouye{
+	background-image: url("../../img/首页2.png");
+	}
+	
+		#cainao{
+	background-image: url("../../img/财脑1.png");
+	}
+		#cainao:hover{
+	background-image: url("../../img/财脑2.png");
+	}
+		#kecheng{
+	background-image: url("../../img/课程1.png");
+	}
+		#kecheng:hover{
+	background-image: url("../../img/课程2.png");
+	}
+		#huodong{
+	background-image: url("../../img/活动1.png");
+	}
+		#huodong:hover{
+	background-image: url("../../img/活动2.png");
+	}
+		#guanyuwomen{
+	background-image: url("../../img/关于我们1.png");
+	}
+		#guanyuwomen:hover{
+	background-image: url("../../img/关于我们2.png");
+	}
+		#diaochafankui{
+	background-image: url("../../img/调查反馈1.png");
+	}
+		#diaochafankui:hover{
+	background-image: url("../../img/调查反馈2.png");
+	}
+	
+		#buttonclose{
+	background-image: url("../../img/登录弹出框x1.png");
+	}
+		#buttonclose:hover{
+	background-image: url("../../img/登录弹出框x2.png");
+	}
+	
+		#dialoglogin{
+	background-image: url("../../img/登录弹出框-登录1.png");
+	}
+		#dialoglogin:hover{
+	background-image: url("../../img/登录弹出框-登录2.png");
+	}
+	
+		#dialogcancel{
+	background-image: url("../../img/登录弹出框-取消1.png");
+	}
+		#dialogcancel:hover{
+	background-image: url("../../img/登录弹出框-取消2.png");
+	}
+	
+</style>
+<script th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+<script th:src="@{/js/controller/register.js}"></script>
+
+<style type="text/css">
+html { -webkit-text-size-adjust:none; -ms-text-size-adjust: none;}
+@media only screen and (max-device-width:680px), only screen and (max-width: 680px) { 
+	*[class="table_width_100"] {
+		width: 96% !important;
+	}
+	*[class="border-right_mob"] {
+		border-right: 1px solid #dddddd;
+	}
+	*[class="mob_100"] {
+		width: 100% !important;
+	}
+	*[class="mob_center"] {
+		text-align: center !important;
+		padding: 0 !important;
+	}
+	*[class="mob_center_bl"] {
+		float: none !important;
+		display: block !important;
+		margin: 0px auto;
+	}	
+	.iage_footer a {
+		text-decoration: none;
+		color: #929ca8;
+	}
+	img.mob_display_none {
+		width: 0px !important;
+		height: 0px !important;
+		display: none !important;
+	}
+	img.mob_width_50 {
+		width: 40% !important;
+		height: auto !important;
+	}
+	img.mob_width_80 {
+		width: 80% !important;
+		height: auto !important;
+	}
+	img.mob_width_80_center {
+		width: 80% !important;
+		height: auto !important;
+		margin: 0px auto;
+	}
+	.img_margin_bottom {
+		font-size: 0;
+		height: 25px;
+		line-height: 25px;
+	}
+}
+.table_width_100 {
+	width: 680px;
+}
+</style>
+<style>
+	 #eamilregisters{
+	background-image: url("../../img/注册1.png");
+	}
+	#eamilregisters:hover{
+	background-image: url("../../img/注册2.png");
+	}
+	 #phoneregisters{
+	background-image: url("../../img/注册1.png");
+	}
+	#phoneregisters:hover{
+	background-image: url("../../img/注册2.png");
+	}
+.header-navigation {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.header-navigation li {
+	float: left;
+	font-size: 14px;
+}
+
+.header-navigation li>a {
+/* 	color: #333; */
+	display: block;
+	padding: 8px 10px 11px;
+}
+
+.header-navigation li.active>a, .header-navigation li>a:hover,
+	.header-navigation li>a:focus, .header-navigation li.open>a,
+	.header-navigation li.open>a:hover, .header-navigation li.open>a:focus
+	{
+	color: #ffffff;
+/**/	background: #ff9d00;
+	text-decoration: none;
+}
+
+.header-navigation >ul>li>a{
+	color: #f8f8f8;
+	font-family:" KaiTi";
+}
+</style>
+
+
+<!-- 后加的样式，橙色背景色，白色字体 -->
+<style>
+.header-navigation ul > li.active > a,
+.header-navigation ul > li > a:hover,
+.header-navigation ul > li > a:focus,
+.header-navigation ul > li.open > a,
+.header-navigation ul > li.open > a:hover,
+.header-navigation ul > li.open > a:focus {
+	color: white;
+	background-color: #ff9d00;
+}
+</style>
+</head>
+
+<body style="padding: 0px; margin: 0px;background-color: #eff3f8"  > 
+
+
+		<div class="container" style="background-color: white;">
+		<div th:replace="partial/header-new" class="header" style="width: auto;"></div>
+		
+		<div class="">
+			<!-- BEGIN SIDEBAR & CONTENT -->
+			<div class="row " style="margin-bottom: 20%;">
+			<img   th:src="@{../../img/财经素养.png}"  style="margin-left:30%;width: 50%"  class="img-responsive"  />
+				<!-- BEGIN CONTENT -->
+				<div class="col-md-12 col-sm-12">
+					<h1 style="font-family: Microsoft YaHei;color: #882013;font-weight: bolder;font-family: Arial, Helvetica, sans-serif;" >注册</h1> 
+					<div class="content-form-page">
+						<div class="row">
+							<div class="col-md-6 col-sm-6 divcss5-right">
+							<div class="row">
+									<div class="form-group" >
+										<div class="col-lg-8 col-md-offset-9" style="margin-bottom: 1%;">
+											<span><font id="email" size="4px" ><img src="../../img/icon-mail_dd7169e.png" id="emailimg"/><font id="emailfont"  >邮箱注册</font></font></span>
+			                               <span><font id="phone" size="4px"><img src="../../img/icon-phone_4327f93.png" id="phoneimg"/><font id="imagefont" >电话号码注册</font></font></span>
+										</div>
+									</div>
+							</div>	
+							<div  id="emaildiv">
+								<form class="form-horizontal form-without-legend" method="post" role="form" th:object="${user}"
+									th:action="@{/user/login}">
+									
+									<div class="row">
+										<div class="form-group" >
+										<div class="col-lg-8 col-md-offset-9" style="margin-bottom: 1%;">
+										<input type="text" class="form-control " id="firstName"
+											name="firstName" required="required" placeholder="姓" style="background: url(../../img/user_icon01.png) #FFF no-repeat 0px 5px;padding-left: 20px"/>
+										</div>
+										</div>
+									</div>
+									
+										<div class="row">
+										<div class="form-group" >
+										<div class="col-lg-8 col-md-offset-9" style="margin-bottom: 1%;">
+										<input type="text" class="form-control " id="lastName"
+											name="lastName" required="required" placeholder="名" style="background: url(../../img/user_icon01.png) #FFF no-repeat 0px 5px;padding-left: 20px"/>
+										</div>
+										</div>
+									</div>
+									
+									
+									
+										<div class="row">
+										<div class="form-group" >
+										<div class="col-lg-8 col-md-offset-9" style="margin-bottom: 1%;">
+										<input type="email" class="form-control placeholder-no-fix" id="emailvalue"
+											name="email" required="required" placeholder="邮箱" style="background: url(../../img/mail.png) #FFF no-repeat 0px 5px;padding-left: 20px" onblur="validateEmail(this.value)"/>
+										</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group" >
+										<div class="col-lg-8 col-md-offset-9" style="margin-bottom: 1%;">
+										<input type="password" placeholder="密码" class="form-control placeholder-no-fix" th:field="*{password}" required="required" id="password" name="password" style="background: url(../../img/user_icon02.png) #FFF no-repeat 0px 5px;padding-left: 20px"/>
+										<span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+										</div>
+										</div>
+									</div>
+									
+									
+										<div class="row">
+										<div class="form-group" >
+										<div class="col-lg-8 col-md-offset-9" style="margin-bottom: 1%;">
+										<input type="password" placeholder="密码确认" class="form-control placeholder-no-fix"
+											id="confirm-password" name="confirm-password"
+											required="required" style="background: url(../../img/user_icon02.png) #FFF no-repeat 0px 5px;padding-left: 20px"/>
+										</div>
+										</div>
+									</div>
+									
+									
+									<div class="row">
+										<div class="form-group" >
+										<div class="col-lg-8 col-md-offset-9" style="margin-bottom: 1%;">
+										<p>密码必须6位数以上，由字母和数字构成.</p>
+								<button type="button"  style="display: block;margin-left:85px;height: 45px;width: 80%;background-repeat: no-repeat;background-color: transparent;border: none;" id="eamilregisters"></button>
+										</div>
+										</div>
+									</div>
+								</form>
+								</div>
+								
+								<!-- 电话注册 -->
+								<div  id="phonediv" style="display: none;">
+								<form class="form-horizontal form-without-legend" method="post" role="form" th:object="${user}"
+									th:action="@{/code/submitsmsvalidation}">
+									
+									<div class="row">
+										<div class="form-group" >
+										<div class="col-lg-8 col-md-offset-9" style="margin-bottom: 1%;">
+										<input type="text" class="form-control" id="phonenumber"
+											name="phonenumber" required="required" style="background: url(../../img/user_icon01.png) #FFF no-repeat 0px 5px;padding-left: 20px" 
+											placeholder="请输入手机号" onblur="validateNumber(this.value)"/>
+										</div>
+										</div>
+									</div>
+									
+										<div class="row">
+										<div class="form-group" >
+										<div class="col-lg-8 col-md-offset-9" style="margin-bottom: 1%;">
+										<input type="text" class="form-control " id="code"
+											name="code" required="required" placeholder="请输入验证码" style="background: url(../../img/user_icon03.png) #FFF no-repeat 0px 5px;padding-left: 20px;width: 140px" />
+										<input type="button"  id="button" value="点击获取验证码" class="form-control" style="width: 140px"  />
+										</div>
+										</div>
+									</div>
+									
+									
+									
+										<div class="row">
+										<div class="form-group" >
+										<div class="col-lg-8 col-md-offset-9" style="margin-bottom: 1%;">
+										<input type="password" class="form-control placeholder-no-fix" id="phonepassword"
+											name="password" required="required" placeholder="请输入密码" onblur="passwordconfirm(this.value)" style="background: url(../../img/user_icon02.png) #FFF no-repeat 0px 5px;padding-left: 20px" />
+										</div>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="form-group" >
+										<div class="col-lg-8 col-md-offset-9" style="margin-bottom: 1%;">
+											<input type="password" placeholder="密码确认" style="background: url(../../img/user_icon02.png) #FFF no-repeat 0px 5px;padding-left: 20px" class="form-control placeholder-no-fix"
+											id="confirmphonepassword" name="confirm-password"
+											required="required" onblur="confirm(this.value)"/> <br />
+										</div>
+										</div>
+									</div>
+									
+									
+										<div class="row">
+										<div class="form-group" >
+										<div class="col-lg-8 col-md-offset-9" style="margin-bottom: 1%;">
+										<p>密码必须6位数以上，由字母和数字构成.</p>
+										<button type="button"  style="display: block;margin-left:85px;height: 45px;width: 80%;background-repeat: no-repeat;background-color: transparent;border: none;" id="phoneregisters"></button>
+										</div>
+										</div>
+									</div>
+									<input type="hidden" id="flag" th:value="${flag}"/>
+									
+						
+								</form>
+								</div>
+								
+							</div>
+							
+							
+							
+							
+							
+						
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+	
+
+	<!--header END-->
+
+	<!--content 1 -->
+	
+			 
+	
+	
+	
+	
+	
+	
+	<!-- end -->
+
+<!--footer -->
+	
+	
+	
+
+		<div th:replace="partial/footer-new" class="footer" style="width: auto;"></div>		
+</div>
+
+   <script src="../../assets/global/plugins/respond.min.js"></script>
+	<script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+	<script src="../../assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+	<script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="../../assets/frontend/layout/scripts/back-to-top.js" type="text/javascript"></script>
+	<script src="../../assets/global/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
+	<script src="../../assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+	<script src="../../assets/frontend/layout/scripts/layout.js" type="text/javascript"></script>
+	
+</body>
+
+</html>

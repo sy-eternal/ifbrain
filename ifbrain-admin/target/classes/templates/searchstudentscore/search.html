@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout" data-ng-app="_app">
+<head>
+	<title>查询学生成绩</title>
+	<!-- DataTables -->
+<!-- 使用jQuery Validation控件进行前端验证 -->
+	<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+	<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+	<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+	<link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+	<link src="../../assets/global/plugins/bootstrap-select/bootstrap-select.css"/>
+	<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+	<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+	<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script> 
+	<script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+	<link href="../../assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="../../assets/global/plugins/select2/select2.css"/>
+	<script th:src="@{/js/controller/childinformation/childinformation-controller.js}"></script>
+	<script type="text/javascript" src="../../assets/global/plugins/bootstrap-select/bootstrap-select.js"></script>
+	<script>
+	function check(){
+		var user=$("#User").val();
+		
+		if(user=="? undefined:undefined ?"){
+			alert("请选择信息!");
+			return false;
+		}
+		else{
+			/* var courseid =$("#selectcourseid").val();
+			var unit =$("#unit").val();
+			$.ajax({
+				async : false,
+				type : "Get",
+				url : "/studentscorequery/searchstudentscore?courseid="+ courseid+"&amp;unit="+unit,
+				success : function(data) {
+					
+				}
+			}); */
+			var courseid =$("#selectcourseid").val();
+			var unit =$("#unit").val();
+			window.location.href="/studentscorequery/searchstudentscore?courseid="+ courseid+"&amp;unit="+unit;
+		}
+	}
+	</script>
+</head>
+<body >
+	 <div layout:fragment="content">
+		<div class="page-header">
+	 		<h1>查询学生成绩</h1>
+		</div>
+		
+	 	<form class="form-horizontal" role="form" method="post"  id="mainForm"  >
+			<div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">课程级别</label>
+				<div class="col-xs-6">
+					 <select class="form-control" id="selectcourseid" >
+										<option th:each="course : ${courselist}" th:value="${course.id}" th:text="${course.courseLevel}" ></option>
+								</select>
+					<span class="text-danger" ></span>
+				</div>
+			</div>
+			<div class="form-group" >
+				<label for="unit" class="col-xs-3 control-label">单元</label>
+				<div class="col-xs-6">
+                              <select class="form-control"  id="unit"  name="unit" >
+										<option  value="1">第1单元</option>
+										<option  value="2">第2单元</option>
+										<option  value="3">第3单元</option>
+										<option  value="4">第4单元</option>
+										<option  value="5">第5单元</option>
+								</select>					
+					<span class="text-danger" ></span>
+				</div>
+			</div>
+			<p class="text-center">
+			<input type="button" onclick="check()"  class="btn btn-primary" id="alltrues" value="查询"/>
+			</p>
+		</form>
+		
+		<table  class="table table-striped table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>级别</th>
+					<th>单元</th>
+					<th>姓名</th>
+					<th>分数</th>
+				   <!--  <th>排名</th>  -->
+				</tr>
+			</thead>
+			<tbody th:if="${examSumScores!=null}">
+				<tr th:each="examSumScores:${examSumScores}">
+					<td th:text="${examSumScores.exam.course.courseLevel}"></td>
+					<td th:text="${examSumScores.exam.unit}"></td>
+					<td th:text="${examSumScores.user.firstName}"></td>
+					<td th:text="${examSumScores.sumScore}"></td>
+					<!--  <td th:text="${examSumScores.sumscore}"></td>  -->
+				</tr>
+			</tbody>
+		</table>
+	<script type="text/javascript" src="../../assets/global/plugins/select2/select2.min.js"></script>
+	<script>
+        jQuery(document).ready(function() {       
+           Metronic.init(); 
+			Layout.init();
+			QuickSidebar.init(); 
+			 ComponentsDropdowns.init();
+			Demo.init();
+          
+        });   
+    </script>
+	</div>
+	 
+</body>
+
+</html>

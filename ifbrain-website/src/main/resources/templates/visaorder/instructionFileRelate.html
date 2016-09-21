@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>预约签证面试</title>
+<!-- DataTables -->
+<!-- DataTables -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script
+	th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+<script th:src="@{/js/controller/visaOrder-controller.js}"></script>
+
+<script>
+function closess(){
+	window.close();
+}
+</script>
+</head>
+<body>
+	<!--<div layout:fragment="content" class="container"> -->
+	<div layout:fragment="content" class="col-md-9 col-sm-12 col-xs-12" >
+		<div class="tab-pane" id="tab4">
+			<div class="tab-pane" id="tab3">
+				<img th:src="@{'/image/show/' + *{imageaInterview.id}}"
+					alt="Amazing Project" class="img-responsive" width="100%"
+					height="800px;" />
+			</div>
+		</div>
+	</div>
+	<div layout:fragment="script">
+		<script>
+			$(function() {
+				//Metronic.init(); // init metronic core components
+				Layout.init(); // init current layout
+				QuickSidebar.init(); // init quick sidebar
+				Demo.init(); // init demo features
+			});
+		</script>
+	</div>
+
+</body>
+</html>

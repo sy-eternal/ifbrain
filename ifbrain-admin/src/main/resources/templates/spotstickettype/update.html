@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+	<title>门票类型修改</title>
+	<script type="text/javascript">
+	function multi(){
+	  var input1 = document.getElementById('input1').value;
+	  var input2 = document.getElementById('input2').value;
+	  if(input1==""||input2==""){
+		  var mult=0.00
+	  }else {
+		  var mult = parseFloat(input1) * parseFloat(input2);
+		  document.getElementById('Multiplying').value = mult.toFixed(2);
+	  }
+}
+	function fromhref(){
+		window.history.go(-1);
+	}
+</script>
+	<!-- 使用jQuery Validation控件进行前端验证 -->
+	<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+	<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+	<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+	
+	<script>
+		$(function() {
+			$("#mainForm").validate({
+				highlight : function(element) {
+					$(element).closest(".form-group").addClass("has-error");
+				},
+				success : function(label) {
+					label.closest(".form-group").removeClass("has-error");
+					label.closest(".form-group").addClass("has-success");
+				},
+				errorPlacement : function(error, element) {
+					element.parent("div").append(error);
+				},
+				submitHandler : function(form) {
+					form.submit();
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="clearfix">
+</div>
+	<div layout:fragment="content">
+		<div class="row">
+			<div class="col-md-9 col-sm-9 col-sm-offset-2">
+				<h1>景点修改</h1>
+				<div class="content-form-page">
+					<div class="row">
+						<div class="col-md-7 col-sm-7">
+							<form class="form-horizontal" role="form" method="post" th:action="@{/spotstickettype/update}" th:object="${spotstickettype}" >
+					 <input type="hidden" name="_method" value="put" />
+				     <input type="hidden" th:field="*{id}" />
+						 <!-- <div class="form-group" th:classappend="${#fields.hasErrors('spots')}? 'has-error'">
+							<label for="spots" class="col-xs-3 control-label">景点名称</label>
+							<div class="col-xs-6">
+								<select class="form-control" th:field="*{spots}" disabled="disabled">
+									<option th:each="spots : ${spots}" th:value="${spots.id}" th:text="${spots.spotsname}"></option>
+								</select>
+								<span class="text-danger" th:if="${#fields.hasErrors('spots')}" th:errors="*{spots}"></span>
+							 </div>
+					 </div> -->
+					<!--   <input    th:value="${spots.id}"  />  -->
+					  <div class="form-group" th:classappend="${#fields.hasErrors('spots')}? 'has-error'">
+							<label for="spots" class="col-xs-3 control-label">景点名称</label>
+							<div class="col-xs-6">
+								<select class="form-control" th:field="*{spots}" disabled="disabled">
+									<option th:each="spots : ${spots}" th:value="${spots.id}" th:text="${spots.spotsname}" ></option>
+								</select>
+								<span class="text-danger" th:if="${#fields.hasErrors('spots')}" th:errors="*{spots}"></span>
+							 </div>
+					 </div>
+					 <div class="form-group" th:classappend="${#fields.hasErrors('spots')}? 'has-error'">
+							<label for="spots" class="col-xs-3 control-label">景点英文名称</label>
+							<div class="col-xs-6">
+								<select class="form-control" th:field="*{spots}" disabled="disabled">
+									<option th:each="spots : ${spots}" th:value="${spots.id}" th:text="${spots.spotsename}"></option>
+								</select>
+								<span class="text-danger" th:if="${#fields.hasErrors('spots')}" th:errors="*{spots}"></span>
+							 </div>
+					 </div>
+					 <!-- <div class="form-group" th:classappend="${#fields.hasErrors('spots')}? 'has-error'">
+							<label for="spots" class="col-xs-3 control-label">景点英文名称</label>
+							<div class="col-xs-6">
+								<select class="form-control" th:field="*{spots}" disabled="disabled">
+									<option th:each="spots : ${spots}" th:value="${spots.id}" th:text="${spots.spotsename}"></option>
+								</select>
+								<span class="text-danger" th:if="${#fields.hasErrors('spots')}" th:errors="*{spots}"></span>
+							 </div>
+					 </div> -->
+								<div class="form-group" th:classappend="${#fields.hasErrors('type')}? 'has-error'">
+									<label for="type" class="col-xs-3 control-label"> 门票类型 </label>
+									<div class="col-lg-8">
+										<input type="text" class="form-control" th:field="*{type}" required="required" onblur="istrue()" id="type"/>
+										<span class="text-danger" th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></span><span id="spValue"></span>
+									</div>
+								</div>
+								
+						<div class="form-group" th:classappend="${#fields.hasErrors('cost')}? 'has-error'">
+									<label for="cost" class="col-xs-3 control-label"> 美元成本价 </label>
+									<div class="col-lg-8">
+										<input type="text" class="form-control" th:field="*{cost}" id="input1" required="required"/>
+										<span class="text-danger" th:if="${#fields.hasErrors('cost')}" th:errors="*{cost}"></span>
+									</div>
+								</div>
+								
+								<div class="form-group" th:classappend="${#fields.hasErrors('pricerate')}? 'has-error'">
+									<label for="pricerate" class="col-xs-3 control-label"> 价格系数 </label>
+									<div class="col-lg-8">
+										<input type="text" class="form-control" th:field="*{pricerate}"  id="input2" onblur="multi()" required="required"/>
+										
+										<span class="text-danger" th:if="${#fields.hasErrors('pricerate')}" th:errors="*{pricerate}"></span>
+									</div>
+								</div>
+								
+								<div class="form-group" th:classappend="${#fields.hasErrors('price')}? 'has-error'">
+									<label for="price" class="col-xs-3 control-label"> 美元销售价 </label>
+									<div class="col-lg-8">
+										<input type="text" class="form-control" th:field="*{price}" readonly="readonly" id="Multiplying" required="required"/>
+										<span class="text-danger" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+									</div>
+								</div>
+																<div class="row">
+									<div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+										<button type="submit" class="btn btn-primary" id="alltrue">保存</button>
+										<!-- <a type="button" th:href="@{'/spots/tickettype/'+${spots.id}}" class="btn btn-default">关闭</a> -->
+									 <a onclick="fromhref();" class="btn btn-default" >关闭</a>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

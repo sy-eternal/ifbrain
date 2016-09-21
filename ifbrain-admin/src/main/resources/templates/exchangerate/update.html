@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>修改汇率</title>
+<!-- 使用jQuery Validation控件进行前端验证 -->
+<script
+	th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+<script
+	th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+
+<script>
+	$(function() {
+		$("#mainForm").validate({
+			highlight : function(element) {
+				$(element).closest(".form-group").addClass("has-error");
+			},
+			success : function(label) {
+				label.closest(".form-group").removeClass("has-error");
+				label.closest(".form-group").addClass("has-success");
+			},
+			errorPlacement : function(error, element) {
+				element.parent("div").append(error);
+			},
+			submitHandler : function(form) {
+				form.submit();
+			}
+		});
+	});
+</script>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="row">
+			<div class="col-md-9 col-sm-9 col-sm-offset-2">
+				<h1>修改汇率</h1>
+				<div class="content-form-page">
+					<div class="row">
+						<div class="col-md-7 col-sm-7">
+							<form id="mainForm" class="form-horizontal" role="form"
+								method="post" th:object="${exchangerate}"
+								th:action="@{/exchangerate/update}">
+								<input type="hidden" name="_method" value="put" />
+			                    <input type="hidden" th:field="*{id}" />
+								<div class="form-group">
+									<label for="cnName" class="col-lg-4 control-label">
+										卖出货币类型： <span class="require">*</span>
+									</label>
+									<div class="col-lg-8">
+										<input type="text" class="form-control"
+											th:field="*{sellingcurrency}" th:value="${sellingcurrency}"
+											required="required" /> <span class="text-warning"
+											th:if="${#fields.hasErrors('sellingcurrency')}"
+											th:errors="*{sellingcurrency}"></span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="buyingcurrency" class="col-lg-4 control-label">
+										买入货币类型：<span class="require">*</span>
+									</label>
+									<div class="col-lg-8">
+										<input type="text" class="form-control"
+											th:field="*{buyingcurrency}" th:value="${buyingcurrency}"
+											required="required" /> <span class="text-warning"
+											th:if="${#fields.hasErrors('buyingcurrency')}"
+											th:errors="*{buyingcurrency}"></span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="exchangerate" class="col-lg-4 control-label">
+										汇率： <span class="require">*</span>
+									</label>
+									<div class="col-lg-8">
+										<input type="text" class="form-control"
+											th:field="*{exchangerate}" th:value="${exchangerate}"
+											required="required" /> <span class="text-warning"
+											th:if="${#fields.hasErrors('exchangerate')}"
+											th:errors="*{exchangerate}"></span>
+									</div>
+								</div>
+								<div class="row">
+									<div
+										class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+										<button type="submit" class="btn btn-primary">提交</button>
+										<a type="button" th:href="@{/exchangerate}"
+											class="btn btn-default">返回</a>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<div layout:fragment="script">
+		<script th:src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+		<script th:src="@{/js/controller/plan/step1.js}"></script>
+		<script>
+			$(function() {
+				Metronic.init(); // init metronic core components
+				Layout.init(); // init current layout
+				QuickSidebar.init(); // init quick sidebar
+				Demo.init(); // init demo features
+				ComponentsDropdowns.init();
+			});
+		</script>
+	</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+	<title></title>
+	<!-- DataTables -->
+	<link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+ <script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+<!-- <script th:src="@{/js/util/http-context.js}"></script> -->
+<script>
+</script>
+<script type="text/javascript">
+	$(function(){
+		$(".childShoppingmall").each(function() {
+			 $(this).click(function () {	
+			    var demandname=$(this).attr('value');
+			    var childid=$("#childid").val();
+			    window.location.href="/ifbrainnumber/findpurchasegoods?childid="+childid+"&amp;demandname="+demandname
+			});
+		});
+		
+	})
+</script>
+</head>
+<body>
+	<div layout:fragment="content" >
+		<div class="page-header">
+			<h1>已购商品需求分析页面</h1>
+		</div>
+		<table id="table" class="table table-striped table-bordered table-hover">
+		    <thead style="text-align: center;">
+		        <tr>
+		          <td>需求分类</td>
+		          <td>总价格</td>
+		          <td>百分比</td>
+		        </tr>
+		    </thead>
+		    <tbody>
+		    	<tr th:each="childShoppingmall:${list}">
+		    	<td ><a style="text-decoration:underline;" class="childShoppingmall" th:value="${childShoppingmall.demandname}" th:text="${childShoppingmall.demandname}"  ></a><!-- <input type="text" th:value="${childShoppingmall.demandname}" style="border:none;text-decoration: underline;"  readonly="readonly"  onclick="getDetail(this.value)"/> --></td>
+		    	<td><input type="text" th:value="${childShoppingmall.sumPrice}" style="border:none" readonly="readonly"/></td>
+		    	<td><input type="text" th:value="${childShoppingmall.percent}" style="border:none" readonly="readonly"/></td>
+		    	</tr>
+		    </tbody>
+		</table>
+		<div style="text-align: center"><a class="btn btn-default" id="addTable" th:href="@{/childshoppingmall/list}">返回</a></div>
+		<span>需求行为分析</span>
+		<span th:if="${flag==0}">生存者:以关心自身最基本的需求为满足，而不是成就欲望的实现。你们是谨慎型消费者，但对自己喜欢的品牌也表现出极大的忠诚。</span>
+	    <span th:if="${flag==1}">制造者:是行动倾向型群体。集中精力于自我满足，你们自己修车，自己种菜，自己盖房。</span>
+	    <span th:if="${flag==2}">奋斗者:对思想上的追求已经达到一定的层次，但是有时候资源会缺乏，你们很在意他人的支持。</span>
+	    <span th:if="${flag==3}">经历者:你们冲动、年轻，崇尚另类和冒险经历，喜爱所有能带给你亲身体验的物品。往往提高思想上的境界会对你们大有裨益。</span>
+	    <span th:if="${flag==4}">信仰者:你们总是怀有坚定的信念，对实物的商品相对保守，对拥有的品牌很忠诚。</span>
+	    <span th:if="${flag==5}">成功者:事业至上的人，他们喜欢冒险和自我发现。</span>
+	    <span th:if="${flag==6}">思想者:他们的主要动机是理想。他们是成熟、自足的消费者。他们趋向于实际化，并从他们购买的物品中获取其功能性和价值属性。</span>
+		<span th:if="${flag==7}">革新者你们是功成名就者、行为的负责人，是拥有高自尊、丰富资源的群体。你们是变革的先锋，总是提出新奇的想法，研发新技术。你们是有着独立品位的积极消费者。形象可以彰显他们独特的品位和个性。</span>
+	<input type="hidden"  id="childid"  th:value="${childid}"/>
+	</div>
+	<div layout:fragment="script">
+		<script>
+			$(function() {
+				Metronic.init();
+				Layout.init(); 
+				QuickSidebar.init(); 
+				Demo.init(); 
+			});
+		</script>
+	</div>
+</body>
+
+</html>

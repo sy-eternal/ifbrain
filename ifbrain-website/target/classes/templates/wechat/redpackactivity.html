@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" tn-launch-app="triton.xiumi.reader.board"
+      data-useragent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.125 Safari/537.36"
+      class="ng-scope">
+<head>
+    <title>关注嘻游抢红包活动</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta http-equiv="x-rim-auto-match" content="none"/>
+    <meta name="keywords" content="美国 旅游 规划 规划师 嘻游 定制  X2OUR"/>
+
+    <meta charset="utf-8"/>
+
+    <style type="text/css">@charset "UTF-8";
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak] {
+        display: none !important;
+    }
+
+    ng\:form {
+        display: block;
+    }
+    </style>
+
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script th:src="@{/assets/wechat/hm.js}"></script>
+    <script>
+        var doc = document.documentElement;
+        doc.setAttribute('data-useragent', navigator.userAgent);
+    </script>
+
+    <script>
+        function doSubmit() {
+            WeixinJSBridge.invoke('closeWindow',{},function(res){
+
+            });
+        };
+
+
+    </script>
+</head>
+<body class="full-height-box board-body">
+<div class="inner ng-scope">
+    <div class="x3-slice-plate clearfix ng-scope">
+        <img style="box-sizing: border-box;
+              width: 100%;
+              height: auto !important;
+              text-align: start;
+              border: 0.2em solid white;
+              -webkit-box-shadow: 0.1em 0.1em 0.2em #666;
+              -moz-box-shadow: 0.1em 0.1em 0.2em #666;
+              box-shadow: 0.1em 0.1em 0.2em #666"
+             th:src="${url}"  alt="抢红包活动"
+             class="ng-scope tn-page-editable" onclick="doSubmit()"/>
+    </div>
+</div>
+
+
+<section class="tn-scripts">
+    <!-- 3rd -->
+    <script th:src="@{/assets/wechat/jquery.min.js}"></script>
+    <script th:src="@{/assets/wechat/bootstrap.min.js}"></script>
+    <script th:src="@{/assets/wechat/angular.min.js}"></script>
+    <script th:src="@{/assets/wechat/angular-animate.min.js}"></script>
+    <script th:src="@{/assets/wechat/jquery.qrcode.min.js}"></script>
+    <!-- weixin js sdk -->
+    <script th:src="@{/assets/wechat/jweixin-1.0.0.js}"></script>
+
+    <script>
+        _MountWXShare();
+    </script>
+</section>
+
+</body>
+</html>

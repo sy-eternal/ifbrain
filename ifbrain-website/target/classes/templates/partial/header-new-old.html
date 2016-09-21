@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title></title>
+  <link rel="shortcut icon" href="../../img/showhtml.ico" />  
+<!-- 
+   <link rel="shortcut icon" href="../../img/showhtml.ico" /> -->
+
+<!-- Fonts START -->
+<!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|
+  	Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css"/> -->
+<!-- Fonts END -->
+
+<!-- Global styles START -->
+<link
+	href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" />
+<link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet" />
+
+<!-- Global styles END -->
+<script src="../../assets/frontend/pages/scripts/top.js"></script>
+<!-- Page level plugin styles START -->
+<link
+	href="../../assets/global/plugins/fancybox/source/jquery.fancybox.css"
+	rel="stylesheet" />
+<link
+	href="../../assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css"
+	rel="stylesheet" />
+<link href="../../assets/global/plugins/uniform/css/uniform.default.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"
+	rel="stylesheet" type="text/css" />
+<!-- for slider-range -->
+<link href="../../assets/global/plugins/rateit/src/rateit.css"
+	rel="stylesheet" type="text/css" />
+<!-- Page level plugin styles END -->
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<!-- 冲突 -->
+
+<!-- <link href="../../assets/global/css/components.css" rel="stylesheet" /> 
+ -->
+
+<!-- <link href="../../assets/frontend/layout/css/style.css" rel="stylesheet" /> -->
+<!--  <link href="../../assets/frontend/pages/css/style-shop.css" rel="stylesheet" type="text/css"/> -->
+<link href="../../assets/frontend/layout/css/themes/red.css"
+	rel="stylesheet" id="style-color" />
+<link href="../../assets/frontend/layout/css/style-responsive.css"
+	rel="stylesheet" />
+<link href="../../assets/frontend/layout/css/custom.css"
+	rel="stylesheet" />
+<!-- Theme styles END -->
+<!-- icon -->
+<link
+	href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css"
+	rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.clearfix {
+	clear: both;
+}
+</style>
+
+
+<style type="text/css">
+html {
+	-webkit-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+}
+
+
+
+
+
+@media only screen and (max-device-width:1920px) , only screen and
+	(max-width: 1920px) {
+	*[class="table_width_100"] {
+		width: 96% !important;
+	}
+	*[class="border-right_mob"] {
+		border-right: 1px solid #dddddd;
+	}
+	*[class="mob_100"] {
+		width: 100% !important;
+	}
+	*[class="mob_center"] {
+		text-align: center !important;
+		padding: 0 !important;
+	}
+	*[class="mob_center_bl"] {
+		float: none !important;
+		display: block !important;
+		margin: 0px auto;
+	}
+	.iage_footer a {
+		text-decoration: none;
+		color: #929ca8;
+	}
+	img.mob_display_none {
+		width: 0px !important;
+		height: 0px !important;
+		display: none !important;
+	}
+	img.mob_width_50 {
+		width: 40% !important;
+		height: auto !important;
+	}
+	img.mob_width_80 {
+		width: 80% !important;
+		height: auto !important;
+	}
+	img.mob_width_80_center {
+		width: 80% !important;
+		height: auto !important;
+		margin: 0px auto;
+	}
+	.img_margin_bottom {
+		font-size: 0;
+		height: 25px;
+		line-height: 25px;
+	}
+}
+
+.table_width_100 {
+	width: 1920px;
+}
+</style>
+
+
+<!-- <style>
+
+
+.header-navigation li.active>a, .header-navigation li>a:hover,
+	.header-navigation li>a:focus, .header-navigation li.open>a,
+	.header-navigation li.open>a:hover, .header-navigation li.open>a:focus
+	{
+	color: red;
+	/**/
+	
+	text-decoration: none;
+}
+
+
+</style> -->
+
+
+<!-- 后加的样式，橙色背景色，白色字体 -->
+<style>
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big,
+cite, code, del, dfn, em, font, img, input,button,
+ins, kbd, q, s, samp, small, strike,
+strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+center, u, b, i {
+font-family:'微软雅黑';
+}
+#ahover {
+	color: #333333;
+
+	font-size: 15px;
+}
+
+#ahover:hover {
+	color: #fabf12 !important ;
+	 /* border-bottom:2px solid #fabf12;  */
+}
+
+#dropdown1 {
+	color: #333333;
+}
+
+#dropdown1:hover {
+	color: #5e5e5e;
+}
+
+#usertypos {
+	color: #333333;
+}
+
+#usertypos:hover {
+	color: #5e5e5e;
+}
+
+.liheader {
+	color: #333333;
+}
+
+.liheader:hover {
+	color: #5e5e5e;
+}
+
+.dropdown-toggle {
+	color: #333333;
+}
+
+.dropdown-toggle:hover {
+	color: #5e5e5e;
+}
+
+#flag {
+	color: #333333;
+}
+
+#flag:hover {
+	color: #5e5e5e;
+}
+
+#person {
+
+	font-size: 15px;
+	text-align: Center;
+	color: #333333;
+}
+
+#person :hover {
+	color: #5e5e5e;
+	background-color: white;
+}
+
+.dropdown-menu li>a {
+	color: #333333;
+}
+
+.dropdown-menu li>a:hover {
+	color: #5e5e5e;
+}
+</style>
+<style>
+.floating_ck {
+	position: fixed;
+	right: 20px;
+	top: 30%;
+}
+
+.floating_ck dl dd {
+	position: relative;
+	width: 80px;
+	height: 80px;
+	border-bottom: solid 1px;
+	text-align: center;
+	background-repeat: no-repeat;
+	background-position: center 20%;
+	cursor: pointer;
+}
+
+.floating_ck dl dd:hover {
+	border-bottom: solid 1px #a40324;
+}
+
+.floating_ck dl dd:hover .floating_left {
+	display: block;
+}
+
+.consult, .words {
+	background-image: url(../../img/咨询热线.png);
+}
+
+.quote {
+	background-image: url(../../img/qq客服.png);
+}
+
+.qrcord {
+	background-image: url(../../img/扫一扫.png);
+}
+
+.return {
+	background-image: url(../../img/fanhui.png);
+}
+
+.floating_ck dd span {
+	color: #fff;
+	display: block;
+	padding-top: 54px;
+}
+
+.floating_left {
+	position: absolute;
+	left: -160px;
+	top: 0px;
+	width: 160px;
+	height: 80px;
+	background-color: white;
+	border-bottom: solid 0px #a40324;
+	display: none;
+}
+
+.floating_left a {
+	color: gray;
+	line-height: 80px;
+}
+
+.floating_ewm {
+	/* height: 260px;
+	top: -180px; */
+	position: absolute;
+	left: -160px;
+	top: 0px;
+	width: 160px;
+	height: 120px;
+	margin-top: 10px;
+	background-color: white;
+	border-bottom: solid 0px #a40324;
+	display: none;
+}
+
+.floating_ewm p {
+	color: gray;
+	margin-top: 5px;
+}
+
+.floating_ewm .qrcord_p01 {
+	font-size: 18px;
+	line-height: 10px;
+}
+
+.floating_btn {
+	position: fixed;
+	right: 20px;
+	top: 47%;
+}
+</style>
+<script type="text/javascript">
+//跳转到代币银行
+function userlogin() {
+	window.location.href ="/navigation/index?type=2";
+	/* if ($("#sessionuser").val() == "") {
+
+		window.location.href = "/user/logins";
+	} else if ($("#ids").val() == "") {
+
+		window.location.href = "/project/li";
+	} else {
+
+		window.location.href = "/project/li/" + $("#ids").val();
+	} */
+}
+</script>
+<script type="text/javascript">
+	function showkefu() {
+		//$("#floating_ck").show();
+		$("#floating_ck").animate('slow', function() {
+			$('#floating_ck').show();
+		})
+		$("#aFloatTools_Show").hide();
+		$("#aFloatTools_Hide").css({
+			"position" : "fixed",
+			"right" : "100px",
+			"top" : "47%"
+		});
+		$("#aFloatTools_Hide").show();
+	}
+
+	function hide() {
+		$("#floating_ck").hide();
+		//$("#floating_ck").animate('slow',function(){$('#floating_ck').hide();})
+		$("#aFloatTools_Show").css({
+			"position" : "fixed",
+			"right" : "20px",
+			"top" : "47%"
+		});
+		$("#aFloatTools_Show").show();
+		$("#aFloatTools_Hide").hide();
+
+	}
+
+	function checkseesionuser() {
+		if ($("#sessionuser").val() != "") {
+			window.location.href = "/myinformation/baby";
+		} else if ($("#sessionuser").val() == "") {
+			$("#sessionuser").css('display', 'block');
+			window.location.href = "/user/logins";
+		}
+	}
+	function fankui() {
+		var id = $("#xx").val();
+		if (id == "") {
+			alert("请登录");
+			window.location.href = "/user/login";
+		} else {
+			window.location.href = "/survey/add";
+		}
+	}
+	function tocourse() {
+		window.location.href = "/navigation/index?type=1"
+	}
+
+	function tohome() {
+		window.location.href = "/home/index"
+	}
+</script>
+<style type="text/css">
+
+</style>
+
+
+</head>
+<body style="padding: 0px; margin: 0px;">
+	<!-- 导航栏  高度54px,-->
+	<input type="hidden" th:value="${session.childids}" id="ids" />
+	<div class="" style="background-color:white ; height: 54px;">
+			<div class="col-md-2" style="margin-left: 5%;"></div>
+			<div class="col-md-8 col-xs-12 col-sm-12" style="background-color: ;">
+				<a id="flag" href="#"
+					class=" col-xs-12 col-md-12 col-sm-12"
+					style=" font-size: 30px;padding:0px; /* padding-top: 14px; */ float: left;margin-top:2px;;cursor: default;"><img
+					alt="" src="../../img/ifbrainlogo.png" class="img-responsive"  onclick="tohome()" style="cursor: pointer;"/></a>
+					
+			</div>
+		</div>
+	<nav class="navbar navbar-default  " role="navigation"
+		style="background-color: #0151a6 ; height: 43px; z-index: 9999; margin-bottom: 0px; ">
+		<div class="navbar-header" style="height: 43px !important">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target="#example-navbar-collapse" style="">
+				<span class="sr-only">切换导航</span> <span class="icon-bar"></span> <span		class="icon-bar"></span> <span class="icon-bar"></span>
+			</button>
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="flag" href="#"
+				class="navbar-brand col-xs-4 col-md-8 col-sm-8" 
+				style=" font-size: 30px; /* padding-top: 14px; */ float: left;"></a>
+		</div>
+
+		<nav class="collapse navbar-collapse" id="example-navbar-collapse"
+			style="border-top: 0px; text-align: center; padding: 0px;color: #f8f7ef;width: 100%;">
+			<label class="col-md-3 col-xs-5  col-sm-2"></label>
+			<ul class="nav navbar-nav col-md-8 col-xs-7 col-sm-8"
+				style="padding: 0px;; margin: 0; text-align: right;background-color: #0151a6">
+					<li
+					style="width:; background-color: ; text-align: center; padding: 0px;"
+					class="col-md-1 col-xs-12 col-sm-2" >
+					<a id="ahover" class="ahover1 ahover" style="color: #f8f7ef;font-size: 17px;font-weight: bold;line-height: 43px;padding-top:0px;padding-bottom:3px" href="#"	onclick="tohome()" >首页
+					</a>
+					
+					</li>
+					
+					<li		style="width:; background-color: ; text-align: center; padding: 0px;"
+					class="col-md-2 col-xs-12 col-sm-2"><div class="col-md-2"></div><a  id="ahover" class="ahover2 ahover col-md-12" style="color: #f8f7ef;font-size: 17px;font-weight: bold;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:3px" href="#"
+					onclick="window.location.href='/activity/index?type=0'">快慢社区<br/><span style="font-size: 10px;">Thingking Community</span></a></li>
+				<li
+					style="width:; background-color: ; text-align: center; padding: 0px;"
+					class="col-md-2 col-xs-12 col-sm-2"><div class="col-md-2"></div><a id="ahover"  class="ahover3 ahover col-md-12" style="padding-left:0px;;padding-right:0px;;color: #f8f7ef;font-size: 17px;font-weight: bold;padding-top:0px;padding-bottom:3px" href="#"
+					onclick="tocourse()">财脑课程<br/><span style="font-size: 10px;">Financial Curriculum</span> </a></li>
+				<li
+					style="background-color: ; text-align: center; padding: 0px;"
+					class="col-md-2 col-xs-12 col-sm-2"><div class="col-md-2"></div><a id="ahover" class="ahover4 ahover col-md-12" href="#" style="color: #f8f7ef;font-size: 17px;font-weight: bold;padding-top:0px;padding-bottom:3px"
+					onclick="userlogin()"><span>代币塑造</span><br/><span style="font-size: 10px;">Behavior Shaping</span></a></li>
+
+
+
+
+
+
+				<li class="liheader col-md-1 col-xs-12 col-sm-2"
+					style=" text-align: center; padding: 0px;">
+					<a style=" cursor: pointer;color: #f8f7ef;font-size: 17px;font-weight: bold;line-height: 42px;padding-top:0px;padding-bottom:3px;"
+					 id="ahover" onclick="window.location.href='/user/login '"
+					th:if="${session.user}==null " class="ahover5">登录</a> <input
+					type="hidden" th:value="${session.user}" name="xx" id="xx" /></li>
+				<li class="dropdown dropdown-user col-md-2 col-xs-12 col-sm-2" id="usertypos"
+					th:if="${session.user}!=null "
+					style="background-color: ; text-align: center; padding: 0px;"  onclick = "window.location.href='/myinformation/baby'">
+					<a href="javascript:;" class="dropdown-toggle ahover6"
+					data-toggle="dropdown" data-hover="dropdown"
+					data-close-others="true" style="padding:0px;color: #f8f7ef;font-size: 15px;font-weight: bold;line-height: 43px;padding-top:0px;padding-bottom:3px;" id="ahover" > <span
+						class="username username-hide-on-mobile "
+						th:text="${session.usertyoes}" th:if="${session.user}!=null"
+						style="z-index: 9999;  "><br/></span>
+						<span class="username username-hide-on-mobile"></span> <!-- <i
+						class="fa fa-angle-down"></i> -->
+				</a>
+					
+				</li>
+				
+				<!-- <li class="liheader"><a href="/user/register" id="register"
+							th:if="${session.user}==null or ${session.user.id}==421" style="color: #f8f8f8;font-family:'myfont2'; font-size:15px; font-weight:bold;">注册</a></li> -->
+
+			</ul>
+
+		</nav>
+
+	</nav>
+
+	<input type="hidden" th:value="${session.usertyoes}" id="sessionuser" />
+
+
+	<!-- 	<div class="floating_btn" id="floating_btn" style="z-index: 9999;">
+		<a id="aFloatTools_Show" class="btnOpen" title="查看在线客服"
+			style="top: 20px; display: block" href="javascript:void(0);"
+			onclick="showkefu()"><img alt="Amazing Project"
+			src="../../img/左1.png" /></a> <a id="aFloatTools_Hide" class="btnCtn"
+			title="关闭在线客服" style="top: 20px; display: none"
+			href="javascript:void(0);" onclick="hide()"><img
+			alt="Amazing Project" src="../../img/右1.png" /></a>
+	</div>
+
+
+	<div class="floating_ck"
+		style="z-index: 9999; opacity: 0.9; display: none" id="floating_ck">
+		<dl>
+			<dt></dt>
+			<dd class="consult">
+				<span></span>
+				<div class="floating_left">
+					<a style="font-size: 20px;">010-82535018</a>
+				</div>
+			</dd>
+			<dd class="quote">
+				<span></span>
+				<div class="floating_left">
+					<a style="font-size: 20px;" href="#">1276019239</a>
+				</div>
+			</dd>
+			<dd class="qrcord">
+				<span></span>
+				<div class="floating_left floating_ewm">
+					<img alt="Metronic" th:src="@{../../img/财脑二维码小.png}" width="120px" />
+				</div>
+			</dd>
+		</dl>
+
+	</div> -->
+
+</body>
+
+</html>

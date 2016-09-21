@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>签证服务介绍图片修改</title>
+<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+	$(function() {
+		jQuery.validator.setDefaults({
+			debug : true,
+			success : "valid"
+		});
+
+		$("#mainForm").validate({
+			rules : {
+				"file" : {
+					required : true
+				},
+				"processName" : {
+					required : true
+				}
+			},
+			messages : {
+				"file" : {
+					required : "上传图片不能为空"
+				},
+				"processName" : {
+					required : "名字不能为空"
+				}
+			},
+
+			highlight : function(element) {
+				$(element).closest(".form-group").addClass("has-error");
+			},
+			success : function(label) {
+				label.closest(".form-group").removeClass("has-error");
+				label.closest(".form-group").addClass("has-success");
+			},
+			errorPlacement : function(error, element) {
+				element.parent("div").append(error);
+			},
+			submitHandler : function(form) {
+				form.submit();
+			}
+		});
+	});
+</script>
+
+
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid">
+		<div class="row">
+			<div class="page-header">
+				<h1>签证服务介绍图片修改</h1>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<form class="form-horizontal" role="form" method="post" th:action="@{/visainstruction/updateimg(visainstructionId=${visainstruction.id})}" id="mainForm"
+						enctype="multipart/form-data">
+					<!-- 	<div class="form-group">
+							<label class="col-xs-3 control-label">上次修改时间</label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" required="required" readonly="readonly" id="image" name="image"  th:value="${visainstruction.image.updateTime}"/>
+							</div>
+						</div> -->
+
+						<div class="form-group">
+							<label class="col-xs-3 control-label">流程名称<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" required="required" id="processName" name="processName" th:value="${visainstruction.processName}"/>
+							</div>
+						</div>
+
+
+						<div class="form-group">
+							<label class="col-xs-3 control-label">图片</label>
+							<div class="col-xs-6">
+								<input type="file" name="file" id="file" />
+								<p class="text-danger" th:text="${errorMessage}"></p>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+								<button type="submit" class="btn btn-primary">保存</button>
+								<a type="button" th:href="@{/visainstruction}" class="btn btn-default">返回</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

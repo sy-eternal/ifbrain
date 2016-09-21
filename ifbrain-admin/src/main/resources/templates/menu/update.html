@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>菜单修改</title>
+<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+	$(function() {
+		jQuery.validator.setDefaults({
+			debug : true,
+			success : "valid"
+		});
+
+		$("#mainForm").validate({
+			rules : {
+				"name" : {
+					required : true
+				},
+				"displayOrder" : {
+					required : true,
+					number : true
+				},
+				"url" : {
+					required : true
+				}
+			},
+			messages : {
+				"name" : {
+					required : "菜单名称不能为空"
+				},
+				"displayOrder" : {
+					required : "排列顺序不能为空",
+					number : "只能输入数字"
+				},
+				"url" : {
+					required : "路径不能为空"
+
+				}
+			},
+
+			highlight : function(element) {
+				$(element).closest(".form-group").addClass("has-error");
+			},
+			success : function(label) {
+				label.closest(".form-group").removeClass("has-error");
+				label.closest(".form-group").addClass("has-success");
+			},
+			errorPlacement : function(error, element) {
+				element.parent("div").append(error);
+			},
+			submitHandler : function(form) {
+				form.submit();
+			}
+		});
+	});
+</script>
+
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid">
+		<div class="row">
+			<div class="page-header">
+				<h1>菜单修改</h1>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<form class="form-horizontal" role="form" method="post" th:action="@{/menu/update}" th:object="${menu}"
+						id="mainForm">
+						<input type="hidden" name="_method" value="put" /> <input type="hidden" th:field="*{id}" />
+
+						<div class="form-group">
+							<label for="parentId" class="col-xs-3 control-label">父节点</label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{parentId}" disabled="disabled" /> <input type="hidden"
+									class="form-control" th:field="*{parentId}" /> <span class="text-warning"
+									th:if="${#fields.hasErrors('parentId')}" th:errors="*{parentId}"></span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="name" class="col-xs-3 control-label">菜单名称<span style="color: #e94d1c;font-size:6px;">*</span></label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{name}" value="*{name}" required="required" name="name"
+									id="name" /> <span class="text-warning" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="displayOrder" class="col-xs-3 control-label">排列顺序<span style="color: #e94d1c;font-size:6px;">*</span></label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{displayOrder}" value="*{displayOrder}" required="required"
+									id="displayOrder" name="displayOrder" /> <span class="text-warning"
+									th:if="${#fields.hasErrors('displayOrder')}" th:errors="*{displayOrder}"></span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="url" class="col-xs-3 control-label">路径<span style="color: #e94d1c;font-size:6px;">*</span></label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{url}" value="*{url}" required="required" id="url" name="url" />
+								<span class="text-warning" th:if="${#fields.hasErrors('url')}" th:errors="*{url}"></span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="description" class="col-xs-3 control-label">描述</label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{description}" value="*{description}" /> <span
+									class="text-warning" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="state" class="col-xs-3 control-label">状态<span style="color: #e94d1c;font-size:6px;">*</span>
+							</label>
+							<div class="col-xs-6">
+								<select class="form-control" th:field="*{state}">
+									<option value="启用">启用</option>
+									<option value="未启用">未启用</option>
+								</select>
+							</div>
+						</div>
+
+						<p class="text-center">
+							<button type="submit" class="btn btn-primary">修改</button>
+							<a th:href="@{/menu}" class="btn btn-default">返回</a>
+						</p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div layout:fragment="script">
+		<script th:src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+		<script>
+			$(function() {
+				Metronic.init(); // init metronic core components
+				Layout.init(); // init current layout
+				QuickSidebar.init(); // init quick sidebar
+				Demo.init(); // init demo features
+			});
+		</script>
+	</div>
+</body>
+</html>

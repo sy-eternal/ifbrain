@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" tn-launch-app="triton.xiumi.reader.board"
+      data-useragent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.125 Safari/537.36"
+      class="ng-scope">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">@charset "UTF-8";
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
+        display: none !important;
+    }
+
+    ng\:form {
+        display: block;
+    }
+
+    .ng-animate-block-transitions {
+        transition: 0s all !important;
+        -webkit-transition: 0s all !important;
+    }
+
+    .ng-hide-add-active, .ng-hide-remove {
+        display: block !important;
+    }</style>
+
+    <title>探寻“微型”国游记</title>
+
+
+    <meta charset="UTF-8"/>
+
+
+    <!--<base target="_top">-->
+    <base href="." target="_top"/>
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta http-equiv="x-rim-auto-match" content="none"/>
+
+    <script th:src="@{/assets/wechat/hm.js}"></script>
+    <script>
+        var doc = document.documentElement;
+        doc.setAttribute('data-useragent', navigator.userAgent);
+    </script>
+    <meta name="keywords" content="美国 旅游 嘻游 摩洛西共和国 摩洛西 X2OUR"/>
+    <link rel="stylesheet" href="http://stc.xiumi.us/3rd/CDN/twitter-bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="http://stc.xiumi.us/apps/board/styles/c0e3ab.board.min.css"/>
+
+
+</head>
+<body class="full-height-box board-body">
+
+<div class="inner ng-scope" ng-controller="BoardDeskController">
+    <section class="tn-article-section container">
+
+        <section class="row tn-board-head">
+
+            <h3>探寻“微型”国游记</h3>
+
+            <div class="tn-head-info">
+                <span class="time ng-binding" ng-bind="showInfo.created_at | date:&#39;yyyy-M-d&#39;">2015-8-11</span>
+                <span class="hor-sep"></span>
+                <span class="brand ng-binding" ng-bind="showInfo.owner.brand_name"></span>
+            </div>
+        </section>
+
+        <hr/>
+
+        <section class="row tn-board-body tn-article-content-context">
+            <!-- ngIf: !showData -->
+
+            <!-- ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border: 0px; margin-top: 0px; margin-bottom: 0px; clear: both; font-size: 112.5%; font-family: inherit; font-style: normal; font-weight: bold; text-align: center; text-decoration: inherit; color: rgba(9, 203, 179, 0.780392);"
+                                tn-page-editable="text0" class="ng-scope tn-page-editable ng-binding"
+                                tn-page-editable-type="ed-type-text" ng-style=" {
+  &#39;font-size&#39;       : eo.fontSize || &#39;inherit&#39;,
+  &#39;font-family&#39;     : eo.fontFamily || &#39;inherit&#39;,
+  &#39;font-style&#39;      : eo.fontStyle || &#39;inherit&#39;,
+  &#39;font-weight&#39;     : eo.fontWeight || &#39;inherit&#39;,
+  &#39;text-align&#39;      : eo.textAlign || &#39;inherit&#39;,
+  &#39;text-decoration&#39; : eo.textDecoration || &#39;inherit&#39;,
+  &#39;color&#39;           : (eo.color || theme.majorColor)
+} " ng-bind-html="eo.text | eol2br | unsafe">
+                            <section><span style="font-size: 150%;">什么？？</span></section>
+                            <section><span style="font-size: 150%;">就在我们身边里面还有一个微型国家？</span></section>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border: 0px; margin-top: 0px; margin-bottom: 0px; clear: both; font-size: 112.5%; font-family: inherit; font-style: normal; font-weight: bold; text-align: center; text-decoration: inherit; color: rgba(9, 203, 179, 0.780392);"
+                                tn-page-editable="text0" class="ng-scope tn-page-editable ng-binding"
+                                tn-page-editable-type="ed-type-text" ng-style=" {
+  &#39;font-size&#39;       : eo.fontSize || &#39;inherit&#39;,
+  &#39;font-family&#39;     : eo.fontFamily || &#39;inherit&#39;,
+  &#39;font-style&#39;      : eo.fontStyle || &#39;inherit&#39;,
+  &#39;font-weight&#39;     : eo.fontWeight || &#39;inherit&#39;,
+  &#39;text-align&#39;      : eo.textAlign || &#39;inherit&#39;,
+  &#39;text-decoration&#39; : eo.textDecoration || &#39;inherit&#39;,
+  &#39;color&#39;           : (eo.color || theme.majorColor)
+} " ng-bind-html="eo.text | eol2br | unsafe">
+                            <section>————还不去看看？————</section>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border: 0px; margin-top: 0px; margin-bottom: 0px; clear: both; font-size: 1em; font-family: inherit; font-style: normal; font-weight: inherit; text-align: justify; text-decoration: inherit; color: inherit;"
+                                tn-page-editable="text0" class="ng-scope tn-page-editable ng-binding"
+                                tn-page-editable-type="ed-type-text" ng-style=" {
+  &#39;font-size&#39;       : eo.fontSize || &#39;inherit&#39;,
+  &#39;font-family&#39;     : eo.fontFamily || &#39;inherit&#39;,
+  &#39;font-style&#39;      : eo.fontStyle || &#39;inherit&#39;,
+  &#39;font-weight&#39;     : eo.fontWeight || &#39;inherit&#39;,
+  &#39;text-align&#39;      : eo.textAlign || &#39;inherit&#39;,
+  &#39;text-decoration&#39; : eo.textDecoration || &#39;inherit&#39;,
+  &#39;color&#39;           : (eo.color || theme.majorColor)
+} " ng-bind-html="eo.text | eol2br | unsafe">
+                            <section>2015年7月18日，叶小心随同一名会照相的好司机历时6小时车程到达了传说中的摩洛西共和国 The Public of
+                                Molossia。这个传说中的共和国是由凯文•鲍(Kevin Baugh)
+                                成立于1977年，面积仅为0.025平方公里，位于Nevada境内靠近加州边界，四周界被美国国土包围，领土包括总统的家、前院后院，以及位于南加州和宾夕法尼亚州的两栋物业。目前常住人口有8人和4条狗⋯
+                                尽管如此，“摩洛西亚”却宣称拥有独立的宪法、海军、银行、货币、邮局、电信局，甚至还是第一届“微型国家奥林匹克”的承办者。不过由于它尚未与世界上任何国家建立正式的外交关系，因此也不被其他国家承认。
+                            </section>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border: 0px; margin-top: 0px; margin-bottom: 0px; clear: both; font-size: 1em; font-family: inherit; font-style: normal; font-weight: inherit; text-align: justify; text-decoration: inherit; color: inherit;"
+                                tn-page-editable="text0" class="ng-scope tn-page-editable ng-binding"
+                                tn-page-editable-type="ed-type-text" ng-style=" {
+  &#39;font-size&#39;       : eo.fontSize || &#39;inherit&#39;,
+  &#39;font-family&#39;     : eo.fontFamily || &#39;inherit&#39;,
+  &#39;font-style&#39;      : eo.fontStyle || &#39;inherit&#39;,
+  &#39;font-weight&#39;     : eo.fontWeight || &#39;inherit&#39;,
+  &#39;text-align&#39;      : eo.textAlign || &#39;inherit&#39;,
+  &#39;text-decoration&#39; : eo.textDecoration || &#39;inherit&#39;,
+  &#39;color&#39;           : (eo.color || theme.majorColor)
+} " ng-bind-html="eo.text | eol2br | unsafe">
+                            <section>经过六小时奔波，我们到了。却发现要为这趟说走就走的旅程付出代价……</section>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border:0;box-sizing: border-box; width: 100%; margin: 0.8em 0 0.2em 0;clear: both"
+                                class="ng-scope"><img style="box-sizing: border-box;
+              width: 100%;
+              height: auto !important;
+              text-align: start" src="http://www.x2our.com/wechatimage/menu/notes/mini/c63947.jpg"
+                                                      tn-page-editable="img0" tn-page-editable-type="image" class="ng-scope tn-page-editable"/></fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border: 0px; margin-top: 0px; margin-bottom: 0px; clear: both; font-size: 1em; font-family: inherit; font-style: normal; font-weight: inherit; text-align: justify; text-decoration: inherit; color: inherit;"
+                                tn-page-editable="text0" class="ng-scope tn-page-editable ng-binding"
+                                tn-page-editable-type="ed-type-text" ng-style=" {
+  &#39;font-size&#39;       : eo.fontSize || &#39;inherit&#39;,
+  &#39;font-family&#39;     : eo.fontFamily || &#39;inherit&#39;,
+  &#39;font-style&#39;      : eo.fontStyle || &#39;inherit&#39;,
+  &#39;font-weight&#39;     : eo.fontWeight || &#39;inherit&#39;,
+  &#39;text-align&#39;      : eo.textAlign || &#39;inherit&#39;,
+  &#39;text-decoration&#39; : eo.textDecoration || &#39;inherit&#39;,
+  &#39;color&#39;           : (eo.color || theme.majorColor)
+} " ng-bind-html="eo.text | eol2br | unsafe">
+                            <section>一句"visit by appointment only"把我们堵在外面了……</section>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border: 0; margin: 0 0 0.5em 0; box-sizing: border-box; width: 100%;  margin: 0.8em 0 0.5em 0;clear: both; overflow: hidden"
+                                class="ng-scope"><img style="box-sizing: border-box;
+              width: 100%;
+              height: auto !important;
+              float: left;
+              text-align: start" src="http://www.x2our.com/wechatimage/menu/notes/mini/761151.jpg"
+                                                      tn-page-editable="img0" tn-page-editable-type="image"
+                                                      class="ng-scope tn-page-editable"/>
+                            <section
+                                    style="display: inline-block; font-size: 150%; z-index: 100; padding: 0.1em 0.5em; margin: -1.5em 0px 0px; line-height: 1.2; box-sizing: border-box; float: left; text-align: left; font-family: inherit; font-style: normal; font-weight: inherit; text-decoration: inherit; color: rgb(62, 62, 62); border-color: rgba(9, 203, 179, 0.780392); background-color: rgb(255, 255, 255);"
+                                    tn-page-editable="rctxt0" tn-not-editable-attr="borderColor"
+                                    tn-page-editable-type="ed-type-rich-text" ng-style=" {
+  &#39;font-size&#39;       : eo.fontSize || &#39;inherit&#39;,
+  &#39;font-family&#39;     : eo.fontFamily || &#39;inherit&#39;,
+  &#39;font-style&#39;      : eo.fontStyle || &#39;inherit&#39;,
+  &#39;font-weight&#39;     : eo.fontWeight || &#39;inherit&#39;,
+  &#39;text-align&#39;      : eo.textAlign || &#39;inherit&#39;,
+  &#39;text-decoration&#39; : eo.textDecoration || &#39;inherit&#39;,
+  &#39;color&#39;           : (eo.color || theme.majorColor),
+  &#39;background-color&#39;: (eo.backgroundColor || theme.majorColor),
+  &#39;border-color&#39;    : (eo.borderColor || theme.majorColor)
+} " class="ng-scope tn-page-editable">
+                                <section ng-bind-html="eo.text | eol2br | unsafe"
+                                         class="tn-rich-text-content ng-scope ng-binding">
+                                    <section>不管啦！</section>
+                                </section>
+                                <section
+                                        style="box-sizing: border-box; color: rgb(123, 129, 116); text-align: left; font-size: 0.7em; font-family: inherit; font-style: normal; font-weight: inherit; text-decoration: inherit;"
+                                        tn-page-editable="txt0" tn-page-editable-type="ed-type-text" ng-style=" {
+  &#39;font-size&#39;       : eo.fontSize || &#39;inherit&#39;,
+  &#39;font-family&#39;     : eo.fontFamily || &#39;inherit&#39;,
+  &#39;font-style&#39;      : eo.fontStyle || &#39;inherit&#39;,
+  &#39;font-weight&#39;     : eo.fontWeight || &#39;inherit&#39;,
+  &#39;text-align&#39;      : eo.textAlign || &#39;inherit&#39;,
+  &#39;text-decoration&#39; : eo.textDecoration || &#39;inherit&#39;,
+  &#39;color&#39;           : (eo.color || theme.majorColor)
+} " ng-bind-html="eo.text | eol2br | unsafe" class="ng-scope tn-page-editable ng-binding">
+                                    <section>先拍照！~</section>
+                                </section>
+                            </section>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border:0;box-sizing: border-box; width: 100%; margin: 0.8em 0 0.2em 0;clear: both"
+                                class="ng-scope"><img style="box-sizing: border-box;
+              width: 100%;
+              height: auto !important;
+              text-align: start" src="http://www.x2our.com/wechatimage/menu/notes/mini/156984.jpg"
+                                                      tn-page-editable="img0" tn-page-editable-type="image"
+                                                      class="ng-scope tn-page-editable"/></fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border:0;box-sizing: border-box; width: 100%; margin: 0.8em 0 0.2em 0;clear: both"
+                                class="ng-scope"><img style="box-sizing: border-box;
+              width: 100%;
+              height: auto !important;
+              text-align: start" src="http://www.x2our.com/wechatimage/menu/notes/mini/645318.jpg"
+                                                      tn-page-editable="img0" tn-page-editable-type="image"
+                                                      class="ng-scope tn-page-editable"/></fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border: 0px; margin-top: 0px; margin-bottom: 0px; clear: both; font-size: 1em; font-family: inherit; font-style: normal; font-weight: inherit; text-align: justify; text-decoration: inherit; color: inherit;"
+                                tn-page-editable="text0" class="ng-scope tn-page-editable ng-binding"
+                                tn-page-editable-type="ed-type-text" ng-style=" {
+  &#39;font-size&#39;       : eo.fontSize || &#39;inherit&#39;,
+  &#39;font-family&#39;     : eo.fontFamily || &#39;inherit&#39;,
+  &#39;font-style&#39;      : eo.fontStyle || &#39;inherit&#39;,
+  &#39;font-weight&#39;     : eo.fontWeight || &#39;inherit&#39;,
+  &#39;text-align&#39;      : eo.textAlign || &#39;inherit&#39;,
+  &#39;text-decoration&#39; : eo.textDecoration || &#39;inherit&#39;,
+  &#39;color&#39;           : (eo.color || theme.majorColor)
+} " ng-bind-html="eo.text | eol2br | unsafe">
+                            <section>然后在我的会拍照的好司机就发email问能不能临时预约的时候， 我去敲了一下摩洛西亚大国的国门，在一顿狗叫声中，我见到了第一夫人。<br/></section>
+                            <section>第一夫人说，我们必须email总统预约，以为他们没有梳妆打扮(dressed up)！！！</section>
+                            <section>这是额什么冠冕堂皇的理由？！</section>
+                            <section>于是我们收到了总统的回复：</section>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset style="border: 0; margin: 0.5em 0; padding: 0.3em" class="ng-scope">
+                            <section
+                                    style="border: 1px solid rgb(192, 200, 209); padding: 10px; box-shadow: rgb(170, 170, 170) 0px 0px 10px; font-size: 75%; line-height: 1.4; color: rgb(160, 160, 160); font-family: inherit; font-style: normal; font-weight: inherit; text-align: inherit; text-decoration: inherit; background-color: rgba(255, 250, 225, 0.85098);"
+                                    tn-page-editable="richtext0" ng-bind-html="eo.text | eol2br | unsafe"
+                                    class="tn-rich-text-content ng-scope tn-page-editable ng-binding"
+                                    tn-page-editable-type="ed-type-rich-text" ng-style=" {
+  &#39;font-size&#39;       : eo.fontSize || &#39;inherit&#39;,
+  &#39;font-family&#39;     : eo.fontFamily || &#39;inherit&#39;,
+  &#39;font-style&#39;      : eo.fontStyle || &#39;inherit&#39;,
+  &#39;font-weight&#39;     : eo.fontWeight || &#39;inherit&#39;,
+  &#39;text-align&#39;      : eo.textAlign || &#39;inherit&#39;,
+  &#39;text-decoration&#39; : eo.textDecoration || &#39;inherit&#39;,
+  &#39;color&#39;           : (eo.color || theme.majorColor),
+  &#39;background-color&#39;: (eo.backgroundColor || theme.majorColor),
+  &#39;border-color&#39;    : (eo.borderColor || theme.majorColor)
+} ">
+                                <section>My apologies but I'm afraid we cannot host your visit this weekend.</section>
+                                <section><br/></section>
+                                <section>&nbsp;It takes quite a while to prepare our nation for visitors and we have
+                                    other pressing engagements taking place.<br/></section>
+                                <section><br/></section>
+                                <section>Our next scheduled tour will take place on 8 August at 10:00 am. Please
+                                    consider visiting us then.<br/></section>
+                                <section><br/></section>
+                                <section>Regards,<br/></section>
+                                <section><br/></section>
+                                <section>His Excellency President Kevin Baugh<br/></section>
+                                <section>Republic of Molossia</section>
+                            </section>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border: 0px; margin-top: 0px; margin-bottom: 0px; clear: both; font-size: 1em; font-family: inherit; font-style: normal; font-weight: inherit; text-align: justify; text-decoration: inherit; color: inherit;"
+                                tn-page-editable="text0" class="ng-scope tn-page-editable ng-binding"
+                                tn-page-editable-type="ed-type-text" ng-style=" {
+  &#39;font-size&#39;       : eo.fontSize || &#39;inherit&#39;,
+  &#39;font-family&#39;     : eo.fontFamily || &#39;inherit&#39;,
+  &#39;font-style&#39;      : eo.fontStyle || &#39;inherit&#39;,
+  &#39;font-weight&#39;     : eo.fontWeight || &#39;inherit&#39;,
+  &#39;text-align&#39;      : eo.textAlign || &#39;inherit&#39;,
+  &#39;text-decoration&#39; : eo.textDecoration || &#39;inherit&#39;,
+  &#39;color&#39;           : (eo.color || theme.majorColor)
+} " ng-bind-html="eo.text | eol2br | unsafe">
+                            <section>在两次试图临时预约未果以后，我们，发了最后一封简单的告诉总统：“我们恨他”，于是他又很友好的回复了我们一封：</section>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset style="border: 0; margin: 0.5em 0; padding: 0.3em" class="ng-scope">
+                            <section
+                                    style="border: 1px solid rgb(192, 200, 209); padding: 10px; box-shadow: rgb(170, 170, 170) 0px 0px 10px; font-size: 75%; line-height: 1.4; color: rgb(160, 160, 160); font-family: inherit; font-style: normal; font-weight: inherit; text-align: inherit; text-decoration: inherit; background-color: rgba(255, 250, 225, 0.85098);"
+                                    tn-page-editable="richtext0" ng-bind-html="eo.text | eol2br | unsafe"
+                                    class="tn-rich-text-content ng-scope tn-page-editable ng-binding"
+                                    tn-page-editable-type="ed-type-rich-text" ng-style=" {
+  &#39;font-size&#39;       : eo.fontSize || &#39;inherit&#39;,
+  &#39;font-family&#39;     : eo.fontFamily || &#39;inherit&#39;,
+  &#39;font-style&#39;      : eo.fontStyle || &#39;inherit&#39;,
+  &#39;font-weight&#39;     : eo.fontWeight || &#39;inherit&#39;,
+  &#39;text-align&#39;      : eo.textAlign || &#39;inherit&#39;,
+  &#39;text-decoration&#39; : eo.textDecoration || &#39;inherit&#39;,
+  &#39;color&#39;           : (eo.color || theme.majorColor),
+  &#39;background-color&#39;: (eo.backgroundColor || theme.majorColor),
+  &#39;border-color&#39;    : (eo.borderColor || theme.majorColor)
+} ">
+                                <section>I'm sorry to hear that you hate us, but I must say it's rather presumptive to
+                                    just show up someplace without checking any visiting requirements.&nbsp;</section>
+                                <section><br/></section>
+                                <section>&nbsp;Would you just randomly visit Disneyland without checking to see the
+                                    hours of operation? This is, as I mentioned, our home as well as being our nation.
+                                </section>
+                                <section><br/></section>
+                                <section>&nbsp;We do of course welcome visitors but only with an appointment. That is
+                                    not unreasonable, considering that just showing up on our doorstep might find us in
+                                    the bathroom or something along that line.
+                                </section>
+                                <section><br/></section>
+                                <section>&nbsp;I'm sorry that you feel that you drove all this way for nothing (although
+                                    there are plenty of other interesting things to see along the way), but that was
+                                    your decision to do so without planning ahead.
+                                </section>
+                                <section><br/></section>
+                                <section>&nbsp;Hate us all you want but we take no responsibility for your lack of
+                                    planning. We have done everything reasonable to make information available to our
+                                    visitors about coming to Molossia. I'm sorry that you somehow missed that
+                                    information.<br/></section>
+                                <section><br/></section>
+                                <section>Again, we welcome your visit on 8 August at 10:00 am, should you decide to
+                                    come. <br/></section>
+                                <section><br/></section>
+                                <section>Regards, <br/></section>
+                                <section><br/></section>
+                                <section>His Excellency President Kevin Baugh<br/></section>
+                                <section>Republic of Molossia<br/></section>
+                            </section>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border: 0px; margin-top: 0px; margin-bottom: 0px; clear: both; font-size: 1em; font-family: inherit; font-style: normal; font-weight: inherit; text-align: justify; text-decoration: inherit; color: inherit;"
+                                tn-page-editable="text0" class="ng-scope tn-page-editable ng-binding"
+                                tn-page-editable-type="ed-type-text" ng-style=" {
+  &#39;font-size&#39;       : eo.fontSize || &#39;inherit&#39;,
+  &#39;font-family&#39;     : eo.fontFamily || &#39;inherit&#39;,
+  &#39;font-style&#39;      : eo.fontStyle || &#39;inherit&#39;,
+  &#39;font-weight&#39;     : eo.fontWeight || &#39;inherit&#39;,
+  &#39;text-align&#39;      : eo.textAlign || &#39;inherit&#39;,
+  &#39;text-decoration&#39; : eo.textDecoration || &#39;inherit&#39;,
+  &#39;color&#39;           : (eo.color || theme.majorColor)
+} " ng-bind-html="eo.text | eol2br | unsafe">
+                            <section>好啦其实的确是怪我们没有预约。所以在这里小欣欣要告诉大家，计划任何一个旅程的时候最好都先打电话或者email预约，毕竟总统说的有道理，万一他在冲凉怎么办（笑）<br/>~
+                            </section>
+                            <section>不过这个小“国家”的确是一个非常可爱的国家，如果大家要来的话，预约好时间，总统会带着大家在这个国家里逛45分钟，还会获得一个签证。<br/></section>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset style="border:0;  box-sizing: border-box; width: 100%;margin: 0.5em 0px"
+                                  class="ng-scope">
+                            <section
+                                    style="width: 1em; height: 1em; border-radius: 100%; display: inline-block; vertical-align: middle; -webkit-transform: rotate(0.1deg); background-color: rgba(9, 203, 179, 0.780392);"
+                                    tn-page-editable="bgc0" tn-page-editable-type="bg-color" ng-style=" {
+  &#39;background-color&#39; : (eo.backgroundColor || theme.textBgColor),
+} " class="ng-scope tn-page-editable"></section>
+                            <section
+                                    style="width: 95%; margin: 0px -1em; border-bottom-width: 2px; border-bottom-style: solid; border-color: rgba(9, 203, 179, 0.780392); display: inline-block; vertical-align: middle;"
+                                    tn-page-editable="bdc0" tn-page-editable-type="border-color"
+                                    tn-border-color="eo.borderColor || theme.borderColor"
+                                    class="ng-scope tn-page-editable"></section>
+                            <section
+                                    style="width: 1em; height: 1em; border-radius: 100%; display: inline-block; vertical-align: middle; background-color: rgba(9, 203, 179, 0.780392);"
+                                    tn-page-editable="bgc1" tn-page-editable-type="bg-color" ng-style=" {
+  &#39;background-color&#39; : (eo.backgroundColor || theme.textBgColor),
+} " class="ng-scope tn-page-editable"></section>
+                            <section style="width: 100%; display: inline-block;
+vertical-align: top;margin-left: -0.5em;
+margin-top: -1.2em">
+                                <section
+                                        style="width: 1em; height: 1em; margin: auto; border-radius: 100%; background-color: rgba(9, 203, 179, 0.780392);"
+                                        tn-page-editable="bgc2" tn-page-editable-type="bg-color" ng-style=" {
+  &#39;background-color&#39; : (eo.backgroundColor || theme.textBgColor),
+} " class="ng-scope tn-page-editable"></section>
+                            </section>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border:0;box-sizing: border-box; width: 100%; margin: 0.8em 0 0.2em 0;clear: both"
+                                class="ng-scope"><img style="box-sizing: border-box;
+              width: 100%;
+              height: auto !important;
+              text-align: start" src="http://www.x2our.com/wechatimage/menu/notes/mini/d277859.jpg"
+                                                      tn-page-editable="img0" tn-page-editable-type="image"
+                                                      class="ng-scope tn-page-editable"/></fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border: 0px; margin-top: 0px; margin-bottom: 0px; clear: both; font-size: 1em; font-family: inherit; font-style: normal; font-weight: inherit; text-align: justify; text-decoration: inherit; color: inherit;"
+                                tn-page-editable="text0" class="ng-scope tn-page-editable ng-binding"
+                                tn-page-editable-type="ed-type-text" ng-style=" {
+  &#39;font-size&#39;       : eo.fontSize || &#39;inherit&#39;,
+  &#39;font-family&#39;     : eo.fontFamily || &#39;inherit&#39;,
+  &#39;font-style&#39;      : eo.fontStyle || &#39;inherit&#39;,
+  &#39;font-weight&#39;     : eo.fontWeight || &#39;inherit&#39;,
+  &#39;text-align&#39;      : eo.textAlign || &#39;inherit&#39;,
+  &#39;text-decoration&#39; : eo.textDecoration || &#39;inherit&#39;,
+  &#39;color&#39;           : (eo.color || theme.majorColor)
+} " ng-bind-html="eo.text | eol2br | unsafe">
+                            <section>当然，小欣欣不会为了看这一个小国家花12小时开车。</section>
+                            <section>吃完午饭，我们马上又去了旁边Lake Tahoe一个不太为人知的小景点，叫Skunk
+                                Harbor，导航会导到马路边，大家就在路边停车，然后走2个mile左右下山就会到这个非常美丽的湖口。
+                            </section>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border:0;box-sizing: border-box; width: 100%; margin: 0.8em 0 0.2em 0;clear: both"
+                                class="ng-scope"><img style="box-sizing: border-box;
+              width: 100%;
+              height: auto !important;
+              text-align: start" src="http://www.x2our.com/wechatimage/menu/notes/mini/643377.jpg"
+                                                      tn-page-editable="img0" tn-page-editable-type="image"
+                                                      class="ng-scope tn-page-editable"/></fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border: 0px; margin-top: 0px; margin-bottom: 0px; clear: both; font-size: 1em; font-family: inherit; font-style: normal; font-weight: inherit; text-align: justify; text-decoration: inherit; color: inherit;"
+                                tn-page-editable="text0" class="ng-scope tn-page-editable ng-binding"
+                                tn-page-editable-type="ed-type-text" ng-style=" {
+  &#39;font-size&#39;       : eo.fontSize || &#39;inherit&#39;,
+  &#39;font-family&#39;     : eo.fontFamily || &#39;inherit&#39;,
+  &#39;font-style&#39;      : eo.fontStyle || &#39;inherit&#39;,
+  &#39;font-weight&#39;     : eo.fontWeight || &#39;inherit&#39;,
+  &#39;text-align&#39;      : eo.textAlign || &#39;inherit&#39;,
+  &#39;text-decoration&#39; : eo.textDecoration || &#39;inherit&#39;,
+  &#39;color&#39;           : (eo.color || theme.majorColor)
+} " ng-bind-html="eo.text | eol2br | unsafe">
+                            <section>这个是一路走过去的trail。</section>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border:0;box-sizing: border-box; width: 100%; margin: 0.8em 0 0.2em 0;clear: both"
+                                class="ng-scope"><img style="box-sizing: border-box;
+              width: 100%;
+              height: auto !important;
+              text-align: start" src="http://www.x2our.com/wechatimage/menu/notes/mini/851877.jpg"
+                                                      tn-page-editable="img0" tn-page-editable-type="image"
+                                                      class="ng-scope tn-page-editable"/></fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border: 0px; margin-top: 0px; margin-bottom: 0px; clear: both; font-size: 1em; font-family: inherit; font-style: normal; font-weight: inherit; text-align: justify; text-decoration: inherit; color: inherit;"
+                                tn-page-editable="text0" class="ng-scope tn-page-editable ng-binding"
+                                tn-page-editable-type="ed-type-text" ng-style=" {
+  &#39;font-size&#39;       : eo.fontSize || &#39;inherit&#39;,
+  &#39;font-family&#39;     : eo.fontFamily || &#39;inherit&#39;,
+  &#39;font-style&#39;      : eo.fontStyle || &#39;inherit&#39;,
+  &#39;font-weight&#39;     : eo.fontWeight || &#39;inherit&#39;,
+  &#39;text-align&#39;      : eo.textAlign || &#39;inherit&#39;,
+  &#39;text-decoration&#39; : eo.textDecoration || &#39;inherit&#39;,
+  &#39;color&#39;           : (eo.color || theme.majorColor)
+} " ng-bind-html="eo.text | eol2br | unsafe">
+                            <section>不要吐槽小心心 hiking的装备了，因为这趟旅程带另外一双鞋是在摩洛西亚那双高跟鞋！</section>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border:0;box-sizing: border-box; width: 100%; margin: 0.8em 0 0.2em 0;clear: both"
+                                class="ng-scope"><img style="box-sizing: border-box;
+              width: 100%;
+              height: auto !important;
+              text-align: start" src="http://www.x2our.com/wechatimage/menu/notes/mini/345493.jpg"
+                                                      tn-page-editable="img0" tn-page-editable-type="image"
+                                                      class="ng-scope tn-page-editable"/></fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border:0;box-sizing: border-box; width: 100%; margin: 0.8em 0 0.2em 0;clear: both"
+                                class="ng-scope"><img style="box-sizing: border-box;
+              width: 100%;
+              height: auto !important;
+              text-align: start" src="http://www.x2our.com/wechatimage/menu/notes/mini/d66851.jpg"
+                                                      tn-page-editable="img0" tn-page-editable-type="image"
+                                                      class="ng-scope tn-page-editable"/></fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border: 0px; margin-top: 0px; margin-bottom: 0px; clear: both; font-size: 1em; font-family: inherit; font-style: normal; font-weight: inherit; text-align: justify; text-decoration: inherit; color: inherit;"
+                                tn-page-editable="text0" class="ng-scope tn-page-editable ng-binding"
+                                tn-page-editable-type="ed-type-text" ng-style=" {
+  &#39;font-size&#39;       : eo.fontSize || &#39;inherit&#39;,
+  &#39;font-family&#39;     : eo.fontFamily || &#39;inherit&#39;,
+  &#39;font-style&#39;      : eo.fontStyle || &#39;inherit&#39;,
+  &#39;font-weight&#39;     : eo.fontWeight || &#39;inherit&#39;,
+  &#39;text-align&#39;      : eo.textAlign || &#39;inherit&#39;,
+  &#39;text-decoration&#39; : eo.textDecoration || &#39;inherit&#39;,
+  &#39;color&#39;           : (eo.color || theme.majorColor)
+} " ng-bind-html="eo.text | eol2br | unsafe">
+                            <section>这个湖口真的非常非常美丽！</section>
+                            <section>非常适合就在这里就静静坐着或者游泳，不过大家注意擦好防晒。</section>
+                            <section>以下图片要感谢我的那个非常会拍照的好司机：）</section>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border:0;box-sizing: border-box; width: 100%; margin: 0.8em 0 0.2em 0;clear: both"
+                                class="ng-scope"><img style="box-sizing: border-box;
+              width: 100%;
+              height: auto !important;
+              text-align: start" src="http://www.x2our.com/wechatimage/menu/notes/mini/532150.jpg"
+                                                      tn-page-editable="img0" tn-page-editable-type="image"
+                                                      class="ng-scope tn-page-editable"/></fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border:0;box-sizing: border-box; width: 100%; margin: 0.8em 0 0.2em 0;clear: both"
+                                class="ng-scope"><img style="box-sizing: border-box;
+              width: 100%;
+              height: auto !important;
+              text-align: start" src="http://www.x2our.com/wechatimage/menu/notes/mini/329579.jpg"
+                                                      tn-page-editable="img0" tn-page-editable-type="image"
+                                                      class="ng-scope tn-page-editable"/></fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border:0;box-sizing: border-box; width: 100%; margin: 0.8em 0 0.2em 0;clear: both"
+                                class="ng-scope"><img style="box-sizing: border-box;
+              width: 100%;
+              height: auto !important;
+              text-align: start" src="http://www.x2our.com/wechatimage/menu/notes/mini/233237.jpg"
+                                                      tn-page-editable="img0" tn-page-editable-type="image"
+                                                      class="ng-scope tn-page-editable"/></fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border: 0px; margin-top: 0px; margin-bottom: 0px; clear: both; font-size: 1em; font-family: inherit; font-style: normal; font-weight: inherit; text-align: justify; text-decoration: inherit; color: inherit;"
+                                tn-page-editable="text0" class="ng-scope tn-page-editable ng-binding"
+                                tn-page-editable-type="ed-type-text" ng-style=" {
+  &#39;font-size&#39;       : eo.fontSize || &#39;inherit&#39;,
+  &#39;font-family&#39;     : eo.fontFamily || &#39;inherit&#39;,
+  &#39;font-style&#39;      : eo.fontStyle || &#39;inherit&#39;,
+  &#39;font-weight&#39;     : eo.fontWeight || &#39;inherit&#39;,
+  &#39;text-align&#39;      : eo.textAlign || &#39;inherit&#39;,
+  &#39;text-decoration&#39; : eo.textDecoration || &#39;inherit&#39;,
+  &#39;color&#39;           : (eo.color || theme.majorColor)
+} " ng-bind-html="eo.text | eol2br | unsafe">
+                            <section>因为这趟旅程我们没有计划在外面露宿，小心心只在湖边待了差不多1个小时就赶着回san jose了。</section>
+                            <section>其实小心心建议大家可以在skunk harbor附近露营也好住酒店也好待一个晚上，第二天在来湖边玩玩再回家。</section>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border:0;box-sizing: border-box; width: 100%; margin: 0.8em 0 0.2em 0;clear: both"
+                                class="ng-scope"><img style="box-sizing: border-box;
+              width: 100%;
+              height: auto !important;
+              text-align: start" src="http://www.x2our.com/wechatimage/menu/notes/mini/815341.jpg"
+                                                      tn-page-editable="img0" tn-page-editable-type="image"
+                                                      class="ng-scope tn-page-editable"/></fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border: 0px; margin-top: 0px; margin-bottom: 0px; clear: both; font-size: 1em; font-family: inherit; font-style: normal; font-weight: inherit; text-align: justify; text-decoration: inherit; color: inherit;"
+                                tn-page-editable="text0" class="ng-scope tn-page-editable ng-binding"
+                                tn-page-editable-type="ed-type-text" ng-style=" {
+  &#39;font-size&#39;       : eo.fontSize || &#39;inherit&#39;,
+  &#39;font-family&#39;     : eo.fontFamily || &#39;inherit&#39;,
+  &#39;font-style&#39;      : eo.fontStyle || &#39;inherit&#39;,
+  &#39;font-weight&#39;     : eo.fontWeight || &#39;inherit&#39;,
+  &#39;text-align&#39;      : eo.textAlign || &#39;inherit&#39;,
+  &#39;text-decoration&#39; : eo.textDecoration || &#39;inherit&#39;,
+  &#39;color&#39;           : (eo.color || theme.majorColor)
+} " ng-bind-html="eo.text | eol2br | unsafe">
+                            <section>好啦，伴着星星和月亮，小心心回家啦：）又是充实的一天。</section>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border:0;box-sizing: border-box; width: 100%; margin: 0.8em 0 0.2em 0;clear: both"
+                                class="ng-scope"><img style="box-sizing: border-box;
+              width: 100%;
+              height: auto !important;
+              text-align: start" src="http://www.x2our.com/wechatimage/menu/notes/mini/e194368.png"
+                                                      tn-page-editable="img0" tn-page-editable-type="image"
+                                                      class="ng-scope tn-page-editable"/></fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border: 0px; margin-top: 0px; margin-bottom: 0px; clear: both; font-size: 1em; font-family: inherit; font-style: normal; font-weight: inherit; text-align: justify; text-decoration: inherit; color: inherit;"
+                                tn-page-editable="text0" class="ng-scope tn-page-editable ng-binding"
+                                tn-page-editable-type="ed-type-text" ng-style=" {
+  &#39;font-size&#39;       : eo.fontSize || &#39;inherit&#39;,
+  &#39;font-family&#39;     : eo.fontFamily || &#39;inherit&#39;,
+  &#39;font-style&#39;      : eo.fontStyle || &#39;inherit&#39;,
+  &#39;font-weight&#39;     : eo.fontWeight || &#39;inherit&#39;,
+  &#39;text-align&#39;      : eo.textAlign || &#39;inherit&#39;,
+  &#39;text-decoration&#39; : eo.textDecoration || &#39;inherit&#39;,
+  &#39;color&#39;           : (eo.color || theme.majorColor)
+} " ng-bind-html="eo.text | eol2br | unsafe">
+                            <section>叶小心心是个非常闲不住的姑娘，就喜欢出去玩儿，要是大家不知道周末应该带女票儿去哪儿玩，就尽管问小心心。</section>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset style="border:0;  box-sizing: border-box; width: 100%;margin: 0.5em 0px"
+                                  class="ng-scope">
+                            <section
+                                    style="width: 100%; border-bottom-width: 2px; border-bottom-style: solid; border-color: rgb(3, 31, 85);"
+                                    tn-page-editable="bdc0" tn-page-editable-type="border-color"
+                                    tn-border-color="eo.borderColor || theme.borderColor"
+                                    class="ng-scope tn-page-editable"></section>
+                            <section
+                                    style="width: 0px; margin: auto; border-top-width: 1em; border-top-style: solid; border-top-color: rgb(3, 31, 85); border-left-width: 0.8em !important; border-left-style: solid !important; border-left-color: transparent !important; border-right-width: 0.8em !important; border-right-style: solid !important; border-right-color: transparent !important; border-bottom-color: rgb(3, 31, 85);"
+                                    tn-page-editable="bdc0" tn-page-editable-type="border-color"
+                                    tn-border-color="eo.borderColor || theme.borderColor"
+                                    class="ng-scope tn-page-editable"></section>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+            <div class="x3-slice-plate clearfix ng-scope" ng-repeat="slice in slices">
+                <div class="tn-slice-loader ng-isolate-scope" tn-page-loader="" page="slice"
+                     tn-page-show-with-transition="true" theme="(slice.themeColor | clr2theme)"
+                     template-path="/templates/parts">
+                    <!-- ngInclude: (page.templateId) | templateIdToPath: templatePath -->
+                    <div class="tn-page ng-scope" ng-include="(page.templateId) | templateIdToPath: templatePath">
+                        <fieldset
+                                style="border:0;box-sizing: border-box; width: 100%; margin: 0.8em 0 0.2em 0;clear: both"
+                                class="ng-scope"><img style="box-sizing: border-box;
+              width: 100%;
+              height: auto !important;
+              text-align: start" src="http://www.x2our.com/wechatimage/menu/notes/mini/f337117.png"
+                                                      tn-page-editable="img0" tn-page-editable-type="image"
+                                                      class="ng-scope tn-page-editable"/></fieldset>
+                    </div>
+                </div>
+            </div>
+            <!-- end ngRepeat: slice in slices -->
+        </section>
+        <hr/>
+    </section>
+</div>
+
+<section class="tn-scripts">
+    <!-- 3rd -->
+    <script th:src="@{/assets/wechat/jquery.min.js}"></script>
+    <script th:src="@{/assets/wechat/bootstrap.min.js}"></script>
+    <script th:src="@{/assets/wechat/angular.min.js}"></script>
+    <script th:src="@{/assets/wechat/angular-animate.min.js}"></script>
+    <script th:src="@{/assets/wechat/jquery.qrcode.min.js}"></script>
+    <!-- weixin js sdk -->
+    <script th:src="@{/assets/wechat/jweixin-1.0.0.js}"></script>
+    <script>
+        _MountWXShare();
+    </script>
+</section>
+
+
+</body>
+</html>

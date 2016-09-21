@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>导游费率新增</title>
+<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+	$(function() {
+		jQuery.validator.setDefaults({
+			debug : true,
+			success : "valid"
+		});
+
+		$("#mainForm").validate({
+			rules : {
+				"guideRateCost" : {
+					required : true,
+					number : true
+				}
+			},
+			messages : {
+				"guideRateCost" : {
+					required : "成本价不能为空"
+				}
+			},
+
+			highlight : function(element) {
+				$(element).closest(".form-group").addClass("has-error");
+			},
+			success : function(label) {
+				label.closest(".form-group").removeClass("has-error");
+				label.closest(".form-group").addClass("has-success");
+			},
+			errorPlacement : function(error, element) {
+				element.parent("div").append(error);
+			},
+			submitHandler : function(form) {
+				form.submit();
+			}
+		});
+	});
+</script>
+
+
+
+
+<script type="text/javascript">
+	function price() {
+		var guideRateCost = $('#guideRateCost').val();
+		alert(guideRateCost)
+		var guideRateCostId = $('#guideactivity').val();
+		alert(guideRateCostId)
+		$.ajax({
+			type : "GET",
+			url : "/guideactivity/price",
+			data : {
+				"guideRateCost" : guideRateCost,
+				"guideRateCostId" : guideRateCostId
+			},
+			success : function(data) {
+				var coefficient = data;
+				var price = guideRateCost * coefficient;
+				$('#guideRatePrice').html(price);
+				document.getElementById('guideRatePrice').value = price;
+			}
+
+		});
+	}
+</script>
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid">
+		<div class="row">
+			<div class="page-header">
+				<h1>导游费率新增</h1>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<form class="form-horizontal" role="form" method="post" th:action="@{/guideactivity/createguideratea}"
+						th:object="${guiderate}" id="mainForm">
+						 
+					
+						 <input type="hidden" th:value="${guideactivity.id}" name="guideactivity" id="guideactivity"/> 
+						
+						<div class="form-group">
+							<label  class="col-xs-3 control-label">导游活动类型</label>
+							<div class="col-xs-6">
+								<input type="text" readonly="readonly" class="form-control" th:value="${guideactivity.guideActivityType}"  />
+								<input type="hidden"  class="form-control" th:field="${guideactivity}"  />  
+							 </div>
+					    </div>
+						
+						
+						 <div class="form-group">
+							<label  class="col-xs-3 control-label">导游类型</label>
+							<div class="col-xs-6">
+								<input type="text"  class="form-control" th:field="*{guideType}" /> 
+								<span
+									 class="text-danger" th:if="${#fields.hasErrors('guideType')}" th:errors="*{guideType}"></span> 
+							 </div>
+					 </div>
+
+						<div class="form-group">
+							<label for="guideRateCost" class="col-xs-3 control-label">成本价</label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{guideRateCost}" required="required" onchange="price();" id="guideRateCost"/> 
+								 <span
+									class="text-danger" th:if="${#fields.hasErrors('guideRateCost')}" th:errors="*{guideRateCost}"></span> 
+							</div>
+						</div>
+						<div class="form-group" th:classappend="${#fields.hasErrors('guideRatePrice')}? 'has-error'">
+							<label for="guideActivityType" class="col-xs-3 control-label">销售价</label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{guideRatePrice}" required="required" readonly="readonly" id="guideRatePrice"  name="guideRatePrice"/> <span
+									class="text-danger" th:if="${#fields.hasErrors('guideRatePrice')}" th:errors="*{guideRatePrice}"></span>
+							</div>
+						</div>
+
+						<p class="text-center">
+							<button type="submit" class="btn btn-primary">提交</button>
+							<a th:href="@{/guideactivity}" class="btn btn-default">返回</a>
+						</p>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

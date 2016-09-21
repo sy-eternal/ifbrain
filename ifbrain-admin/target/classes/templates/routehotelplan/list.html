@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<!--   <html lang="en">   -->
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout" data-ng-app="_app">
+	
+<head>
+<meta charset="utf-8"/>
+<title>线路酒店规划</title>
+
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+
+  
+  <link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.css}" />
+     <link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.css.map}" />
+     <script th:src="@{/assets/global/plugins/bootstrap/bootstrap.js}"></script>
+     <script th:src="@{/assets/global/plugins/bootstrap/bootstrap.min.js}"></script> -->
+     <script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+    <script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+    <script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+    <script th:src="@{/js/lib/jquery-validation/extension.js}"></script>
+    <script th:src="@{/js/util/date-extension.js}"></script>
+   
+    	<!-- BEGIN PAGE LEVEL PLUGINS -->
+    	
+    	 <script th:src="@{/js/util/supplier.js}"></script>
+	<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script>
+	
+	
+	 <script type="text/javascript"	th:src="@{/assets/global/plugins/jquery-validation/js/jquery.validate.min.js}"></script>
+	<script type="text/javascript"	th:src="@{/assets/global/plugins/jquery-validation/js/additional-methods.min.js}"></script>
+	<script type="text/javascript"  th:src="@{/assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js}"></script>
+	<script th:src="@{/assets/global/scripts/metronic.js}"		type="text/javascript"></script>
+	<script th:src="@{/assets/admin/pages/scripts/form-wizard.js}"></script>
+ <script type="text/javascript" th:src="@{/assets/global/plugins/bootstrap-daterangepicker/moment.min.js}"></script>
+	<script type="text/javascript" th:src="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js}"></script>
+	<script	th:src="@{/assets/admin/pages/scripts/components-form-tools.js}"></script>
+	<script type="text/javascript"	th:src="@{/assets/global/plugins/fuelux/js/spinner.min.js}"></script> 
+	<script	th:src="@{/assets/global/plugins/bootstrap-touchspin/bootstrap.touchspin.js}"	type="text/javascript"></script>
+	<script	th:src="@{/assets/global/plugins/typeahead/handlebars.min.js}"	type="text/javascript"></script>
+	<script	th:src="@{/assets/global/plugins/typeahead/typeahead.bundle.min.js}" type="text/javascript"></script>
+	<script type="text/javascript" 	th:src="@{/assets/global/plugins/bootstrap-select/bootstrap-select.min.js}"></script>
+	<script type="text/javascript"	th:src="@{/assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js}"></script>
+	<script	th:src="@{/assets/global/plugins/image-picker/image-picker/image-picker.js}"	type="text/javascript"></script>
+	<script	th:src="@{/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js}" type="text/javascript"></script> 
+ <link type="text/css" th:type="@{/text/css}" rel="stylesheet"	th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap-theme.min.css}" />
+<script type="text/javascript"	th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/global/scripts/custom.js}"></script>
+<script type="text/javascript"	th:src="@{/webjars/bootstrap/3.3.4/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/global/plugins/jquery-migrate.min.js}"	type="text/javascript"></script> 
+<script th:src="@{/assets/global/plugins/jquery-ui/jquery-ui.min.js}"	type="text/javascript"></script>
+<script	th:src="@{/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js}"	type="text/javascript"></script>
+<script	th:src="@{/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.blockui.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.cokie.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/uniform/jquery.uniform.min.js}"	type="text/javascript"></script>
+<script	th:src="@{/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/scripts/metronic.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/quick-sidebar.js}"></script> 
+<link th:href="@{/assets/global/css/components.css}" rel="stylesheet" />
+<link th:href="@{/assets/global/css/plugins.css}" rel="stylesheet" />
+<link rel="stylesheet" type="text/css"	th:href="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css}" />
+<link rel="stylesheet" type="text/css"	th:href="@{/assets/global/plugins/image-picker/image-picker/image-picker.css}" />
+<link type="text/css" th:type="@{/text/css}" rel="stylesheet"	th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap-theme.min.css}" />
+<script type="text/javascript"	th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+<script type="text/javascript"	th:src="@{/webjars/bootstrap/3.3.4/js/bootstrap.min.js}"></script>
+<link	th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}"	rel="stylesheet" />
+<script th:src="@{/assets/global/plugins/jquery-migrate.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-ui/jquery-ui.min.js}"	type="text/javascript"></script>
+<script	th:src="@{/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js}"	type="text/javascript"></script>
+<script	th:src="@{/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.blockui.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.cokie.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/uniform/jquery.uniform.min.js}"	type="text/javascript"></script>
+<script	th:src="@{/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/scripts/metronic.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/quick-sidebar.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/demo.js}"></script>
+<link th:href="@{/assets/global/css/components.css}" rel="stylesheet" />
+<link th:href="@{/assets/global/css/plugins.css}" rel="stylesheet" />
+<link th:href="@{/assets/frontend/layout/css/style-responsive.css}"/>
+<link th:href="@{/assets/frontend/layout/css/themes/red.css}"	rel="stylesheet" id="style-color" />
+<link rel="stylesheet" type="text/css"	th:href="@{/assets/global/plugins/bootstrap-select/bootstrap-select.min.css}" />
+<link rel="stylesheet" type="text/css"	th:href="@{/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css}" />
+<link rel="stylesheet" type="text/css"	th:href="@{/assets/global/plugins/select2/select2.css}" />
+<link rel="stylesheet" type="text/css"	th:href="@{/assets/global/plugins/jquery-multi-select/css/multi-select.css}" />
+<link rel="stylesheet" type="text/css"	th:href="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css}" />
+<link rel="stylesheet" type="text/css"	th:href="@{/assets/global/plugins/image-picker/image-picker/image-picker.css}" />
+
+
+
+   
+    
+</head>
+<body >
+<div layout:fragment="content" class="container">
+            <hr/>
+            <h3>线路酒店规划</h3>
+
+            <form id="mainForm" class="form-horizontal" role="form" method="post"  th:action="@{'/routehotelPlan/search'}">
+            <!-- 获得日期规划主键 -->
+            
+            <input type="hidden" name="routeId" th:value="${routeId}" id="routeId"/>
+            <input type="hidden" name="routedayId" th:value="${routedayId}" id="routedayId"/>
+            
+            
+            <div class="form-group" align="center">
+            <div class="form-field">
+				</div>											
+				</div>
+														
+                <div class="form-group">
+                    <div class="form-field">
+                        <label for="cityPlan.fromCity" class="col-xs-2 control-label"><font color="red">*</font>&nbsp;目的城市</label>
+                        <div class="col-xs-6">
+                            <select class="form-control" required="required" id="toCity" name="toCity" >
+                                <option value="">--请选择--</option>
+                                <option th:each="city : ${citys}" th:value="${city.id}"  th:text="${city.cityName}"></option>
+                            </select>
+                        </div>
+                      </div>
+                </div>
+                
+              
+                <div class="form-group row" id="time">
+                    <div class="form-field">
+                        <label for="startDate" class="col-md-2 control-label"><font color="red">*</font>&nbsp;入住日期</label>
+                        <div class="col-md-6">
+                          <input type="date" class="form-control " required="required"  name="startDate" />  
+                        </div>
+                    
+                    </div>
+                    <div class="clearfix"></div>
+                    
+                     <div class="form-field" style="margin-top:15px;">
+                        <label for="startDate" class="col-md-2 control-label"><font color="red">*</font>&nbsp;退房日期</label>
+                        <div class="col-md-6">
+                    <input type="date" class="form-control " required="required"  name="endDate" />  
+                        </div>
+                    
+                    </div>
+                </div>
+      
+         <!--      <div class="form-group" >
+                
+		                 <div class="form-field">
+		                  <label for="selCabin" class="col-xs-2 control-label">房间</label>
+		                </div>
+                        <div class="form-field">
+				               <div class="col-xs-4">
+								<div class="input-inline input-medium" id="iten-tabless">
+									<input id="touchspin_3" type="text" value="" name="roomNum" required="required" class="form-control" />
+								</div>
+<<<<<<< .mine
+		                          </div>
+		                
+                        </div>
+               </div> -->
+               
+               
+               
+               
+
+					<!-- 			
+				                </div>
+		               </div>
+				   </div> -->
+
+
+                   <div class="form-group" >
+                
+		                 <div class="form-field">
+		                  <label for="selCabin" class="col-xs-2 control-label"></label>
+		                </div>
+                        <div class="form-field">
+				               <div class="col-xs-4 text-center">
+								<div class="input-inline input-medium" id="iten-tabless">
+									 <button type="submit" class="icon-arrow-right  btn blue btn-block "   
+									 	style="size: 20px"  ng-click="retrieveVehicleInfoFromSupplier()"   >搜索酒店</button>
+								</div>
+								
+		                       </div>
+                       </div>
+               
+                 </div>
+                 
+                
+            
+            </form>
+ <div layout:fragment="script">
+			<!-- BEGIN PAGE LEVEL PLUGINS -->
+	<script type="text/javascript"
+				th:src="@{/assets/global/plugins/jquery-validation/js/jquery.validate.min.js}"></script>
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/jquery-validation/js/additional-methods.min.js}"></script>
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js}"></script>
+		<script th:src="@{/assets/global/scripts/metronic.js}"
+				type="text/javascript"></script>
+			<script th:src="@{/assets/admin/layout/scripts/layout.js}"
+				type="text/javascript"></script>
+			<script th:src="@{/assets/admin/pages/scripts/form-wizard.js}"></script>
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/bootstrap-daterangepicker/moment.min.js}"></script>
+				
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js}"></script>
+			<script th:src="@{/assets/admin/pages/scripts/components-pickers.js}"></script>
+			<script
+				th:src="@{/assets/admin/pages/scripts/components-form-tools.js}"></script> 
+			 <script type="text/javascript"
+				th:src="@{/assets/global/plugins/fuelux/js/spinner.min.js}"></script>
+			<script
+				th:src="@{/assets/global/plugins/bootstrap-touchspin/bootstrap.touchspin.js}"
+				type="text/javascript"></script>
+			<script
+				th:src="@{/assets/global/plugins/typeahead/handlebars.min.js}"
+				type="text/javascript"></script>
+			<script
+				th:src="@{/assets/global/plugins/typeahead/typeahead.bundle.min.js}"
+				type="text/javascript"></script>
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/bootstrap-select/bootstrap-select.min.js}"></script>
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js}"></script>
+		<script
+				th:src="@{/assets/global/plugins/image-picker/image-picker/image-picker.js}"
+				type="text/javascript"></script>
+			<script
+				th:src="@{/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js}"
+				type="text/javascript"></script>
+			<script th:src="@{/assets/frontend/layout/scripts/layout.js}"
+				type="text/javascript"></script> 
+			<script th:src="@{/assets/global/scripts/custom.js}"
+				type="text/javascript"></script>
+				
+<script type="text/javascript" src="../../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+	 	<script>
+				$(function() {
+				FormWizard.init();
+					ComponentsPickers.init();
+				   ComponentsDropdowns.init();
+					ComponentsFormTools.init();
+					CustomFormActions.init();
+					$("select").imagepicker();
+					trip.init();
+				});
+			</script>  
+			<!-- END PAGE LEVEL JAVASCRIPTS -->
+		</div>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,202 @@
+
+/*!VIPABC | Author by Mike Li*/
+/*!v1.0 | 2015-2-27*/
+/*!License: vipabc.com*/
+
+
+/* 自定义单选组样式 */
+.radio_wrap
+{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url(../../images/radio_bg.png);
+}
+.radio_on_wrap
+{
+    background: url(../../images/radio_on_bg.png);
+}
+.radio_wrap input
+{
+    width: 24px;
+    height: 24px;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    -moz-opacity: 0;
+    cursor: pointer;
+    vertical-align: -4px;
+}
+/* 自定义单选组样式 end */
+
+/* 下拉菜单样式 */
+
+.select_wrap{
+	float:right;
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	height: 33px;
+	line-height: 33px;
+	/*border:solid 1px #bfbfbf;*/
+	background-color: #fff;
+	cursor: pointer;
+	text-align:left;
+	-webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+	z-index:200;
+}
+
+
+
+
+
+.select_wrap:hover,.select_wrap:focus{
+	color:#000;
+	border-color:#999;
+}
+
+.select_wrap select{
+	position: absolute;
+	display: none;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	border: none;
+	cursor: pointer;
+}
+.select_list{
+	display: none;
+	position: absolute;
+	/*display: inline-block;*/
+	width: 100%;
+	max-height: 350px;
+	top: 33px;
+	left: 0;
+	z-index: 100;
+	overflow-y:auto; 
+	border: solid 1px #dcdcdc;
+	border-top:none;
+	overflow:auto;
+}
+
+.select_list dl, .select_list dl dt, .select_list dl dd{
+	float: left;
+	width: 100%;
+	background-color: #fff; 
+}
+.select_list dl dt, .select_list dl dd{
+	line-height: 27px;
+	margin:0;
+	padding:0;
+	
+	color: #666;
+	font-size:13px;
+}
+.select_list dl dt{
+	border-top: solid 1px #fff;
+	border-bottom: solid 1px #fff;
+	background-color: #dcdcdc;
+	text-indent: 5px;
+}
+
+.select_list dl dd{
+	text-indent: 20px;
+}
+
+
+
+.select_list dl dd.selected{
+	color: #fff;
+	background-color: #8e8f8f;
+}
+.select_list dl dd:hover{
+	color: #fff;
+	background-color: #8e8f8f;
+}
+
+.select_current{
+	float: left;
+	display:inline-block;
+	width:100%;
+	height:33px;
+	text-indent:8px;
+	*text-indent:8px;
+	color:#999;
+	font-size:14px;
+}
+
+.select_btn{
+	position: absolute;
+	display: inline-block;
+	width: 31px;
+	height: 31px;
+	top: 0;
+	right: 0;
+	margin: 1px;
+	color: #fff;
+	background: #f75c5c url(../../images/form/arrow_down.png) no-repeat center center;
+	cursor: pointer;
+}
+
+.select_btn_on{
+	background: #f75c5c url(../../images/form/arrow_up.png) no-repeat center center;
+}
+
+
+
+
+.hide-experience-form .HEF-dropdown-wrap .select_wrap
+{
+    border: solid 1px #dcdcdc;
+    height: 38px;
+    line-height: 38px;
+}
+.hide-experience-form .HEF-dropdown-wrap .select_current
+{
+    height: 38px;
+}
+.hide-experience-form .select_btn
+{
+    width: 36px;
+    height: 36px;
+}
+
+/* 下拉菜单样式 end */
+
+
+@media all and (max-width:420px)
+{
+
+
+    .select_wrap
+    {
+        height: 40px;
+        line-height: 40px;
+    }
+    .select_current
+    {
+        height: 40px;
+    }
+    .select_btn
+    {
+        width: 38px;
+        height: 38px;
+        background-size: 30%;
+    }
+
+
+}
+
+
+.meg-error
+{
+    display: inline-block;
+    line-height: 20px;
+    color: #f65662;
+    margin: 0;
+    font-size: 12px;
+}

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout" >
+<head>
+<title>景点规划</title>
+
+<script th:src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script>
+
+<!-- 使用jQuery Validation控件进行前端验证 -->
+<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/extension.js}"></script>
+<script th:src="@{/js/util/date-extension.js}"></script>
+	<script>
+	//返回
+	function back(){
+		var orderId=$('#orderId').val();
+		window.location="/guideorder/detail?orderId="+orderId ;
+	}
+	//更换出发地接送导游临时接送导游
+	function change1(){
+		/* 获得出发日期 */
+  
+		var startDate=$('#startDate').val();
+		var start=new Date(startDate.replace(/\-/g,'/'));
+		 var dataPlanId=$('#dataPlanId').val();
+		var fromName= $('#FromName').val();
+		var changeName=$('#ChangeName').val();
+		var orderId=$('#orderId').val();
+		
+		var date=new Date();
+		
+		if(date>start){
+			alert("该导游行程正在进行中，不能更换导游");
+			return false;
+		}
+	
+		if(fromName==0){
+			alert("请选择临时接送导游出发地接送导游姓名");
+			return false;
+		}
+		if(fromName!='0' ){
+			if(changeName=='0'){
+			alert("请选择临时接送导游可选出发地接送导游姓名");
+			return false;
+			}
+		}
+		$.ajax({
+			type : "GET",
+			url : "/guideorder/exchange",
+			data : {
+				fromId :fromName,
+				changeId : changeName,
+				dataPlanId:dataPlanId,
+				startDate:startDate
+			},
+			success:function(data){
+				alert("更换成功");
+				window.location="/guideorder/detail?orderId="+orderId 
+			}
+		
+		});
+		
+	}
+	
+	//更换到达地接送导游临时接送导游
+	function change2(){
+		var endDate=$('#endDate').val();
+		var end=new Date(endDate.replace(/\-/g,'/'));
+        var date=new Date();
+		if(date>end){
+			alert("该导游行程已经结束，不能更换导游");
+			return false;
+		}
+		var orderId=$('#orderId').val();
+		 var dataPlanId=$('#dataPlanId').val();
+		var ToName= $('#ToName').val();
+		var TochangeName=$('#TochangeName').val();
+		if(ToName==0){
+			alert("请选择临时接送导游到达地接送导游姓名");
+			return false;
+		}
+		if(ToName!='0' ){
+			if(TochangeName=='0'){
+			alert("请选择临时接送导游到达地接送导游姓名");
+			return false;
+			}
+		}
+		$.ajax({
+			type : "GET",
+			url : "/guideorder/exchange1",
+			data : {
+				ToNameId :ToName,
+				TochangeNameId:TochangeName,
+				dataPlanId:dataPlanId
+			},
+			success : function(data) {
+				alert(data);
+				window.location="/guideorder/detail?orderId="+orderId 
+			}
+		});
+	}
+	//更换出发地接送导游标准导游
+	function change3(){
+		var startDate=$('#startDate').val();
+		var start=new Date(startDate.replace(/\-/g,'/'));
+		
+        var date=new Date();
+		if(date>start){
+			alert("该导游行程正在进行中，不能更换导游");
+			return false;
+		}
+		
+		var orderId=$('#orderId').val();
+		 var dataPlanId=$('#dataPlanId').val();
+		var fromName= $('#FromNameB').val();
+		var changeName=$('#ChangeNameB').val();
+		if(fromName==0){
+			alert("请选择标准导游出发地接送导游姓名");
+			return false;
+		}
+		if(fromName!='0' ){
+			if(changeName=='0'){
+			alert("请选择标准导游可选出发地接送导游姓名");
+			return false;
+			}
+		}
+		$.ajax({
+			type : "GET",
+			url : "/guideorder/exchange2",
+			data : {
+				fromId :fromName,
+				changeId : changeName,
+				dataPlanId:dataPlanId
+			},
+			success : function(data) {
+				alert(data);
+				window.location="/guideorder/detail?orderId="+orderId 
+			}
+		});
+		
+	}
+	
+	//更换到达地接送导游标准导游
+	function change4(){
+		var endDate=$('#endDate').val();
+		var end=new Date(endDate.replace(/\-/g,'/'));
+        var date=new Date();
+        
+		if(date>end){
+			alert("该导游行程已经结束，不能更换导游");
+			return false;
+		}
+		
+		var orderId=$('#orderId').val();
+		 var dataPlanId=$('#dataPlanId').val();
+		var ToName= $('#ToNameB').val();
+		var TochangeName=$('#TochangeNameB').val();
+		if(ToName==0){
+			alert("请选择标准导游到达地接送导游姓名");
+			return false;
+		}
+		if(ToName!='0' ){
+			if(TochangeName=='0'){
+			alert("请选择标准导游到达地接送导游姓名");
+			return false;
+			}
+		}
+		$.ajax({
+			type : "GET",
+			url : "/guideorder/exchange3",
+			data : {
+				ToNameId :ToName,
+				TochangeNameId:TochangeName,
+				dataPlanId:dataPlanId
+			},
+			success : function(data) {
+				alert(data);
+				window.location="/guideorder/detail?orderId="+orderId 
+			}
+		});
+	}
+
+
+	</script>
+</head>
+<body >
+	<div layout:fragment="content">
+		<!-- BEGIN PAGE HEADER-->
+		<h3 class="page-title">更换导游</h3>
+		<p></p>
+		<hr />
+		<!-- END PAGE HEADER-->
+
+		<!-- BEGIN PAGE CONTENT-->
+		<div class="row">
+			<div class="col-md-12">
+				<hr />
+				<h3>更换导游</h3>
+				<form id="mainForm" class="form-horizontal" role="form" method="post" th:action="@{'/scenicSpotPlan/create?orderId=' + ${order.id}}" th:object="${datePlan}">
+					<input type="hidden" name="dataPlanId" id="dataPlanId"  th:field="*{id}"/>
+					<input type="hidden" name="orderId" id="orderId"  th:field="${order.id}"/>
+					<div class="form-group">
+						<div class="form-field">
+							<label for="startDate" class="col-xs-2 control-label">出发日期</label>
+							<div class="col-xs-4">
+								<input type="date" class="form-control"  readonly="readonly" id="startDate" th:value="${startDate}"
+									data-ng-model="datePlan.startDate" data-ng-change="calculateForStart()" />
+							</div>
+						</div>
+						<div class="form-field">
+							<label for="endDate" class="col-xs-2 control-label">到达日期</label>
+							<div class="col-xs-4">
+								<input type="date" class="form-control"  th:value="${endDate}" id="endDate"  readonly="readonly"
+									data-ng-model="datePlan.endDate" data-ng-change="calculateForEnd()" />
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="form-field">
+							<label for="cityPlan.fromCity" class="col-xs-2 control-label">出发城市</label>
+							<div class="col-xs-4">
+								<input type="text" class="form-control"  th:field="*{cityPlan.fromCity.cityName}" readonly="readonly"/>
+							</div>
+						</div>
+						<div class="form-field">
+							<label for="cityPlan.toCity" class="col-xs-2 control-label">到达城市</label>
+							<div class="col-xs-4">
+								<input type="text" class="form-control"  th:field="*{cityPlan.toCity.cityName}" readonly="readonly"/>
+							</div>
+						</div>
+					</div>
+			
+					<div class="form-group">
+						<div class="form-field">
+							<label class="col-xs-2 control-label">临时接送导游出发地接送导游姓名</label>
+							<div class="col-xs-4">
+							<select class="form-control" id="FromName" >
+									<option value="0">--请选择--</option>
+									<option th:each="user:${listName}" th:value="${user.id}" th:text="${user.firstName}+${user.lastName}"></option>
+							</select> 
+							</div> 
+						</div>
+						<button type="button" class="btn btn-primary" onclick="change1()">更换</button>
+						
+						<div class="form-field">
+							<label class="col-xs-2 control-label">临时接送导游可选出发地接送导游姓名</label>
+							<div class="col-xs-4">
+							<select class="form-control" id="ChangeName">
+									<option value="0">--请选择--</option>
+									<option th:each="user:${listName1}" th:value="${user.id}" th:text="${user.firstName}+${user.lastName}"></option>
+							</select> 
+							</div>
+						</div>
+					</div>
+					
+					 <div class="form-group">
+						<div class="form-field">
+							<label class="col-xs-2 control-label">临时接送导游到达地接送导游姓名</label>
+							<div class="col-xs-4">
+							<select id="ToName" class="form-control"  >
+									<option value="">--请选择--</option>
+									<option th:each="user:${listName2}" th:value="${user.id}" th:text="${user.firstName}+${user.lastName}"></option>
+							</select> 
+							</div>
+						</div>
+						<button type="button" class="btn btn-primary" onclick="change2()">更换</button>
+						
+								<div class="form-field">
+							<label class="col-xs-2 control-label">临时接送导游可选到达地接送导游姓名</label>
+							<div class="col-xs-4">
+							<select id="TochangeName" class="form-control">
+									<option value="">--请选择--</option>
+									<option th:each="user:${listName3}"  th:value="${user.id}" th:text="${user.firstName}+${user.lastName}"></option>
+							</select> 
+							</div>
+						</div>
+					</div>
+					
+					
+					
+							<div class="form-group">
+						<div class="form-field">
+							<label class="col-xs-2 control-label">标准导游出发地接送导游姓名</label>
+							<div class="col-xs-4">
+							<select class="form-control" id="FromNameB" >
+									<option value="0">--请选择--</option>
+									<option th:each="user:${listName4}" th:value="${user.id}" th:text="${user.firstName}+${user.lastName}"></option>
+							</select> 
+							</div>
+						</div>
+						<button type="button" class="btn btn-primary" onclick="change3()">更换</button>
+						
+						<div class="form-field">
+							<label class="col-xs-2 control-label">标准导游可选出发地接送导游姓名</label>
+							<div class="col-xs-4">
+							<select class="form-control" id="ChangeNameB">
+									<option value="0">--请选择--</option>
+									<option th:each="user:${listName5}" th:value="${user.id}" th:text="${user.firstName}+${user.lastName}"></option>
+							</select> 
+							</div>
+						</div>
+					</div>
+					
+					
+			<div class="form-group">
+						<div class="form-field">
+							<label class="col-xs-2 control-label">标准导游到达地接送导游姓名</label>
+							<div class="col-xs-4">
+							<select id="ToNameB" class="form-control"  >
+									<option value="">--请选择--</option>
+									<option th:each="user:${listName6}" th:value="${user.id}" th:text="${user.firstName}+${user.lastName}"></option>
+							</select> 
+							</div>
+						</div>
+						<button type="button" class="btn btn-primary" onclick="change4()">更换</button>
+						
+								<div class="form-field">
+							<label class="col-xs-2 control-label">标准导游可选到达地接送导游姓名</label>
+							<div class="col-xs-4">
+							<select id="TochangeNameB" class="form-control">
+									<option value="">--请选择--</option>
+									<option th:each="user:${listName7}" th:value="${user.id}" th:text="${user.firstName}+${user.lastName}"></option>
+							</select> 
+							</div>
+						</div>
+			</div>
+					
+			<p class="text-center">
+				<a  class="btn btn-primary" type="button"  onclick="back()">返回</a>
+			</p>
+					
+					
+				</form>
+				
+		
+			</div>
+		</div>
+		<!-- END PAGE CONTENT-->
+	</div>
+
+	<div layout:fragment="script"></div>
+</body>
+</html>

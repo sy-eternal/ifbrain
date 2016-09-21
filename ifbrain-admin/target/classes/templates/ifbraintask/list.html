@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+	<title>课程信息管理</title>
+	<!-- DataTables -->
+	<link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+ <script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+<script th:src="@{/js/util/http-context.js}"></script>
+ 	<script th:src="@{/js/controller/ifbraintask/ifbraintask-controller.js}"></script>
+</head>
+<body>
+	<div layout:fragment="content" >
+		<div class="page-header">
+			<h1>老师任务列表显示</h1>
+		</div>
+			<a class="btn btn-default" id="addTable" th:href="@{/ifbraintask/create}">新增</a>
+		<table id="table" class="table table-striped table-bordered table-hover">
+		    <thead>
+		        <tr>
+		            <th>课程级别</th>
+		            <th>课程序号</th>
+		            <th>课程章节</th>
+		            <th>财脑任务名称</th>	  
+		            <th>财脑任务描述</th>
+		            <th>操作</th>	            
+		        </tr>
+		    </thead>
+		     <tbody>
+		    	<tr th:each="ifbraintask : ${list}"  th:if="${ifbraintask!=null}">
+		    	    <td ><input type="text" readonly="readonly" class="form-control" th:value="${ifbraintask.courseLevel.courseLevel}"  style="border: 0px;background-color: transparent;"  size="30px"/></td>
+		    		<td><input type="text" readonly="readonly" class="form-control" th:value="${ifbraintask.courseCode.lessonName}"   size="30px" style="border: 0px;background-color: transparent;" /></td>
+		    		<td><input  type="text" readonly="readonly" class="form-control"  style="border: 0px;background-color: transparent;"  size="30px" th:value="${ifbraintask.materialType.materialName}"/></td> 
+		    		<td><input type="text" readonly="readonly" class="form-control" th:value="${ifbraintask.ifbrainTaskName}"  style="border: 0px;background-color: transparent;"  size="30px"/></td>
+		    		<td><input type="text" readonly="readonly" class="form-control" th:value="${ifbraintask.description}"   size="30px" style="border: 0px;background-color: transparent;" /></td>
+		    		<td><a  th:href="@{'/ifbraintask/deletetask?id='+${ifbraintask.id}}">删除</a></td> 
+		    	</tr>
+		    </tbody>
+		</table>
+	
+	</div>
+	<div layout:fragment="script">
+		<script>
+			$(function() {
+				Metronic.init();
+				Layout.init(); 
+				QuickSidebar.init(); 
+				Demo.init(); 
+				IfbrainTaskController.init();
+			});
+		</script>
+	</div>
+</body>
+
+</html>

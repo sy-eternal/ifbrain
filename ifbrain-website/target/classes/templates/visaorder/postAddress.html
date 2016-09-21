@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>签证护照邮寄地址</title>
+<!-- DataTables -->
+<!-- DataTables -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script
+	th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+<script th:src="@{/js/controller/visaOrder-controller.js}"></script>
+</head>
+<body>
+	<!--<div layout:fragment="content" class="container"> -->
+	<div layout:fragment="content"class="col-md-9 col-sm-12 col-xs-12" >
+		<!-- <div class="page-header"> -->
+			<h3>签证护照邮寄地址</h3>
+		
+		<form  class="form-horizontal" id="doCreate" role="form" method="post" th:action="@{/visaOrder/update}" th:object="${visaOrder}">
+		<input type="hidden" id="visaOrderId" name="visaOrderId" th:value="${visaOrderId}"/>
+				<div class="form-group">
+				<label for="receiverName" class="col-xs-3 control-label">收件人</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control"  id="receiverName" name="receiverName"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="postAddress" class="col-xs-3 control-label">收件地址</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control"  id="postAddress" name="postAddress" th:value="请填写详细地址"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="teleNumber" class="col-xs-3 control-label">收件人电话</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control"  id="teleNumber" name="teleNumber"/>
+				</div>
+			</div>
+			<div class="text-center">
+				<button type="submit" class="btn btn-primary" >提交</button>
+				<button type="reset" class="btn btn-primary" >取消</button>
+			</div>
+		</form>
+	</div>
+	<div layout:fragment="script">
+		<script>
+			$(function() {
+				Metronic.init(); // init metronic core components
+				Layout.init(); // init current layout
+				QuickSidebar.init(); // init quick sidebar
+				Demo.init(); // init demo features
+			});
+		</script>
+	</div>
+
+</body>
+</html>

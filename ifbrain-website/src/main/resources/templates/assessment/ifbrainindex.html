@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-cn"  xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<meta charset="UTF-8"></meta>
+<title>财脑指数</title>
+
+ <link rel="shortcut icon" href="../../img/showhtml.ico" /> 
+<!-- 新的代码 -->
+<link rel="stylesheet" type="text/css" th:href="@{/css/selectstyle/style.css}" media="screen"  />
+<link th:href="@{/assets/global/css/plugins.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/frontend/layout/css/style-responsive.css}" rel="stylesheet" />
+
+<link th:href="@{/assets/global/css/components-rounded.css}" id="style_components" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" th:href="@{/css/swiper.min.css}" />
+<!-- 视频部分 -->
+<script type="text/javascript" th:src="@{/scripts/video/video.js}"></script>
+<script type="text/javascript"	th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+<!-- 圆点样式 -->
+<link  href="../../scripts/video/video-js.css" rel="stylesheet" type="text/css"/>
+	<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script> 
+ 	<script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+<!-- end -->
+<script th:src="@{/assets/global/scripts/esl.js}"></script>
+<script th:src="@{/assets/global/scripts/echarts.js}"></script>
+ <script th:src="@{/js/controller/ifbrainindex-controller.js}"></script>
+<script th:src="@{/js/controller/ifbrainindexass-controller.js}"></script>
+ <script type="text/javascript" th:src="@{/js/controller/pagecontroller/ifbrainindex.js}"></script>
+
+<style type="text/css">
+
+ #formcontroller { 
+  
+  background-color:white;
+    opacity: 1;
+}
+
+#pinggu
+{
+color:#0151a6;
+}
+</style>
+<style>
+#indicatorContainerWrap,#indicatorContainer{
+    display:inline-block;
+    position:relative;
+}
+#indicatorContainerWrap1,#indicatorContainer1{
+    display:inline-block;
+    position:relative;
+}
+
+.mypanelBorder{
+	border: 2px solid #0151a6  ;
+}
+
+.shipinshowbutton1{
+background-color: #ffd464;
+}
+</style>
+
+
+<script type="text/javascript">
+
+</script>
+
+
+</head>
+
+<body style="background-color:#ffd464; text-align:Center; " >
+<div class="v-jr-slide-wrap">
+        
+  <div th:replace="partial/header-new" class="header" style="width: auto;"></div>
+        <div class="v-jr-slide-box v-jr-clear" id="js-slide-box">		
+<div th:replace="partial/publicdialog" style="width: 20px;height: 20px" ></div>
+<!-- 根据此id来判断选中第几个宝宝头像-->
+		<input type="hidden" id="coursevalue" th:value="${courseid}"/>
+		<input type="hidden"  id="flagaa" th:value="${flagvalue}" />
+		<input type="hidden" id="ordinalNumberclick" th:value="${ordinalNumber}"/>
+		<input type="hidden" id="listfindbyclassid" th:value="${listfindbyclassid}"/>
+    <!-- 获取登录用户的孩子-->
+	<div class="container" style="max-width: 710px; padding: 0px;">
+	 <input type="hidden" th:value="${session.childids}"  id="childids"/>	
+		<form class="form-horizontal" role="form" method="post" id="mainForm">
+			<input type="hidden" id="ids" class="ids" name="ids" /> 
+			<div class="portlet-body mypanel"
+				style="background-color:#f4f5f2; height: 76px; text-align: center; display: block; margin-top: 0px; margin-left: 0px;border: 1px solid transparent; max-width: 710px; top: 0px;">
+				<div class="swiper-container col-md-12 col-xs-12 col-sm-12"  style="height: 76px;;margin-left: 0px;margin-top: 0px;padding: 0px"  id="swiper-container">
+				<div class="swiper-wrapper" style="padding: 0px;margin-top: 4px">
+				<div class="swiper-slide" th:each="child:${childs}" style="width: 25%;height: 30px;">	
+					
+					<input type="hidden" th:value="${child.id}" th:id="${child.id}"
+						name="childs" class="childss" />
+						<img th:if="${child.image==null  or child.image=='' or child.image.id==0}" alt="tp"  src="../../img/chird.png" style="border-radius: 50% !important;" width="46px" height="46px;"	id="childI" />
+					    <img alt="tp"  th:if="${child.image!=null}"		th:src="@{'/image/show/' + ${child.image.id}}"	style="border-radius: 50% !important;" width="46px" height="46px;"		id="childI" />
+					<div th:text="${child.name}"	style="font-size:14px;"></div>
+				</div>
+				</div>
+				</div>		
+			</div>
+			
+		</form>
+	</div>
+	
+
+		<!-- 底层背景色 -->
+<div class="container" style="max-width: 710px; padding: 0px;background-color:#e2e2e2;padding-bottom: 60px;"> 
+
+		<!-- 财脑指数 -->
+		
+		 		<div  id="cainaozhishu" style="; text-align: center;background-color: #e2e2e2;max-width:710px;height:1110px;;margin-bottom: 200px;margin-top:40px;;padding: 0px 6px 6px;" class="container">
+		 <div   id="ifbrainindexsize1" style="background-color: #e2e2e2">
+			<div class="col-xs-12 col-md-12 col-sm-12 swiper-slide1 " style="padding: 0px;height: 30px;position:relative;top:-30px; " align="left" id="" th:if="${listfindbyclass!=''}">
+			 <div class="shipinshowbutton " style="width:22%;height: 30px;margin-right: 0.5%;float: left;" th:each="listfindbyclass:${listfindbyclass}" th:id="${listfindbyclass.courseId.id}">
+			   <input type="button" class=""  style="height: 30px;border-radius: 10px 10px 0px 0px;padding:0px;;border: none;outline:none;background-color: #ffd464;width:100%;font-size: 6px;font-weight: bold;"  th:value="${listfindbyclass.className}"   th:id="${listfindbyclass.id}"/>
+			 </div>
+			
+			 
+			 </div>
+			  <div   style="max-width: 100%;text-align: left;background-color: white;border-radius:  0px 25px 25px 25px  !important;margin-bottom: 6px;" class="container" >
+			 <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top: 40px;">
+			 	<span style="color: #333333;">课程列表</span>
+			 	<div style="margin-top: 7px;padding-bottom: 15px;">
+			 	    <input type="hidden" th:value="${classId}" name="classId" id="classId" class="classId"/>
+			 		<input type="button" th:if="${ifbrainindex!=null}" style="background-color: #0151a6; color: #ffffff;font-size: 7px;border-radius: 5px !important;border: none;width: 40px;height: 24px;margin-bottom: 5px;margin-right: 5px;" th:each="ifbrainindex:${ifbrainindex}" th:value="${ifbrainindex.ordinalNumber}"  id="ordinalNumberChart" name="ordinalNumberChart" class="ordinalNumberChart"/>
+			 	</div>
+			 </div>  
+		 		</div>
+			<div   style="max-width: 100%; text-align: center;background-color: white;margin-top:5px;border-radius:  20px  !important;padding-top: 10px;" class="container">
+				<div class="col-xs-12 col-md-12 col-sm-12" style="text-align: center;font-size: 18px;font-weight: bold;">财脑指数</div>
+				
+				<div class="col-xs-12 col-md-12 col-sm-12" style="font-size: 14px;color: #333333;text-align: left;">
+				财脑指数
+				</div>
+				<div class="col-xs-12 col-md-12 col-sm-12" style="font-size: 24px;color: #333333"><input type="text" readonly="readonly"  style="width:100%;border: none;font-size: 24px;color: #333333;background-color: transparent;text-align: left;" th:value="${ifbrainindexa.ifbrainIndex}" th:if="${ifbrainindexa!=''}"/></div>
+				<!-- 财脑饼图 -->
+			<input type="hidden" th:value="${ifbrainindexvalue}"  id="ifbrainindexvalue"/>
+				<input type="hidden" th:value="${ifbrainindexname}"  id="ifbrainindexname"/>
+				<div style="height: 400px;margin-bottom: 30px;width: 100%" class="col-md-12 col-xs-12 col-sm-12" id="ifbrainindexcon" ></div>
+			
+				<!-- 课后评论 -->
+				<div class="col-xs-12 col-md-12 col-sm-12" style="margin-bottom: 30px;" th:if="${commentlist!=''}">
+					<div class="col-xs-12 col-md-12 col-sm-12" style="font-size: 16px ;font-weight: bold;color: #333333;text-align: left;margin-bottom: 10px">
+						课后评论
+					</div>
+					<!-- 老师 -->
+					<div class="col-xs-12 col-md-12 col-sm-12"  style="padding: 0px" th:each="commentlist:${commentlist}">
+					<div class="col-xs-12 col-md-12 col-sm-12"  style="padding: 0px" th:if="${commentlist.type=='0'}">
+					<div class="col-xs-12 col-md-12 col-sm-12"  style="padding: 0px" th:if="${commentlist.usrtype=='1'}">
+						<div class="col-xs-12 col-md-12 col-sm-12" style="margin-bottom: 10px;" >
+							<div class="col-xs-2 col-md-2 col-sm-2" style="background-color: #0151a6;border-radius: 50% !important;height: 30px;width: 30px;">
+								
+							</div>
+							<div class="col-xs-5 col-md-5  col-sm-5 " style="font-size: 16px;font-weight: bold;color: #333333;text-align: left;line-height: 30px;" th:text="${commentlist.member.firstName+commentlist.member.lastName}">
+							
+							</div>
+							<div class="col-xs-5 col-md-5  col-sm-5 " style="font-size: 10px;color:#6e6e6e;text-align: right;line-height: 30px;" th:text="${#dates.format(commentlist.createTime,'yyyy/MM/dd HH:mm:ss')}">
+								
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-12 col-sm-12" >
+							<div class="col-xs-2 col-md-2 col-sm-2" style="height: 30px;width: 30px;">
+								
+							</div>
+							<div class="col-xs-10 col-md-10  col-sm-10 " style="font-size: 14px;color: #333333;text-align: left;line-height: 20px;" th:text="${commentlist.content}">
+							
+							</div>
+						</div>
+					</div>
+					
+					<!-- 学生 -->
+					<div class="col-xs-12 col-md-12 col-sm-12"  style="padding: 0px" th:if="${commentlist.usrtype=='0'}" >
+						<div class="col-xs-12 col-md-12 col-sm-12"  style="margin-bottom: 10px;" >
+							<div class="col-xs-2 col-md-2 col-sm-2" style="background-color: #ffd646;border-radius: 50% !important;height: 30px;width: 30px;">
+								
+							</div>
+							<div class="col-xs-5 col-md-5  col-sm-5 " style="font-size: 16px;font-weight: bold;color: #333333;text-align: left;line-height: 30px;" th:text="${commentlist.user.firstName+commentlist.user.lastName}">
+						
+							</div>
+							<div class="col-xs-5 col-md-5  col-sm-5 " style="font-size: 10px;color:#6e6e6e;text-align: right;line-height: 30px;" th:text="${#dates.format(commentlist.createTime,'yyyy/MM/dd HH:mm:ss')}">
+								
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-12 col-sm-12" >
+							<div class="col-xs-2 col-md-2 col-sm-2" style="height: 30px;width: 30px;">
+								
+							</div>
+							<div class="col-xs-10 col-md-10  col-sm-10 " style="font-size: 14px;color: #333333;text-align: left;line-height: 20px;" th:text="${commentlist.content}">
+							
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-12 col-sm-12" style="text-align: right;">
+						<div  class="col-xs-11 col-md-11 col-sm-11" >
+							<a  style="color: #0151a6" th:id="${commentlist.id}"  class="deletecommentlist">删除</a>
+						</div>
+						
+						
+						
+						</div>
+					</div>
+					</div>
+					</div>
+					<!-- 评论 -->
+					<div class="col-xs-12 col-md-12 col-sm-12"  style="margin-top: 20px;">
+						<textarea rows="5" class="col-xs-12 col-md-12 col-sm-12 form-control"  placeholder="写评论..."
+							onfocus="if (placeholder =='写评论...'){placeholder =''}"
+							onblur="if (placeholder ==''){placeholder ='写评论...'}"  id="ifbrainindexconcomment"></textarea>
+							
+							
+					</div>
+					<div class="col-xs-12 col-md-12 col-sm-12" style="margin-top: 10px;" align="right">
+					   <input type="button"  style="background-color: #0151a6;color: white;font-size: 14px;border: none;width: 20%;text-align: center;" class="form-control ifbrainindexconcilck" value="评论" />
+					</div>
+						
+					
+				</div>
+			</div>
+		<!-- 课堂训练得分 -->
+		<div   style="max-width: 100%; text-align: center;background-color: white;margin-top:5px;border-radius:  20px  !important;padding-top: 10px;margin-top: 20px;" class="container">
+			<div class="col-xs-12 col-md-12 col-sm-12" style="font-size: 14px;color: #333333;">课堂训练得分</div>
+			<!-- 得分柱状图 -->
+			<input type="hidden"  id="varName"  name="varName"  th:value="${name}"/>
+		     <input type="hidden"  id="varValue"  name="varValue"  th:value="${value}"/> 
+		     <div class="col-xs-12 col-md-12 col-sm-12" style="font-size: 8px;">
+				<input type="text"  style="border:none" class="col-xs-5 col-md-5 col-sm-5" readonly="readonly" th:value="第+${ifbrainindexa.ordinalNumber}+节课"   th:if="${ifbrainindexa!=''}" />
+				<input type="text"  style="border:none;" class="col-xs-7 col-md-7 col-sm-7"  readonly="readonly" th:value="${ifbrainindexa.lessonName}"  th:if="${ifbrainindexa!=''}"/>
+				</div>
+				
+			<div style="height: 400px;width: 100%" class="col-md-12 col-xs-12 col-sm-12"  id="classscore">
+			  
+			</div>
+			<div class="col-md-12 col-xs-12 col-sm-12" style="margin-top: 20px;">
+				<span style="font-size: 12px;">当前财脑课程得分=知识+应用&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" th:value="${classifbrainindex}" style="border: none;font-size: 16px;font-weight: bold;" readonly="readonly" /></span>
+			</div>
+			<div class="col-md-12 col-xs-12 col-sm-12" style="height: 10px;"></div>
+			<div class="col-md-12 col-xs-12 col-sm-12">
+			<div class="col-md-12 col-xs-12 col-sm-12" th:if="${courseCode!=null}" th:text="${courseCode.courseDescription}" style="text-align: left;">
+				
+			</div>
+			</div>
+			<div class="col-md-12 col-xs-12 col-sm-12" style="height: 20px;"></div>
+			
+			
+			<!-- 课后评论 -->
+					<!-- 课后评论 -->
+				<div class="col-xs-12 col-md-12 col-sm-12" style="margin-bottom: 30px;" th:if="${commentlist!=''}">
+					<div class="col-xs-12 col-md-12 col-sm-12" style="font-size: 16px ;font-weight: bold;color: #333333;text-align: left;margin-bottom: 10px">
+						课后评论
+					</div>
+					<!-- 老师 -->
+					<div class="col-xs-12 col-md-12 col-sm-12"  style="padding: 0px" th:each="commentlist:${commentlist}">
+					<div class="col-xs-12 col-md-12 col-sm-12"  style="padding: 0px" th:if="${commentlist.type=='1'}">
+					<div class="col-xs-12 col-md-12 col-sm-12"  style="padding: 0px" th:if="${commentlist.usrtype=='1'}">
+						<div class="col-xs-12 col-md-12 col-sm-12" style="margin-bottom: 10px;" >
+							<div class="col-xs-2 col-md-2 col-sm-2" style="background-color: #0151a6;border-radius: 50% !important;height: 30px;width: 30px;">
+								
+							</div>
+							<div class="col-xs-10 col-md-10  col-sm-10 " style="font-size: 16px;font-weight: bold;color: #333333;text-align: left;line-height: 30px;" th:text="${commentlist.member.firstName+commentlist.member.lastName}">
+							
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-12 col-sm-12" >
+							<div class="col-xs-2 col-md-2 col-sm-2" style="height: 30px;width: 30px;">
+								
+							</div>
+							<div class="col-xs-5 col-md-5  col-sm-5 " style="font-size: 14px;color: #333333;text-align: left;line-height: 20px;" th:text="${commentlist.content}">
+							
+							</div>
+							<div class="col-xs-5 col-md-5  col-sm-5 " style="font-size: 10px;color:#6e6e6e;text-align: right;line-height: 30px;" th:text="${#dates.format(commentlist.createTime,'yyyy/MM/dd HH:mm:ss')}">
+								
+							</div>
+						</div>
+					</div>
+					
+					<!-- 学生 -->
+					<div class="col-xs-12 col-md-12 col-sm-12"  style="padding: 0px" th:if="${commentlist.usrtype=='0'}">
+						<div class="col-xs-12 col-md-12 col-sm-12"  style="margin-bottom: 10px;" >
+							<div class="col-xs-2 col-md-2 col-sm-2" style="background-color: #ffd646;border-radius: 50% !important;height: 30px;width: 30px;">
+								
+							</div>
+							<div class="col-xs-5 col-md-5  col-sm-5 " style="font-size: 16px;font-weight: bold;color: #333333;text-align: left;line-height: 30px;" th:text="${commentlist.user.firstName+commentlist.user.lastName}">
+						
+							</div>
+							<div class="col-xs-5 col-md-5  col-sm-5 " style="font-size: 10px;color:#6e6e6e;text-align: right; line-height: 30px;;" th:text="${#dates.format(commentlist.createTime,'yyyy/MM/dd HH:mm:ss')}">
+								
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-12 col-sm-12" >
+							<div class="col-xs-2 col-md-2 col-sm-2" style="height: 30px;width: 30px;">
+								
+							</div>
+							<div class="col-xs-10 col-md-10  col-sm-10 " style="font-size: 14px;color: #333333;text-align: left;line-height: 20px;" th:text="${commentlist.content}">
+							
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-12 col-sm-12" style="text-align: right;">
+						<div  class="col-xs-11 col-md-11 col-sm-11" ><a  style="color: #0151a6" th:id="${commentlist.id}"  class="deletecommentlist">删除</a></div>
+						
+						
+						
+						</div>
+					</div>
+					</div>
+					</div>
+					<!-- 评论 -->
+					<div class="col-xs-12 col-md-12 col-sm-12" >
+						<textarea rows="5" class="col-xs-12 col-md-12 col-sm-12 form-control"  placeholder="写评论..."
+							onfocus="if (placeholder =='写评论...'){placeholder =''}"
+							onblur="if (placeholder ==''){placeholder ='写评论...'}"  id="classscoreccontent"></textarea>
+							
+							
+					</div>
+					<div class="col-xs-12 col-md-12 col-sm-12" style="margin-top: 10px;" align="right">
+					<input type="button"  style="background-color: #0151a6;color: white;font-size: 14px;border: none;width: 20%;text-align: center;" class="form-control classscoreclick" value="评论"/>
+					</div>
+						
+					
+				</div>
+		</div>
+		<div   style="max-width: 100%; text-align: center;background-color: white;margin-bottom:50px;;margin-top:5px;border-radius:  20px  !important;padding-top: 10px;height: 60px" class="container">
+		
+			<div class="col-md-6 col-xs-6 col-sm-6">
+				<div class="col-md-12 col-xs-12 col-sm-12" style="font-size: 12px;">课后训练得分</div>
+				<div class="col-md-12 col-xs-12 col-sm-12" style="font-size: 8px;">下节课评估后计分</div>
+			</div>
+			<div class="col-md-6 col-xs-6 col-sm-6">
+			<div class="col-md-12 col-xs-12 col-sm-12" style="line-height: 40px;"><input type="text" style="border: none;font-size: 8px;" readonly="readonly" th:value="${AfterclassIncome}"/></div>
+		</div>
+		</div>
+		</div>
+		</div>
+		<!-- 财脑指数end -->
+         <div th:replace="partial/tokennavibar" class="header" style="width: auto;"></div> 
+</div></div>
+
+</div>
+    <script src="../../js/project/swiper.min.js" type="text/javascript"></script>
+												<!-- Initialize Swiper -->
+												<script>
+													var swiper = new Swiper('#swiper-container',
+															{
+																pagination :'.swiper-pagination',
+																slidesPerView : 5,
+																paginationClickable : true,
+																spaceBetween :4,
+																freeMode : true,
+																grabCursor:true,
+																mousewheelControl : true
+															});
+							</script>
+
+ <script src="../../js/percent/radialIndicator.js"
+		type="text/javascript"></script>
+		
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<meta charset="utf-8" />
+<title>个人信息</title>
+
+<!-- 多选框 -->
+<link rel="stylesheet" type="text/css" th:href="@{/test/select2-bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/test/select2.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/test/uniform.default.css}" />
+<link th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/css/components.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/admin/layout/css/plugins.min.css}" rel="stylesheet" type="text/css"/>
+
+
+<script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap/js/bootstrap.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/image-picker/image-picker/analytics.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/image-picker/image-picker/js.cookie.min.js}"	type="text/javascript"></script>
+<script	th:src="@{/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.blockui.min.js}"	type="text/javascript"></script>
+<script	th:src="@{/scripts/jquery.uniform.min.js}"	type="text/javascript"></script>
+<script	th:src="@{/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js}"	type="text/javascript"></script>
+<script th:src="@{/test/select2.full.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/image-picker/image-picker/app.min.js}"	type="text/javascript"></script>
+<script	th:src="@{/test/components-select2.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/image-picker/image-picker/layout.min.js}" type="text/javascript"></script>	
+<script	th:src="@{/assets/global/plugins/image-picker/image-picker/demo.min.js}"></script>
+<script	th:src="@{/assets/global/plugins/image-picker/image-picker/quick-sidebar.min.js}"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-37564768-1', 'keenthemes.com');
+  ga('send', 'pageview');
+</script>
+
+<!-- 商品展示 -->
+<link rel="stylesheet" type="text/css" th:href="@{/test/css/MagicZoom.css}" />
+
+
+<link rel="stylesheet" type="text/css" th:href="@{/test/css/ShopShow.css}" />
+
+<script	th:src="@{/test/js/MagicZoom.js}"></script>
+
+     
+</head>
+<body style="background-color: #ffd464">
+
+<div class="col-md-12">
+                                          
+                                            <select id="select2-multiple-input-lg" class="form-control input-lg select2-multiple select2-hidden-accessible" multiple="" tabindex="-1" aria-hidden="true">
+                                                <optgroup label="Alaskan">
+                                                    <option value="AK">Alaska</option>
+                                                    <option value="HI" disabled="disabled">Hawaii</option>
+                                                </optgroup>
+                                                <optgroup label="Pacific Time Zone">
+                                                    <option value="CA">California</option>
+                                                    <option value="NV">Nevada</option>
+                                                    <option value="OR">Oregon</option>
+                                                    <option value="WA">Washington</option>
+                                                </optgroup>
+                                                <optgroup label="Mountain Time Zone">
+                                                    <option value="AZ">Arizona</option>
+                                                    <option value="CO">Colorado</option>
+                                                    <option value="ID">Idaho</option>
+                                                    <option value="MT">Montana</option>
+                                                    <option value="NE">Nebraska</option>
+                                                    <option value="NM">New Mexico</option>
+                                                    <option value="ND">North Dakota</option>
+                                                    <option value="UT">Utah</option>
+                                                    <option value="WY">Wyoming</option>
+                                                </optgroup>
+                                                <optgroup label="Central Time Zone">
+                                                    <option value="AL">Alabama</option>
+                                                    <option value="AR">Arkansas</option>
+                                                    <option value="IL">Illinois</option>
+                                                    <option value="IA">Iowa</option>
+                                                    <option value="KS">Kansas</option>
+                                                    <option value="KY">Kentucky</option>
+                                                    <option value="LA">Louisiana</option>
+                                                    <option value="MN">Minnesota</option>
+                                                    <option value="MS">Mississippi</option>
+                                                    <option value="MO">Missouri</option>
+                                                    <option value="OK">Oklahoma</option>
+                                                    <option value="SD">South Dakota</option>
+                                                    <option value="TX">Texas</option>
+                                                    <option value="TN">Tennessee</option>
+                                                    <option value="WI">Wisconsin</option>
+                                                </optgroup>
+                                                <optgroup label="Eastern Time Zone">
+                                                    <option value="CT">Connecticut</option>
+                                                    <option value="DE">Delaware</option>
+                                                    <option value="FL">Florida</option>
+                                                    <option value="GA">Georgia</option>
+                                                    <option value="IN">Indiana</option>
+                                                    <option value="ME">Maine</option>
+                                                    <option value="MD">Maryland</option>
+                                                    <option value="MA">Massachusetts</option>
+                                                    <option value="MI">Michigan</option>
+                                                    <option value="NH">New Hampshire</option>
+                                                    <option value="NJ">New Jersey</option>
+                                                    <option value="NY">New York</option>
+                                                    <option value="NC">North Carolina</option>
+                                                    <option value="OH">Ohio</option>
+                                                    <option value="PA">Pennsylvania</option>
+                                                    <option value="RI">Rhode Island</option>
+                                                    <option value="SC">South Carolina</option>
+                                                    <option value="VT">Vermont</option>
+                                                    <option value="VA">Virginia</option>
+                                                    <option value="WV">West Virginia</option>
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                        
+                                        
+ <div id="tsShopContainer">
+	<div id="tsImgS"><a href="../../test/images/01.jpg" title="Images" class="MagicZoom" id="MagicZoom"><img width="300" height="300" src="../../test/images/01.jpg" /></a></div>
+	<div id="tsPicContainer">
+	<!-- 	<div id="tsImgSArrL" onclick="tsScrollArrLeft()"></div> -->
+		<div id="tsImgSCon" style = "overflow-x:auto;
+overflow-y:hidden;">
+			<ul>
+				<li onclick="showPic(0)" rel="MagicZoom" class="tsSelectImg"><img height="42" width="42" src="../../test/images/01.jpg" tsImgS="../../test/images/01.jpg" /></li>
+				<li onclick="showPic(1)" rel="MagicZoom"><img height="42" width="42" src="../../test/images/02.jpg" tsImgS="../../test/images/02.jpg" /></li>
+				<li onclick="showPic(2)" rel="MagicZoom"><img height="42" width="42" src="../../test/images/03.jpg" tsImgS="../../test/images/03.jpg" /></li>
+				<li onclick="showPic(3)" rel="MagicZoom"><img height="42" width="42" src="../../test/images/04.jpg" tsImgS="../../test/images/04.jpg" /></li>
+				<li onclick="showPic(4)" rel="MagicZoom"><img height="42" width="42" src="../../test/images/05.jpg" tsImgS="../../test/images/05.jpg" /></li>
+				<li onclick="showPic(5)" rel="MagicZoom"><img height="42" width="42" src="../../test/images/06.jpg" tsImgS="../../test/images/06.jpg" /></li>
+				<li onclick="showPic(6)" rel="MagicZoom"><img height="42" width="42" src="../../test/images/07.jpg" tsImgS="../../test/images/07.jpg" /></li>
+				<li onclick="showPic(7)" rel="MagicZoom"><img height="42" width="42" src="../../test/images/08.jpg" tsImgS="../../test/images/08.jpg" /></li>
+				<li onclick="showPic(8)" rel="MagicZoom"><img height="42" width="42" src="../../test/images/09.jpg" tsImgS="../../test/images/09.jpg" /></li>
+				<li onclick="showPic(9)" rel="MagicZoom"><img height="42" width="42" src="../../test/images/10.gif" tsImgS="../../test/images/10.gif" /></li>
+				<li onclick="showPic(10)" rel="MagicZoom"><img height="42" width="42" src="../../test/images/11.gif" tsImgS="../../test/images/11.gif" /></li>
+			</ul>
+		</div>
+		<!-- <div id="tsImgSArrR" onclick="tsScrollArrRight()"></div> -->
+	</div>
+	<!-- <img class="MagicZoomLoading" width="16" height="16" src="../../test/images/loading.gif" alt="Loading..." /> -->
+</div>
+
+<script	th:src="@{/test/js/ShopShow.js}"></script>
+</body>
+</html>

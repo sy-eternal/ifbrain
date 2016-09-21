@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>酒店活动修改</title>
+<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!--  新增标签 -->
+<script type="text/javascript">
+	function add() {
+		var add = document.getElementById('add');
+		var br = document.createElement('br');
+		var fileInput = document.createElement('input');
+		fileInput.type = 'text';
+		fileInput.name = 'tag';
+		fileInput.id = 'tag';
+		fileInput.setAttribute("class","col-md-7");
+		var buttonInput = document.createElement('input');
+		buttonInput.type = 'button';
+		buttonInput.value = '移除标签';
+		buttonInput.setAttribute("class","btn btn-default");
+		
+		buttonInput.onclick = function() {
+			add.removeChild(fileInput);
+			add.removeChild(buttonInput);
+			add.removeChild(br);
+		}
+		add.appendChild(fileInput);
+		add.appendChild(buttonInput);
+		add.appendChild(br);
+	}
+</script>
+
+
+<script type="text/javascript">
+	$(function() {
+		jQuery.validator.setDefaults({
+			debug : true,
+			success : "valid"
+		});
+
+		$("#mainForm").validate({
+			rules : {
+				"hotelClass" : {
+					required : true,
+				}
+			},
+			messages : {
+				"hotelClass" : {
+					required : "星级不能为空"
+				}
+			},
+
+			highlight : function(element) {
+				$(element).closest(".form-group").addClass("has-error");
+			},
+			success : function(label) {
+				label.closest(".form-group").removeClass("has-error");
+				label.closest(".form-group").addClass("has-success");
+			},
+			errorPlacement : function(error, element) {
+				element.parent("div").append(error);
+			},
+			submitHandler : function(form) {
+				form.submit();
+			}
+		});
+	});
+</script>
+
+</head>
+
+<body>
+	<div layout:fragment="content" class="container-fluid">
+		<div class="row">
+			<div class="page-header">
+				<h1>酒店活动修改</h1>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+				<form class="form-horizontal" role="form" method="post" th:action="@{/hotelActivity/update}" id="mainForm"
+						enctype="multipart/form-data" th:object="${hotelActivity}">
+				<input type="hidden" th:field="*{id}" name="id" id="id" />
+					<!-- 供应商名称 -->
+						<div class="form-group">
+							<label for="supplier" class="col-xs-3 control-label">供应商名称</label>
+							<div class="col-xs-6">
+								<select class="form-control" th:field="*{supplier}" name="supplier" id="supplier">
+									<option th:each="supplier : ${supplier}" th:value="${supplier.id}" th:text="${supplier.cnName}" id="supplier"></option>
+								</select> <span class="text-danger" th:if="${#fields.hasErrors('supplier')}" th:errors="*{supplier}"></span>
+							</div>
+						</div>
+						
+						<!-- 美国城市 -->
+						<div class="form-group">
+							<label for="city" class="col-xs-3 control-label">所在城市</label>
+							<div class="col-xs-6">
+								<select class="form-control" th:field="*{city}" name="city">
+									<option th:each="city : ${city}" th:value="${city.id}" th:text="${city.cityName}" id="city"></option>
+								</select> <span class="text-danger" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="hotelChName" class="col-xs-3 control-label">酒店中文名称<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{hotelChName}" required="required" />
+								 <span class="text-danger" th:if="${#fields.hasErrors('hotelChName')}" th:errors="*{hotelChName}"></span>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="hotelEngName" class="col-xs-3 control-label">酒店英文名称<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{hotelEngName}" required="required" />
+								 <span class="text-danger" th:if="${#fields.hasErrors('hotelEngName')}" th:errors="*{hotelEngName}"></span>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="hotelClass" class="col-xs-3 control-label">星级<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+							
+							<select class="form-control" th:field="*{hotelClass}" required="required">
+									<option th:value="6">无星级</option>
+									<option th:value="1">一星级</option>
+									<option th:value="2">二星级</option>
+									<option th:value="3">三星级</option>
+									<option th:value="4">四星级</option>
+									<option th:value="5">五星级</option>
+								</select>
+								 <span class="text-danger" th:if="${#fields.hasErrors('hotelClass')}" th:errors="*{hotelClass}"></span>
+							</div>
+						</div>
+						
+						
+						<div class="form-group">
+							<label for="address" class="col-xs-3 control-label">地址</label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{address}" />
+								 <span class="text-danger" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span>
+							</div>
+						</div>
+						<input type="hidden" name="tag" id="tag" />
+						
+						<div class="form-group" th:each="hotelTags:${hotelTags}">
+						<label class="col-xs-3 control-label">标签</label>
+							
+								<div  class="col-xs-6"  th:each="hotelTags:${hotelTags}">
+									<input type="text" th:each="hotelTags:${hotelTags}" th:value="${hotelTags.tag}" class="form-control" name="tag" id="tag"/>
+								</div>
+						
+						</div>
+						<div class="form-group">
+							<div id="add" style="margin-left: 290px;"></div>
+							<p align="center">
+							<button type="button" class="btn btn-primary" onclick="add();" value="addmore">添加标签</button>
+							</p>
+						</div>
+						
+						
+						
+						<!--  -->
+						
+						<div class="form-group">
+							<label for="description" class="col-xs-3 control-label">酒店介绍</label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{description}" />
+								 <span class="text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label class="col-xs-3 control-label">上传图片</label>
+							<div class="col-xs-6">
+								<input type="file" name="file" th:value="浏览" />
+								<p class="text-danger" th:text="${errorMessage}"></p>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="freeCancellation" class="col-xs-3 control-label">是否能取消预订<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+							
+							<select class="form-control" th:field="*{freeCancellation}">
+									<option value="1">是</option>
+									<option value="0">否</option>
+								</select>
+								 <span class="text-danger" th:if="${#fields.hasErrors('freeCancellation')}" th:errors="*{freeCancellation}"></span>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="freeBreakfastType" class="col-xs-3 control-label">免费早餐<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+							
+							<select class="form-control" th:field="*{freeBreakfastType}">
+									<option value="1">是</option>
+									<option value="0">否</option>
+								</select>
+								 <span class="text-danger" th:if="${#fields.hasErrors('freeBreakfastType')}" th:errors="*{freeBreakfastType}"></span>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="freeInternetType" class="col-xs-3 control-label">免费网络<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+							
+							<select class="form-control" th:field="*{freeInternetType}">
+									<option value="1">是</option>
+									<option value="0">否</option>
+								</select>
+								 <span class="text-danger" th:if="${#fields.hasErrors('freeInternetType')}" th:errors="*{freeInternetType}"></span>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="freeParkingType" class="col-xs-3 control-label">免费停车<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+							<select class="form-control" th:field="*{freeParkingType}">
+									<option value="1">是</option>
+									<option value="0">否</option>
+								</select>
+								 <span class="text-danger" th:if="${#fields.hasErrors('freeParkingType')}" th:errors="*{freeParkingType}"></span>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="airportShuttleType" class="col-xs-3 control-label">机场班车<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+							
+							<select class="form-control" th:field="*{airportShuttleType}">
+									<option value="1">是</option>
+									<option value="0">否</option>
+								</select>
+								 <span class="text-danger" th:if="${#fields.hasErrors('airportShuttleType')}" th:errors="*{airportShuttleType}"></span>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="fitnessCenterType" class="col-xs-3 control-label">健身中心<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+							
+							<select class="form-control" th:field="*{fitnessCenterType}">
+									<option value="1">是</option>
+									<option value="0">否</option>
+								</select>
+								 <span class="text-danger" th:if="${#fields.hasErrors('fitnessCenterType')}" th:errors="*{fitnessCenterType}"></span>
+							</div>
+						</div>
+						
+						<p class="text-center">
+							<button type="submit" class="btn btn-primary">提交</button>
+							<a type="button" th:href="@{/hotelActivity}" class="btn btn-default">返回</a>
+						</p>
+				
+				
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

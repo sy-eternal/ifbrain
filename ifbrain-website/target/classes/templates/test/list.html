@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<meta charset="utf-8" />
+<title>个人信息</title>
+<link  rel="stylesheet" type="text/css" th:href="@{/css/swiper.min.css}" />
+<style>
+.swiper-container {
+        width: 100%;
+        height: 300px;
+        margin: 20px auto;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+</style>
+
+
+</head>
+<body style="background-color: #ffd464">
+     
+		 <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="width:100px;height: 20px">Slide 1</div>
+            <div class="swiper-slide" style="width:100px;height: 20px">Slide 2</div>
+            <div class="swiper-slide" style="width:100px;height: 20px">Slide 3</div>
+            <div class="swiper-slide" style="width:100px;height: 20px">Slide 4</div>
+            <div class="swiper-slide" style="width:100px;height: 20px">Slide 5</div>
+            <div class="swiper-slide" style="width:100px;height: 20px">Slide 6</div>
+            <div class="swiper-slide" style="width:100px;height: 20px">Slide 7</div>
+            <div class="swiper-slide" style="width:100px;height: 20px">Slide 8</div>
+            <div class="swiper-slide" style="width:100px;height: 20px">Slide 9</div>
+            <div class="swiper-slide" style="width:100px;height: 20px">Slide 10</div>
+            <div class="swiper-slide" style="width:100px;height: 20px">Slide 11</div>
+            <div class="swiper-slide" style="width:100px;height: 20px">Slide 12</div>
+            <div class="swiper-slide" style="width:100px;height: 20px">Slide 13</div>
+            <div class="swiper-slide" style="width:100px;height: 20px">Slide 14</div>
+            <div class="swiper-slide" style="width:100px;height: 20px">Slide 15</div>
+            <div class="swiper-slide" style="width:100px;height: 20px">Slide 16</div>
+            <div class="swiper-slide" style="width:100px;height: 20px">Slide 17</div>
+            <div class="swiper-slide" style="width:100px;height: 20px">Slide 18</div>
+            <div class="swiper-slide" style="width:100px;height: 20px">Slide 19</div>
+            <div class="swiper-slide" style="width:100px;height: 20px">Slide 20</div>
+        </div>
+        <!-- Add Pagination -->
+        <!-- <div class="swiper-pagination"></div> -->
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="/js/project/swiper.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        slidesPerView: 'auto',
+        paginationClickable: true,
+        spaceBetween: 30,
+        freeMode: true
+    });
+    </script>
+</body>
+</html>

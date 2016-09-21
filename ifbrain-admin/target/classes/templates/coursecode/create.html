@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+	<title>新增课程</title>
+	<!-- DataTables -->
+<!-- 使用jQuery Validation控件进行前端验证 -->
+	<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+	<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+	<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+	<script>
+		$(function() {
+			$("#mainForm").validate({
+				highlight : function(element) {
+					$(element).closest(".form-group").addClass("has-error");
+				},
+				success : function(label) {
+					label.closest(".form-group").removeClass("has-error");
+					label.closest(".form-group").addClass("has-success");
+				},
+				errorPlacement : function(error, element) {
+					element.parent("div").append(error);
+				},
+				submitHandler : function(form) {
+					form.submit();
+				}
+			});
+		});
+	</script>
+	 <script type="text/javascript">
+	  function checktrue(){
+			var courseLevel =$("#courseLevel").val();
+			var courseDescription =$("#courseDescription").val();
+			var ordinalNumber=$("#ordinalNumber").val();
+			var lessonName =$("#lessonName").val();
+			var classTime =$("#classTime").val();
+			 if(ordinalNumber==""){
+				$('#spValueordinalNumber').css('display','block');
+				$('.form-group1').addClass('has-error');
+			} else if(lessonName==""){
+				$('#spValuelessonName').css('display','block');
+				$('.form-group2').addClass('has-error');
+				
+			} else if(courseDescription==""){
+				$('#spValuecourseDescription').css('display','block');
+				$('.form-group3').addClass('has-error');
+			}else if(classTime==""){
+				$('#spValueclassTime').css('display','block');
+				$('.form-group4').addClass('has-error');
+			} else{
+				
+				$.ajax({
+					async : false,
+				    type: "Get",
+				    url: "/coursecode/findcheckBycoursecode?courseLevel="+courseLevel+"&amp;ordinalNumber="+ordinalNumber,
+				    success: function (data) {
+				    	if(data==true){
+				    		mainForm.submit();
+				    	}else{
+				    		alert("该课程信息已经存在！")
+				    	}
+				    	
+				    }
+				 });
+			}  
+			
+	
+		} 
+	</script> 
+</head>
+<body>
+	 <div layout:fragment="content">
+		<div class="page-header">
+			<h1>新增课程</h1>
+		</div>
+		
+	 	<form class="form-horizontal" role="form" method="post" th:action="@{/coursecode/create}" th:object="${coursecode}"  id="mainForm">
+			<div class="form-group" >
+							<label for="courseLevel" class="col-xs-3 control-label">课程级别</label>
+							<div class="col-xs-6">
+								<select class="form-control"  name="courseLevel"   onchange="changecourselevel()" id="courseLevel">
+										<option th:each="course: ${course}" th:value="${course.id}" th:text="${course.courseLevel}"></option>
+								</select>
+								
+							 </div>
+			</div> 
+			
+	      <div class="form-group form-group1">
+							<label for="ordinalNumber" class="col-xs-3 control-label">第</label>
+							<div class="col-xs-6 col-md-4">
+								<input type="text" class="form-control"  required="required" id="ordinalNumber" name="ordinalNumber"/>
+							 </div>
+							 <label for="ordinalNumber" class="col-xs-3 control-label col-md-1">节</label>
+							  <span id="spValueordinalNumber" class="text-danger" style="display: none;">不能为空！</span>
+			</div>  
+			
+			<div class="form-group form-group2" >
+				<label for="childNumber" class="col-xs-3 control-label">课程名称</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control"  required="required" id="lessonName" name="lessonName"/>
+						<span id="spValuelessonName" class="text-danger" style="display: none;">不能为空！</span>
+				</div>
+			</div>
+			<div class="form-group form-group3" >
+				<label for="childNumber" class="col-xs-3 control-label">开始时间</label>
+				<div class="col-xs-6">
+					<input type="date" class="form-control"  required="required" id="classTime" name="classTime"/>
+					<span id="spValueclassTime" class="text-danger" style="display: none;">不能为空！</span>
+				</div>
+			</div>
+			<div class="form-group form-group4" >
+				<label for="childNumber" class="col-xs-3 control-label">课程简介</label>
+				<div class="col-xs-6">
+					<!-- <input type="text" class="form-control"  required="required" id="courseDescription" name="courseDescription"/> -->
+					<textarea rows="" cols="5" class="form-control" required="required" id="courseDescription" name="courseDescription"></textarea>
+						<span id="spValuecourseDescription" class="text-danger" style="display: none;">不能为空！</span>
+				</div>
+			</div>
+			<p class="text-center">
+				<button type="button" class="btn btn-primary"  onclick="checktrue()">提交</button>
+				<a th:href="@{/coursecode/list}" class="btn btn-default">返回</a>
+			</p>
+			
+		                      
+			
+		</form>
+	
+	</div>
+	 
+</body>
+
+</html>

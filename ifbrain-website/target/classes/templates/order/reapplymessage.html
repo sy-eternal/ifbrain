@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>信息提示</title>
+<!-- DataTables -->
+<!-- DataTables -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script
+	th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+<script th:src="@{/js/controller/visitorCenter-controller.js}"></script>
+</head>
+<body>
+	<div layout:fragment="content" class="container">
+		<div class="page-header">
+			<h1>信息提示</h1>
+		</div>
+		<div th:object="${order}">
+			您的订单<span th:text="*{orderNumber}">*TP2015050515130601</span>已过期，请重新规划申请
+		</div>
+	</div>
+	<div layout:fragment="script">
+		<script th:src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+		<script>
+			$(function() {
+				Metronic.init(); // init metronic core components
+				Layout.init(); // init current layout
+				QuickSidebar.init(); // init quick sidebar
+				Demo.init(); // init demo features
+			});
+		</script>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	>
+<head>
+    <meta charset="utf-8"/>
+    <title>宝贝资料</title>
+<link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+<script type="text/javascript">
+ function babylist(){
+	 window.location.href="/myinformation/baby";
+ }
+</script>
+<link th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/simple-line-icons/simple-line-icons.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/uniform/css/uniform.default.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css}" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/select2/select2.css}"/>
+<link th:href="@{/assets/global/css/components.css}" id="style_components" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/css/plugins.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/admin/layout/css/layout.css}" rel="stylesheet" type="text/css"/>
+<link id="style_color" href="@{/assets/admin/layout/css/themes/darkblue.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/admin/layout/css/custom.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/css/laydate.css}"  rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/fonts/laydate.css}" rel="stylesheet" type="text/css"/>
+<link rel="shortcut icon" href="favicon.ico"/>
+<!-- 使用jQuery Validation控件进行前端验证 -->
+	<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+	<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+	<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+	<script type="text/javascript" th:src="@{/assets/global/scripts/laydate.js}"></script>
+	<script>
+		$(function() {
+			$("#mainForm").validate({
+				highlight : function(element) {
+					$(element).closest(".form-group").addClass("has-error");
+				},
+				success : function(label) {
+					label.closest(".form-group").removeClass("has-error");
+					label.closest(".form-group").addClass("has-success");
+				},
+				errorPlacement : function(error, element) {
+					element.parent("div").append(error);
+				},
+				submitHandler : function(form) {
+					form.submit();
+				}
+			});
+		});
+	</script>
+	<script>
+;!function(){
+laydate({
+   elem: '#demo'
+})
+}();
+</script>
+<style>
+#ssssss{ font-size:14px; color:#000; font-family:'微软雅黑'}
+h2{line-height:30px; font-size:20px;}
+a,a:hover{ text-decoration:none;}
+pre{font-family:'微软雅黑'}
+.box{width:970px; padding:10px 20px;  margin:10px auto;}
+.box a{padding-right:20px;}
+</style>
+<SCRIPT >
+
+        function F_Open_dialog() 
+{ 
+        	
+        document.getElementById("file").click();
+     
+} 
+   function d111(){
+	   document.getElementById("1111").value= document.getElementById("file").value
+   }
+        
+	function renwu(){
+		window.location.href="/project/li/"+$("#childids").val()
+	}
+	function gouwu(){
+		window.location.href="/commodity/index/"+$("#childids").val()
+	}
+</SCRIPT>
+<style type="text/css">
+/* #button1{
+	background-image: url("../../img/提交.png") ;
+	background-repeat: no-repeat;
+	}
+	#button1:hover{
+	background-image: url("../../img/提交2.png") ;
+	background-repeat: no-repeat;
+	}
+	#button2{
+	background-image: url("../../img/返回.png") ;
+	background-repeat: no-repeat;
+	}
+	#button2:hover{
+	background-image: url("../../img/返回2.png") ;
+	background-repeat: no-repeat;
+	} */
+</style>
+</head>
+
+<body  style="background-color: #eff3f8">
+	
+
+	<div th:replace="partial/header-new" class="header" style="width: auto;"></div>
+<div style="background-image: url('../../img/圆点线.png'); max-width: 710px;font-family: 'myfont2'; font-size: 18px;"
+		class="container" >
+		<input type="hidden" th:value="${session.childids}"  id="childids"/>
+		<div >
+			<h1 style="border: none;text-align: center;"></h1>
+			<div style="height: 25%"></div>
+			
+			<form class="form-horizontal" role="form" method="post" th:action="@{/myinformation/update}" th:object="${child}" enctype="multipart/form-data">
+		
+<input type="hidden" th:field="*{id}"/>
+<div class="form-group">
+				<div class="container">
+					<div class="row">
+						<label for="mobile" class="col-md-2 col-sm-6 col-xs-12 control-label"></label>
+						<div class="col-md-3 col-sm-1 col-xs-1">
+						 <input type="file" name="file" id="file" style="display: none;" onchange="d111()"/> <p class="text-danger" th:text="${errorMessage}"></p>
+						 <input type="button" name="btn_abc"  style="height: 245px;width: 245px;background-image: url('../../img/head.png');background-color:transparent ;border: none;"  onclick="F_Open_dialog()" /> 
+						<input type="text" id="1111" style= "background-color:transparent ;border: none;"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="container">
+					<div class="row">
+						<label for="name" class="col-md-2 col-sm-6 col-xs-4 control-label"  style="text-align: right;">宝贝昵称:</label>
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<input type="text" class="form-control" th:field="*{name}" id="name" name="name" required="required" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="container">
+					<div class="row">
+						<label for="age" class="col-md-2 col-sm-6 col-xs-4 control-label" style="text-align: right;">宝贝年龄:</label>
+						<div class="col-md-3 col-sm-4 col-xs-6">
+							<input type="text" class="form-control" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" th:field="*{age}" id="age" name="age" required="required" />
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class="container">
+					<div class="row">
+						<label for="birth" class="col-md-2 col-sm-6 col-xs-4 control-label" style="text-align: right;">出生日期:</label>
+						<div class="col-md-3 col-sm-4 col-xs-6" id="ssssss">
+					 <div >
+					  <!--   <input type="text" class="laydate-icon" id="demo"  th:field="*{birth}" name="birth"/> -->
+					    <input type="text" class="form-control" id="demo"  th:field="*{birth}" name="birth" required="required"/>
+					</div>
+					<div class="box">
+					</div>
+					<script>
+					;!function(){
+					laydate({
+					   elem: '#demo'
+					})
+					}();
+					</script>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="text-center">	
+			
+			<button type="submit" id="button1"  style="display: block;width: 202px;height: 106px;border: none;background-color: transparent;float: left;" onclick="jqchk()" ></button>
+			<button type="button" id="button2" style="display: block;width: 202px;height: 106px;border: none;background-color: transparent;" onclick="babylist()"></button>
+			</div> -->
+			
+			
+			<div class="text-center" align="center">
+			<label for="age" class="col-md-3 col-xs-1" ></label>
+			<div class=" col-md-3 col-xs-5" >
+			<button type="submit" id="button1"  style="display: block;border: none;background-color: transparent;float: left;padding: 0;" onclick="jqchk()" >
+			
+			<img alt="" src="../../img/提交.png" class="img-responsive"/>
+			</button></div>
+	<div class="col-md-3 col-xs-5" >
+		<button type="button" id="button2" style="display: block;border: none;background-color: transparent;padding: 0;" onclick="babylist()">
+		<img alt="" src="../../img/返回.png" class="img-responsive"/>
+		</button>
+	</div>
+			
+			</div>
+		</form>
+		
+		<div style="text-align: center;margin-top: 5%;" class="navbar-fixed-bottom">
+			<a href="#" onclick="renwu()" id="renwu" >  <img alt="Amazing Project"
+				src="../../img/任务1.png" style="width: 15%; max-width: 80px;" /> 
+			</a> <a href="#"  onclick="gouwu()" id="gouwu" >  <img alt="Amazing Project"
+				src="../../img/购物1.png" style="width: 15%; max-width:80px;margin-left: 5%" /> 
+			</a> <a th:href="@{/analysis/choosechildanalysis}"  id="pinggu" > <img alt="Amazing Project"
+				src="../../img/评估1.png" style="width: 15%; max-width: 80px;margin-left: 5%" />
+			</a> <a th:href="@{/myinformation/baby}"  id="wode" > <img alt="Amazing Project"
+				src="../../img/我的2.png" style="width: 15%; max-width:80px;margin-left: 5%" /> 
+			</a>
+		</div> 
+		
+		<!-- <div style="text-align: center;margin-top: 15%;" class="col-md-12 col-sm-12 col-xs-12">
+		<div class="col-md-1 col-sm-2 col-xs-0" ></div>
+		<div class="col-md-2 col-sm-2 col-xs-2" style="margin-right: 5%;">
+			<a th:href="@{/project/li}"  id="renwu" >  <img alt="Amazing Project"
+				src="../../img/任务1.png" style="width: 15%;min-width: 38px; height:auto;;width: 150px;" class="img-responsive"/> 
+			</a>
+			</div>
+				<div class="col-md-2 col-sm-2 col-xs-2" style="margin-right: 5%"> <a th:href="@{/commodity/index}"  id="gouwu" >  <img alt="Amazing Project"
+				src="../../img/购物1.png" style="min-width: 38px;width: 15%; height:auto;width: 150px;" class="img-responsive" /> 
+			</a> </div>	<div class="col-md-2 col-sm-2 col-xs-2" style="margin-right: 5%"><a th:href="@{/analysis/choosechildanalysis}"  id="pinggu" > <img alt="Amazing Project"
+				src="../../img/评估1.png" style="width: 15%;min-width: 38px; height:auto;width: 150px;" class="img-responsive"/>
+			</a></div> 	<div class="col-md-2 col-sm-2 col-xs-2" style=""> <a th:href="@{/myinformation/baby}"  id="wode" > <img alt="Amazing Project"
+				src="../../img/我的2.png" style="width: 15%;min-width: 38px; height:auto;width: 150px;" class="img-responsive" /> 
+				
+			</a></div>
+			<div class="col-md-2 col-sm-2 col-xs-2" ></div>		
+		</div> -->
+				</div> 
+				
+				<!-- <a th:href="@{/project/li}" style="position:absolute;left:100px;top:1550px;"><img alt="Amazing Project" src="../../img/任务按钮.png" /></a>
+				<a th:href="@{/commodity/index}" style="position:absolute;left:300px;top:1550px;"><img alt="Amazing Project" src="../../img/购物按钮.png" /></a>
+				<a th:href="@{/analysis/workanalysis}" style="position:absolute;left:500px;top:1550px;"><img alt="Amazing Project" src="../../img/评估按钮.png" /></a>
+				<a th:href="@{/myinformation/baby}" style="position:absolute;left:700px;top:1550px;"><img alt="Amazing Project" src="../../img/我的按钮2.png" /></a> -->
+				</div> 
+	<!-- <div th:replace="partial/footer-new" class="footer" style="width: auto;"></div> -->
+	
+	<script th:src="@{/assets/global/plugins/jquery.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-migrate.min.js}" type="text/javascript"></script>
+<!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script th:src="@{/assets/global/plugins/jquery-ui/jquery-ui.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap/js/bootstrap.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.blockui.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.cokie.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/uniform/jquery.uniform.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js}" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" th:src="@{/assets/global/plugins/jquery-validation/js/jquery.validate.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/global/plugins/jquery-validation/js/additional-methods.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js}"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script th:src="@{/assets/global/scripts/metronic.js}" type="text/javascript"></script>
+<script th:src="@{/assets/admin/layout/scripts/layout.js}" type="text/javascript"></script>
+<script th:src="@{/assets/admin/layout/scripts/quick-sidebar.js}" type="text/javascript"></script>
+<script th:src="@{/assets/admin/layout/scripts/demo.js}" type="text/javascript"></script>
+<script th:src="@{/assets/admin/pages/scripts/form-wizard.js}"></script>
+</body>
+</html>

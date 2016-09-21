@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"    data-ng-app="_app"> 
+<head>
+<meta charset="UTF-8"></meta>
+
+
+
+<title>任务</title>
+
+<!-- 新的代码 -->
+ <link rel="shortcut icon" href="../../img/showhtml.ico" /> 
+ <script type="text/javascript" th:src="@{/js/project/projquery.js}"></script>
+<link rel = 'stylesheet' type="text/css" th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}"/>
+<link rel = 'stylesheet' type="text/css" th:href="@{/assets/admin/layout/css/plugins.min.css}"/>
+<link rel = 'stylesheet' type="text/css" th:href="@{/js/project/NewFile.css}"/>
+
+<!-- <script src="../../assets/global/plugins/jquery.min.js"
+			type="text/javascript"></script> -->
+ <script type="text/javascript" th:src="@{/js/project/jquery-1.9.1.min.js}"></script> 
+<script type="text/javascript" th:src="@{/js/project/jquery.mobile-1.3.2.min.js}"></script>
+
+<link  rel="stylesheet" type="text/css" th:href="@{/css/swiper.min.css}" />
+<link th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/simple-line-icons/simple-line-icons.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/uniform/css/uniform.default.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/fullcalendar/fullcalendar.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/jqvmap/jqvmap/jqvmap.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/admin/pages/css/tasks.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/css/plugins.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/admin/layout/css/layout.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/admin/layout/css/themes/darkblue.css}" rel="stylesheet" type="text/css" id="style_color"/>
+<link th:href="@{/assets/admin/layout/css/custom.css}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" th:src="@{/js/mytable/jquery-1.8.3.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/mytable/datouwang.js}"></script>
+<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/css/selectstyle/style1.css}" />
+ <link rel="stylesheet" type="text/css" th:href="@{/css/selectstyle/style.css}" media="screen"  />
+ <link rel="stylesheet" type="text/css"	th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" /><!-- 
+<script type="text/javascript"	th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script> -->
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script th:src="@{/js/lib/jsog/JSOG.js}"></script><!-- 
+<script	th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script> -->
+<script th:src="@{/assets/frontend/layout/scripts/layout.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-migrate.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-ui/jquery-ui.min.js}"	type="text/javascript"></script>
+<script	th:src="@{/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js}"	type="text/javascript"></script>
+<script	th:src="@{/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.blockui.min.js}"	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.cokie.min.js}"	type="text/javascript"></script>
+<script	th:src="@{/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js}"	type="text/javascript"></script><!-- 
+<script th:src="@{/assets/global/plugins/bootstrap/js/bootstrap.min.js}" type="text/javascript"></script>	 -->
+<script	th:src="@{/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js}"></script>
+<script th:src="@{/assets/global/scripts/metronic.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/quick-sidebar.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/demo.js}"></script>
+<script th:src="@{/js/controller/dqproject-controller.js}"></script>
+<link th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}" rel="stylesheet" />
+<link th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+<link th:href="@{/assets/global/plugins/fancybox/source/jquery.fancybox.css}" rel="stylesheet" />
+<link th:href="@{/assets/global/plugins/uniform/css/uniform.default.css}" rel="stylesheet" type="text/css" />
+<!-- <link th:href="@{/assets/frontend/layout/css/style.css}" rel="stylesheet" />
+ --><link th:href="@{/assets/frontend/layout/css/style-responsive.css}" rel="stylesheet" />
+<link th:href="@{/assets/frontend/layout/css/themes/red.css}" rel="stylesheet" id="style-color" />
+<link th:href="@{/assets/frontend/layout/css/custom.css}" rel="stylesheet" />
+<link rel="shortcut icon" href="favicon.ico"/>
+   <link th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}" rel="stylesheet"/>
+  <link  th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/> 
+   <script  th:src="@{/assets/frontend/pages/scripts/top.js}"></script> 
+   <link  th:href="@{/assets/global/plugins/fancybox/source/jquery.fancybox.css}" rel="stylesheet"/>
+  <link  th:href="@{/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css}" rel="stylesheet"/>
+  <link  th:href="@{/assets/global/plugins/uniform/css/uniform.default.css}" rel="stylesheet" type="text/css"/>
+  <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <link  th:href="@{/assets/global/plugins/rateit/src/rateit.css}" rel="stylesheet" type="text/css"/>
+  <link  th:href="@{/assets/frontend/pages/css/style-shop.css}" rel="stylesheet" type="text/css"/>
+  <link  th:href="@{/assets/frontend/layout/css/themes/red.css}" rel="stylesheet" id="style-color"/> 
+   <link  th:href="@{/assets/frontend/layout/css/style-responsive.css}" rel="stylesheet"/> 
+ <link  th:href="@{/assets/frontend/layout/css/custom.css}" rel="stylesheet"/>
+   <link  th:href="@{/assets/global/plugins/simple-line-icons/simple-line-icons.min.css}" rel="stylesheet" type="text/css"/>
+ <link  th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}" rel="stylesheet" /><!-- 
+<script type="text/javascript" th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script> --><!-- 
+<script th:src="@{/assets/global/plugins/bootstrap/js/bootstrap.min.js}" type="text/javascript"></script> -->
+<link type="text/css" th:href="@{/assets/global/plugins/fancybox/source/jquery.fancybox.css}" rel="stylesheet"/>
+<link type="text/css" th:href="@{/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css}" rel="stylesheet"/>
+<link th:href="@{/assets/global/css/plugins.css}" rel="stylesheet" />
+<link th:href="@{/assets/frontend/layout/css/style-responsive.css}" rel="stylesheet" />
+<link th:href="@{/assets/frontend/layout/css/themes/red.css}" rel="stylesheet" id="style-color" />
+<link th:href="@{/assets/frontend/layout/css/custom.css}" rel="stylesheet"/>
+ <link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/bootstrap-select/bootstrap-select.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/select2/select2.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/jquery-multi-select/css/multi-select.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/image-picker/image-picker/image-picker.css}" />
+<link type="text/css" rel="stylesheet" th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}" />
+<!-- <link type="text/css" rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap-theme.min.css}" /> -->
+<link th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}" rel="stylesheet" />
+<link type="text/css" th:href="@{/css/settings.css}" rel="stylesheet" /> 
+<link type="text/css" th:href="@{/css/style-revolution-slider.css}" rel="stylesheet" />
+<link th:href="@{/css/layouts.css}" rel="stylesheet" type="text/css" />
+<script
+			src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js"
+			type="text/javascript"></script>
+ <link th:href="@{/assets/global/plugins/simple-line-icons/simple-line-icons.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/css/components.css}" id="style_components" rel="stylesheet" type="text/css"/><!-- 
+<script type="text/javascript" th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script> --><!-- 
+<script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.4/js/bootstrap.min.js}"></script> -->
+
+<script th:src="@{/assets/global/plugins/jquery-migrate.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-ui/jquery-ui.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.blockui.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.cokie.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/uniform/jquery.uniform.min.js}" type="text/javascript"></script>
+<script	th:src="@{/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/scripts/metronic.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/quick-sidebar.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/demo.js}"></script>
+<script type="text/javascript" th:src="@{/js/project/touchmove.js}" ></script>
+
+
+<!-- 移动 -->
+<link rel="stylesheet" type="text/css" th:href="@{/test/yidong/style.css}" />
+<script	th:src="@{/test/yidong/touchslider.js}"></script>
+<style type="text/css">
+.modal-backdrop, .modal-backdrop.fade.in{
+background-color: #333 !important;
+}
+
+.img-circlebaby{
+	border-radius:50px !important;
+}
+#moneybaby1 button{
+width: 35px;
+height: 35px;
+border-radius: 50% !important;
+ background-color: transparent;
+ color:white;
+ text-align: center; 
+ font-size:25px; 
+ line-height:0px;
+ padding:0px;
+/* color:white; 
+
+font-weight: bold;
+
+padding:6px 12px;  */
+}
+#daibimoney .input-group-btn{
+width: 35px;
+height: 35px;
+border-radius: 50% !important;
+ background-color: #0151a6;
+ color:white; 
+  font-size:25px; 
+ line-height:0px;
+  padding:0px;
+}
+#moneybaby2 button{
+width: 35px;
+height: 35px;
+border-radius: 50% !important;
+ background-color: transparent;
+ color:white;
+ text-align: center; 
+  font-size:25px; 
+ line-height:0px;
+  padding:0px;
+}
+#daibimoney1 .input-group-btn{
+width: 35px;
+height: 35px;
+border-radius: 50% !important;
+ background-color: #0151a6;
+ color:white; 
+  font-size:25px; 
+ line-height:0px;
+  padding:0px;
+}
+#renwu
+{
+color:#0151a6;
+}
+</style>
+<style type="text/css">
+ 		.ahover4{
+    			color: #fabf12 !important ;
+    			border-bottom: 2px solid #fabf12;
+    		}
+ 	</style>
+
+<style type="text/css">
+
+
+
+
+.img-circle1{
+border-radius:5% !important;/* 
+opacity:.7;filter:alpha(opacity=70); */
+}
+
+
+.mypanelBorder{
+	border: 2px solid #0151a6  ;
+}
+
+input {
+    -webkit-appearance: textfield;
+    padding: 1px;
+    background-color:transparent;
+    border: 2px inset;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    -webkit-rtl-ordering: logical;
+    -webkit-user-select: text;
+    cursor: auto;
+}
+
+
+
+.menu_list { width: 710px; }
+.menu_head {  cursor: pointer; position: relative;height:70px;  background: white; color:black;margin-bottom:0px;}
+.menu_body { display:none; }
+.menu_body{ display:block; height:135px; color:white; background-color:#004986; margin-top:0px;margin-bottom:0px; text-align:center; }
+
+
+#touchspin_list1 .bootstrap-touchspin-up{
+margin-left: ;
+}
+
+/*浮动删除任务*/
+#floatDivBoxs{background:#FF6699;position:absolute;right:-120px;z-index:1;display:none; height:190px;}
+
+
+
+#rightArrow{width:50px;height:45px;background:url(../../img/online_arrow.jpg) no-repeat;position:absolute;right:0;z-index:1;}
+#rightArrow a{display:block;height:45px;}
+
+/*完成任务*/
+ .behind {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        word-wrap:break-word;
+    }
+    .behind a.ui-btn {
+        margin: 0px;
+        float: right;
+        border: none;
+        word-wrap:break-word;
+    }
+    .behind a.delete-btn, .behind a.delete-btn:active, .behind a.delete-btn:visited, .behind a.delete-btn:focus, .behind a.delete-btn:hover {
+        color: white;
+        background-color: red;
+        text-shadow: none;
+    }
+    .behind a.ui-btn.pull-left {
+        float: left;
+    }
+    .behind a.edit-btn, .behind a.edit-btn:active, .behind a.edit-btn:visited, .behind a.edit-btn:focus, .behind a.edit-btn:hover {
+        color: white;
+        background-color: #fe6963;
+        text-shadow: none;
+    }
+#tasklistbtn  button{
+background-color: #0151a6 ;
+color: white;
+border:4px solid white;
+
+}
+#touchspin_list1 button{
+background-color: #004986 ;
+color:white;
+border:4px solid white;
+border-radius: 50% !important;
+width:3.2rem;
+ height:3.2rem; 
+font-size:25px;
+padding:0px 0px;
+line-height:0px;
+
+}
+#touchspin_list1 .input-group-btn{
+background-color: #e6e5e5 ;
+color:#004986;
+border-radius: 50% !important;
+width: 3.2rem;
+height: 3.2rem;
+}
+ #daibimoney {
+ max-width:250px;;
+
+ }
+ 
+ #daibimoney1 {
+ max-width:250px;
+ }
+ #iconplusa:hover{
+ text-decoration: none;
+ }
+ #selected{
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid white;
+    margin-left: 48%;
+}
+.maxlengthsize{
+	width:120px;
+	font-size:1.0rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.navbar-brand img{
+		margin-left: 3px;
+		margin-right: 4px;
+		margin-bottom: 4px;
+	}
+/* #maxlengthlist{
+color:red;
+background-color: transparent;
+opacity:1.0;filter:alpha(opacity=100);
+} */
+.canvasclass{
+height: 30px;
+width: 30px;
+}
+.tracking5{
+    			color: red !important;
+    		}
+</style>
+
+
+   
+
+<script type="text/javascript">
+
+	function show() {
+
+		var childName = $("#select").val();
+		$.cookie('childName', childName);
+		window.location.reload();
+
+	}
+	function getBalance() {
+		var childId = $(".childss").val();
+		if($(".childss").val()!=null){
+			$("#caption1").css("display","none");
+			$("#caption").css("display","block");
+		}/* else if($(".childss").val()==null){
+			alert("您还没有宝贝，请在我的里面添加宝贝信息！")
+			
+			$("#caption1").css("display","block");
+			$("#caption").css("display","none");	
+		} */
+		  var flagvalue=$("#flags").val();
+		  if(flagvalue==""){  
+	 $(".portlet-body.mypanel img").eq(0).addClass('mypanelBorder');
+		 } 
+	 document.getElementById("ids").value=$(".childss").val();
+		myselect();
+		//addBorder();
+	}
+	
+	function myselect() {
+		var orb   = $("#orb");
+		var track = $("#track");
+		var rail = $("#platform");
+
+		var trackWidth  = track.width();
+		var cartWidth   = orb.width();
+
+		$(".button").on("click", function() {
+		  var position = $(this).position();
+		  var width    = $(this).width();
+		  var left     = position.left;
+		  var platform = left + width-5; // TODO: Remove magic #
+		  $(".button").removeClass("active");
+		  $(this).addClass("active");
+		  
+		  rail.addClass("active");
+		  
+		  orb.addClass("hover");
+		  
+		  orb.animate({
+		    "left" : platform - cartWidth
+		  }, 2000, function() {
+		    orb.removeClass("hover");
+		    rail.removeClass("active");
+		  });
+		});
+	}
+	//完成一次
+	function wancheng() {	
+					var child = $("#ids").val();
+					 document.getElementById("works").value=$(".wangchengc").parent().find('input').attr('id');
+					 window.location.href="/project/add/" + $(".wangchengc").parent().find('input').attr('id') + "/" + child;   
+
+	}
+	//完成任务结束
+	function end() {
+	
+		$(".jieshuc").click(function () {
+			 
+				var id = $("#works").val();
+			 	window.location.href = "/project/endadd/" + $(this).parent().prev().find('input').attr('id'); 
+			 /* 	window.location.reload(); */
+		 	 
+		
+	 });
+	}
+	//分配任务
+	function fenpei(){
+		
+		 var child = $("#ids").val();
+		window.location.href = "/myinformation/searchworktasklist/"  +  child
+	}
+	
+</script>
+<script type="text/javascript">
+//点击input出现下划线
+function textboxline(){
+	
+	$("#textboxline").css("border-bottom","2px solid #0151a6 ");
+}
+</script>
+<script type="text/javascript">
+
+
+//2秒钟后金币模态框自动关闭
+function close(){
+	
+	$("#money").modal('hide');
+
+};
+//刷新
+ function refersh(){
+        	window.location.reload();
+        }
+ $(function(){
+	 
+	/*  //关闭金币模态框的音乐
+	 $('#money').on('hide.bs.modal', function () {
+	       var audioEle = document.getElementById("audio");
+		    audioEle.pause(); 
+	      }); */
+	 
+	  //计算百分比    
+	   function percentNum(num, num2) {
+	    	  var percent=Math.round(num / num2 * 10000) / 100.00 + "%";
+			return percent; //小数点后两位百分比
+		}
+
+		//js计算百分比并赋值,点击加号
+		function updatePrice(taskTimes, value, name) {
+			var val1 = parseInt(taskTimes);
+			var val2 = parseInt(value);
+			var percentspanval=percentNum(val2,val1);
+			 var obj=$("span[title='percentspan"+name+"']");
+			 var p=parseInt(percentspanval.replace("%",""));
+			obj.parent().attr("data-percent",p);
+			var obj=obj.text(percentspanval);
+			obj.parent().data('easyPieChart').update(percentspanval);
+		}
+		//js计算百分比并赋值,点击减号
+		function updatePrice1(taskTimes, value, name) {
+			var val1 = parseInt(taskTimes);
+			var val2 = parseInt(value);
+			var percentspanval=percentNum(val2,val1);
+			 var obj=$("span[title='percentspan"+name+"']");
+			 var p=parseInt(percentspanval.replace("%",""));
+			obj.parent().attr("data-percent",p);
+			var obj=obj.text(percentspanval);
+			obj.parent().data('easyPieChart').update(percentspanval);
+		}
+        //遍历圆环
+		$(".addordivide").each(function() {
+			var name = $(this).attr('name');
+			var taskTimes = $("#taskTimes" + name + "").val();
+			var times = parseInt(taskTimes);
+			$(this).TouchSpin({
+				buttondown_class : 'btn  img-circle',
+				buttonup_class : 'btn  img-circle',
+				min : 0,
+				max : times,
+				stepinterval : 1,
+				maxboostedstep : 10000000,
+				postfix : ''
+			}).on('touchspin.on.startupspin', function() {
+				updatePrice(taskTimes, this.value, name);
+			}).on('touchspin.on.startdownspin',function(){
+				updatePrice1(taskTimes, this.value, name);
+			});
+			;
+		})
+		
+		//点击完成任务
+		$(".unfinish a p").each(
+				function() {
+					$(this).click(
+									function(i, n) {
+										
+										/*  if (!confirm("确认要完成任务吗？")) {
+												return;
+											}else{ */
+												var id = $(this).siblings().attr('value');
+											  //在金币弹出的模态框中，遍历代币数
+										    var tokennumbers=$("#tokennumbers"+id+"").val();
+										    var number=parseInt(tokennumbers);
+										    
+										/* var id = $(this).siblings().attr(
+												'value'); */
+										var timesadd = $("input[name='" + id + "']").val();
+									    var taskTimes=$("#taskTimes"+id+"").val();
+										$(this).parents(".parent").remove();
+										$("#finishid").val("0");
+										//次数 
+										var taskTimes=$(this).siblings().attr('id');
+										$.ajax({
+											async : false,
+											type : "Get",
+											url : "/child/finishtask?taskId="
+													+ id + "&amp;timesadd="
+													+ timesadd
+													+ "&amp;childid="
+													+ $("#flags").val()+"&amp;taskTimes="+taskTimes,
+											success : function(data) {
+												if (data == "1") {
+													if(timesadd==taskTimes){
+												    $('#textMachine').prop('number', 1).animateNumber(
+												    		   {
+												    		     number: number
+												    		   },
+												    		   5000
+												    		);
+													//弹出播放音乐模态框
+													$('#money').modal({
+														show : true,
+														backdrop : true
+													});
+													setTimeout('close()',  5000);
+													var audioEle = document.getElementById("audio");
+													audioEle.play(); //播放
+													}
+													setTimeout('refersh()',  6000);
+												}
+											}
+										});
+										/* } */
+									})
+				});
+       
+		//点击删除任务
+		$(".finish a p").each(function() {
+			$(this).click(function(i, n) {
+					var id = $(this).siblings().attr('value');
+					$(this).parents(".parent").remove();
+					$("#finishid").val("0");
+					$.ajax({
+						async : false,
+						type : "Get",
+						url : "/child/deletefinishtaskById?taskId=" + id,
+						success : function(data) {
+							if (data == "1") {
+								window.location.reload();
+							}
+						}
+					});
+			})
+		});
+
+		//遍历未完成百分比
+		 var strs = new Array();
+		var arrNumber;
+		var integerrate = $("#integerrate").val();
+		if (integerrate != "") {
+			strs = integerrate.split(",");
+			$(".transactions").each(function(i, n) {
+				$(this).attr("data-percent", strs[i]);
+			});
+		} 
+		//遍历已完成任务百分比
+		var strs1 = new Array();
+		var arrNumber1;
+		var finishintegerrate = $("#finishintegerrate").val();
+		if (finishintegerrate != "") {
+			strs1 = finishintegerrate.split(",");
+			$(".finishtask").each(function(i, n) {
+				$(this).attr("data-percent", strs1[i]);
+			});
+		}
+
+		//根据flagvalue来判断进入该页面后选中第几个图片
+		var flagvalue = $("#flags").val();
+		if (flagvalue != "") {
+			$(".portlet-body.mypanel img").each(
+					function() {
+						var value = $(this).parent().find('input')
+								.attr('value');
+						if (flagvalue == value) {
+							$(this).addClass('mypanelBorder').parent()
+									.siblings().find('img').removeClass(
+											'mypanelBorder');
+						}
+					});
+		}
+
+		$(".portlet-body.mypanel img")
+				.each(
+						function() {
+							$(this)
+									.click(
+											function() {
+												var id = $(this).parent().find(
+														'input').attr('value');
+												window.location.href = "/child/findTaskByChildId?childId="
+														+ id;
+												/* $(this).addClass('mypanelBorder').parent().siblings().find('img').removeClass('mypanelBorder');
+												document.getElementById("ids").value=$(this).parent().find('input').attr('id');
+												 $.ajax({
+													type : "Get",
+													url : "/child/findById?childId=" + $(this).parent().find('input').attr('value'),
+													success : function(data) {
+														childmoney = data.balance;
+														$("#balance").val(" x" + childmoney);
+													}
+												}); 
+												$.ajax({
+													type : "Get",
+													url : "/project/findByChildId?childId=" + $(this).parent().find('input').attr('value'),
+													success : function(data) {
+														var html = template('child',eval("("+data+")"));
+														document.getElementById('voice_2').innerHTML = html;
+													}
+												}); */
+											});
+						});
+
+		var childCookie = $.cookie('childName');
+
+		if (childCookie == null) {
+			$("#child").val($("#select").val());
+		} else {
+			$("#select").val(childCookie);
+			$("#child").val(childCookie);
+		}
+
+		$(".menu_body").hide();
+		$(".menu_foot").hide();
+
+		//slides the element with class "menu_body" when paragraph with class "menu_head" is clicked 
+		/* $("#firstpane div.menu_head").click(function()
+		{ */
+		//alert("head!!!!!!!!");
+		/* $(this).css({backgroundImage:"url(down.png)"}).next("div.menu_foot ").slideToggle(300).siblings("div.menu_foot").slideUp("slow"); */
+		//$(this).next("div.menu_body ").slideToggle(300).siblings("div.menu_body").slideUp("slow");
+		//$(this).next("div.menu_body ").next("div.menu_foot ").slideToggle(300).siblings("div.menu_foot").slideUp("slow");
+		/* }); */
+
+		//slides the element with class "menu_body" when paragraph with class "menu_head" is clicked   onload="getBalance()"
+		/* $("#firstpane div.menu_foot").click(function()
+		{
+			 $(".menu_body").hide();
+			 $(".menu_foot").hide();
+		}); */
+		$(".ui-btn.ui-btn-icon-right.ui-icon-carat-r").each(
+				function() {
+					$(this).find('canvas').addClass('canvasclass');
+				});
+		$(".ui-btn.ui-btn-icon-right.ui-icon-carat-r").each(
+				function() {
+					$(this).on("click",function() {
+								var historyId=$(this).find('input').attr('value');
+								var taskTimes=$("#taskTimes"+historyId+"").val();
+								var timesadd = $("input[name='" + historyId + "']").val();
+								if(taskTimes!=timesadd){
+							$.ajax({
+									async:false,
+									type:"Get",
+									url:"/child/dynamicsave?historyId="+historyId+"&amp;timesadd="+timesadd,
+									success : function(data) {
+									}
+								});
+								}else{
+									 var tokennumbers=$("#tokennumbers"+historyId+"").val();
+									    var number=parseInt(tokennumbers);
+									$.ajax({
+										async : false,
+										type : "Get",
+										url : "/child/finishtask?taskId="
+												+ historyId + "&amp;timesadd="
+												+ timesadd
+												+ "&amp;childid="
+												+ $("#flags").val()+"&amp;taskTimes="+taskTimes,
+										success : function(data) {
+											if (data == "1") {
+												if(timesadd==taskTimes){
+											    $('#textMachine').prop('number', 1).animateNumber(
+											    		   {
+											    		     number: number
+											    		   },
+											    		   5000
+											    		);
+												//弹出播放音乐模态框
+												$('#money').modal({
+													show : true,
+													backdrop : true
+												});
+												setTimeout('close()',  5000);
+												var audioEle = document.getElementById("audio");
+												audioEle.play(); //播放
+												}
+												setTimeout('refersh()',  6000);
+											}
+										}
+									});
+									$(this).parents(".parent").remove();
+								}
+								
+								
+								$(this).parents(".menu_head").next("div.menu_body ").slideToggle(300).siblings("div.menu_body").slideUp("slow");
+								$(this).parents(".menu_head").next(
+										"div.menu_body ")
+										.next("div.menu_foot ")
+										.slideToggle(300).siblings(
+												"div.menu_foot")
+										.slideUp("slow");
+								//$(".ui-btn.ui-btn-icon-right.ui-icon-carat-r").animate({right: '0px'},0);
+								/* $(this).animate({right: '80px'},0);
+								$(this).css('border','none');
+								$(this).css('box-shadow','none');  */
+								var value = $("#finishid").val();
+								if (value == "0") {
+									$(this).animate({
+										right : '120px'
+									}, 0);
+									$(this).css('box-shadow', 'none');
+									$("#finishid").val("1");
+								} else {
+									$(this).animate({
+										right : '-4px'
+									}, 0);
+									$(this).css('box-shadow', 'none');
+									$("#finishid").val("0");
+									$(this)
+											.css("height", "190px", "border",
+													"none", "background-color",
+													"white");
+								}
+
+								//$(this).prev().parent().find('.behind').css("display","block")
+								/* if($(this).prev().parent().find('.behind').attr('id')){
+									var flag=0;
+									if(flag==1){
+										$(this).css('border','none');
+										$(this).css('box-shadow','none');
+										flag=0;
+									}else{
+										$(this).animate({right: '120px'},0);
+										$(this).css('border','none');
+										$(this).css('box-shadow','none');
+										flag=1;
+									}
+								} 	 */
+
+							});
+				})
+
+	});
+
+	function hidehistory() {
+
+		if ($("#history").css("display") == "none") {
+
+			$("#history").show();
+			/* $("#hidehistory").val("隐藏已完成任务"); */
+			$("#hidehistory1").css("display","none");
+			$("#hidehistory2").css("display","block");
+
+		} else {
+
+			$("#history").hide();
+			/* $("#hidehistory").val("显示已完成任务"); */
+			$("#hidehistory2").css("display","none");
+			$("#hidehistory1").css("display","block");
+
+		}
+
+	}
+	
+</script>
+
+
+
+
+
+
+</head>
+<body style="background-color:#ffd464; text-align:Center;" onLoad="getBalance()" >
+
+<script	th:src="@{/test/yidong/function.js}"></script>
+
+
+<div class="v-jr-slide-wrap">
+        
+  <div th:replace="partial/header-new" class="header" style="width: auto;"></div>
+        <div class="v-jr-slide-box v-jr-clear" id="js-slide-box">		
+	<div class="container" style="max-width: 710px; padding: 0px;"> 
+
+ <div th:replace="partial/publicdialog" style="width: 20px;height: 20px"  ></div>
+  <div th:replace="partial/dialog" style="width: 20px;height: 20px"  ></div> 
+
+
+
+	<div class="container" style="max-width: 710px; padding: 0px;margin-top:-90px;">
+	 <input type="hidden" th:value="${session.childids}"  id="childids"/>	
+		<form class="form-horizontal" role="form" method="post" id="mainForm"
+			th:action="@{/project/li}" th:object="${worktask}">
+			<input type="hidden" id="ids" class="ids" name="ids" /> <input
+				type="hidden" id="works" class="works" name="works" />
+			<div class="portlet-body mypanel col-md-12 col-xs-12 col-sm-12"
+				style="height: 80px; text-align: left; display: block; margin-top: 0px;margin-bottom:25px;margin-left: 0px; background-color: #f4f4f4; border: 1px solid transparent; max-width: 710px; top: 0px;overflow-x:auto;overflow-y:hidden ">
+			<div class="swiper-container"  id="swiper-container" style="height: 80px;margin-left: 0px;margin-top: 0px;">
+	        <div class="swiper-wrapper">
+	         <div class="swiper-slide" th:each="child:${childs}" style="width: 120px;margin-right: 0px">	
+					<div class="button " style="margin-top:5px;margin-bottom: 5px;padding: 0px;margin-right: -20px;text-align: center;">
+						<input type="hidden" th:value="${child.id}" th:id="${child.id}" name="childs" class="childss" />
+						    <img alt="tp"	 th:if="${child.image==null  or child.image=='' or child.image.id==0}"	src="../../img/chird.png"		style="border-radius: 50% !important;padding: 0px;" width="46px" height="46px"  id="childI" />
+						    <img alt="tp"	th:if="${child.image!=null}"	th:src="@{'/image/show/' + ${child.image.id}}"	class=" "	style="border-radius: 50% !important;padding: 0px;" width="46px" height="46px"    id="childI" />
+						<div th:text="${child.name}" 
+							style=" font-size: 14px;padding: 0px;margin-top: 3px;"></div>
+				 </div>
+			   </div>
+			</div>
+			</div>
+				
+				
+				
+			</div>
+		</form>
+	</div>
+
+	<div class="container "
+		style="max-width: 710px; padding: 0px;  color: #E02E2E;">
+		<a href="#" style="background-color: transparent; color: #FE6963"
+			data-toggle="modal" data-target="#myModal2">
+			<span aria-hidden="true" class="icon-plus img-circle " style="background-color:#fe6963;color:white;font-size: 32px;display: inline;float: right; z-index: 2;position: relative;top:-75px;left: -15px;"  ></span>
+		</a>
+	</div>
+                            
+<div class = " container"  style = "text-align:center;max-width:710px;padding:0px; margin-bottom: 150px;">
+
+
+<!--This is the first division of left-->
+
+
+
+  <div id="firstpane" class = "col-md-12 col-xs-12 col-sm-12" style = "padding:0px;margin-top: -61px;">
+  
+  <!-- 根据此id来判断选中第几个宝宝头像-->
+		<input type="hidden"  id="flags" th:value="${flagvalue}" />
+		<!-- 开始遍历数据 -->
+		<div  th:each="historytask:${historyList}" class="parent" >
+		
+            <div class="menu_head" style="margin-top: 0px; overflow-x: hidden; overflow-y: hidden;border-top:1px solid #ebebeb;">
+				<ul data-role="listview" class="swipe-delete ui-listview">
+					<li class="ui-first-child">
+						 <div class="behind unfinish" id="2" >
+							<a href="#" class="ui-btn delete-btn"
+								style="height: 70px; background-color: #fe6963; padding-left:8px;padding-right:8px;  font-size: 16px;"  >
+								<p style="padding-top: 50%" >
+									结&nbsp;束<br />任&nbsp;务
+								</p>
+								<input type="hidden"  th:value="${historytask.id}"  th:id="${historytask.taskTimes}" />
+								
+							</a>
+						</div>  
+						<a href="#" id="Arrow"  class="ui-btn ui-btn-icon-right ui-icon-carat-r col-md-12 col-xs-12"
+						style=" border: none; background-color: white;padding:0px;height: 70px;">
+						<input type="hidden"  th:value="${historytask.id}"/>
+							<label class="col-md-4 col-xs-4 col-sm-4" style=" text-align: center;height: 70px;padding: 0px;margin: 0px;">
+							<!-- <lable class="col-xs-1 col-md-1">&nbsp;</lable> -->
+							
+							<div class="col-md-10 col-xs-11 col-sm-11" style=""><input type="text"
+								style="border: none; backgroud-color: transparent;  font-size:16px; text-align: left; width: 97px;height:70px;;padding: 0px; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;pointer-events: none; " 
+								th:value="${historytask.taskName}"  readonly="readonly" class="  maxlengthlist"  id="maxlengthlist"/> 
+								</div>
+								<lable class=" col-md-1">&nbsp;</lable>
+						</label> 
+						<label class="col-md-4 col-xs-4 col-sm-4"
+							style=" text-align: Center; padding:0px;">
+							
+								<div class="easy-pie-chart" 	style="text-align: center;">
+									<div class="number transactions"  id="datapercent" style="text-align: center;left: 10px;top:5px;" align="center" >
+										<span style="position: relative;top:-6px;left: -13px;font-size: 14px" th:text="${historytask.rate}" class="percentspan"  th:title="percentspan+${historytask.id}"></span>
+									
+									</div>
+								</div>
+						</label> 
+						<label class="col-md-4 col-xs-4 col-sm-4" style="">
+						<label class="col-md-8 col-xs-7 col-sm-7" style="padding:0px;top:6px;">
+								<div>
+									<input type="text"
+										style="border: none; backgroud-color: transparent; font-size: 16px; text-align: center; width: 80%;color: #404040;"
+										th:value="${historytask.tokennumbers}" readonly="readonly"  th:id="tokennumbers+${historytask.id}"/>
+								</div>
+								<div style="border: none; backgroud-color: transparent;  font-size: 16px; text-align: center;color: #404040; width: 80%;">代币</div>
+						</label>
+						<label class="col-md-4 col-xs-5 col-sm-5" style="padding:0px;height: 70px;line-height: 70px;text-align: right;border: 1px solid transparent;font-size: 30px;color: #333333"><span class="fa fa-angle-right" ></span></label>
+					</label>
+					</a>				
+					</li>
+				</ul>	
+			</div>
+		
+			<div class=" menu_body" style="height: 135px;">
+			<div class = "col-md-12 col-xs-12 col-sm-12" id="selected" style="padding: 0px;"></div>
+				<div class = "col-md-12 col-xs-12 col-sm-12" style = "padding:0px;">
+			<div class="col-md-1 col-xs-1 col-sm-1"></div>
+		
+			<div class="col-md-12 col-xs-12 col-sm-12"  style="padding: 0px;">
+			
+			<div class="col-md-12 col-xs-12 col-sm-12" style="padding-left: 5%">
+						<input type="text" 
+							style="padding:0px; width:100%; border: none; backgroud-color: #004986;text-align:left;  color: #e5e5e5;font-size: 16px;"
+							th:value="${historytask.taskName}" readonly="readonly" />
+					</div>		
+					</div>
+					<div class="col-md-1 col-xs-1 col-sm-1"></div>
+			</div>
+			
+			<div class = "col-md-12 col-xs-12 col-sm-12" style = "padding:0px;margin-top: 10px;">
+				<div class="col-md-6 col-xs-6 col-sm-6" style="padding: 0px;padding-left: 5%;">
+					<!-- <div class="col-md-1 col-xs-1">&nbsp;</div> -->
+					<div style="padding: 0px;" class="col-md-7 col-xs-11 col-sm-11" >
+						<img alt="" src="../../img/activemoney.png"  class="img-responsive" style="float: left;margin-right: 10px;width: 12%;margin-top: 10px;" th:each="i : ${#numbers.sequence( 1, historytask.tokennumbers)}"/>
+					</div>
+					
+				</div>
+				<div class="col-md-1"></div>
+			<div class="col-md-3 col-xs-6 col-sm-6" style="padding: 0px;height: 70px; margin-top:-5px;">
+					<div style="padding:0px; padding-right:30px; "
+						id="touchspin_list1">
+						<input type="text" id="touchspin_list"
+							style="border: none;padding:0px; color: #e6e5e5; width:100%; font-size: 30px; background-color: transparent; text-align: Center;"
+							th:value="${historytask.timesAdd}"  class="addordivide" th:name="${historytask.id}" />
+							
+					</div>
+					<div style="padding-right: 30px; margin-top: -35px;">
+						<input type="text"
+							style="border: none;width: 50%;border-top:3px solid #e6e5e5; padding-bottom:-20px;  font-size: 30px;margin-top:38px;color: #e6e5e5; text-align:  center;"
+							th:value="${historytask.taskTimes}" readonly="readonly" th:id="taskTimes+${historytask.id}"/>
+					</div>
+				</div>
+			</div> 
+			</div>
+			
+			
+			</div>
+			<!-- 遍历数据结束 -->
+			
+				
+			
+		</div>
+	
+	
+
+
+<!-- 隐藏历史任务按钮 -->
+
+<div class = "col-md-12 col-xs-12 col-sm-12" style = "padding:0px; ">
+<div class = "col-md-4 col-xs-4 col-sm-4" style = "padding:0px;"></div>
+<div class = "col-md-4 col-xs-4 col-sm-4" th:if="${finishhistorysize}>0"  onClick = "hidehistory()"  style = "padding:0px;border-radius:50px !important; height:25px; background-color:#f4f4f2;margin-top:20px; margin-bottom:20px;">
+   <span     style = "border:none; cursor:default;width:100%; height:100%;line-height:25px; font-size:14px;color:#3f3f3f; text-align:center;"><span id = "hidehistory1" style = "font-family:'微软雅黑';">显示已结束任务</span><span id = "hidehistory2" style="display: none;">隐藏已结束任务</span></span>
+</div>
+
+<div class = "col-md-4 col-xs-3 col-sm-4" style = "padding:0px;"></div>
+</div>
+<!--历史任务-->
+
+
+<!-- 隐藏已完成任务的百分比 -->
+<input  name="finishintegerrate"  id="finishintegerrate" type="hidden"  th:value="${finishintegerrate}" />
+ <div id = "history" class = "col-md-12 col-xs-12 col-sm-12" style = "padding:0px;display: none">
+		<!-- 开始遍历数据 -->
+		<div     th:each="finishhistory:${finishhistoryList}" class="parent" >
+                       <div class=" col-xs-12 col-md-12 col-sm-12" style="background-color:#ebebeb; padding:0px;;margin-top: 0px; overflow-x: auto; overflow-y: hidden; border-bottom:1px solid #a5a5a5;height: 70px;overflow-x: hidden; overflow-y: hidden;">
+				<ul data-role="" class="">
+					<li class="">
+						<!--  <div class="behind finish" id="2" >
+							<a href="#" class="ui-btn delete-btn"
+								style="height: 70px; border: none; background-color: #5d97d2; padding-left:8px;padding-right:8px; font-family: myfontlight; font-size: 12px;"  >
+								<p style="padding-top: 50%" >
+									删&nbsp;除<br />任&nbsp;务
+								</p>
+								<input type="hidden"  th:value="${finishhistory.id}" />						
+							</a>
+						</div>   -->
+						<a href="#" id=""  class=" col-xs-12 col-md-12 col-sm-12"
+						style="height: 70px; border: none; background-color: #ebebeb;;padding: 0px;height: 70px;margin: 0px;vertical-align: middle;">
+							<label class="col-md-4 col-xs-4 col-sm-4" style="padding:0px;">
+							<lable class="col-md-1 col-xs-2 col-sm-2"></lable>
+							<div class="col-md-10 col-xs-12 col-sm-12" style="margin: 0px;top:10px;" >
+							
+								<input type="text"
+								style="border: none; backgroud-color: transparent;font-size:16px; text-align: left; padding: 0px; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;pointer-events: none;text-decoration:line-through; "
+								th:value="${finishhistory.taskName}" readonly="readonly"  class="" /> 
+								
+								<input type="text"
+								style=" border: none; backgroud-color: transparent;color:#a5a5a5; font-size: 12px; text-align: left; width: 120%;"
+								th:value="共计+${finishhistory.taskTimes}+次完成+${finishhistory.timesAdd}+次" readonly="readonly"  />
+								</div>
+								<lable class="col-md-1"></lable>
+						</label> 
+						<label class="col-md-4 col-xs-4 col-sm-4"
+							style=" text-align: Center; padding:0px;">
+								<div class="easy-pie-chart1" style=" ">
+									<div class="number transactions finishtask" style="text-align: center;left: 10px;top:5px;" id="datapercent" data-percent="45">
+										<span   th:text="${finishhistory.rate}" style = "position: relative;top:-6px;left: -8px;font-size: 14px"></span>
+									</div>
+									
+								</div>
+						</label>
+						
+						<label class="col-md-4 col-xs-4 col-sm-4" style="">
+						<label class="col-md-8 col-xs-7 col-sm-7" style="padding:0px;top:6px;">
+								<div>
+									<input type="text"	style="border: none; backgroud-color: transparent;  font-size: 16px; text-align: center; width: 80%;color: #404040;"
+										th:value="${finishhistory.tokennumbers}" readonly="readonly" />
+								</div>
+								<div style="border: none; backgroud-color: transparent; font-size: 16px; text-align: center;color: #404040;">代币</div>
+						</label>
+						<label class="col-md-4 col-xs-5 col-sm-5" style="padding:0px;height: 70px;line-height: 70px;text-align: right;border: 1px solid transparent;font-size: 30px;color: #333333"></label>
+					</label>
+						
+						
+					
+					</a>
+					
+					</li>
+				
+				</ul>
+				
+			</div>
+
+
+			
+			</div>
+			<!-- 遍历数据结束 -->
+			
+			
+			
+		</div>
+		
+		
+		<!-- 滑动标识 -->
+		<input type="hidden"  th:value="0"   id="finishid"/>
+<!-- 隐藏未完成任务的百分比 -->
+<input type="hidden"   id="integerrate"   th:value="${integerrate}"/>
+  
+
+     
+     
+   
+     <!-- 老虎机 -->
+     <div class="modal fade" id="money" tabindex="-1" role="dialog" aria-labelledby="finishModalLabel" aria-hidden="true" style="padding-right: 0px;">
+		<div class="modal-dialog">
+             <div class="modal-content" style="margin-top:100px">
+		        <div    style="background-color:white;margin-top:43px ">
+				<img alt="" src="../../img/finishmoney.png"/>
+				</div>
+				<div   style="background-color:white;border: 0px;">
+	            <div  >
+	            <div id="header">
+				  <table cellpadding="0" cellspacing="0">
+				    <tr>
+				      <td align="center">
+				         <div class="content">
+				          <div style = "margin-top:50px;">
+				          <ul class="bs-glyphicons bs-glyphicons-list">
+						  <li><span class="glyphicon glyphicon-plus" style = "font-size:3.75rem;font-weight: 300;color:black;"> </span></li>
+						  </ul>
+						  </div>
+				          <div id="textMachine">
+				          
+				          </div>
+				        </div>
+				       </td>
+				    </tr>
+				    <tr>
+				    <td>
+				    <div  id="machine1Result"></div>
+				    </td>
+				    </tr>
+				  </table>
+              </div>
+	          </div>
+	          </div>
+	          
+	          <audio  autoplay="autoplay">
+  <source src="../../audio/5787.wav" type="audio/wav" />
+
+</audio>
+                 </div>
+	             </div>
+     </div>
+     
+     
+     
+     
+     
+      <!-- 宝贝名字滑动 -->
+		                    <script src="../../js/project/swiper.min.js" type="text/javascript"></script>
+												<!-- Initialize Swiper -->
+												<script>
+													var swiper = new Swiper('#swiper-container',
+															{
+																pagination :'.swiper-pagination',
+																slidesPerView : 4,
+																paginationClickable : true,
+																spaceBetween :11,
+																freeMode : true,
+																grabCursor:true,
+																mousewheelControl : true
+															});
+												</script>
+     
+     <script type="text/javascript">
+//显示选择宝贝
+$(".showchildback .showchild ").each(function() {
+			   $(this).click(function () {	 
+				$(this).css("background-color","#0151a6");
+				//$(this).siblings().css("background-color","#0151a6");
+				$(this).parents('.swiper-slide').siblings('.swiper-slide').children('.showchild').css("background-color","#b3b3b3");
+				 $.ajax({
+					type : "Get",
+					url : "/child/findById?childId=" + $(this).find('input').attr('id'),
+					success : function(data) {
+						/* alert(data.id);
+						alert(data.id=""); */
+						if(data==0){
+							$("#kidfilePath").attr("src","../../img/chird.png");
+						}else{
+						$("#kidfilePath").attr("src","/image/show/"+data);
+						}
+					}
+				}); 
+				//点击选择宝贝id				
+				document.getElementById("clickchildid").value=$(this).find('input').attr('id');
+				
+			 });
+		});
+		
+	function tomyinformationbaby(){
+			window.location.href="/myinformation/baby";
+		}
+</script>
+
+<script type="text/javascript">
+//点击确定
+function color(){
+	 document.getElementById("moneynumber").style.borderBottomColor="#0151a6";
+}
+function addtaskchild(){
+	 var textboxline = document.getElementById("moneynumber");
+	 var clickchildid=document.getElementById("clickchildid");
+	 if(textboxline.value==""){
+		 document.getElementById("moneynumber").style.borderBottomColor="#fe6a63";
+		 setTimeout("color()",2000)
+	 }
+	 else if(clickchildid.value==""){ 
+		/* alert("请选择宝贝！");	 */
+	 }
+	else{
+		  mianForm1.submit();
+	 }
+}
+</script>
+<!-- end分配任务 -->
+
+		<script src="../../assets/global/plugins/jquery-migrate.min.js"
+			type="text/javascript"></script>
+		<script src="../../assets/global/plugins/jquery-ui/jquery-ui.min.js"
+			type="text/javascript"></script>
+		
+		<script
+			src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"
+			type="text/javascript"></script>
+		<script
+			src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"
+			type="text/javascript"></script>
+		<script src="../../assets/global/plugins/jquery.blockui.min.js"
+			type="text/javascript"></script>
+		<script src="../../assets/global/plugins/jquery.cokie.min.js"
+			type="text/javascript"></script>
+		<script
+			src="../../assets/global/plugins/uniform/jquery.uniform.min.js"
+			type="text/javascript"></script>
+		<script
+			src="../../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"
+			type="text/javascript"></script>
+		<script src="../../assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js"
+			type="text/javascript"></script>
+		<script
+			src="../../assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js"
+			type="text/javascript"></script>
+		<script
+			src="../../assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js"
+			type="text/javascript"></script>
+		<script
+			src="../../assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js"
+			type="text/javascript"></script>
+		<script
+			src="../../assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js"
+			type="text/javascript"></script>
+		<script
+			src="../../assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js"
+			type="text/javascript"></script>
+		<script
+			src="../../assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js"
+			type="text/javascript"></script>
+		<script src="../../assets/global/plugins/flot/jquery.flot.min.js"
+			type="text/javascript"></script>
+		<script
+			src="../../assets/global/plugins/flot/jquery.flot.resize.min.js"
+			type="text/javascript"></script>
+		<script
+			src="../../assets/global/plugins/flot/jquery.flot.categories.min.js"
+			type="text/javascript"></script>
+		<script src="../../assets/global/plugins/jquery.pulsate.min.js"
+			type="text/javascript"></script>
+		<script
+			src="../../assets/global/plugins/bootstrap-daterangepicker/moment.min.js"
+			type="text/javascript"></script>
+		<script
+			src="../../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"
+			type="text/javascript"></script>
+		<script
+			src="../../assets/global/plugins/fullcalendar/fullcalendar.min.js"
+			type="text/javascript"></script>
+		 <script
+			src="../../assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js"
+			type="text/javascript"></script> 
+		<script src="../../assets/global/plugins/jquery.sparkline.min.js"
+			type="text/javascript"></script>
+		<script src="../../assets/global/scripts/metronic.js"
+			type="text/javascript"></script>
+		<script src="../../assets/admin/layout/scripts/layout.js"
+			type="text/javascript"></script>
+		<script src="../../assets/admin/layout/scripts/quick-sidebar.js"
+			type="text/javascript"></script>
+		<script src="../../assets/admin/layout/scripts/demo.js"
+			type="text/javascript"></script>
+		<script src="../../assets/admin/pages/scripts/index.js"
+			type="text/javascript"></script>
+		<script src="../../assets/admin/pages/scripts/tasks.js"
+			type="text/javascript"></script>
+
+		<script>
+jQuery(document).ready(function() {    
+   Metronic.init(); // init metronic core componets
+   Layout.init(); // init layout
+   QuickSidebar.init(); // init quick sidebar
+Demo.init(); // init demo features
+   Index.init();   
+   Index.initDashboardDaterange();
+   Index.initJQVMAP(); // init index page's custom scripts
+   Index.initCalendar(); // init index page's custom scripts
+   Index.initCharts(); // init index page's custom scripts
+   Index.initChat();
+   Index.initMiniCharts();
+   Tasks.initDashboardWidget();
+});
+</script>
+	</div>
+	
+  
+ 
+
+
+<div th:replace="partial/tokennavibars" class="header" style="width: auto;"></div> 
+
+
+
+	<div layout:fragment="script">
+
+		</div>
+</div></div>
+	</div>
+<script type="text/javascript"
+				th:src="@{/assets/global/plugins/jquery-validation/js/jquery.validate.min.js}"></script>
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/jquery-validation/js/additional-methods.min.js}"></script>
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js}"></script>
+			<!-- END PAGE LEVEL PLUGINS -->
+
+			<!-- BEGIN PAGE LEVEL SCRIPTS -->
+			<script th:src="@{/assets/global/scripts/metronic.js}"
+				type="text/javascript"></script>
+			<script th:src="@{/assets/admin/layout/scripts/layout.js}"
+				type="text/javascript"></script>
+			<script th:src="@{/assets/admin/pages/scripts/form-wizard.js}"></script>
+			<!-- END PAGE LEVEL SCRIPTS -->
+
+			<!-- BEGIN PAGE LEVEL PLUGINS -->
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/bootstrap-daterangepicker/moment.min.js}"></script>
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js}"></script>
+			<script th:src="@{/assets/admin/pages/scripts/components-pickers.js}"></script>
+			<script
+				th:src="@{/assets/admin/pages/scripts/components-form-tools.js}"></script>
+			<!-- END PAGE LEVEL PLUGINS -->
+
+			<!-- BEGIN PAGE LEVEL PLUGINS -->
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/fuelux/js/spinner.min.js}"></script>
+			<script
+				th:src="@{/assets/global/plugins/bootstrap-touchspin/bootstrap.touchspin.js}"
+				type="text/javascript"></script>
+			<script
+				th:src="@{/assets/global/plugins/typeahead/handlebars.min.js}"
+				type="text/javascript"></script>
+			<script
+				th:src="@{/assets/global/plugins/typeahead/typeahead.bundle.min.js}"
+
+				type="text/javascript"></script>
+			<!-- END PAGE LEVEL PLUGINS -->
+
+			<!-- BEGIN PAGE LEVEL PLUGINS -->
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/bootstrap-select/bootstrap-select.min.js}"></script>
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js}"></script>
+			<!-- END PAGE LEVEL PLUGINS -->
+
+			<script
+				th:src="@{/assets/global/plugins/image-picker/image-picker/image-picker.js}"
+				type="text/javascript"></script>
+			<script
+				th:src="@{/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js}"
+				type="text/javascript"></script>
+			<script
+				th:src="@{/assets/admin/pages/scripts/components-dropdowns.js}"></script>
+
+			<script th:src="@{/assets/frontend/layout/scripts/layout.js}"
+				type="text/javascript"></script>
+	<script>
+				$(function() {
+					// initiate layout and plugins
+					Metronic.init(); // init metronic core components
+					Layout.init(); // init current layout
+					Layout.initOWL();
+					/* FormWizard.init(); */
+					ComponentsPickers.init();
+					ComponentsDropdowns.init();
+					ComponentsFormTools.init();
+					CustomFormActions.init();
+					$("select").imagepicker();
+					/* trip.init(); */
+				});
+			</script>
+</body>
+</html>

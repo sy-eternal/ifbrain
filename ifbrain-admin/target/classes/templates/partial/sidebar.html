@@ -1,0 +1,52 @@
+<!-- BEGIN SIDEBAR -->
+<link rel="stylesheet" type="text/css" th:href="@{/js/lib/ztree/css/zTreeStyle/zTreeStyle.css}" />
+<script th:src="@{/js/lib/ztree/js/jquery.ztree.all-3.5.min.js}"></script>
+<script type="text/javascript">
+	function zTreeOnClick(event, treeId, treeNode) {
+	//alert(treeNode.tId + ", " + treeNode.url + "," + treeNode.parentId);	
+	}
+	$(function() {
+		var zTreeNodes;
+		var setting = {
+			data : {
+				simpleData : {
+					enable : true,
+					idKey : "id",
+					pIdKey : "parentId",
+					rootPId : 0
+				}
+			},
+			//	isSimpleData : true,
+			//	treeNodeKey : "id",
+			//	treeNodeParentKey : "parentId",
+			view : {
+				showIcon : false
+			},
+			showLine : true,
+			callback : {
+				onClick : zTreeOnClick,
+			}
+		};
+
+		$.ajax({
+			cache : false,
+			type : "post",
+			dataType : "json",
+			url : "/member/loginmenu",
+			success : function(data) {
+				zTreeNodes = data;
+				$.fn.zTree.init($("#tree"), setting, zTreeNodes);
+			},
+			error : function() {
+				console.log('请求失败');
+			}
+		})
+	});
+</script>
+
+<div class="page-sidebar navbar-collapse collapse">
+	<ul id="tree" class="ztree">
+	</ul>
+	<!-- END SIDEBAR MENU1 -->
+</div>
+<!-- END SIDEBAR -->

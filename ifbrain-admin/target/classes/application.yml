@@ -1,0 +1,116 @@
+spring:
+  profiles:
+    active: work
+
+# Server settings
+server:
+  address: localhost
+  port: 8089
+  sessionTimeout: 5
+  
+
+# Mmultipart settings
+multipart:
+  maxFileSize: 100000Mb
+  maxRequestSize: 100000Mb
+
+# Mail settings
+mail:
+  host: smtp.exmail.qq.com
+  port: 465
+  username: auto-services@ifbrain.com 
+  password: Ifbrain_2015
+  from: auto-services@ifbrain.com
+
+redis: 
+     cache:
+        clusterNodes: 192.168.1.253:7000,192.168.1.253:7001,192.168.1.253:7002,192.168.1.253:7003,192.168.1.253:7004,192.168.1.253:7005
+        commandTimeout: 5
+        expireSeconds: 120
+     
+    
+
+
+# File upload settings
+file-upload:
+  root-path: E:\
+  visa-path: visa/
+  hotel-path: hotel/
+  spot-path: spot/
+  basicCommodity-path: basicCommodity/
+  child-path: child/
+  user-path: user/
+  commodityType-path: commodityType/
+
+# Web url settings
+web-url:
+ root-url: http://192.168.1.101:8089
+---
+
+# Spring settings
+spring:
+  profiles: work
+
+  thymeleaf:
+    suffix: .html
+    mode: HTML5
+    cache: false
+    encoding: UTF-8
+  
+
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ifbrain?characterEncoding=UTF-8
+    #url: jdbc:mysql://ifbrain0.mysql.rds.aliyuncs.com:3306/ifbrain?characterEncoding=UTF-8
+    username: root
+    password: 
+    initialSize: 8
+    maxActive: 40
+    maxIdle: 4
+    minIdle: 4
+    testOnBorrow: false
+    testOnReturn: false
+    testWhileIdle: true
+    maxWait: 60000
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+
+  
+    
+ 
+
+
+---
+
+# Spring settings
+spring:
+  profiles: home
+
+  thymeleaf:
+    suffix: .html
+    mode: HTML5
+    cache: false
+    encoding: UTF-8
+
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.253:3306/ifbrain?characterEncoding=UTF-8
+    #url: jdbc:mysql://transenly.mysql.rds.aliyuncs.com:3306/ifbrain?characterEncoding=UTF-8
+    username: root
+    password: root
+    initialSize: 8
+    maxActive: 40
+    maxIdle: 4
+    minIdle: 4
+    testOnBorrow: false
+    testOnReturn: false
+    testWhileIdle: true
+    maxWait: 60000
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none

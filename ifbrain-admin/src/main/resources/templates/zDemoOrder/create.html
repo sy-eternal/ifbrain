@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout-blank">
+<head>
+	<title>新增订单</title>
+</head>
+<body>
+	<div layout:fragment="content" class="container">
+		<div class="page-header">
+			<h1>新增订单</h1>
+		</div>
+		<form class="form-horizontal" role="form" method="post" th:action="@{/ZDemoOrder/create}" th:object="${ZDemoOrder}">
+			<div class="form-group" th:classappend="${#fields.hasErrors('ZDemoUser')}? 'has-error'">
+				<label for="ZDemoUser" class="col-xs-3 control-label">订货人</label>
+				<div class="col-xs-6">
+					<select class="form-control" th:field="*{ZDemoUser}">
+						<option th:each="ZDemoUser : ${ZDemoUsers}" th:value="${ZDemoUser.id}" th:text="${ZDemoUser.number}"></option>
+					</select>
+					<span class="text-danger" th:if="${#fields.hasErrors('ZDemoUser')}" th:errors="*{ZDemoUser}"></span>
+				</div>
+			</div>
+			<div class="form-group" th:classappend="${#fields.hasErrors('reveiverName')}? 'has-error'">
+				<label for="reveiverName" class="col-xs-3 control-label">收件人</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{reveiverName}" />
+					<span class="text-danger" th:if="${#fields.hasErrors('reveiverName')}" th:errors="*{reveiverName}"></span>
+				</div>
+			</div>
+			<div class="form-group" th:classappend="${#fields.hasErrors('mobile')}? 'has-error'">
+				<label for="mobile" class="col-xs-3 control-label">手机号码</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{mobile}" />
+					<span class="text-danger" th:if="${#fields.hasErrors('mobile')}" th:errors="*{mobile}"></span>
+				</div>
+			</div>
+			<div class="form-group" th:classappend="${#fields.hasErrors('address')}? 'has-error'">
+				<label for="address" class="col-xs-3 control-label">详细地址</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{address}" />
+					<span class="text-danger" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span>
+				</div>
+			</div>
+			<div class="form-group" th:classappend="${#fields.hasErrors('remark')}? 'has-error'">
+				<label for="remark" class="col-xs-3 control-label">备注</label>
+				<div class="col-xs-6">
+					<textarea class="form-control" th:field="*{remark}"></textarea>
+					<span class="text-danger" th:if="${#fields.hasErrors('remark')}" th:errors="*{remark}"></span>
+				</div>
+			</div>
+			<p class="text-center">
+				<button type="submit" class="btn btn-primary">提交</button>
+				<a th:href="@{/ZDemoOrder}" class="btn btn-default">返回</a>
+			</p>
+		</form>
+	</div>
+</body>
+</html>

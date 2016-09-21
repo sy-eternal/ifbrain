@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>修改个人信息</title>
+</head>
+<body>
+	<div layout:fragment="content" class="container">
+		<div class="page-header">
+			<h1>修改个人信息</h1>
+		</div>
+		<form class="form-horizontal" role="form" method="post" th:action="@{/guideinfo/update}" th:object="${guide}">
+			<input type="hidden" name="_method" value="put" />
+			<input type="hidden" th:field="*{id}" />
+			<div class="form-group">
+				<label for="user" class="col-xs-3 control-label">姓</label>
+				<div class="col-xs-6">
+					<input type="hidden" class="form-control" th:field="*{userRegister.id}" />
+					<input type="text" class="form-control" th:value="*{userRegister.firstName}" required="true"  name="firstName"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="mobile" class="col-xs-3 control-label">名</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:value="*{userRegister.lastName}" required="true" name="lastName" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="mobile" class="col-xs-3 control-label">出生日期</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{birthday}" required="true" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="mobile" class="col-xs-3 control-label">邮箱</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:value="*{userRegister.email}" required="true" name="email" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="address" class="col-xs-3 control-label">国籍</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{nationality}" required="true" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="mobile" class="col-xs-3 control-label">护照号码</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{passportCode}" required="true" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="address" class="col-xs-3 control-label">手机号码</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{mobile}" required="true" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="mobile" class="col-xs-3 control-label">驾照号码</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{driveLicenseCode}" required="true" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="address" class="col-xs-3 control-label">导游主地点</label>
+				<div class="col-xs-6">
+					<input type="hidden" class="form-control" th:field="*{hostCity.id}" required="true" name="cityName"/>
+					<input type="text" class="form-control" th:value="*{hostCity.cityName}" required="true" name="cityName"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="mobile" class="col-xs-3 control-label">愿意到其他地点</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{toOtherCity}" required="true" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="address" class="col-xs-3 control-label">支付方式</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{paymentMethod}" required="true" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="mobile" class="col-xs-3 control-label">地址</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{address}" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="address" class="col-xs-3 control-label">Payal账号</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{payalAccount}" />
+				</div>
+			</div>
+			<p class="text-center">
+				<button type="submit" class="btn btn-primary">修改</button>
+				<a th:href="@{/guideinfo}" class="btn btn-default">返回</a>
+			</p>
+		</form>
+	</div>
+</body>
+</html>

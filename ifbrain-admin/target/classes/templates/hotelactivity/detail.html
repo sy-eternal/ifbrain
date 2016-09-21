@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>酒店活动查询</title>
+<!-- 使用jQuery Validation控件进行前端验证 -->
+<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid">
+		<div class="row">
+			<div class="page-header">
+				<h1>酒店活动查询</h1>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+				<form class="form-horizontal" role="form" method="post" th:action="@{/hotelActivity/update}" id="mainForm"
+						enctype="multipart/form-data" th:object="${hotelActivity}">
+				<input type="hidden" th:field="*{id}" name="id" id="id" />
+					<!-- 供应商名称 -->
+						<div class="form-group">
+							<label for="supplier" class="col-xs-3 control-label">供应商名称</label>
+							<div class="col-xs-6">
+								<select class="form-control" th:field="*{supplier}" name="supplier" id="supplier" disabled="disabled" >
+									<option th:each="supplier : ${supplier}" th:value="${supplier.id}" th:text="${supplier.cnName}" id="supplier"></option>
+								</select> <span class="text-danger" th:if="${#fields.hasErrors('supplier')}" th:errors="*{supplier}"></span>
+							</div>
+						</div>
+						
+						<!-- 美国城市 -->
+						<div class="form-group">
+							<label for="city" class="col-xs-3 control-label">所在城市</label>
+							<div class="col-xs-6">
+								<select class="form-control" th:field="*{city}" name="city" disabled="disabled" >
+									<option th:each="city : ${city}" th:value="${city.id}" th:text="${city.cityName}" id="city"></option>
+								</select> <span class="text-danger" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></span>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="hotelChName" class="col-xs-3 control-label">酒店中文名称<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{hotelChName}"  readonly="readonly" disabled="disabled" />
+								 <span class="text-danger" th:if="${#fields.hasErrors('hotelChName')}" th:errors="*{hotelChName}"></span>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="hotelEngName" class="col-xs-3 control-label">酒店英文名称<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{hotelEngName}" readonly="readonly" disabled="disabled" />
+								 <span class="text-danger" th:if="${#fields.hasErrors('hotelEngName')}" th:errors="*{hotelEngName}"></span>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="hotelClass" class="col-xs-3 control-label">星级<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+							
+							<select class="form-control" th:field="*{hotelClass}" disabled="disabled">
+									<option th:value="6">无星级</option>
+									<option th:value="1">一星级</option>
+									<option th:value="2">二星级</option>
+									<option th:value="3">三星级</option>
+									<option th:value="4">四星级</option>
+									<option th:value="5">五星级</option>
+								</select>
+								 <span class="text-danger" th:if="${#fields.hasErrors('hotelClass')}" th:errors="*{hotelClass}"></span>
+							</div>
+						</div>
+						
+						
+						<div class="form-group">
+							<label for="address" class="col-xs-3 control-label">地址</label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{address}"  readonly="readonly" disabled="disabled"/>
+								 <span class="text-danger" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span>
+							</div>
+						</div>
+						<input type="hidden" name="tag" id="tag" />
+						
+						<div class="form-group" th:each="hotelTags:${hotelTags}">
+						<label class="col-xs-3 control-label">标签</label>
+							
+								<div  class="col-xs-6"  th:each="hotelTags:${hotelTags}">
+									<input type="text" th:each="hotelTags:${hotelTags}" th:value="${hotelTags.tag}" class="form-control" name="tag" id="tag" readonly="readonly" disabled="disabled"/>
+								</div>
+						
+						</div>
+						
+						<div class="form-group"> 
+							<label for="description" class="col-xs-3 control-label">酒店介绍</label>
+							<div class="col-xs-6"> 
+								<textarea rows="5" cols="71" readonly="readonly" th:field="*{description}" disabled="disabled"></textarea>
+								<!-- <input type="text" class="form-control" th:field="*{description}" disabled="disabled" readonly="readonly"/> -->
+								 <span class="text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+							</div>
+						</div>
+						
+						<div class="form-group">
+						<label class="col-xs-3 control-label">图片</label>
+						<div class="col-xs-6">
+							 <img th:src="@{'/image/show/' + *{image.id}}" alt="酒店图片" />  
+							 </div>
+						</div>
+						
+						<div class="form-group">
+							<label for="freeCancellation" class="col-xs-3 control-label">是否能取消预订<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+							
+							<select class="form-control" th:field="*{freeCancellation}" disabled="disabled">
+									<option value="1">是</option>
+									<option value="0">否</option>
+								</select>
+								 <span class="text-danger" th:if="${#fields.hasErrors('freeCancellation')}" th:errors="*{freeCancellation}"></span>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="freeBreakfastType" class="col-xs-3 control-label">免费早餐<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+							
+							<select class="form-control" th:field="*{freeBreakfastType}" disabled="disabled">
+									<option value="1">是</option>
+									<option value="0">否</option>
+								</select>
+								 <span class="text-danger" th:if="${#fields.hasErrors('freeBreakfastType')}" th:errors="*{freeBreakfastType}"></span>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="freeInternetType" class="col-xs-3 control-label">免费网络<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+							
+							<select class="form-control" th:field="*{freeInternetType}" disabled="disabled">
+									<option value="1">是</option>
+									<option value="0">否</option>
+								</select>
+								 <span class="text-danger" th:if="${#fields.hasErrors('freeInternetType')}" th:errors="*{freeInternetType}"></span>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="freeParkingType" class="col-xs-3 control-label">免费停车<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+							<select class="form-control" th:field="*{freeParkingType}" disabled="disabled">
+									<option value="1">是</option>
+									<option value="0">否</option>
+								</select>
+								 <span class="text-danger" th:if="${#fields.hasErrors('freeParkingType')}" th:errors="*{freeParkingType}"></span>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="airportShuttleType" class="col-xs-3 control-label">机场班车<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+							
+							<select class="form-control" th:field="*{airportShuttleType}" disabled="disabled">
+									<option value="1">是</option>
+									<option value="0">否</option>
+								</select>
+								 <span class="text-danger" th:if="${#fields.hasErrors('airportShuttleType')}" th:errors="*{airportShuttleType}"></span>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="fitnessCenterType" class="col-xs-3 control-label">健身中心<span style="color: #e94d1c; font-size: 6px;">*</span></label>
+							<div class="col-xs-6">
+							
+							<select class="form-control" th:field="*{fitnessCenterType}" disabled="disabled">
+									<option value="1">是</option>
+									<option value="0">否</option>
+								</select>
+								 <span class="text-danger" th:if="${#fields.hasErrors('fitnessCenterType')}" th:errors="*{fitnessCenterType}"></span>
+							</div>
+						</div>
+						
+						<p class="text-center">
+							<a type="button" th:href="@{/hotelActivity}" class="btn btn-default">返回</a>
+						</p>
+				
+				
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

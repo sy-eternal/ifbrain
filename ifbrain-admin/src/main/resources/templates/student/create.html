@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout" data-ng-app="_app">
+<head>
+	<title>学生试卷管理(新增)</title>
+	<script type="text/javascript" charset="utf-8" src="../../assets/global/plugins/ckeditor3/ckeditor.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../assets/global/plugins/ckeditor3/config.js"></script>
+	<script th:src="@{/assets/global/plugins/jquery.min.js}" type="text/javascript"></script>
+	<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script> 
+	<script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+	<script th:src="@{/js/controller/parentmanual/check.js}"></script>	
+	<script th:src="@{/js/controller/school/studentselect-controller.js}"></script>
+	<script th:src="@{/js/controller/school/student-controller.js}"></script>	
+<script>
+//查询班级对应的课程
+/* function changeschoolclass(id){
+	$.ajax({
+		async : false,
+	    type: "Get",
+	    url: "/schoolclass/findBychildId?id="+id,
+	    success: function (data) {
+	    
+	    	$("#lessonname").val(data);
+	    }
+	 });
+} */
+</script>
+ 
+</head>
+<body data-ng-controller="studentselectcontroller">
+	<div layout:fragment="content" >
+		<div class="page-header">
+			<h1>学生试卷管理(新增)</h1>
+		</div>
+		<form class="form-horizontal" role="form" method="post" th:action="@{/student/create}"    id="schoolclasssubmit"  onsubmit="getPaystatus()">
+			
+			<div class="form-group" >
+							<label for="exam" class="col-xs-3 control-label">试卷名称</label>
+							<div class="col-xs-6">
+								<select class="form-control"  id="Exam" data-ng-model="Exam" name="Exam" >
+										<option th:each="exam : ${exam}" th:value="${exam.id}" th:text="${exam.examName}"  id="exam"></option>
+								</select>
+								<span class="text-danger" ></span>
+							 </div>
+							 <input type="hidden" id="examid"  th:value="${examid}"  name="examid"/>
+							 <input  type="button" value="查询" class="btn btn-primary" onclick="searchquestion()"/>
+			</div> 
+			<div class="form-group" >
+							<label for="courseLevel" class="col-xs-3 control-label">学校名称</label>
+							<div class="col-xs-6">
+								<select class="form-control"  id="School" data-ng-model="School" name="School" data-ng-change="changeschool(School)">
+										<option th:each="school : ${school}" th:value="${school.id}" th:text="${school.scName}"  id="school"></option>
+								</select>
+								<span class="text-danger" ></span>
+							 </div>
+			</div> 
+			<div class="form-group" >
+							<label for="country" class="col-xs-3 control-label">班级名称</label>
+							<div class="col-xs-6">
+								<select class="form-control" id="CourseClass" name="SchoolClass" data-model="CourseClass" onchange="getstudent(this.value)">
+										<option  data-ng-repeat="c in CourseClass" value="{{c.id}}"  >{{c.name}}</option>
+								</select>
+								<span class="text-danger" ></span>
+							 </div>
+			</div>
+			<input type="hidden" id="studentvalue" name="studentvalue"/>
+			<div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">学生姓名</label>
+				<div class="col-xs-6">
+					 <select class="form-control" id="Student" name="Student"  data-ng-model="Student"  onchange="getStudentname()" >
+										<!-- <option  data-ng-repeat="c in Student" value="{{c.id}}" id="name" >{{ c.studentName}}</option> -->
+					</select>
+					<span class="text-danger" ></span>
+				</div>
+			</div>
+			
+			<div  th:if="${itemManagementquestion!=null}"  th:each="itemManagementQuestion:${itemManagementquestion}">
+			  <div class="form-group" >
+			  <label  class="col-xs-6 control-label">
+			  <span style="color: red;">第<span th:text="${itemManagementQuestion.ordernumber}"></span>题</span>
+			  </label>
+			  </div>
+			  <div class="namecontent " style="margin-left: 40%"></div>
+			  <div class="questioncontent " style="margin-left: 40%"></div>
+			  <input th:value="${itemManagementQuestion.question.questionOptionContent}" class="questionOptionContent" type="hidden"/>
+			  <input th:value="${itemManagementQuestion.question.questionNameContent}" class="questionNameContent" type="hidden"/>
+			   <div style="margin-left: 40%;padding: 0px">
+			      		<input type="radio"  value="A" th:name="checkradio+${itemManagementQuestion.ordernumber}" style="width: 30px"/>A
+			      		<input type="radio"  value="B" th:name="checkradio+${itemManagementQuestion.ordernumber}" style="width: 30px"/>B
+			      		<input type="radio"  value="C" th:name="checkradio+${itemManagementQuestion.ordernumber}" style="width: 30px"/>C
+			      		<input type="radio"  value="D" th:name="checkradio+${itemManagementQuestion.ordernumber}" style="width: 30px"/>D
+			  <input  id="size" th:value="${size}" type="hidden"/>
+			  <input type="hidden" name="checkanswer" id="checkanswer" />
+			  </div>
+			</div>
+			<!-- <div class="form-group" >
+				<label for="examscore" class="col-xs-3 control-label">支付状态</label>
+				<div class="col-xs-6">
+					已支付:<input type="checkbox"  name="status"  value="1" />
+					未支付:<input type="checkbox"  name="status"  value="0"/>
+				</div>
+				<input type="hidden"  name="paystatus"  id="paystatus"/>
+			</div> -->
+			
+			
+			
+			
+			
+			
+		<input type="hidden"  id="content"  name="content"/>
+		<div id="tijiao" >
+		<p class="text-center">
+				<button type="submit" class="btn btn-primary"  >提交</button>
+				<a th:href="@{/student/list}" class="btn btn-default">返回</a>
+		</p>
+		</div>
+		</form>
+	</div>
+	<div layout:fragment="script">
+		<script>
+			$(function() {
+				Metronic.init();
+				Layout.init(); 
+				QuickSidebar.init(); 
+				Demo.init(); 
+			});
+		</script>
+		
+	</div>
+</body>
+
+</html>

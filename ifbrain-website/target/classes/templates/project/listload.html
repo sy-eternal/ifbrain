@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<meta charset="UTF-8"></meta>
+<title>当前任务</title>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script
+	th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+<script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+<script th:src="@{/js/util/http-context.js}"></script>
+<!-- <script th:src="@{/js/controller/dqproject-controller.js}"></script> -->
+<!-- 
+<script type="text/javascript" th:src="@{../../js/lib/jquery-validation/jQuery-1.7.1.js}"></script>
+<script type="text/javascript" th:src="@{../../js/lib/jquery-validation/comment.js}"></script> -->
+
+<script type="text/javascript">
+	function closess() {
+		window.location.href = "/center";
+	}
+	/* function show(){
+		alert($("#childs").val());
+		var childid = $("#childs").val();
+		alert(childid)
+		$.ajax({
+			type : "Post",
+			url : "/project/list/" + childid,
+			data : {
+				"taskname":name
+			},
+			success : function(data) {
+				alert(data);
+				var taskname =data;
+				$('#taskname').html(taskname);
+				document.getElementById('taskname').value = taskname;
+			}
+		});
+	} */
+</script>
+</head>
+<body>
+	<div layout:fragment="content" class="col-md-9 col-sm-12 col-xs-12"
+		>
+		<div style="width: 650px; margin-left: 15px;">
+			<div class="table-scrollable">
+				<table id="table"
+					class="table table-striped table-bordered table-hover">
+
+					<thead>
+						<tr>
+							<th>任务名称</th>
+
+							<th>操作</th>
+
+						</tr>
+						 <input type="text" th:value="${child}" name="child" id="child" /> 
+						<tr th:each="worktask:${worktask}">
+							<td><input type="text" readonly="readonly" id="taskname" th:value="${worktask.task.name}"
+								name="taskname" /></td>
+							<td><a  th:href="@{'/project/add/'+ ${worktask.id}+'/'+${child}}" th:text="${worktask.timeAdd}+'/'+${worktask.times}" style="text-decoration:underline "></a></td>
+							<td><a  th:href="@{'/project/en'dadd/'+ ${worktask.id}}" th:text="结束任务" style="text-decoration:underline "></a></td>
+							
+						</tr>
+						<tr>
+							<td><input type="text" th:value="${money}" /></td>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="text-center">
+				<p class="text-danger" th:text="${message}"></p>
+				<button type="button" class="btn btn-primary" onclick="closess()">返回</button>
+			</div>
+		</div>
+	</div>
+
+	<div layout:fragment="script">
+		<script th:src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+		<script>
+			$(function() {
+				Metronic.init();
+				Layout.init();
+				QuickSidebar.init();
+				Demo.init();
+				ProjectsController.init();
+			});
+		</script>
+	</div>
+</body>
+</html>

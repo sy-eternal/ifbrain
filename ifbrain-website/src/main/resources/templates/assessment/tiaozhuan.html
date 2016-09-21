@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"    data-ng-app="_app"> 
+<head>
+<meta charset="UTF-8"></meta>
+<title>评估</title>
+<!-- 新的代码 -->
+<link rel="stylesheet" type="text/css" th:href="@{/css/selectstyle/style.css}" media="screen"  />
+<script type="text/javascript"	th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+<link th:href="@{/assets/global/css/plugins.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/frontend/layout/css/style-responsive.css}" rel="stylesheet" />
+<link th:href="@{/assets/global/css/components-rounded.css}" id="style_components" rel="stylesheet" type="text/css"/>
+<link th:href="@{/css/percent/radialindicator.css}"  rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" th:href="@{/css/swiper.min.css}" />
+<!-- 圆点样式 -->
+<link  href="../../scripts/video/video-js.css" rel="stylesheet" type="text/css"/>
+	<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script> 
+ 	<script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+<script type="text/javascript"	th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+
+
+
+<script>
+$(function(){
+	var commoditytypevalue=$("#commoditytypevalue").val();
+	var commoditytypename=$("#commoditytypename").val();
+	var courseid=$("#courseid").val();
+	var childId=$("#childId").val();
+	var ifbrainindexname=$("#ifbrainindexname").val();
+	var ifbrainindexvalue=$("#ifbrainindexvalue").val();
+	var type=$("#type").val();
+	var ifbrainindexa=$("#ifbrainindexa").val();
+	var value=$("#value").val();
+	var name=$("#name").val();
+	var consumerpendingBuffer=$("#consumerpendingBuffer").val()
+	var consumerpendingvalue=$("#consumerpendingvalue").val()
+	var ordinalNumber=$("#ordinalNumber").val();
+	var toogleval=$("#toogleval").val()
+	var demandlevelnameandprice =$("#demandlevelnameandprice ").val()
+	var demandlevelnames =$("#demandlevelnames").val()
+	window.location.href="/assessment/showchildifbrainchartback?courseid="+courseid+"&amp;childId="+childId+"&amp;ifbrainindexname="+ifbrainindexname+"&amp;ifbrainindexvalue="+ifbrainindexvalue+"&amp;ifbrainindexa="+ifbrainindexa+"&amp;value="+value+"&amp;name="+name+"&amp;consumerpendingvalue="+consumerpendingvalue+"&amp;consumerpendingBuffer="+consumerpendingBuffer+"&amp;ordinalNumber="+ordinalNumber+"&amp;toogleval="+toogleval+"&amp;demandlevelnames="+demandlevelnames+"&amp;demandlevelnameandprice="+demandlevelnameandprice+"&amp;commoditytypevalue="+commoditytypevalue+"&amp;commoditytypename="+commoditytypename+"&amp;type="+type;
+});
+</script>
+
+</head>
+<body >
+<input   id="courseid" type="hidden" th:value="${courseid}"/>
+<input   id="childId" type="hidden" th:value="${childId}"/>
+
+<input   id="type" type="hidden" th:value="${type}"/>
+
+
+<input   id="ifbrainindexvalue" type="hidden" th:value="${ifbrainindexvalue}"/>
+<input   id="ifbrainindexname" type="hidden" th:value="${ifbrainindexname}"/>
+
+
+<input id="ifbrainindexa"  type="hidden"  th:value="${ifbrainindexa}"/>
+<input   id="value" type="hidden" th:value="${value}"/>
+<input   id="name" type="hidden" th:value="${name}"/>
+
+<input   id="consumerpendingvalue" type="hidden" th:value="${consumerpendingvalue}"/>
+<input   id="consumerpendingBuffer" type="hidden" th:value="${consumerpendingBuffer}"/>
+
+<input   id="ordinalNumber" type="hidden" th:value="${ordinalNumber}"/>
+<input type="hidden" id="toogleval" th:value="${toogleval}"/>
+
+<input   id="demandlevelnames" type="hidden" th:value="${demandlevelnames}"/>
+<input type="hidden" id="demandlevelnameandprice" th:value="${demandlevelnameandprice}"/>
+<input type="hidden" id="commoditytypename" th:value="${commoditytypename}"/>
+<input type="hidden" id="commoditytypevalue" th:value="${commoditytypevalue}"/>
+</body>
+</html>

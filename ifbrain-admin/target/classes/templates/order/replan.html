@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<body>
+	<div layout:fragment="content">
+		<!-- BEGIN PAGE HEADER-->
+		<h3 class="page-title">重新规划行程</h3>
+		<p>请在下面选取一个行程重新进行规划</p>
+		<hr />
+		<!-- END PAGE HEADER-->
+
+		<!-- BEGIN PAGE CONTENT-->
+		<div class="row">
+			<div th:each="order, iterStat : ${orders}" class="col-md-5" th:classappend="${iterStat.odd}? 'col-md-offset-1'">
+				<!-- BEGIN Portlet PORTLET-->
+				<div class="portlet light">
+					<div class="portlet-title">
+						<div class="caption font-green-sharp">
+							<i class="icon-share font-green-sharp"></i>
+							<span class="caption-subject">行程</span>
+						</div>
+						<div class="actions">
+							<a th:href="@{'/order/' + ${order.id} + '/plan?_step1'}" class="btn btn-circle red-sunglo">
+								<i class="fa fa-paper-ordere-o"></i>
+								重新规划
+							</a>
+						</div>
+					</div>
+					<div class="portlet-body">
+						<dl class="dl-horizontal">
+							<dt>订单时间：</dt>
+							<dd th:text="${#dates.format(order.createTime, 'yyyy-MM-dd HH:mm:ss')}"></dd>
+							<dt>订单号：</dt>
+							<dd th:text="${order.orderNumber}"></dd>
+							<dt>客户姓名：</dt>
+							<dd th:text="${order.traveler.firstName + order.traveler.lastName}"></dd>
+							<dt>出行日期：</dt>
+							<dd th:text="${#dates.format(order.startDate, 'yyyy-MM-dd')} + ' 至 ' + ${#dates.format(order.endDate, 'yyyy-MM-dd')}"></dd>
+							<dt>出行目的：</dt>
+							<dd th:text="${order.purposes}"></dd>
+							<dt>随行人员：</dt>
+							<dd th:text="${order.accompanys}"></dd>
+							<dt>旅行主题：</dt>
+							<dd th:text="${order.themes}"></dd>
+							<dt>总人数：</dt>
+							<dd th:text="${order.personCount} + ' 人'">*3 人</dd>
+							<dt>必去城市：</dt>
+							<dd th:text="${order.cityConfs}"></dd>
+							<dt>感兴趣城市：</dt>
+							<dd th:text="${order.cityInts}"></dd>
+						</dl>
+					</div>
+				</div>
+				<!-- END Portlet PORTLET-->
+			</div>
+		</div>
+		<!-- END PAGE CONTENT-->
+	</div>
+
+	<div>
+		<script layout:fragment="script">
+			$(function() {
+				Metronic.init(); // init metronic core components
+				Layout.init(); // init current layout
+				QuickSidebar.init(); // init quick sidebar
+				Demo.init(); // init demo features
+			});
+		</script>
+	</div>
+</body>
+</html>

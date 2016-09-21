@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>用户新增</title>
+<!-- 使用jQuery Validation控件进行前端验证 -->
+<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/member-create.js}"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid">
+		<div class="row">
+			<div class="page-header">
+				<h1>新增用户</h1>
+				</div>
+
+					<div class="row">
+						<div class="col-md-12">
+							<form id="mainForm" class="form-horizontal" role="form" method="post" th:object="${member}"
+								th:action="@{/member/create}">
+								<div class="form-group" th:classappend="${#fields.hasErrors('firstName')}? 'has-error'">
+									<label for="firstName" class="col-xs-3 control-label"> 姓 <span style="color: #e94d1c;font-size:6px;">*</span>
+									</label>
+									<div class="col-xs-6">
+										<input type="text" class="form-control" th:field="*{firstName}" required="required" id="firstName"/> <span
+											class="text-danger" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+									</div>
+								</div>
+								<div class="form-group" th:classappend="${#fields.hasErrors('lastName')}? 'has-error'">
+									<label for="lastName" class="col-xs-3 control-label"> 名 <span style="color: #e94d1c;font-size:6px;">*</span>
+									</label>
+									<div class="col-xs-6">
+										<input type="text" class="form-control" th:field="*{lastName}" required="required" /> <span
+											class="text-danger" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="password" class="col-xs-3 control-label"> 密码 <span style="color: #e94d1c;font-size:6px;">*</span>
+									</label>
+									<div class="col-xs-6">
+										<input type="password" class="form-control" th:field="*{password}" required="required" id="password" name="password"/>
+										<span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="confirm-password" class="col-xs-3 control-label"> 密码确认 <span style="color: #e94d1c;font-size:6px;">*</span>
+									</label>
+									<div class="col-xs-6">
+										<input type="password" class="form-control" id="confirm-password" name="confirm-password" required="required" />
+										<p>密码必须6位数以上16位以下，必须包含字母和数字.</p>
+									</div>
+								</div>
+								<div class="form-group" th:classappend="${#fields.hasErrors('telephone')}? 'has-error'">
+									<label for="telephone" class="col-xs-3 control-label"> 手机号码 </label>
+									<div class="col-xs-6">
+										<input type="text" class="form-control" th:field="*{telephone}"  id="telephone" name="telephone"/> <span
+											class="text-danger" th:if="${#fields.hasErrors('telephone')}" th:errors="*{telephone}"></span>
+									</div>
+								</div>
+								<div class="form-group" th:classappend="${#fields.hasErrors('email')}? 'has-error'">
+									<label for="email" class="col-xs-3 control-label"> 邮箱 <span style="color: #e94d1c;font-size:6px;">*</span>
+									</label>
+									<div class="col-xs-6">
+										<input type="email" class="form-control" th:field="*{email}" required="required" id="email"/> <span class="text-danger"
+											th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+									</div>
+								</div>
+								<div class="form-group" th:classappend="${#fields.hasErrors('sex')}? 'has-error'">
+									<label for="sex" class="col-xs-3 control-label"> 性别 <span style="color: #e94d1c;font-size:6px;">*</span>
+									</label>
+									<div class="col-xs-6">
+										<select class="form-control" th:field="*{sex}">
+											<option value="0">女</option>
+											<option value="1">男</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group" th:classappend="${#fields.hasErrors('age')}? 'has-error'">
+									<label for="age" class="col-xs-3 control-label"> 年龄 </label>
+									<div class="col-xs-6">
+										<input type="number" class="form-control" th:field="*{age}"  min="0" max="150"/> <span class="text-danger"
+											th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span>
+									</div>
+								</div>
+								<div class="form-group" th:classappend="${#fields.hasErrors('description')}? 'has-error'">
+									<label for="description" class="col-xs-3 control-label"> 描述 </label>
+									<div class="col-xs-6">
+										<input type="text" class="form-control" th:field="*{description}" /> <span class="text-danger"
+											th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+									</div>
+								</div>
+
+<!-- 									<div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20"> -->
+									<p class="text-center">
+										<button type="submit" class="btn btn-primary">提交</button>
+										<a type="button" th:href="@{/member}" class="btn btn-default">返回</a>
+									</p>
+<!-- 									</div> -->
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+
+
+	<div layout:fragment="script">
+		<script th:src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+		<script>
+			$(function() {
+				Metronic.init(); // init metronic core components
+				Layout.init(); // init current layout
+				QuickSidebar.init(); // init quick sidebar
+				Demo.init(); // init demo features
+			});
+		</script>
+	</div>
+</body>
+</html>

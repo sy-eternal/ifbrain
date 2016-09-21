@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+	<title>代币银行</title>
+	<!-- DataTables -->
+	<link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+ <script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+<script th:src="@{/js/util/http-context.js}"></script>
+	<script th:src="@{/js/controller/tokensbank-controller.js}"></script>
+ </head>
+<body>
+	<div layout:fragment="content">
+		<div class="page-header">
+			<h1>代币银行</h1>
+		</div>
+		<input  type="hidden"  id="ifbrainindexlist"  name="ifbrainindexlist"  th:value="${ifbrainindexlist}"  />
+		<table id="table" class="table table-striped table-bordered table-hover">
+		    <thead>
+		        <tr>
+		            <!-- <th>编号</th>    -->
+		            <th>课序号</th> 
+		            <th>姓名</th> 
+		            <th>收入</th>
+		            <th>支出</th>
+		            <th>代币余额</th> 
+		        </tr>
+		    </thead>
+		     <tbody>
+		    	<tr th:each="ifbrainindex : ${list}"  th:if="${ifbrainindex!=null}">
+		    	    <td ><input type="text" readonly="readonly" class="form-control" th:value="'第'+${ifbrainindex.ordinalNumber+'节'}"  style="border: 0px;background-color: transparent;"  size="30px"/></td>
+		    		 <td><input type="text"  class="form-control" th:value="${ifbrainindex.child.name}"   size="30px" style="border: 0px;background-color: transparent;" /></td>
+		    		<td><input  type="text" readonly="readonly" class="form-control"  style="border: 0px;background-color: transparent;" size="30px" th:value="${ifbrainindex.income}"/></td>
+		    		<td ><input type="text" readonly="readonly" class="form-control" th:value="${ifbrainindex.expense}"   style="border: 0px;background-color: transparent;"  size="30px"/></td>
+		    		 <td><input type="text" readonly="readonly" class="form-control" th:value="${ifbrainindex.balance}"    size="30px" style="border: 0px;background-color: transparent;" /></td>
+		    		 
+		    	</tr>
+		    </tbody>
+		</table>
+	</div>
+	<div layout:fragment="script">
+		<script>
+			$(function() {
+				Metronic.init();
+				Layout.init(); 
+				QuickSidebar.init(); 
+				Demo.init(); 
+				 TokensBankController.init() 
+			});
+		</script>
+	</div>
+</body>
+
+</html>

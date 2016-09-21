@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout" data-ng-app="_app">
+<head>
+<title>景点规划</title>
+
+<script th:src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script>
+
+<!-- 使用jQuery Validation控件进行前端验证 -->
+<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/extension.js}"></script>
+<script th:src="@{/js/util/date-extension.js}"></script>
+	<script>
+	//表单提交
+	
+       function  sub(){
+		//点击按钮提交  //要提交的表单id为form1
+    	   var id = $("#spotsname").val();
+           $.ajax({
+                 url:"/spots/create/"+id,
+                 data:$("#spotsForm").serialize(),
+                 type:"post",
+                 success:function(data){//ajax返回的数据
+                          alert(data);     
+                          $('#div').hide();
+                 }
+            });   
+	}
+	
+		function spotsChange() {
+			var id = $("#spotsname").val();
+			$("#spotsId").val(id);
+			$.ajax({
+				type : "GET",
+				url : "/spotsModelses/" + id,
+				dataType : 'json',
+				success : function(data) {
+					$('#spotsnamedetail').val(data.spotsname);
+					$('#spotsename').val(data.spotsename);
+					$('#location').val(data.location);
+					$('#spotsdescription').val(data.spotsdescription);
+					$('#spotssummary').val(data.spotssummary);
+					$('#specialnotes').val(data.specialnotes);
+					$('#clothingtips').val(data.clothingtips);
+					$('#excursionPrice').val(data.excursionPrice);
+					$('#spendingtips').val(data.spendingtips);
+				}
+			});
+			$('#div').show();
+		}
+		
+		
+		function spotsTypePlanChange() {
+			var id = $("#type").val();
+		
+			$("#spotsTypePlanId").val(id);
+		}
+		
+		
+		function reset(){
+			$('#spotsnamedetail').val("");
+			$('#spotsename').val("");
+			$('#location').val("");
+			$('#spotsdescription').val("");
+			$('#spotssummary').val("");
+			$('#specialnotes').val("");
+			$('#clothingtips').val("");
+			$('#excursionPrice').val("");
+			$('#spendingtips').val("");
+		}
+	</script>
+</head>
+<body data-ng-controller="CreateDatePlanController">
+	<div layout:fragment="content">
+		<!-- BEGIN PAGE HEADER-->
+		<h3 class="page-title">导游更换</h3>
+		<p></p>
+		<hr />
+		<!-- END PAGE HEADER-->
+
+				<hr />
+				<h3>导游更换</h3>
+				<form id="mainForm" class="form-horizontal" role="form" method="post" th:action="@{'/scenicSpotPlan/create?orderId=' + ${order.id}}" th:object="${datePlan}">
+					
+					<input type="hidden" name="datePlanId" id="datePlanId"  th:field="*{id}"/>
+					<div class="form-group">
+						<div class="form-field">
+							<label for="startDate" class="col-xs-2 control-label">出发日期</label>
+							<div class="col-xs-4">
+								<input type="date" class="form-control"  readonly="readonly" th:field="*{startDate}"
+									data-ng-model="datePlan.startDate" data-ng-change="calculateForStart()" />
+							</div>
+						</div>
+						<div class="form-field">
+							<label for="endDate" class="col-xs-2 control-label">到达日期</label>
+							<div class="col-xs-4">
+								<input type="date" class="form-control"  th:field="*{endDate}"   readonly="readonly"
+									data-ng-model="datePlan.endDate" data-ng-change="calculateForEnd()" />
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="form-field">
+							<label for="cityPlan.fromCity" class="col-xs-2 control-label">出发城市</label>
+							<div class="col-xs-4">
+								<input type="text" class="form-control"  th:field="*{cityPlan.fromCity.cityName}" readonly="readonly"/>
+							</div>
+						</div>
+						<div class="form-field">
+							<label for="cityPlan.toCity" class="col-xs-2 control-label">到达城市</label>
+							<div class="col-xs-4">
+								<input type="text" class="form-control"  th:field="*{cityPlan.toCity.cityName}" readonly="readonly"/>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="form-field">
+							<label for="vehiclePlan.vehicleType" class="col-xs-2 control-label">交通方式</label>
+							<div class="col-xs-4">
+									<input type="text" class="form-control"  th:value="${code.classs}" readonly="readonly"/>
+							</div>
+						</div>
+						
+						<div class="form-field">
+							<label for="vehiclePlan.supplierPriceRule" class="col-xs-2 control-label">景点名称</label>
+							<div class="col-xs-4">
+							<select class="form-control"  onchange="spotsChange()" th:value="*{scenicSpotPlan.spotsModels}" name="spotsname"  id="spotsname">
+									<option value="">--请选择--</option>
+									<option th:each="spotsmodels : ${spotsmodels}"  th:value="${spotsmodels.id}" th:text="${spotsmodels.spotsname}"></option>
+									<input type="hidden" name="spotsId" id="spotsId"/>
+							</select> 
+							
+							</div>
+						</div>
+						
+					</div>
+					
+					
+					
+					<div class="form-group">
+						<div class="form-field">
+							<label for="vehiclePlan.vehicleType" class="col-xs-2 control-label">门票类型</label>
+							<div class="col-xs-4">
+								<select class="form-control"  id="type" th:value="*{scenicSpotPlan.spotsTypePlan}" name="spotsTypePlanId" onchange="spotsTypePlanChange()">
+									<option value="">--请选择--</option>
+									<option th:each="spotstypeplan: ${spotstypeplan}" th:value="${spotstypeplan.id}" th:text="${spotstypeplan.type}"></option>
+									<input type="hidden" name="spotsTypePlanId" id="spotsTypePlanId"/>
+								</select>
+							</div>
+						</div>
+						
+						
+						<div class="form-field">
+							<label for="vehiclePlan.supplierPriceRule" class="col-xs-2 control-label">人数</label>
+							<div class="col-xs-4">
+								<input type="number" class="form-control"  th:value="*{scenicSpotPlan.spotsTypePlan.number}"  name="number"/>
+							</div>
+						</div>
+						
+					</div>
+			
+					
+					<p class="text-center">
+						<button type="submit" class="btn btn-primary">提交</button>
+						<a th:href="@{'/order/' + ${order.id} + '/plan?_step2'}" class="btn btn-default">返回</a>
+					</p>
+				</form>
+		
+			</div>
+		</div>
+		<!-- END PAGE CONTENT-->
+	</div>
+
+	<div layout:fragment="script"></div>
+</body>
+</html>

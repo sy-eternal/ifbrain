@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>导游费率列表</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta content="" name="description" />
+<!-- DataTables -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+<script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+<script th:src="@{/js/controller/tguiderate-controller.js}"></script>
+
+<!--  <script th:src="@{/js/util/http-context.js}"></script>  -->
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid">
+		<div class="row">
+			<div class="page-header">
+				<h1>导游费率管理</h1>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+				<input type="hidden" th:value="${guideactivity.id}" id="guideactivity" name="guideactivity"/>
+					<a class="btn btn-default" th:href="@{'/guideactivity/createguiderate?guideactivity='+${guideactivity.id}}">新增</a>
+					<table id="table"
+						class="table table-striped table-bordered table-hover">
+						<thead>
+							<tr>
+								<th>导游类型</th>
+								<th>成本价(美元)</th>
+								<th>销售价(美元)</th>
+								<th>更新时间</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div layout:fragment="script">
+		<script th:src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+		<script>
+			$(function() {
+				Metronic.init(); // init metronic core components
+				Layout.init(); // init current layout
+				QuickSidebar.init(); // init quick sidebar
+				Demo.init(); // init demo features
+				InsuranceActivityController.init();
+			});
+		</script>
+	</div>
+</body>
+</html>

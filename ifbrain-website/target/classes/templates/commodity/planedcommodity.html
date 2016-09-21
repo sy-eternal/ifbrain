@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+
+<head>
+<meta charset="utf-8" />
+ <link rel="shortcut icon" href="../../img/showhtml.ico" /> 
+<style>
+/* #tianjia {
+	background-image: url("../../img/删除购物计划.png");
+}
+ */
+#tianjia:hover {
+	background-image: url("../../img/删除购物计划2.png");
+}
+</style>
+<style type="text/css">
+	@font-face {
+	font-family: myfont2;
+	src: url("/font/navfont.ttf");
+</style>
+</head>
+<body>
+	
+		<!-- BEGIN SAMPLE TABLE PORTLET-->
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<!-- BEGIN SAMPLE TABLE PORTLET-->
+		<div class="portlet-body">
+			<div id="tuijian" class="table-scrollable">
+			<table id="table" class="table table-hover" style="border:none">
+		<thead>
+			<tr>
+				<th></th>
+				<th></th>
+				<th style = "font-family: 'myfont2';font-size: 15px;">名字</th>
+				<th style = "font-family: 'myfont2';font-size: 15px;">类型</th>
+				<th style = "font-family: 'myfont2';font-size: 15px;">价格</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="buyPlan:${buyPlans}"
+				style="text-align: center; height: 60px; width: 60px">
+				<td style="height: 60px; width: 60px"><input type="checkbox"
+					name="buyPlan" th:value="${buyPlan.id}" /></td>
+				<td style="height: 60px; width: 60px"><img
+					th:src="@{'/image/show/' + ${buyPlan.image.id}}"
+					alt="Amazing Project" class="img-responsive" /></td>
+				<td style="height: 60px; width: 60px"
+					th:text="${buyPlan.name}"></td>
+				<td style="height: 60px; width: 60px"
+					th:text="${buyPlan.commodityType.name}"></td>
+				<td style="height: 60px; width: 60px"
+					th:text="${buyPlan.price}"></td>
+				<td style="height: 60px; width: 60px"><Button
+						style="display: block; width: 93px; height: 55px; background-color: transparent; border: none; background-image: url('../../img/购买.png');"
+						type="button" th:value="${buyPlan.id}"
+						onclick="toshopss(this.value)"></Button></td>
+			</tr>
+		</tbody>
+	</table>
+			</div>
+		</div>
+	</div>
+	<div align="center">
+		<!-- <button style="display: block; height: 106px; width: 397px; background-color: transparent; border: none;"
+			type="button" id="tianjia" name="tianjia" onclick="jqchk()">
+		</button> -->
+		<a  onclick="jqchk()" href="#">
+		<img id="tianjia" alt="" src="../../img/删除购物计划.png" class="img-responsive"/>
+		</a>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	  layout:decorator="layout">
+<head>
+	<meta charset="UTF-8" />
+	<title>订单结算</title>
+
+	<!-- Theme styles START -->
+	<link th:href="@{/assets/global/css/plugins.css}" rel="stylesheet" />
+	<link th:href="@{/assets/frontend/layout/css/style.css}"
+		  rel="stylesheet" />
+	<link th:href="@{/assets/frontend/layout/css/style-responsive.css}"
+		  rel="stylesheet" />
+	<link th:href="@{/assets/frontend/layout/css/themes/red.css}"
+		  rel="stylesheet" id="style-color" />
+	<link th:href="@{/assets/frontend/layout/css/custom.css}"
+		  rel="stylesheet" />
+	<!-- Theme styles END -->
+
+	<!-- BEGIN PAGE LEVEL STYLES -->
+	<link rel="stylesheet" type="text/css"
+		  th:href="@{/assets/global/plugins/bootstrap-select/bootstrap-select.min.css}" />
+	<link rel="stylesheet" type="text/css"
+		  th:href="@{/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css}" />
+	<link rel="stylesheet" type="text/css"
+		  th:href="@{/assets/global/plugins/select2/select2.css}" />
+	<link rel="stylesheet" type="text/css"
+		  th:href="@{/assets/global/plugins/jquery-multi-select/css/multi-select.css}" />
+	<link rel="stylesheet" type="text/css"
+		  th:href="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css}" />
+	<link rel="stylesheet" type="text/css"
+		  th:href="@{/assets/global/plugins/image-picker/image-picker/image-picker.css}" />
+	<!-- END PAGE LEVEL STYLES -->
+	<script type="text/javascript">
+	
+			function xiayibuclick(){
+						if($("#checketrue").attr("checked")=="checked"){
+							document.getElementById("addTra").disabled=false;
+						}else{
+							document.getElementById("addTra").disabled=true;
+						}
+			}
+			
+			function agreetiao(){
+				if($("#checketrue").attr("checked")=="checked"){
+					document.getElementById("addTra").disabled=false;
+				}else{
+					document.getElementById("addTra").disabled=true;
+				}
+			}
+		/* 	function personCount(){
+				var count=1;
+				var personCount = ${"#personCount"}.val();
+				alert(personCount);
+				count++;
+				if(count>=personCount){
+					document.getElementById("more-iten-btnS").disabled=true;
+				}
+			} */
+	</script>
+</head>
+
+<body  onload="xiayibuclick()">
+<div layout:fragment="content" class="col-md-9 col-sm-12 col-xs-12" style="margin-top:130px;">
+	<!-- <div class="main">
+		<div class="container">
+			BEGIN SIDEBAR & CONTENT
+			<div class="row margin-bottom-40"> -->
+				<!-- BEGIN CONTENT -->
+				<!-- BEGIN PAGE HEADER-->
+				<h3 class="page-title">
+					订单结算 <small>Trip Planner</small>
+				</h3>
+				<!-- END PAGE HEADER-->
+				
+		<!--BEGIN NEW PAGE  -->
+											<div class="col-md-10 col-sm-12">
+												<div class="portlet yellow-crusta box">
+													<div class="portlet-title">
+														<div class="caption">
+															套餐信息
+														</div>
+													</div>
+													<div class="portlet-body">
+														<div class="row static-info" >
+															<div class="col-md-12 name">
+																 套餐名称:<input type="text"  th:value="${planOrder.planOfferName}" style="width: 40%;border: 0px" readonly="readonly"/>
+															</div>
+															
+														</div>
+														<div class="row static-info">
+															<div class="col-md-5 name">
+																 规划定制费:￥2000
+															</div>
+														</div>
+														<div class="row static-info">
+															<div class="col-md-5 name">
+																状态:已支付
+															</div>
+															
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-5 col-sm-24">
+												<div class="portlet yellow-crusta box" >
+													<div class="portlet-title">
+														<div class="caption">
+															预订服务费
+														</div>
+													</div>
+													<div class="portlet-body" style="height: 190px;width: 321px">
+														<div class="row static-info" >
+															<div class="col-md-12 name">
+																 预订服务费:￥1000
+															</div>
+														</div>
+														<div  th:if="${planOrder.planOfferName=='行程规划+一站预订+导游服务'}">
+														<div class="row static-info" >
+															<div class="col-md-12 name">
+																 折扣:0.9
+															</div>
+														</div>
+														<div class="row static-info" >
+															<div class="col-md-12 name">
+																 折扣服务费:<input type="text"  th:value="${serviceFee}" style="border: 0px"  readonly="readonly"/>
+															</div>
+														</div>
+														<div class="row static-info">
+															<div class="col-md-12 name">
+																 状态:未支付
+															</div>
+														</div>
+													    </div>
+													    
+													    
+													</div>
+												</div>
+											</div>
+		                                    <div class="col-md-5 col-sm-12">
+												<div class="portlet yellow-crusta box" >
+													<div class="portlet-title">
+														<div class="caption">
+															预订费用
+														</div>
+													</div>
+													<div class="portlet-body" style="height: 190px;width: 321px">
+														<div class="row static-info"  th:if="${flight!=0}">
+															<div class="col-md-12 name">
+																 飞机费用:<input type="text"  style="border: 0px" th:value="${flight}"  readonly="readonly"/>
+															</div>
+															
+														</div>
+														<div class="row static-info"  th:if="${hotel!=0}">
+															<div class="col-md-12 name">
+																酒店费用:<input type="text"  style="border: 0px" th:value="${hotel}"   readonly="readonly"/>
+															</div>
+															
+														</div>
+														<div class="row static-info" th:if="${rental!=0}">
+															<div class="col-md-12 name">
+																 租车费用:<input type="text"  style="border: 0px" th:value="${rental}"    readonly="readonly"/>
+															</div>
+															
+														</div>
+														<div class="row static-info" th:if="${spot!=0}">
+															<div class="col-md-12 name">
+																 景点费用:<input type="text" style="border: 0px"  th:value="${spot}"    readonly="readonly"/>
+															</div>
+															
+														</div>
+														<div class="row static-info" th:if="${insurance!=0}">
+															<div class="col-md-12 name">
+																 保险费用:<input type="text" style="border: 0px" th:value="${insurance}"    readonly="readonly"/>
+															</div>
+															
+														</div>
+														<div class="row static-info">
+															<div class="col-md-12 name">
+																 状态:未支付
+															</div>
+															
+														</div>
+													</div>
+												</div>
+											</div>
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+				<!--ENG NEW PAGE  -->
+				
+				<!-- BEGIN PAGE CONTENT-->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="portlet light bordered" id="form_wizard_1">
+							<div class="portlet-body form">
+								<form class="form-horizontal" role="form" method="post"
+									  th:action="@{/center/doAddTra(orderId = ${orderId})}">
+									  <input type="hidden" th:value="${personCount}" name="personCount" id="personCount"/>
+									<!--   	<font  size="3px">您购买的-套餐名称:<input type="text"  th:value="${planOrder.planOfferName}" style="width: 40%;border: 0px" readonly="readonly"/>已支付“￥2000”</font><br/>
+                                        <div    th:value="${planOrder.planOfferName}"   th:if="${planOrder.planOfferName=='行程规划+一站预定'}">
+                                        <font   size="3px">  剩余预定服务费:￥1000 </font>
+                                        </div>
+                                   <br/>    
+                                   
+                              <div    th:value="${planOrder.planOfferName}"   th:if="${planOrder.planOfferName=='行程规划+一站预订+导游服务'}">     
+                             <font size="3px">  <span style="text-decoration:line-through;color: red">服务费总价：预订服务费1000+导游服务费280元*导游人数*天数</span> </font>   <br/>    
+                              <font size="3px">  套餐服务费折扣价：（预订服务费1000+导游服务费）*0.9</font><br/>  
+                               <font size="3px">  剩余服务费：<input type="text"  th:value="${serviceFee}" style="border: 0px"  readonly="readonly"/></font><br/>        
+                              </div>         
+                                       
+                                       
+                                         <br/>
+                                         <font   size="3px">其他支付</font><br/>
+                                         <div  th:if="${flight!=0}"><font   size="3px"> 飞机费用:<input type="text"  style="border: 0px" th:value="${flight}"  readonly="readonly"/></font><br/></div>
+                                        <div  th:if="${hotel!=0}">  <font   size="3px"> 酒店费用:<input type="text"  style="border: 0px" th:value="${hotel}"  th:if="${hotel!=null}"  readonly="readonly"/></font><br/></div>
+                                         <div  th:if="${rental!=0}"> <font   size="3px"> 租车费用:<input type="text"  style="border: 0px" th:value="${rental}"  th:if="${rental!=null}"  readonly="readonly"/></font><br/></div>
+                                        <div  th:if="${spot!=0}"> <font   size="3px">  景点费用:<input type="text" style="border: 0px"  th:value="${spot}"  th:if="${spot!=null}"  readonly="readonly"/></font><br/></div>
+                                       <div  th:if="${insurance!=0}">  <font   size="3px">  保险费用:<input type="text" style="border: 0px" th:value="${insurance}"  th:if="${insurance!=null}"  readonly="readonly"/></font></div> -->
+                                         
+                                         
+                                         
+									<div class="form-wizard">
+										<div class="form-body">
+											<div class="tab-content">
+												<div class="tab-pane active" id="tab1">
+													<h3 class="form-section">请添加相关旅客姓名及相关信息!</h3>
+													<input type="hidden" id="tripPlan" name="tripPlan" />
+													<div class="form-group form-md-radios">
+														<div class="col-md-offset-1">
+															<div class="md-radio-list">
+																<div class="md-radio">
+																	<table class="table table-hover" id="iten-tableS"
+																		   border="1px">
+																		<tr>
+																			<th width="25%"></th>
+																			<th>第1人</th>
+																		</tr>
+																		<tr>
+																				<th>&nbsp;</th>
+																				<th><input type="checkbox" id="checketrue" onclick="agreetiao()"/>&nbsp;同意《服务条款》</th>
+																			
+																			</tr>
+																		<tr>
+																			<th>中文姓</th>
+																			<th><input type="text" id="xins" name="xins"
+																					   size="50" /></th>
+																		</tr>
+																		<tr>
+																			<th>中文名</th>
+																			<th><input type="text" id="mings" name="mings"
+																					   size="50" /></th>
+																		</tr>
+																		<tr>
+																			<th>英文姓</th>
+																			<th><input type="text" id="firstNames"
+																					   name="firstNames" size="50" /></th>
+																		</tr>
+																		<tr>
+																			<th>英文名</th>
+																			<th><input type="text" id="secondName"
+																					   name="secondName" size="50" /></th>
+																		</tr>
+																		<tr>
+																				<th>性别</th>
+																				<th>
+																					<!-- <input type="text" id="genders"
+																					name="genders" size="50" /> -->
+																					<input type="radio" name="genders" checked="checked" value="1"/>&nbsp;男&nbsp;&nbsp;
+																					<input type="radio" name="genders" value="2"/>&nbsp;女
+																				</th>
+																			</tr>
+																		<tr>
+																			<th>出生年月(格式如下：1989-02-14)</th>
+																			<th><input type="text" id="birthDates"
+																					   name="birthDates" size="50" /></th>
+																		</tr>
+																		<tr>
+																			<th>护照号</th>
+																			<th><input type="text" id="passportNums"
+																					   name="passportNums" size="50" /></th>
+																		</tr>
+																		<tr>
+																			<th>国际驾照号</th>
+																			<th>
+																			<p>如果有自驾行程，请输入您的国际驾照号</p>
+																			<input type="text" id="driveLicenseCodes"
+																					   name="driveLicenseCodes" size="50" /></th>
+																		</tr>
+																		<tr>
+																			<th>手机号（加国家）</th>
+																			<th><input type="text" id="moblieNums"
+																					   name="moblieNums" size="50" value="+86"/></th>
+																		</tr>
+																		<tr>
+																			<th>微信号</th>
+																			<th><input type="text" id="weichats"
+																					   name="weichats" size="50" /></th>
+																		</tr>
+																		<tr>
+																			<th>邮箱</th>
+																			<th><input type="text" id="emails"
+																					   name="emails" size="50" /></th>
+																		</tr>
+																	</table>
+																</div>
+																<div class="col-md-10">
+																	<button type="button" class="btn green"
+																			id="more-iten-btnS" onclick="addperson()">添加旅客信息</button>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<input type="hidden" id="xinss" name="xinss" /> <input
+												type="hidden" id="mingss" name="mingss" /> <input
+												type="hidden" id="firstNamess" name="firstNamess" /> <input
+												type="hidden" id="secondNamess" name="secondNamess" /> <input
+												type="hidden" id="genderss" name="genderss" /> <input
+												type="hidden" id="passportNumz" name="passportNumz" /> <input
+												type="hidden" id="mobileNumz" name="mobileNumz" /> <input
+												type="hidden" id="weichatsz" name="weichatsz" /> <input
+												type="hidden" id="emailsz" name="emailsz" /> <input
+												type="hidden" id="birthDatez" name="birthDatez" /> <input
+												type="hidden" id="driveLicenseCodesz"
+												name="driveLicenseCodesz" />
+										</div>
+										<div class="form-actions">
+											<div class="row">
+												<div class="col-md-offset-3 col-md-9">
+													<button type="submit" class="btn green" id="addTra"
+															onclick="">
+														下一步 <i class="m-icon-swapright m-icon-white"></i>
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- END PAGE CONTENT-->
+			</div>
+			<!-- END SIDEBAR & CONTENT -->
+<!-- 		</div>
+	</div>
+</div> -->
+
+<div layout:fragment="script">
+	<!--BEGIN PAGE LEVEL PLUGINS-->
+	<script type="text/javascript"
+			th:src="@{/assets/global/plugins/jquery-validation/js/jquery.validate.min.js}"></script>
+	<script type="text/javascript"
+			th:src="@{/assets/global/plugins/jquery-validation/js/additional-methods.min.js}"></script>
+	<script type="text/javascript"
+			th:src="@{/assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js}"></script>
+	<!-- END PAGE LEVEL PLUGINS -->
+
+	<!-- BEGIN PAGE LEVEL SCRIPTS -->
+	<script th:src="@{/assets/global/scripts/metronic.js}"
+			type="text/javascript"></script>
+	<script th:src="@{/assets/admin/layout/scripts/layout.js}"
+			type="text/javascript"></script>
+	<!--<script th:src="@{/assets/admin/pages/scripts/form-wizard.js}"></script>-->
+	<!-- END PAGE LEVEL SCRIPTS -->
+
+	<!-- BEGIN PAGE LEVEL PLUGINS -->
+	<script type="text/javascript"
+			th:src="@{/assets/global/plugins/bootstrap-daterangepicker/moment.min.js}"></script>
+	<script type="text/javascript"
+			th:src="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js}"></script>
+	<!--<script th:src="@{/assets/admin/pages/scripts/components-pickers.js}"></script>-->
+	<!--<script-->
+	<!--th:src="@{/assets/admin/pages/scripts/components-form-tools.js}"></script>-->
+	<!-- END PAGE LEVEL PLUGINS -->
+
+	<!-- BEGIN PAGE LEVEL PLUGINS -->
+	<script type="text/javascript"
+			th:src="@{/assets/global/plugins/fuelux/js/spinner.min.js}"></script>
+	<script
+			th:src="@{/assets/global/plugins/bootstrap-touchspin/bootstrap.touchspin.js}"
+			type="text/javascript"></script>
+	<script th:src="@{/assets/global/plugins/typeahead/handlebars.min.js}"
+			type="text/javascript"></script>
+	<script
+			th:src="@{/assets/global/plugins/typeahead/typeahead.bundle.min.js}"
+			type="text/javascript"></script>
+	<!-- END PAGE LEVEL PLUGINS -->
+
+	<!--BEGIN PAGE LEVEL PLUGINS -->
+	<script type="text/javascript"
+			th:src="@{/assets/global/plugins/bootstrap-select/bootstrap-select.min.js}"></script>
+	<script type="text/javascript"
+			th:src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+	<script type="text/javascript"
+			th:src="@{/assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js}"></script>
+	<!--END PAGE LEVEL PLUGINS -->
+
+	<script
+			th:src="@{/assets/global/plugins/image-picker/image-picker/image-picker.js}"
+			type="text/javascript"></script>
+	<script
+			th:src="@{/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js}"
+			type="text/javascript"></script>
+	<script
+			th:src="@{/assets/admin/pages/scripts/components-dropdowns.js}"></script>
+
+	<script th:src="@{/assets/frontend/layout/scripts/layout.js}"
+			type="text/javascript"></script>
+
+	<!-- BEGIN CUSTOM SCRIPT -->
+<!-- 	<script th:src="@{/assets/global/scripts/custom.js}" type="text/javascript">
+	</script> -->
+	<script th:src="@{/tripjs/addTra.js}" type="text/javascript"></script>
+	<!--END CUSTOM SCRIPT-->
+
+	<script>
+		$(function() {
+			// initiate layout and plugins
+		/* 	Metronic.init(); */ // init metronic core components
+			Layout.init(); // init current layout
+			Layout.initOWL();
+//				FormWizard.init();
+//				ComponentsPickers.init();
+//				ComponentsDropdowns.init();
+//				ComponentsFormTools.init();
+//			CustomFormActions.init();
+//				$("select").imagepicker();
+//				addTra.init();
+		});
+	</script>
+	<!-- END PAGE LEVEL JAVASCRIPTS -->
+</div>
+</body>
+</html>

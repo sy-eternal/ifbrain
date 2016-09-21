@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>保险活动详情</title>
+<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid">
+		<div class="row">
+			<div class="page-header">
+				<h1>保险活动详情</h1>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<form class="form-horizontal" role="form" method="post" th:action="@{/insuranceActivity/update}"
+						th:object="${insuranceActivity}" id="mainForm">
+						<input type="hidden" name="_method" value="put" /> <input type="hidden" th:field="*{id}" />
+						
+						 <div class="form-group">
+							<label for="supplierid" class="col-xs-3 control-label">供应商名称</label>
+							<div class="col-xs-6">
+								<select class="form-control" th:field="*{supplier}" disabled="disabled">
+									<option th:each="supplierid : ${supplierid}" th:value="${supplierid.id}" th:text="${supplierid.cnName}" ></option>
+								</select>
+								<span class="text-danger" th:if="${#fields.hasErrors('supplier')}" th:errors="*{supplier}"></span>
+							 </div>
+					 </div>
+						
+						
+
+						<div class="form-group" th:classappend="${#fields.hasErrors('insuranceType')}? 'has-error'">
+							<label for="insuranceType" class="col-xs-3 control-label">保险类型</label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{insuranceType}" readonly="readonly"  disabled="disabled"/> <span
+									class="text-danger" th:if="${#fields.hasErrors('insuranceType')}" th:errors="*{insuranceType}"></span>
+							</div>
+						</div>
+
+						<div class="form-group" th:classappend="${#fields.hasErrors('insuranceName')}? 'has-error'">
+							<label for="insuranceName" class="col-xs-3 control-label">险种</label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{insuranceName}"  readonly="readonly"  disabled="disabled"/> <span
+									class="text-danger" th:if="${#fields.hasErrors('insuranceName')}" th:errors="*{insuranceName}"></span>
+							</div>
+						</div>
+
+						<div class="form-group" th:classappend="${#fields.hasErrors('insuranceCove')}? 'has-error'">
+							<label for="insuranceCove" class="col-xs-3 control-label">保险范围</label>
+							<div class="col-xs-6">
+								<textarea rows="5" cols="71" th:field="*{insuranceCove}" readonly="readonly"  disabled="disabled"></textarea>
+								<span class="text-danger" th:if="${#fields.hasErrors('insuranceCove')}" th:errors="*{insuranceCove}"></span>
+							</div>
+						</div>
+
+						<p class="text-center">
+							<a th:href="@{/insuranceActivity}" class="btn btn-default">返回</a>
+						</p>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

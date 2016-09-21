@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<!-- DataTables -->
+<!-- <link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" /> -->
+<!-- <script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+<script th:src="@{/js/lib/jsog/JSOG.js}"></script> -->
+<!-- <script th:src="@{/js/controller/order/step2-controller.js}"></script> -->
+<!--    <script th:src="@{/js/controller/marginplan/edit-controller.js}"></script>  -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+	function changeUserType(){
+	var usertype= $("input[name='userTypes']:checked").val();
+	if (usertype == "2") {
+		$("#guideInfo").show();
+		$("#guideinfo2").hide();
+		 multiplying2();
+	} else {
+		$("#guideInfo").hide();
+		$("#guideinfo2").show();
+	}
+	}
+</script>
+<script type="text/javascript">
+</script>
+<script type="text/javascript">
+ function multiplying(){
+	  var input1 = document.getElementById('margin').value;
+	  var input2 = document.getElementById('counts').value;
+	  if(input1==""||input2==""){
+		  var mult=0.00
+	  }else {
+		  var mult = parseFloat(input1) * parseFloat(input2);
+		  document.getElementById('totalprice').value = mult.toFixed(2);
+	  }
+} 
+ 
+ function multiplying2(){
+		var input1 = document.getElementById('margins').value;
+		  var input2 = document.getElementById('price').value;
+		  if(input1==""||input2==""){
+			  var mult=0.00
+		  }else {
+			  var mult = parseFloat(input1) * parseFloat(input2);
+			  document.getElementById('totalprices').value = mult.toFixed(2);
+		  }
+	} 
+</script >
+<script type="text/javascript">
+function replaceNotNumber(hehe)
+{
+  var pattern = /[^0-9]/g;
+  if(pattern.test(hehe.value))
+  {
+    hehe.value = hehe.value.replace(pattern,"");
+  }
+}
+</script>
+</head>
+<body onload="multiplying()" data-ng-controller="EditMarginPlanController">
+	<div layout:fragment="content">
+		<!-- BEGIN PAGE HEADER-->
+		<h3>保证金规划</h3>
+		<p></p>
+		<hr />
+		<!-- END PAGE HEADER-->
+		
+				<!-- 导航栏 -->
+		<!-- <ul class="nav nav-pills nav-justified steps">
+			<li><a th:href="@{'/order/' + ${order.id} + '/plan?'}+'_step1'">1、日期、交通及导游规划<i class="m-icon-swapright m-icon-white"></i></a></li>
+
+			<li><a th:href="@{'/order/' + ${order.id} + '/plan?'}+'_step2'">2、景点规划<i class="m-icon-swapright m-icon-white"></i></a></li>
+			<li><a th:href="@{'/order/' + ${order.id} + '/plan?'}+'_step3'">3、酒店规划<i class="m-icon-swapright m-icon-white"></i></a></li>
+
+			<li><a th:href="@{'/order/' + ${order.id} + '/plan?'}+'_step6'" style="background: #2b3643;color: #fff;font-size: 15px;font-weight: bold;">4、保证金规划<i class="m-icon-swapright m-icon-white"></i></a></li>
+
+			<li><a th:href="@{'/order/' + ${order.id} + '/plan?'}+'_step4'">5、生成规划</a></li>
+		</ul> -->
+
+		<!-- BEGIN PAGE CONTENT-->
+		<div class="row">
+			<div class="col-md-12" >
+				<!-- BEGIN Portlet PORTLET-->
+				<div class="portlet light">
+					<div class="portlet-title">
+						<div class="caption font-green-sharp">
+							<i class="icon-share font-green-sharp"></i>
+							<span class="caption-subject">客户喜好</span>
+						</div>
+					</div>
+					<div class="portlet-body">
+						<dl class="dl-horizontal" th:object="${order}">
+								<dt>出行人数：</dt>
+								<dd th:text="*{personCount} + ' 人'"></dd>
+								<dt>备注：</dt>
+								<dd th:text="*{remark}"></dd>
+						</dl>
+					</div>
+				</div>
+				<hr />
+				
+			<div class="col-md-9 col-sm-9 col-sm-offset-3">
+			<div class="content-form-page">
+				<div class="row">
+					<div class="col-md-7 col-sm-7">
+					<!-- 定额保证金 -->
+						<form id="wizard" class="form-horizontal" role="form" method="post" th:object="${order}"   th:action="@{'/marginplan/edit?orderId=' + ${order.id}}">
+							 <input type="hidden" name="_method" value="put" />
+							 <input type="hidden" name="orderId" id="orderId" th:field="*{id}" />
+						 <div class="form-group ">
+						 <label for="userTypes" class="col-lg-4 control-label"> 保证金类型<span class="require">*</span>	</label>
+								<div class="col-lg-8 md-radio-inline">
+									 <div class="md-radio ">
+										<input type="radio" id="userType1" name="userTypes"
+											class="md-radiobtn" value="1" checked="checked"  onclick="changeUserType()"/> <label
+											for="userType1"> <span></span> <span class="check"></span>
+											<span class="box"></span> 定额保证金
+										</label>
+									</div>
+									<!-- <div class="md-radio ">
+										<input type="radio" id="userType2" name="userTypes" value="2" class="md-radiobtn"  onclick="changeUserType()"/> <label for="userType2"> 
+											<span class="check"></span> <span class="box"></span> 比率保证金
+										</label>
+									</div> --> 
+								</div>		
+							</div> 
+							<p class="text-danger" th:text="${messageInfo}"></p>
+							<div id="guideinfo2">
+								<div class="form-group">
+									<label for="margin" class="col-lg-4 control-label">
+										每人价格 <span class="require">*</span>
+									</label>
+									<div class="col-lg-8">
+										<input type="text" class="form-control" id="margin" readonly="readonly"  name="margin"  required="required" th:value="${marginprices}"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="count" class="col-lg-4 control-label"> 数量
+										<span class="require">*</span>
+									</label>
+									<div class="col-lg-8">
+										<input type="text" class="form-control" id="counts" th:value="${count}"  onpropertychange="replaceNotNumber(this)"  oninput="replaceNotNumber(this)" onblur="multiplying()"
+												name="counts" />
+									</div>
+								</div>
+						
+								<div class="form-group">
+									<label for="totalprice" class="col-lg-4 control-label"> 总计 <span
+										class="require">*</span>
+									</label>
+									<div class="col-lg-8">
+										<input type="text" class="form-control" id="totalprice"  name="totalprice" required="required"  readonly="readonly"/>
+									</div>
+								</div>
+						</div>
+					<!-- 比率保证金 -->
+							<input type="hidden" name="_method" value="put" />  <input type="hidden" name="orderId" id="orderId" th:field="*{id}" />
+								<div id="guideInfo" style="display: none">
+									<div class="form-group">
+										<label for="price" class="col-lg-4 control-label">
+											订单价格 <span class="require">*</span>
+										</label>
+										<div class="col-lg-8">
+											<input type="text" class="form-control" id="price" readonly="readonly"  th:value="${price}"
+												name="price" required="required" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="margin" class="col-lg-4 control-label">
+											比率 <span class="require">*</span>
+										</label>
+										<div class="col-lg-8">
+											<input type="text" class="form-control" id="margins"  readonly="readonly" th:value="${marginprice}"
+												name="margin" required="required" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="totalprices" class="col-lg-4 control-label">
+											总计 
+										</label>
+										<div class="col-lg-8">
+											<input type="text" class="form-control" id="totalprices" readonly="readonly" 
+												name="totalprices" required="required" />
+										</div>
+									</div>
+									
+									</div>
+									  <p class="text-center">
+					                    
+					                   <!--   <a th:href="@{'/order/' + ${order.id} + '/plan?_step5'}" class="btn btn-default">返回</a> -->
+					                 
+					                 <a th:href="@{'/order/' + ${order.id} + '/plan?'}+'_step1'" class="btn green">返回 <i class="m-icon-swapleft"></i></a>
+										<button type="submit" class="btn btn-primary" onclick="alert('保险金规划成功');">提交</button>					               
+					                </p>
+					   <div class="content-form-page">
+						<div class="row" >
+							<div class="col-md-7 col-sm-7">
+
+								<br /> <input type="hidden" id="orderId" th:value="${order.id}" />
+								<hr />
+
+								<div class="form-actions">
+									<div class="row">
+										<div class="col-md-offset-5 col-md-7" style="width: 400px;">
+											<!-- <button type="submit" form="wizard" name="_step3"  class="btn default button-previous">
+												<i class="m-icon-swapleft"></i> 上一步
+											</button>
+											<button type="submit" form="wizard" name="_step4"  class="btn blue button-next">
+												下一步 <i class="m-icon-swapright m-icon-white"></i>
+											</button> -->
+											 <!--  <a th:href="@{'/order/' + ${order.id} + '/plan?_step4'}"   class="btn blue button-next">下一步<i class="m-icon-swapright m-icon-white"></i></a> -->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					</form>
+				  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+			</div>
+			
+		</div>
+</body>
+</html>

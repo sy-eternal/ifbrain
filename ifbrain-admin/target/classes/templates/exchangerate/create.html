@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+	<title>新增汇率</title>
+	
+	<!-- 使用jQuery Validation控件进行前端验证 -->
+	<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+	<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+	<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+	
+	<script>
+		$(function() {
+			$("#mainForm").validate({
+				highlight : function(element) {
+					$(element).closest(".form-group").addClass("has-error");
+				},
+				success : function(label) {
+					label.closest(".form-group").removeClass("has-error");
+					label.closest(".form-group").addClass("has-success");
+				},
+				errorPlacement : function(error, element) {
+					element.parent("div").append(error);
+				},
+				submitHandler : function(form) {
+					form.submit();
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<div layout:fragment="content" class="container">
+		<div class="page-header">
+			<h1>新增汇率</h1>
+		</div>
+		<form id="mainForm" class="form-horizontal" role="form" method="post" th:action="@{/exchangerate/create}" th:object="${exchangerate}">
+			<div class="form-group">
+				<label for="sellingcurrency" class="col-xs-3 control-label">卖出货币类型：</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{sellingcurrency}" required="required" />
+					<span class="text-danger" th:if="${#fields.hasErrors('sellingcurrency')}" th:errors="*{sellingcurrency}"></span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="visitCount" class="col-xs-3 control-label">买入货币类型：</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{buyingcurrency}" required="required" />
+					<span class="text-danger" th:if="${#fields.hasErrors('buyingcurrency')}" th:errors="*{buyingcurrency}"></span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="exchangerate" class="col-xs-3 control-label">汇率：</label>
+				<div class="col-xs-6">
+					<input type="number" class="form-control" th:field="*{exchangerate}" required="required" min="0"/>
+					<span class="text-danger" th:if="${#fields.hasErrors('exchangerate')}" th:errors="*{exchangerate}"></span>
+				</div>
+			</div>
+			<p class="text-center">
+				<button type="submit" class="btn btn-primary">提交</button>
+				<a th:href="@{/exchangerate}" class="btn btn-default">返回</a>
+			</p>
+		</form>
+	</div>
+</body>
+</html>

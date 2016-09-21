@@ -1,0 +1,120 @@
+
+
+
+
+#platform {
+  background: #aae2f8;
+ 	border-radius:50% !important;/* 
+	opacity:.7;filter:alpha(opacity=70); */
+  height:50px;
+  margin: 0 auto;
+  position: relative;
+  top: 100px;
+  max-width: 700px;
+  min-with:300px;
+  z-index: 0;
+
+  -webkit-transition: background-color 1s;
+  -moz-transition: background-color 1s;
+  -ms-transition: background-color 1s;
+  transition: background-color 1s;
+  overflow-y:hidden;
+}
+#platform.active {
+  background: rgba(142, 68, 173, 0.3);
+}
+
+#track {
+  bottom: 0;
+  height: 100px;
+  margin: 0 auto;
+  left: 0;
+  position: relative;
+  right: 0;
+  top: 70px;
+  width: 650px;
+  z-index: 100;
+}
+#track #orb {
+background-image:url(../../img/kid.jpg);
+
+  bottom: 30px; 
+  height: 90px;
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 80px;
+  z-index: 200;
+  -webkit-transition: bottom 0.5s ease-in-out;
+  -moz-transition: bottom 0.5s ease-in-out;
+  -ms-transition: bottom 0.5s ease-in-out;
+  transition: bottom 0.5s ease-in-out;
+}
+#track #orb:after {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  bottom: -22.5px;
+  content: "";
+  display: block;
+  height: 16.66667px;
+  margin: 0 auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  width: 66.66667px;
+  -webkit-transition: height 0.5s ease-in-out, width 0.5s ease-in-out;
+  -moz-transition: height 0.5s ease-in-out, width 0.5s ease-in-out;
+  -ms-transition: height 0.5s ease-in-out, width 0.5s ease-in-out;
+  transition: height 0.5s ease-in-out, width 0.5s ease-in-out;
+}
+#track #orb.hover {
+  bottom: 10px;
+}
+#track #orb.hover:after {
+  bottom: -20px;
+  height: 0;
+  width: 0;
+}
+
+.mypanel {
+  align-items: center;
+  flex-direction: row;
+  margin: 0 auto;
+  justify-content: center;
+  position: relative;
+  top: 20px;
+ /*  max-width: 700px; */
+  min-with:300px;
+
+  background-color: transparent;
+  borderstyle:none;
+  display: flex;
+  float:center;
+  overflow-x:auto;
+  overflow-y:hidden;
+}
+.mypanel .button {
+  background: transparent;
+  borderstyle:none;
+
+  width:80px;
+	height:80px;
+	border-radius:50% !important;/* 
+	opacity:.7;filter:alpha(opacity=70); */
+  position: relative;
+  top: 0px;
+
+  flex: 1;
+  float:center;
+ 
+}
+.mypanel .button:hover {
+  cursor: pointer;
+}
+/* .mypanel .button:hover > span {
+  background: #ffe751;
+} */
+/* .mypanel .button.active > span, .panel .button:active > span {
+  background: #ffe751;
+} */
+

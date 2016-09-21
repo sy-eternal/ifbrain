@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout" >
+<head>
+	<title>添加试卷</title>
+	<script type="text/javascript" charset="utf-8" src="../../assets/global/plugins/ckeditor6/ckeditor.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../../assets/global/plugins/ckeditor6/config.js"></script>
+	<script th:src="@{/assets/global/plugins/jquery.min.js}" type="text/javascript"></script>
+	<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script> 
+	<script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+	<script th:src="@{/js/controller/exam/check.js}"></script>
+</head>
+<body >
+	<div layout:fragment="content" >
+		<div class="page-header">
+			<h1>添加试卷</h1>
+		</div>
+		<form class="form-horizontal" role="form" method="post" onsubmit="return submitbefore()" th:action="@{/exam/create}"      id="mainFormsubmit">
+			<div class="form-group" >
+							<label for="courseLevel" class="col-xs-3 control-label">试题类型</label>
+							<div class="col-xs-6">
+								<select class="form-control"  id="Course"  name="Course" >
+										<option th:each="Course : ${list}" th:value="${Course.id}" th:text="${Course.courseLevel}"  id="Course"></option>
+								</select>
+								<span class="text-danger" ></span>
+							 </div>
+			</div> 
+			<div class="form-group" >
+							<label for="unit" class="col-xs-3 control-label">试题单元</label>
+							<div class="col-xs-6">
+								<select class="form-control"  id="unit"  name="unit" >
+										<option  value="1">第1单元</option>
+										<option  value="2">第2单元</option>
+										<option  value="3">第3单元</option>
+										<option  value="4">第4单元</option>
+										<option  value="5">第5单元</option>
+										<option  value="6">期末考试</option>
+								</select>
+								<span class="text-danger" ></span>
+							 </div>
+			</div> 
+				<div class="form-group" >
+							<label for="courseLevel" class="col-xs-3 control-label">试题难度</label>
+							<div class="col-xs-6">
+								<select class="form-control"  id="testdifficulty"  name="testdifficulty" >
+										<option  value="低难度">低难度</option>
+										<option  value="中难度">中难度</option>
+										<option  value="高难度">高难度</option>
+								</select>
+								<span class="text-danger" ></span>
+							 </div>
+			</div> 
+			<div class="form-group" id="title" >
+				<label for="title" class="col-xs-3 control-label">试卷名称</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control"   id="examName" name="examName" />
+					<span id="message"  style="display: none;"></span>
+				</div>
+			</div>
+			<div class="form-group" id="title" >
+				<label for="title" class="col-xs-3 control-label">学分要求</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control"   id="creditsRequired" name="creditsRequired" />
+					<span id="message"  style="display: none;"></span>
+				</div>
+				<label for="title">分</label>
+			</div>
+			<!-- <div class="form-group" id="title" >
+				<label for="title" class="col-xs-3 control-label">试卷价格</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control"   id="totalAmount" name="totalAmount" />
+					<span id="message"  style="display: none;"></span>
+				</div>
+				<label for="title">元</label>
+			</div> -->
+			<div class="form-group" id="title" >
+				<label for="title" class="col-xs-3 control-label">考试时长</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control"   id="examTime" name="examTime" />
+					<span id="message"  style="display: none;"></span>
+				</div>
+				<label for="title">分钟</label>
+			</div>
+			<div class="form-group" >
+							<label for="courseLevel" class="col-xs-3 control-label">试卷说明</label>
+							<div class="col-xs-6">
+ 								<textarea rows="4" cols="50" id="examDescription" name="examDescription" ></textarea>
+
+							 </div>
+			</div> 
+			
+		<div id="tijiao" >
+		<p class="text-center">
+				<button type="submit" class="btn btn-primary"  >提交</button>
+				<a th:href="@{/exam/list}" class="btn btn-default">返回</a>
+		</p>
+		</div>
+		</form>
+	</div>
+	<div layout:fragment="script">
+		<script>
+			$(function() {
+				Metronic.init();
+				Layout.init(); 
+				QuickSidebar.init(); 
+				Demo.init(); 
+			});
+		</script>
+		
+	</div>
+</body>
+
+</html>

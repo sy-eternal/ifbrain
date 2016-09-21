@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout" data-ng-app="_app">
+<head>
+	<title>视频和资料上传</title>
+	<!-- DataTables -->
+<!-- 使用jQuery Validation控件进行前端验证 -->
+	<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+	<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+	<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+	<link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+	<!-- <link src="../../assets/global/plugins/bootstrap-select/bootstrap-select.css"/> -->
+	<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+	<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+	<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script> 
+	<script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+	<script th:src="@{/js/controller/childinformation/childinformation-controller.js}"></script>
+	<script type="text/javascript" src="../../assets/global/plugins/bootstrap-select/bootstrap-select.js"></script>
+	<script th:src="@{/js/controller/videomaterial/check.js}"></script>	
+	<script>
+	function submitbefore(){
+		/* var value=$("#videofile").val();
+		if(value!=""){
+			var fileName = value.substring(value.lastIndexOf("\\")+1,value.length);
+			$("#fileName").val(fileName);
+			$("#mainForm").submit();
+		}
+		else{
+			alert("请上传视频!");
+			return false;
+		} */
+		var courseid=$("#Course").val();
+		var CourseCodeid=$("#CourseCode").val();
+	     var materialtypeid=$("#materialtype").val();
+		$.ajax({
+			async : false,
+		    type: "Get",
+		    url: "/moviematerial/findByCouseLevelAndOrdinalNumberAndMaterialType?course="+courseid+"&amp;CourseCode="+CourseCodeid+"&amp;materialtypeid="+materialtypeid,
+		    success: function (data) {
+		    	if(data==true){
+		    		 $("#alltrue").attr("disabled","disabled");  
+		    	 	  mainForm.submit(); 
+		    	}else{
+		    		alert("该节课程视频已经添加了！")
+		    	}
+		    	
+		    }
+		 });
+		
+	}
+	</script>
+	<!-- <script>
+	//限制上传文件的格式
+	function checkFileExtension(file) {  
+	     var filepath=file.value;
+	         var extStart=filepath.lastIndexOf(".");
+	         var ext=filepath.substring(extStart,filepath.length).toUpperCase();
+	         if(ext!=".ZIP"){
+	          alert("请上传.zip格式的文件");
+	          return false;
+	         }
+	}  
+	
+	</script> -->
+</head>
+<body data-ng-controller="childInformationController">
+	 <div layout:fragment="content">
+		<div class="page-header">
+	 		<h1>视频和资料上传</h1>
+		</div>
+		
+	 	<form class="form-horizontal" role="form" method="post"  id="mainForm" th:action="@{/moviematerial/createinfo}"    >
+			<div class="form-group" >
+							<label for="country" class="col-xs-3 control-label">级别名称</label>
+							<div class="col-xs-6">
+								<select class="form-control"  id="Course" data-ng-model="Course" name="Course" data-ng-change="change(Course)">
+										<option th:each="course : ${courseList}" th:value="${course.id}" th:text="${course.courseLevel}"  id="course"></option>
+								</select>
+								<span class="text-danger" ></span>
+							 </div>
+			</div>
+			<div class="form-group" >
+							<label for="materialtype" class="col-xs-3 control-label">章节</label>
+							<div class="col-xs-6">
+								<select class="form-control"  id="materialtype" name="materialtype" >
+										<option th:each="materialtype : ${materialtypeList}" th:value="${materialtype.id}" th:text="${materialtype.materialName}"  id="materialtype"></option>
+								</select>
+								<span class="text-danger" ></span>
+							 </div>
+			</div>
+			<div class="form-group" >
+							<label for="country" class="col-xs-3 control-label">请选择第几节课</label>
+							<div class="col-xs-6">
+								<select class="form-control"  id="CourseCode" name="CourseCode" data-model="CourseCode">
+										<option  data-ng-repeat="c in CourseCode" value="{{c.id}}" id="ordinalNumber" >第{{ c.ordinalNumber}}节课--{{c.lessonName}}</option>
+								</select>
+								<span class="text-danger" ></span>
+							 </div>
+			</div>
+			<div class="form-group" >
+							<label for="country" class="col-xs-3 control-label">视频路径</label>
+							<div class="col-xs-6">
+							 <input type="text" name="filepath"  id="filepath"  class="form-control"/>
+								<span class="text-danger" ></span>
+							 </div>
+			</div>
+			<!-- <div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">上传视频</label>
+				<div class="col-xs-6">
+					<input type="file" name="videofile"  id="videofile" multiple="multiple"/>
+					<span class="text-danger" ></span>
+				</div>
+			</div> -->
+			<!-- <input   type="hidden"  id="fileName"  name="fileName"/> -->
+		  <!--  <div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">上传视频资料</label>
+				<div class="col-xs-6">
+					<input type="file" name="materialfile"  id="materialfile" multiple="multiple"  onchange="checkFileExtension(this)"/>
+					<span class="text-danger" ></span>
+				</div>
+			</div> -->
+			<p class="text-center">
+				<button type="button" onclick="submitbefore()"  class="btn btn-primary" id="alltrue">提交</button>
+				<a th:href="@{/moviematerial/list}" class="btn btn-default">返回</a>
+			</p>
+		</form>
+	
+	</div>
+	 
+</body>
+
+</html>

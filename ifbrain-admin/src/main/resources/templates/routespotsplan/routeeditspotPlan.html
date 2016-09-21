@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout" data-ng-app="_app">
+<head>
+<title>景点规划新增</title>
+<!-- 使用jQuery Validation控件进行前端验证 -->
+<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/extension.js}"></script>
+</head>
+<body data-ng-controller="EditSpotPlanController">
+	<div layout:fragment="content">
+		<!-- BEGIN PAGE HEADER-->
+		<h3 class="page-title">线路景点规划新增</h3>
+		<!-- END PAGE HEADER-->
+
+		<!-- BEGIN PAGE CONTENT-->
+		<div class="row">
+			<div class="col-md-12">
+				<form id="mainForm" class="form-horizontal" role="form"
+					method="post"
+					th:action="@{/routespotplan/edit(routeId=${route.id},routedayId=${routedayId})}">
+
+					<div class="portlet-body">
+						<div class="row">
+							<label class="col-md-4" style="text-align: right;"> <font
+								color="red">*</font>&nbsp;<strong style="font-size: 18px;">目的城市</strong></label>
+							<div class="col-md-6">
+								<select id="city" class="form-control select2 " name="city">
+									<option th:value="-1" th:text="请选择"></option>
+									<option th:each="citys:${citys}" th:value="${citys.cityName}"
+										th:text="${citys.cityName}"></option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<p class="text-center" style="margin-top: 15px;">
+						<button type="submit" class="btn blue">
+							<i class="m-icon-swapright m-icon-white"></i>景点搜索
+						</button>
+					</p>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- END PAGE CONTENT-->
+</body>
+</html>

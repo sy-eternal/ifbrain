@@ -1,0 +1,455 @@
+
+/*!VIPABC | Author by Mike Li*/
+/*!v1.0 | 2015-2-27*/
+/*!License: vipabc.com*/
+
+
+/*------------- event ---------------*/
+.event-banner-wrap
+{
+    float: left;
+    width: 100%;
+    height: auto;
+    background-repeat: no-repeat ;
+    background-position: center center;
+    background-size:cover;
+}
+.event-banner-wrap.Disney{
+    background:url("http://source.vipabc.com/Ext/images/website/junior/banner/homePage/head/vjrTop_banner_bg20151113.jpg") center center;
+    background-color:transparent;
+    }
+.event-banner-wrap .event-banner
+{
+    width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+}
+.event-banner img
+{
+    width: 100%;
+    z-index: 1;
+    display: block;
+    margin: auto;
+}
+#event-banner-colse, #event-banner-open
+{
+    position: absolute;
+    display: block;
+    width: 21px;
+    height: 21px;
+    top: 2px; /*right:-31px;*/
+    z-index: 100;
+    background: #000 url(../../Images/close_adv.png) no-repeat center center;
+    cursor: pointer;
+    filter: alpha(opacity=20);
+    opacity: 0.2;
+    -moz-opacity: 0.2;
+}
+
+
+#event-banner-open
+{
+    display: none;
+    background: #000 url(../../Images/open_adv.png) no-repeat center center;
+    z-index: 9999;
+}
+
+#event-banner-colse:hover, #event-banner-open:hover
+{
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+    -moz-opacity: 0.5;
+}
+
+@media all and (max-width:1000px)
+{
+
+    .event-banner-wrap .event-banner, .event-banner img
+    {
+        width: 100%;
+        height: auto;
+    }
+    .event-banner-wrap {
+        display: none!important;
+    }
+
+    #event-banner-colse, #event-banner-open
+    {
+        display: none;
+    }
+
+
+
+
+}
+
+@media all and (max-width:790px)
+{
+
+
+
+}
+
+/*------------- event end ---------------*/
+
+
+/*------------- head ---------------*/
+
+.mobile-nav, .mobile-sign
+{
+    display: none;
+}
+.header-fixed
+{
+    width: 100%;
+    height: auto;
+}
+
+/*top-media*/
+.top-fix-wrap
+{
+    float: left;
+    width: 100%;
+    height: 35px;
+    background-color: #f5f5f5;
+}
+.top-fix li
+{
+    float: left;
+}
+.fix-weixin-warp
+{
+    position: relative;
+    z-index:100;
+}
+.fix-weixin-warp span
+{
+    display: none;
+    position: absolute;
+    width: 118px;
+    padding: 12px 0;
+    left: -20px;
+    top: 35px;
+    z-index: 100;
+    border: solid 1px #e7e6e7;
+    text-align: center;
+    background-color: #fff;
+}
+.fix-weixin-warp span img
+{
+    margin-top: 10px;
+}
+
+.fix-app-warp
+{
+    position: relative;
+    z-index:100;
+}
+.fix-app-warp span
+{
+    display: none;
+    position: absolute;
+    padding: 12px 0;
+    left: -20px;
+    top: 35px;
+    z-index: 100;
+    border: solid 1px #e7e6e7;
+    text-align: center;
+    background-color: #fff;
+}
+.fix-app-warp span img
+{
+    margin-top: 10px;
+}
+
+
+.top-fix li a
+{
+    display: block;
+    float: left;
+    padding: 0 18px 0 40px;
+    line-height: 35px;
+    color: #505050;
+}
+.top-fix li a.fix-weibo{padding-right: 8px;}
+.fix-weibo
+{
+    width: 45px;
+    background: url(../../Images/contact/social_weibo.png) no-repeat 10px center;
+    padding-right: 15px;
+}
+.fix-weixin
+{
+    background: url(../../Images/contact/social_weixin.png) no-repeat 10px center;
+}
+.fix-onlineService
+{
+    cursor: pointer;
+    background: url(../../Images/contact/social_online.png) no-repeat 10px center;
+}
+.fix-app {
+    background: url(http://source.vipabc.com/Ext/images/website/abc/homePage/v2/home/social_download.png) no-repeat 10px center;
+}
+
+
+.top-fix li a.fix-cooporation
+{
+    padding: 0 15px;
+}
+.top-fix li a:hover
+{
+    background-color: #ebebeb;
+}
+
+
+
+
+.header-wrap
+{
+    background-color: #fff;
+}
+.header
+{
+    height: 48px;
+}
+.header a
+{
+    display: inline-block;
+}
+.logo{
+	float:left;
+	margin:6px 0 0 0;
+}
+.logo img{
+	width: 120px;
+}
+
+.logo-brief
+{
+    float: left;
+    padding-top: 15px;
+    margin-left: 14px;
+    font-size: 16px;
+}
+.nav-wrapper
+{
+    float: left;
+    width: 100%;
+    height: 40px;
+    background-color: #3ca0ff;
+}
+.nav li
+{
+    float: left;
+    width: 12.5%;
+}
+.nav li a
+{
+    float: left;
+    display: block;
+    width: 100%;
+    line-height: 40px;
+    text-align: center;
+    border-left: solid 1px #3ca0ff;
+    color: #fff;
+    background-color: #3ca0ff;
+}
+.nav li a.tracking-freeTry
+{position:relative;}
+.nav li:hover a.tracking-freeTry img {
+    display: none;
+}
+.nav li a.tracking-freeTry img
+{
+    position:absolute;
+    right:0;
+    top:0;
+}
+
+.nav li a.item-1st, .nav li a.nav-on
+{
+    border: 0;
+}
+.nav li a.nav-on
+{
+    background-color: #f74c4c;
+}
+.nav li a:hover, .nav li a:active
+{
+    border-color: #fff;
+    background-color: #f74c4c;
+}
+
+.header-logbar, .head-tel
+{
+    float: right;
+}
+.head-tel
+{
+    margin: 14px 28px 0 0;
+    text-align: right;
+}
+.head-tel span
+{
+    width: 100%;
+    font-size: 16px;
+    vertical-align: middle;
+    padding-left: 5px;
+    color: #333;
+}
+
+.header-logbar li
+{
+    float: left;
+    width: 110px;
+    margin: 7px 0 0 1px;
+    line-height: 35px;
+    text-align: center;
+    color: #fff;
+    background-color: #3ca0ff;
+    cursor: pointer;
+}
+.header-logbar li:hover, .header-logbar li:active
+{
+    background-color: #2582c3;
+}
+.header-logbar li.header-register
+{
+    background-color: #f74c4c;
+}
+.header-logbar li.header-profile
+{
+    background-color: #f74c4c;
+}
+.header-logbar li.header-register:hover, .header-logbar li.header-register:active
+{
+    background-color: #e60012;
+}
+
+
+/*------------- head end ---------------*/
+
+
+@media all and (max-width:1000px)
+{
+
+    .inside
+    {
+        width: 100%;
+    }
+
+}
+
+
+@media all and (max-width:780px)
+{
+
+
+    .header
+    {
+        height: 60px;
+    }
+    .header a
+    {
+        float: left;
+        display: inline;
+        padding: 0;
+    }
+	.logo{margin-top:13px;}
+    .logo img
+    {
+        width: 120px;
+        margin-left: 10px;
+    }
+    .logo-brief
+    {
+        padding: 23px 0 0 15px;
+        margin: 0;
+    }
+
+
+    .head-tel
+    {
+        display: none;
+    }
+    .header-logbar
+    {
+        display: none;
+    }
+
+    .nav-wrapper
+    {
+        display: none;
+        height: auto;
+    }
+    .nav-wrapper ul li
+    {
+        width: 50%;
+        border: 0;
+    }
+    .nav li a
+    {
+        border: 0;
+    }
+    .nav li a:hover
+    {
+        border-color: #3ca0ff;
+        background-color: #3ca0ff;
+    }
+
+    .header a.mobile-sign-wrap
+    {
+        float: right;
+    }
+    .mobile-nav
+    {
+        display: block;
+        float: right;
+        width: 25px;
+        margin: 20px 20px 10px 10px;
+    }
+    .mobile-sign
+    {
+        display: block;
+        float: right;
+        width: 30px;
+        margin: 17px 10px 10px 10px;
+    }
+
+}
+
+
+
+@media all and (max-width:440px)
+{
+
+    .top-fix-wrap
+    {
+        display: none;
+    }
+    .header
+    {
+        height: 60px;
+    }
+    .logo img
+    {
+        width: 120px;
+        margin-left: 10px;
+    }
+    .logo-brief
+    {
+        display: none;
+    }
+
+
+}
+
+
+
+
+@media all and (max-width:330px)
+{
+
+
+}
+

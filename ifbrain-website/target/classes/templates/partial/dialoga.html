@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="utf-8" />
+<title>diglog提示</title>
+ <link th:href="@{../../css/laohu/reset.css}" rel="stylesheet" type="text/css" media="screen"/>
+ <link th:href="@{../../css/laohu/style.css}" rel="stylesheet" type="text/css" media="screen"/> 
+
+</head>
+<body >
+		<!-- 新的选择页面 -->
+	<div class="modal fade container" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"  style="max-width: 720px;padding: 0px; padding-top:100px; " >
+	<div class="col-md-12 col-xs-12 col-sm-12 addcomdity" th:each="commodities:${commoditietype}" >
+	 <input type="text" id = "select1"  th:value = "${commodities.name}" readonly = "readonly" class=" form-control container select1" style="cursor:pointer; border:none;border-bottom: 1px solid; color:#333333; background-color:white;font-size: 16px;border-radius: 50px !important;margin-bottom: 5px;height: 40px;width: 175px;text-align: center"/>
+	<input type="hidden" id = "selectid"  th:value = "${commodities.id}" class="selectid" /> 
+	</div>
+	<div class="col-md-12 col-xs-12 col-sm-12"  style="position: relative; z-index: 90">
+	 <input type="text" value = "取消" readonly = "readonly" class=" form-control container"  data-dismiss="modal" aria-hidden="true" style="cursor:pointer;text-align:center; border:none;border-bottom: 1px solid; color:#333333; background-color:white;font-size: 16px;border-radius: 50px !important;width: 175px;text-align: center"/>
+	</div>
+     </div>
+	
+</body>
+</html>

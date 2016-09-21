@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	data-ng-app="_app">
+
+<head>
+<meta charset="utf-8" />
+<title>飞机规划</title>
+<script type="text/javascript"
+	th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/extension.js}"></script>
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script
+	th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+<script type="text/javascript"
+	th:src="@{/assets/global/plugins/jquery-validation/js/jquery.validate.min.js}"></script>
+<script type="text/javascript"
+	th:src="@{/assets/global/plugins/jquery-validation/js/additional-methods.min.js}"></script>
+<script type="text/javascript"
+	th:src="@{/assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js}"></script>
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.css.map}" />
+<script th:src="@{/assets/global/plugins/bootstrap/js/bootstrap.js}"></script>
+<script th:src="@{/assets/global/plugins/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/util/date-extension.js}"></script>
+
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+
+<script th:src="@{/js/util/supplier.js}"></script>
+<script th:src="@{/js/util/supplier-return.js}"></script>
+<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script>
+
+<script th:src="@{/assets/global/scripts/metronic.js}"
+	type="text/javascript"></script>
+<script th:src="@{/assets/admin/pages/scripts/form-wizard.js}"></script>
+<script type="text/javascript"
+	th:src="@{/assets/global/plugins/bootstrap-daterangepicker/moment.min.js}"></script>
+<script type="text/javascript"
+	th:src="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js}"></script>
+<script th:src="@{/assets/admin/pages/scripts/components-form-tools.js}"></script>
+<script type="text/javascript"
+	th:src="@{/assets/global/plugins/fuelux/js/spinner.min.js}"></script>
+<script
+	th:src="@{/assets/global/plugins/bootstrap-touchspin/bootstrap.touchspin.js}"
+	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/typeahead/handlebars.min.js}"
+	type="text/javascript"></script>
+<script
+	th:src="@{/assets/global/plugins/typeahead/typeahead.bundle.min.js}"
+	type="text/javascript"></script>
+<script type="text/javascript"
+	th:src="@{/assets/global/plugins/bootstrap-select/bootstrap-select.min.js}"></script>
+<script type="text/javascript"
+	th:src="@{/assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js}"></script>
+<script
+	th:src="@{/assets/global/plugins/image-picker/image-picker/image-picker.js}"
+	type="text/javascript"></script>
+<script
+	th:src="@{/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js}"
+	type="text/javascript"></script>
+<link type="text/css" th:type="@{/text/css}" rel="stylesheet"
+	th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap-theme.min.css}" />
+
+<script type="text/javascript"
+	th:src="@{/assets/global/scripts/custom.js}"></script>
+<script type="text/javascript"
+	th:src="@{/webjars/bootstrap/3.3.4/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/global/plugins/jquery-migrate.min.js}"
+	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-ui/jquery-ui.min.js}"
+	type="text/javascript"></script>
+<script
+	th:src="@{/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js}"
+	type="text/javascript"></script>
+<script
+	th:src="@{/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js}"
+	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.blockui.min.js}"
+	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.cokie.min.js}"
+	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/uniform/jquery.uniform.min.js}"
+	type="text/javascript"></script>
+<script
+	th:src="@{/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js}"
+	type="text/javascript"></script>
+<script th:src="@{/assets/global/scripts/metronic.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/quick-sidebar.js}"></script>
+<link th:href="@{/assets/global/css/components.css}" rel="stylesheet" />
+<link th:href="@{/assets/global/css/plugins.css}" rel="stylesheet" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/global/plugins/image-picker/image-picker/image-picker.css}" />
+<link type="text/css" th:type="@{/text/css}" rel="stylesheet"
+	th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap-theme.min.css}" />
+<script type="text/javascript"
+	th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+<script type="text/javascript"
+	th:src="@{/webjars/bootstrap/3.3.4/js/bootstrap.min.js}"></script>
+<link
+	th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}"
+	rel="stylesheet" />
+<script th:src="@{/assets/global/plugins/jquery-migrate.min.js}"
+	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-ui/jquery-ui.min.js}"
+	type="text/javascript"></script>
+<script
+	th:src="@{/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js}"
+	type="text/javascript"></script>
+<script
+	th:src="@{/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js}"
+	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.blockui.min.js}"
+	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.cokie.min.js}"
+	type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/uniform/jquery.uniform.min.js}"
+	type="text/javascript"></script>
+<script
+	th:src="@{/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js}"
+	type="text/javascript"></script>
+<script th:src="@{/assets/global/scripts/metronic.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/quick-sidebar.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/demo.js}"></script>
+<link th:href="@{/assets/global/css/components.css}" rel="stylesheet" />
+<link th:href="@{/assets/global/css/plugins.css}" rel="stylesheet" />
+<link th:href="@{/assets/frontend/layout/css/style-responsive.css}" />
+<link th:href="@{/assets/frontend/layout/css/themes/red.css}"
+	rel="stylesheet" id="style-color" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/global/plugins/bootstrap-select/bootstrap-select.min.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/global/plugins/select2/select2.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/global/plugins/jquery-multi-select/css/multi-select.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/assets/global/plugins/image-picker/image-picker/image-picker.css}" />
+<script th:src="@{/js/controller/flight-controller.js}"></script>
+
+<script>
+	var count = 0;
+	var result = 0;
+	function add() {
+		count++;
+		$('#add')
+				.append(
+						'<div id="'+count+'"><div class="form-field"><label for="cityPlan.fromCity" class="col-xs-2 control-label">出发城市</label><div class="col-xs-4"><select class="form-control" required="required"   data-ng-model="datePlan.cityPlan.fromCity"><option value="">--请选择--</option><option th:each="city : ${citys}" th:value="${city.id}"  th:text="${city.cityName}"></option></select></div><label for="cityPlan.toCity" class="col-xs-2 control-label">到达城市</label><div class="col-xs-4"><select class="form-control" required="required" data-ng-model="datePlan.cityPlan.toCity" id="toCity"><option value="">--请选择--</option><option th:each="city : ${citys}" th:value="${city.id}" th:text="${city.cityName}"></option></select></div></div>'
+								+ '<div class="form-field"><label for="startDate" class="col-xs-2 control-label">出发日期</label><div class="col-xs-4"><input type="date" class="form-control" required="required" data-ng-model="datePlan.startDate"/></div><label for="endDate" class="col-xs-2 control-label">出发时间</label><div class="col-xs-4"><select class="bs-select form-control" name="flightS" data-style="green"><option value="">Anytime</option><option value="">12am-7am</option><option value="">6am-12pm</option><option value="">10am-2pm</option><option value="">12pm-6pm</option><option value="">4pm-8pm</option><option value="">7pm-12am</option></select></div></div></div>');
+	}
+	function minus() {
+		result = count--;
+		$('#' + result + '').remove();
+	}
+	function validate() {
+
+		//人数
+		var value = $("input[name=passenger1]:checked").val();
+
+		if (value == "") {
+			alert("请填写人数!");
+			return false;
+		}
+
+		if (isNaN(peopleNumber)) {
+			alert("请输入数字");
+			return false;
+		}
+		var peopleNumber1 = $("#touchspin_4").val();
+
+		if (peopleNumber1 == "") {
+			alert("请填写人数");
+			return false;
+		}
+
+		if (isNaN(peopleNumber1)) {
+			alert("请输入数字");
+			return false;
+		}
+
+		//出发城市
+		var fromCity = $('#fromCity').val();
+		if (fromCity == "") {
+			alert("请选择出发城市!");
+			return false;
+		}
+		//到大城市
+		var toCity = $('#toCity').val();
+		if (toCity == "") {
+			alert("请选择到达城市!");
+			return false;
+		}
+		/* 	$.blockUI();
+		
+			$.unblockUI();     */
+	}
+	function people(value) {
+		if (value != 0) {
+			$("#touchspin_4").val("");
+		} else {
+			$("#touchspin_2").val("");
+		}
+
+		$("#peopleType").val(value);
+	}
+
+	$(function() {
+
+		
+				$.ajax({
+					type : "Post",
+					url : "/supplierPriceRule/getByVehicleTypeCode?vehicleTypeCode=" + 1,
+					success : function(data) {
+						console.log(data);
+						alert(data.supplier.cnName);
+						$('#suppler').val(supplierPriceRule.supplier.cnName);
+					}
+				});
+
+		$("input[name='xingcheng']").change(
+				function() {
+					$("input[name='xingcheng'][checked]").attr(
+							"background-color", $(this).val());
+				});
+
+		$("#single").click(function() {
+
+			$("#tubiao").hide();
+			$("#back").hide();
+		});
+		$("#return").click(function() {
+
+			$("#tubiao").hide();
+			$("#back").show();
+		});
+		$("#mutil").click(function() {
+
+			$("#back").hide();
+
+			$("#tubiao").show();
+		});
+	});
+</script>
+
+<style type="text/css">
+.floating_ck {
+	position: fixed;
+	right: 20px;
+	top: 30%;
+}
+
+.floating_ck dl dd {
+	position: relative;
+	width: 80px;
+	height: 80px;
+	background-color: #646577;
+	border-bottom: solid 1px #555666;
+	text-align: center;
+	background-repeat: no-repeat;
+	background-position: center 20%;
+	cursor: pointer;
+}
+
+.floating_ck dl dd:hover {
+	border-bottom: solid 1px #a40324;
+}
+
+.floating_ck dl dd:hover .floating_left {
+	display: block;
+}
+
+.consult, .words {
+	background-image: url(../../assets/img/kficon.png);
+}
+
+.quote {
+	background-image: url(../../assets/img/font-524.png);
+}
+
+.qrcord {
+	background-image: url(../../assets/img/erweima.png);
+}
+
+.return {
+	background-image: url(../../assets/img/fanhui.png);
+}
+
+.floating_ck dd span {
+	color: #fff;
+	display: block;
+	padding-top: 54px;
+}
+
+.floating_left {
+	position: absolute;
+	left: -160px;
+	top: 0px;
+	width: 160px;
+	height: 80px;
+	background-color: white;
+	border-bottom: solid 1px #a40324;
+	display: none;
+}
+
+.floating_left a {
+	color: gray;
+	line-height: 80px;
+}
+
+.floating_ewm {
+	height: 260px;
+	top: -180px;
+}
+
+.floating_ewm i {
+	background-image: url(../../assets/frontend/onepage/img/wechat.jpg);
+	display: block;
+	width: 145px;
+	height: 145px;
+	margin: auto;
+	margin-top: 7px;
+}
+
+.floating_ewm p {
+	color: gray;
+	margin-top: 5px;
+}
+
+.floating_ewm .qrcord_p01 {
+	font-size: 12px;
+	line-height: 20px;
+}
+
+.floating_ewm .qrcord_p02 {
+	font-size: 18px;
+}
+</style>
+</head>
+<body data-ng-controller="FlightPlanController">
+
+	<!-- BEGIN HEADER  -->
+	<div th:replace="partial/header"></div>
+	<!-- END HEADER -->
+
+	<div class="main">
+		<div layout:fragment="content" class="container"
+			style="width: 1180px; margin-top: 70px;">
+			<h3>飞机规划</h3>
+			<form id="mainForm" class="form-horizontal" role="form" method="post"
+				th:action="@{'/flight/search'}">
+				<div class="form-group" align="center">
+					<div class="form-field">
+						<input type="radio" name="xingcheng" value="返程" checked="checked"
+							id="return" style="width: 20px; height: 18px" /><font size="5px">返程</font><span></span><span></span>
+						<input type="radio" name="xingcheng" value="单程" id="single"
+							style="width: 20px; height: 18px" /><font size="5px">单程</font><span></span><span></span>
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<div class="form-field">
+						<label for="cityPlan.fromCity"
+							class="col-md-2 col-xs-12 control-label"> <font
+							color="red">*</font>&nbsp;出发城市
+						</label>
+						<div class="col-md-3 col-xs-12">
+							<select class="form-control" required="required" id="fromCity"
+								name="fromCity" data-ng-model="datePlan.cityPlan.fromCity">
+								<option value="">--请选择--</option>
+								<option th:each="city : ${citys}" th:value="${city.id}"
+									th:text="${city.cityName}"></option>
+							</select>
+						</div>
+
+						<label for="cityPlan.toCity"
+							class="col-md-2 col-xs-12 control-label"> <font
+							color="red">*</font>&nbsp;到达城市
+						</label>
+						<div class="col-md-3 col-xs-12">
+							<select class="form-control" required="required" name="toCity"
+								data-ng-model="datePlan.cityPlan.toCity" id="toCity"
+								onchange="change(this.value)">
+								<option value="">--请选择--</option>
+								<option th:each="city : ${citys}" th:value="${city.id}"
+									th:text="${city.cityName}"></option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="form-group row" id="time">
+					<div class="form-field">
+						<label for="startDate" class="col-md-2 col-xs-12 control-label">
+							<font color="red">*</font>&nbsp;出发日期
+						</label>
+						<div class="col-md-3 col-xs-12">
+							<!-- <input type="text" class="form-control date-picker"    data-ng-model="datePlan.startDate" required="required"  id="startDate" data-date-format="yyyy-mm-dd"   /> -->
+							<input type="date" class="form-control" required="required"
+								name="startDate" data-ng-model="datePlan.startDate" />
+						</div>
+						<label for="endDate" class="col-md-2 col-xs-12 control-label">出发时间</label>
+						<div class="col-md-3 col-xs-12">
+							<select class="bs-select form-control" name="flightS"
+								data-style="green" data-ng-model="datePlan.startTime">
+								<option value="">Anytime</option>
+								<option th:value="12000700">12am-7pm</option>
+								<option th:value="y06001200">6am-12pm</option>
+								<option th:value="10000200">10am-2pm</option>
+								<option th:value="12000600">12pm-6pm</option>
+								<option th:value="y04000800">4pm-8pm</option>
+								<option th:value="y07001200">7pm-12am</option>
+							</select>
+
+						</div>
+					</div>
+				</div>
+
+
+				<input type="hidden" name="filghtPlanId" th:value="${filghtPlanId}"
+					id="filghtPlanId" />
+
+
+
+
+
+				<div class="form-group" id="back">
+					<div class="form-field">
+						<label for="startDate" class="col-md-2 col-xs-12 control-label">返程日期</label>
+						<div class="col-md-3 col-xs-12">
+							<!--   <input type="date" class="form-control date-picker" required="required"  data-date-format="yyyy-mm-dd" data-date-viewmode="years" value="2012-02-09" data-date="2012-02-09"  data-ng-model="datePlan.backDate"/> -->
+							<input type="date" class="form-control" name="returnDate"
+								data-ng-model="datePlan.returnDate" />
+						</div>
+
+						<label for="endDate" class="col-xs-2 control-label">返程时间</label>
+						<div class="col-md-3 col-xs-12">
+							<select class="bs-select form-control" name="returnTime"
+								data-style="green" data-ng-model="datePlan.returnTime">
+								<option value="">Anytime</option>
+								<option th:value="12000700">12am-7pm</option>
+								<option th:value="y06001200">6am-12pm</option>
+								<option th:value="10000200">10am-2pm</option>
+								<option th:value="12000600">12pm-6pm</option>
+								<option th:value="y04000800">4pm-8pm</option>
+								<option th:value="y07001200">7pm-12am</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+
+				<input type="hidden" id="returnDate" name="returnDate" /> <input
+					type="hidden" id="returndatetime" name="returndatetime" />
+
+
+
+				<div class="form-group row" id="add"></div>
+				<!--      <div class="form-group" id="tubiao"   style="display:none">
+                   <div class="form-field" align="left">
+                  <label for="startDate" class="col-xs-2 control-label">添加航程</label>
+                  <div class="col-xs-4">
+                   <a  href="javascript:;"  class="btn btn-sm blue glyphicon glyphicon-plus" onclick="add()"></a>  <a  href="javascript:;"  class="btn btn-sm green glyphicon glyphicon-minus" onclick="minus()"></a>  
+                    </div>
+                    </div> 
+                  </div> -->
+
+				<div class="form-group" id="hangkong">
+					<div class="form-field">
+						<label for="cityPlan.fromCity"
+							class="col-md-2 col-xs-12 control-label">航空公司</label>
+						<div class="col-md-3 col-xs-12">
+							<select class="form-control" name="airline">
+								<option value="">--请选择--</option>
+								<option th:each="airline : ${airline}" th:value="${airline.id}"
+									th:text="${airline.airlineEnglishName}"></option>
+							</select>
+						</div>
+					</div>
+
+
+
+					<div class="form-field">
+						<label for="selCabin" class="col-md-2 col-xs-12 control-label">舱位级别</label>
+
+						<div class="col-md-3 col-xs-12">
+							<select id="selCabin" name="selCabin" class="form-control"
+								required="required" data-ng-model="ngmodelCabin">
+								<option value="">--请选择--</option>
+								<option value="Y">Economy (Y)</option>
+								<option value="S">Premium Economy (S)</option>
+								<option value="C">Business (C)</option>
+								<option value="J">Premium Business (J)</option>
+								<option value="F">First (F)</option>
+								<option value="P">Premium First (P)</option>
+							</select>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="form-group" id="passengers">
+
+					<div class="form-field">
+						<!-- <label for="selCabin" class="col-md-1 col-xs-12 control-label">
+		               <font color="red">*</font>&nbsp;乘客</label> -->
+
+					</div>
+
+					<div class="form-field">
+						<label for="selCabin" class="col-md-2 col-xs-6 control-label"><input
+							type="radio" name="passenger1" checked="checked"
+							onclick="people(1)" />&nbsp;&nbsp;成人</label>
+						<div class="col-md-2 col-xs-6">
+							<div class="input-inline input-medium" id="iten-tabless">
+								<input id="touchspin_2" type="text" value="" name="peopleNum"
+									class="form-control" />
+							</div>
+							<button type="button" class="btn green" style="display: none;"
+								id="more-iten-btnss" name="chuxing"></button>
+						</div>
+					</div>
+
+					<div class="form-field">
+						<label for="selCabin" class="col-md-2 col-xs-6 control-label"><input
+							type="radio" name="passenger1" onclick="people(0)" />&nbsp;&nbsp;儿童</label>
+						<div class="col-md-2 col-xs-6">
+							<div class="input-inline input-medium" id="iten-tabless">
+								<input id="touchspin_4" type="text" value="" name="peopleNum1"
+									class="form-control" />
+							</div>
+							<button type="button" class="btn green" style="display: none;"
+								id="more-iten-btnss" name="chuxing"></button>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group" id="passengers">
+					<div class="form-field">
+						<label for="selCabin" class="col-xs-4 control-label"></label>
+						<div class="col-xs-4">
+							<button type="button"
+								class="icon-arrow-right  btn blue btn-block " style="size: 20px"
+								ng-click="retrieveVehicleInfoFromSupplier()">飞机搜索</button>
+							<br />
+							<!-- <a th:href="@{'/order/' + ${orderId} + '/plan?'}+'_step1'"><button class="btn green icon-arrow-right btn-block ">返回</button></a> -->
+						</div>
+					</div>
+				</div>
+
+				<!-- 供应商价格ID -->
+				<input type="hidden" name="priceCoefficientID"
+					id="priceCoefficientID" />
+				<!-- 查询结果 -->
+
+				<input type="hidden" name="vehicleInfos" id="vehicleInfos" />
+
+				<!-- 人员类型 -->
+
+				<input type="hidden" name="peopleType" value="1" id="peopleType" />
+
+				<!-- 隐藏供应商 -->
+				<!-- <input type="text"  id="suppler" name="suppler"/> -->
+				<!-- 日期规划ID -->
+
+				<input type="hidden" name="datePlanId" th:value="${datePlanId}"
+					id="datePlanId" />
+
+			</form>
+
+
+		</div>
+	</div>
+
+	<!-- BEGIN FOOTER -->
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<!-- BEGIN COPYRIGHT -->
+				<div class="col-md-6 col-sm-6 col-xs-12 padding-top-10">2015 ?
+					广州嘻游信息科技有限公司. ALL Rights Reserved.&nbsp;&nbsp;粤ICP备15064509号</div>
+				<!-- END COPYRIGHT -->
+				<!-- BEGIN PAYMENTS -->
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<ul class="social-icons pull-right">
+						<li><a class="rss" data-original-title="rss"
+							href="javascript:;"></a></li>
+						<li><a class="facebook" data-original-title="facebook"
+							href="javascript:;"></a></li>
+						<li><a class="twitter" data-original-title="twitter"
+							href="javascript:;"></a></li>
+						<li><a class="googleplus" data-original-title="googleplus"
+							href="javascript:;"></a></li>
+						<li><a class="linkedin" data-original-title="linkedin"
+							href="javascript:;"></a></li>
+						<li><a class="youtube" data-original-title="youtube"
+							href="javascript:;"></a></li>
+						<li><a class="vimeo" data-original-title="vimeo"
+							href="javascript:;"></a></li>
+						<li><a class="skype" data-original-title="skype"
+							href="javascript:;"></a></li>
+					</ul>
+				</div>
+				<!-- END PAYMENTS -->
+			</div>
+		</div>
+
+	</div>
+	<!-- END FOOTER -->
+
+	<!-- BEGIN XUAN -->
+	<div class="floating_ck" style="z-index: 9999; opacity: 0.9;">
+		<dl>
+			<dt></dt>
+			<dd class="consult">
+				<span>咨询热线</span>
+				<div class="floating_left">
+					<a>咨询热线</a>
+				</div>
+			</dd>
+			<dd class="quote">
+				<span>QQ客服</span>
+				<div class="floating_left">
+					<a href="#"></a>
+				</div>
+			</dd>
+			<dd class="qrcord">
+				<span>扫一扫</span>
+				<div class="floating_left floating_ewm">
+					<i></i>
+					<p class="qrcord_p01">扫一扫</p>
+					<p class="qrcord_p02">领红包</p>
+				</div>
+			</dd>
+
+			<dd class="return">
+				<span onClick="gotoTop();return false;">返回顶部</span>
+			</dd>
+		</dl>
+	</div>
+	<a href="#promo-block" class="go2top scroll"><i
+		class="fa fa-arrow-up"></i></a>
+
+	<!-- END XUAN -->
+	<input type="hidden" id="_contextPath" th:value="@{/}" />
+	<div layout:fragment="script">
+		<script th:src="@{/js/util/web.js}"></script>
+		<!-- BEGIN PAGE LEVEL PLUGINS -->
+		<script type="text/javascript"
+			th:src="@{/assets/global/plugins/jquery-validation/js/jquery.validate.min.js}"></script>
+		<script type="text/javascript"
+			th:src="@{/assets/global/plugins/jquery-validation/js/additional-methods.min.js}"></script>
+		<script type="text/javascript"
+			th:src="@{/assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js}"></script>
+		<script th:src="@{/assets/global/scripts/metronic.js}"
+			type="text/javascript"></script>
+		<script th:src="@{/assets/admin/layout/scripts/layout.js}"
+			type="text/javascript"></script>
+		<script th:src="@{/assets/admin/pages/scripts/form-wizard.js}"></script>
+		<script type="text/javascript"
+			th:src="@{/assets/global/plugins/bootstrap-daterangepicker/moment.min.js}"></script>
+
+		<script type="text/javascript"
+			th:src="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js}"></script>
+		<script th:src="@{/assets/admin/pages/scripts/components-pickers.js}"></script>
+		<script
+			th:src="@{/assets/admin/pages/scripts/components-form-tools.js}"></script>
+		<script type="text/javascript"
+			th:src="@{/assets/global/plugins/fuelux/js/spinner.min.js}"></script>
+		<script
+			th:src="@{/assets/global/plugins/bootstrap-touchspin/bootstrap.touchspin.js}"
+			type="text/javascript"></script>
+		<script th:src="@{/assets/global/plugins/typeahead/handlebars.min.js}"
+			type="text/javascript"></script>
+		<script
+			th:src="@{/assets/global/plugins/typeahead/typeahead.bundle.min.js}"
+			type="text/javascript"></script>
+		<script type="text/javascript"
+			th:src="@{/assets/global/plugins/bootstrap-select/bootstrap-select.min.js}"></script>
+		<script type="text/javascript"
+			th:src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+		<script type="text/javascript"
+			th:src="@{/assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js}"></script>
+		<script
+			th:src="@{/assets/global/plugins/image-picker/image-picker/image-picker.js}"
+			type="text/javascript"></script>
+		<script
+			th:src="@{/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js}"
+			type="text/javascript"></script>
+		<script th:src="@{/assets/frontend/layout/scripts/layout.js}"
+			type="text/javascript"></script>
+		<script th:src="@{/assets/global/scripts/custom.js}"
+			type="text/javascript"></script>
+
+		<script type="text/javascript"
+			src="../../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+		<script>
+				$(function() {
+				FormWizard.init();
+					ComponentsPickers.init();
+				   ComponentsDropdowns.init();
+					ComponentsFormTools.init();
+					CustomFormActions.init();
+					$("select").imagepicker();
+					trip.init();
+				});
+			</script>
+		<!-- END PAGE LEVEL JAVASCRIPTS -->
+	</div>
+
+
+</body>
+</html>

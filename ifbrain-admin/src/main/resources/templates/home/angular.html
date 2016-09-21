@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout-blank" data-ng-app="_app">
+<head>
+	<title>Use AngularJS with RESTful</title>
+	<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script>
+	<script th:src="@{/js/controller/angular-controller.js}"></script>
+</head>
+<body data-ng-controller="AngularController">
+	<div layout:fragment="content" class="container">
+		<h2>Demo for AngularJS and RESTful</h2>
+		user id:
+		<input type="number" min="1" data-ng-model="userId" data-ng-change="userIdChanged()" />
+		<p>The id is {{userId}}</p>
+		<p>The email is {{user.number}}</p>
+		<p>
+			<a th:href="@{/user}" class="btn btn-default">用户</a>
+			<a th:href="@{/order}" class="btn btn-default">订单</a>
+		</p>
+	</div>
+</body>
+</html>

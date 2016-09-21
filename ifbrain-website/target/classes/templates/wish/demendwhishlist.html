@@ -1,0 +1,257 @@
+﻿﻿
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<link rel="shortcut icon" href="../../img/showhtml.ico" /> 
+<title>商品详情</title>
+
+<link rel = 'stylesheet' type="text/css" th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}"/>
+<script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>	
+
+  
+<!-- 响应式布局 -->
+<link rel = 'stylesheet' type="text/css" th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.css}"/>
+<!-- Page level plugin styles START -->
+  <link href="../../assets/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css" rel="stylesheet"/>
+  <link href="../../assets/global/plugins/slider-layer-slider/css/layerslider.css" rel="stylesheet"/>
+  <!-- Page level plugin styles END -->
+    <!-- BEGIN LayerSlider -->
+    <script src="../../assets/global/plugins/slider-layer-slider/js/greensock.js" type="text/javascript"></script><!-- External libraries: GreenSock -->
+    <script src="../../assets/global/plugins/slider-layer-slider/js/layerslider.transitions.js" type="text/javascript"></script><!-- LayerSlider script files -->
+    <script src="../../assets/global/plugins/slider-layer-slider/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script><!-- LayerSlider script files -->
+    <script src="../../assets/frontend/pages/scripts/layerslider-init.js" type="text/javascript"></script>
+    
+    <link rel="stylesheet" type="text/css" th:href="@{/css/selectstyle/style.css}" media="screen"  />
+<link th:href="@{/assets/global/css/plugins.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/frontend/layout/css/style-responsive.css}" rel="stylesheet" />
+<link th:href="@{/assets/global/css/components-rounded.css}" id="style_components" rel="stylesheet" type="text/css"/>
+<link  rel="stylesheet" type="text/css" th:href="@{/css/swiper.min.css}" />
+
+<style type="text/css">
+ 		.ahover4{
+    			color: #fabf12 !important;
+    			border-bottom: 2px solid #fabf12;
+    		}
+ 	</style>
+     <script type="text/javascript" th:src="@{/js/controller/pagecontroller/demendwish.js}"></script>
+    <!-- END LayerSlider -->
+    	
+    	<style type="text/css">
+    	.mypanelBorder{
+	border: 2px solid #0151a6  ;
+}
+    	
+    		.layerslidersacss{
+    		height:100%;
+    		width: auto;
+    		display: block;
+    		position: relative;
+    		z-index: 9999; 
+    	
+    		}
+    		.layersliders p{
+    		 margin-top: 0px !important;/* 
+    		  height: auto !important; */
+    		}
+    		.layersliders{
+    			width: 100% !important;
+    		}
+    		.ls-lt-container{
+    			display: none;
+    		}
+    		.cssclass{
+    			padding-left:10%;
+    		padding-right:10%;
+    		}
+    		.ls-thumbnail-hover{
+    			display: none !important;
+    		}
+    	</style>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            Layout.init();    
+            Layout.initOWL();
+            LayersliderInit.initLayerSlider();
+            Layout.initImageZoom();
+            Layout.initTouchspin();
+            Layout.initTwitter();
+       		$(".layersliders").each(function(){
+       		
+       		   $(this).find('p').addClass("ls-bg");
+       		   $(this).find('img').addClass("img-responsive")
+       			$(this).find('img').css('height','100%')
+       			$(this).find('a').addClass('layerslidersacss')
+       			$(this).find('img').css('width','auto')
+       			$(this).find('p').addClass("cssclass");
+       			
+       		});
+       		
+       	
+       		
+        });
+    </script>
+    <style type="text/css">
+       
+</style>
+<script type="text/javascript">
+/* function checkseesionuser() {
+	if ($("#sessionuser").val() != "") {
+		window.location.href = "/myinformation/baby";
+	}else if($("#sessionuser").val()==""){
+				$("#sessionuser").css('display','block');
+				window.location.href = "/user/logins";
+			} 
+} */
+function tocourse(){
+	window.location.href="/course/index"
+}
+/* function userlogin(){
+	if ($("#sessionuser").val() != "") {
+		window.location.href = "/project/li/"+$("#ids").val();
+	}else if($("#sessionuser").val()==""){
+				$("#sessionuser").css('display','block');
+				window.location.href = "/user/logins";
+			} 
+} */
+</script>
+</head>
+
+<body style="padding: 0px; margin: 0px;" onload="test()">
+ <input type="hidden" th:value="${session.childids}"  id="ids"/>
+	<div th:replace="partial/header-new" class="header" style="width: auto;"></div>
+<!-- 第一块-->
+<div  class="container" style="max-width: 710px; padding: 0px;">
+		<input type="hidden"  id="flagaa" th:value="${flagvalue}" />
+		<form class="form-horizontal" role="form" method="post" id="mainForm">
+			<input type="hidden" id="ids" class="ids" name="ids" /> 
+			<div class="portlet-body mypanel"
+				style="background-color:#f4f5f2; height: 76px; text-align: center; display: block; margin-top: 0px; margin-left: 0px;border: 1px solid transparent; max-width: 710px; top: 0px;">
+				<div class="swiper-container col-md-12 col-xs-12 col-sm-12"  style="height: 76px;;margin-left: 0px;margin-top: 0px;padding: 0px"  id="swiper-container">
+				<div class="swiper-wrapper" style="padding: 0px;margin-top: 4px">
+				<div class="swiper-slide" th:each="child:${childs}" style="width: 25%;height: 30px;">	
+					
+					<input type="hidden" th:value="${child.id}" th:id="${child.id}"
+						name="childs" class="childss" />
+						<img th:if="${child.image==null  or child.image=='' or child.image.id==0}" alt="tp"  src="../../img/chird.png" style="border-radius: 50% !important;" width="46px" height="46px;"	id="childI" />
+					    <img alt="tp"  th:if="${child.image!=null}"		th:src="@{'/image/show/' + ${child.image.id}}"	style="border-radius: 50% !important;" width="46px" height="46px;"		id="childI" />
+					<div th:text="${child.name}"
+						style="font-size:14px;"></div>
+						
+				</div>
+				</div>
+				</div>		
+			</div>
+		</form>
+		</div>
+
+<div  class="container" style="max-width: 710px; padding: 0px;background-color: #f4f5f2">
+<div class = "col-md-12 col-xs-12 col-sm-12" style = "text-align:center;padding: 0px;">
+    <div class="page-slider margin-bottom-35 " >
+      <!-- LayerSlider start -->
+      <div id="layerslider" style="width: 100%; height: 494px; margin: 0 auto;" class=""    >
+        <div class="ls-slide  layerslidersshow layersliders" data-ls="offsetxin: right; slidedelay: 2000; " align="center" th:if="${comm!=''}" th:each="comm:${comm}">
+          <p>
+           <img alt="商品详情" width="auto" th:src="@{'/image/shoppingmallCommodity/' + ${comm.id}}"  class="img-responsive"    height="494px;"/>	
+         </p>
+         </div>
+        
+      </div>
+    </div>
+</div>
+<div class="col-md-12 col-xs-12 col-sm-12" style="font-size: 15px;text-align: left;margin-top: 10px;margin-bottom: 10px;" th:text="${commdity.commodityName}">
+ 	
+ 	
+ 	</div>
+ 	<input type="hidden" th:value="${commdity.id}" id="commdityids"/>
+ 	<div class="col-md-12 col-xs-12 col-sm-12" style="font-size: 20px;text-align: left;margin-bottom: 15px;padding: 0px" >
+ 		<div class="col-xs-2 col-md-1 col-sm-1" style="line-height: 40px;" ><img alt="" src="../../img/小代币.png" style = "float:left;margin-top: 10px" class="img-responsive"/></div>
+ 		<div class="col-xs-10 col-md-11 col-sm-11" style="text-align: left;color: red;padding: 0px" th:text="${commdity.price}"></div>
+ 	</div>
+ 	<div class="col-md-12 col-xs-12 col-sm-12" style="font-size: 12px;text-align: left;margin-bottom: 35px;">
+ 		商品详情：<span th:text="${commdity.description}"></span> 
+ 	</div>
+ 	<div  class="col-md-12 col-xs-12 col-sm-12 "  style="padding: 0px;line-height: 60px;height: 60px;" >
+ 		<div class="col-xs-6 col-md-6 col-sm-6" style="padding: 0px;background-color: red;color: white;cursor: pointer;text-align: center;">立即购买</div>
+ 		<div class="col-xs-6 col-md-6 col-sm-6" style="padding: 0px;background-color: blue;color: white;;cursor: pointer;text-align: center;" onclick="addwishlist()">加入心愿清单</div>
+ 	</div>
+</div>
+
+
+
+
+
+ <script src="../../js/project/swiper.min.js" type="text/javascript"></script>
+												<!-- Initialize Swiper -->
+												<script>
+													var swiper = new Swiper('#swiper-container',
+															{
+																pagination :'.swiper-pagination',
+																slidesPerView : 5,
+																paginationClickable : true,
+																spaceBetween :4,
+																freeMode : true,
+																grabCursor:true,
+																mousewheelControl : true
+															});
+							</script>
+
+
+   
+
+
+	<script src="../../assets/global/plugins/jquery.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/global/plugins/jquery-migrate.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js"
+		type="text/javascript"></script>
+	<script src="../../assets/frontend/layout/scripts/back-to-top.js"
+		type="text/javascript"></script>
+	<script
+		src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"
+		type="text/javascript"></script>
+	<!-- END CORE PLUGINS -->
+
+	<!-- BEGIN PAGE LEVEL JAVASCRIPTS (REQUIRED ONLY FOR CURRENT PAGE) -->
+	<script
+		src="../../assets/global/plugins/fancybox/source/jquery.fancybox.pack.js"
+		type="text/javascript"></script>
+	<!-- pop up -->
+	<script
+		src="../../assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js"
+		type="text/javascript"></script>
+	<!-- slider for products -->
+	<script src="../../assets/global/plugins/zoom/jquery.zoom.min.js"
+		type="text/javascript"></script>
+	<!-- product zoom -->
+	<script
+		src="../../assets/global/plugins/bootstrap-touchspin/bootstrap.touchspin.js"
+		type="text/javascript"></script>
+	<!-- Quantity -->
+
+	<!-- BEGIN LayerSlider -->
+	<script
+		src="../../assets/global/plugins/slider-layer-slider/js/greensock.js"
+		type="text/javascript"></script>
+	<!-- External libraries: GreenSock -->
+	<script
+		src="../../assets/global/plugins/slider-layer-slider/js/layerslider.transitions.js"
+		type="text/javascript"></script>
+	<!-- LayerSlider script files -->
+	<script
+		src="../../assets/global/plugins/slider-layer-slider/js/layerslider.kreaturamedia.jquery.js"
+		type="text/javascript"></script>
+	<!-- LayerSlider script files -->
+	<script src="../../assets/frontend/pages/scripts/layerslider-init.js"
+		type="text/javascript"></script>
+	<!-- END LayerSlider -->
+
+	<script src="../../assets/frontend/layout/scripts/layout.js"
+		type="text/javascript"></script>
+</body>
+</html>

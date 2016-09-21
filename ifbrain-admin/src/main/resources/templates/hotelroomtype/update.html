@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>房间类型修改</title>
+<!-- 使用jQuery Validation控件进行前端验证 -->
+<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+<script type="text/javascript">
+	$(function() {
+		jQuery.validator.setDefaults({
+			debug : true,
+			success : "valid"
+		});
+
+		$("#mainForm").validate({
+			rules : {
+				"perNightCost" : {
+					required : true,
+					number : true
+				}
+			},
+			messages : {
+				"perNightCost" : {
+					required : "价格不能为空"
+				}
+			},
+
+			highlight : function(element) {
+				$(element).closest(".form-group").addClass("has-error");
+			},
+			success : function(label) {
+				label.closest(".form-group").removeClass("has-error");
+				label.closest(".form-group").addClass("has-success");
+			},
+			errorPlacement : function(error, element) {
+				element.parent("div").append(error);
+			},
+			submitHandler : function(form) {
+				form.submit();
+			}
+		});
+	});
+</script>
+
+
+<script type="text/javascript">
+	function price() {
+		var perNightCost = $('#perNightCost').val();
+		var hotelActivityId = $('#hotelActivityId').val();
+		$.ajax({
+			type : "GET",
+			url : "/hotelRoomType/price",
+			data : {
+				"perNightCost" : perNightCost,
+				"hotelActivityId" : hotelActivityId
+			},
+			success : function(data) {
+				var coefficient = data;
+				var price = perNightCost * coefficient;
+				$('#perNightPrice').html(price);
+				document.getElementById('perNightPrice').value = price;
+			}
+
+		});
+	}
+</script>
+
+</head>
+
+<body>
+	<div layout:fragment="content" class="container-fluid">
+		<div class="row">
+			<div class="page-header">
+				<h1>房间类型修改</h1>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+
+					<form id="mainForm" class="form-horizontal" role="form" method="post" th:action="@{/hotelRoomType/update}"
+						th:object="${hotelRoomType}">
+						<input type="hidden" name="_method" value="put" /> <input type="hidden" th:field="*{id}" /> <input type="hidden"
+							name="hotelActivityId" id="hotelActivityId" th:value="${hotelActivity.id}" />
+						<div class="form-group" th:classappend="${#fields.hasErrors('hotelActivity')}? 'has-error'">
+							<label for="hotelActivity" class="col-xs-3 control-label"> 酒店英文名称 </label>
+							<div class="col-xs-6">
+
+								<input type="text" class="form-control" th:value="${hotelActivity.hotelEngName}" readonly="readonly" /> <span
+									class="text-danger" th:if="${#fields.hasErrors('hotelActivity')}" th:errors="*{hotelActivity}"></span>
+							</div>
+						</div>
+
+						<div class="form-group" th:classappend="${#fields.hasErrors('roomType')}? 'has-error'">
+							<label for="roomType" class="col-xs-3 control-label"> 房间类型 </label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{roomType}" required="required" /> <span class="text-danger"
+									th:if="${#fields.hasErrors('roomType')}" th:errors="*{roomType}"></span>
+							</div>
+						</div>
+
+						<div class="form-group" th:classappend="${#fields.hasErrors('promotionContent')}? 'has-error'">
+							<label for="promotionContent" class="col-xs-3 control-label"> 促销内容 </label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{promotionContent}" /> <span class="text-danger"
+									th:if="${#fields.hasErrors('promotionContent')}" th:errors="*{promotionContent}"></span>
+							</div>
+						</div>
+
+						<div class="form-group" th:classappend="${#fields.hasErrors('description')}? 'has-error'">
+							<label for="description" class="col-xs-3 control-label"> 描述 </label>
+							<div class="col-xs-6">
+								<textarea rows="5" cols="71" th:field="*{description}"></textarea>
+								<!-- <input type="text" class="form-control" th:field="*{description}" required="required" /> -->
+								<span class="text-danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+							</div>
+						</div>
+
+						<div class="form-group" th:classappend="${#fields.hasErrors('perNightCost')}? 'has-error'">
+							<label for="perNightCost" class="col-xs-3 control-label"> 成本价(美元)</label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{perNightCost}" required="required" id="perNightCost"
+									onchange="price();" /> <span class="text-danger" th:if="${#fields.hasErrors('perNightCost')}"
+									th:errors="*{perNightCost}"></span>
+							</div>
+						</div>
+
+						<div class="form-group" th:classappend="${#fields.hasErrors('perNightPrice')}? 'has-error'">
+							<label for="perNightPrice" class="col-xs-3 control-label"> 销售价(美元)</label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{perNightPrice}" readonly="readonly" id="perNightPrice"
+									name="perNightPrice" /> <span class="text-danger" th:if="${#fields.hasErrors('perNightPrice')}"
+									th:errors="*{perNightPrice}"></span>
+							</div>
+						</div>
+
+
+						<p class="text-center">
+							<button type="submit" class="btn btn-primary">提交</button>
+							<a th:href="@{'/hotelActivity/hotelRoomType/'+${hotelActivity.id}}" class="btn btn-default">返回</a>
+						</p>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

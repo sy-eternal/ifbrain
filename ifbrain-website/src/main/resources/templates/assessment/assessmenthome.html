@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-cn"  xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<meta charset="UTF-8"></meta>
+<title>评估首页</title>
+
+ <link rel="shortcut icon" href="../../img/showhtml.ico" /> 
+<!-- 新的代码 -->
+<link rel="stylesheet" type="text/css" th:href="@{/css/selectstyle/style.css}" media="screen"  />
+<link th:href="@{/assets/global/css/plugins.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/frontend/layout/css/style-responsive.css}" rel="stylesheet" />
+
+<link th:href="@{/assets/global/css/components-rounded.css}" id="style_components" rel="stylesheet" type="text/css"/>
+<!-- <link th:href="@{/css/percent/radialindicator.css}"  rel="stylesheet" type="text/css"/> -->
+<link  rel="stylesheet" type="text/css" th:href="@{/css/swiper.min.css}" />
+<!-- 视频部分 -->
+<script type="text/javascript" th:src="@{/scripts/video/video.js}"></script>
+<script type="text/javascript"	th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+<!-- 圆点样式 -->
+<link  href="../../scripts/video/video-js.css" rel="stylesheet" type="text/css"/>
+	<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script> 
+ 	<script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+
+
+
+<style type="text/css">
+
+ #formcontroller {
+  
+  background-color:white;
+    opacity: 1;
+}
+
+#pinggu
+{
+color:#0151a6;
+}
+</style>
+<style>
+#indicatorContainerWrap,#indicatorContainer{
+    display:inline-block;
+    position:relative;
+}
+#indicatorContainerWrap1,#indicatorContainer1{
+    display:inline-block;
+    position:relative;
+}
+
+.mypanelBorder{
+	border: 2px solid #0151a6  ;
+}
+
+
+</style>
+<!-- 分享样式 -->
+
+
+
+
+<script>
+
+$(function(){
+	 //根据flagvalue来判断进入该页面后选中第几个图片
+	 var flagvalue=$("#flagaa").val();
+	 if(flagvalue!=""){
+		 $(".portlet-body.mypanel img").each(function() {
+			 var value=$(this).parent().find('input').attr('value');
+			 if(flagvalue==value){
+				 $(this).addClass('mypanelBorder').parent().siblings().find('img').removeClass('mypanelBorder');
+				
+			 }
+		 });
+	 }	
+	//根据孩子id获得相应孩子的评估信息
+		$(".portlet-body.mypanel img").each(function() {
+			 $(this).click(function () {
+				 var id=$(this).parent().find('input').attr('value');
+				window.location.href="/assessment/assessmenthome?childId="+id;
+				});
+		});
+});
+</script>
+<script type="text/javascript">
+	//页面跳转
+	//财脑指数
+	function gocainaozhishu(){
+		
+		var flagvalue=$("#flagaa").val();
+		if(flagvalue!=''){
+		window.location.href="/ifbrainindexassement/ifbrainindex?childId="+flagvalue;
+		}
+	}
+	//代币银行
+	function godaibiyinhang(){
+
+		var flagvalue=$("#flagaa").val();
+		if(flagvalue!=''){
+		window.location.href="/daibibankassement/daibibank?childId="+flagvalue;
+		}
+	}
+	//需求评估
+	function goxuqiupinggu(){
+
+		var flagvalue=$("#flagaa").val();
+		if(flagvalue!=''){
+		window.location.href="/demandassement/demand?childId="+flagvalue;
+		}
+	}
+	//课堂视频
+	function goketangshiping(){
+
+		var flagvalue=$("#flagaa").val();
+		if(flagvalue!=''){
+		window.location.href="/coursemovie/coursemovie?childId="+flagvalue;
+		}
+	}
+	//家庭收入
+	function gojiatingshouru(){
+		var flagvalue=$("#flagaa").val();
+		if(flagvalue!=''){
+		window.location.href="/familyincomeassement/familyincome?childId="+flagvalue;
+		}else{
+			window.location.href="/familyincomeassement/familyincome?childId="+"";
+		}
+	}
+	//家庭支出 
+	function gojiatingzhichu(){
+
+		var flagvalue=$("#flagaa").val();
+		if(flagvalue!=''){
+		window.location.href="/familyexpenses/familyexpenses?childId="+flagvalue;
+		}else{
+			window.location.href="/familyexpenses/familyexpenses?childId="+"";
+		}
+	}
+</script>
+
+</head>
+<body style="background-color:#ffd464; text-align:Center; "  >
+<div class="v-jr-slide-wrap">
+        
+  <div th:replace="partial/header-new" class="header" style="width: auto;"></div>
+        <div class="v-jr-slide-box v-jr-clear" id="js-slide-box">		 
+<!-- 根据此id来判断选中第几个宝宝头像-->
+		<input type="hidden"  id="flagaa" th:value="${flagvalue}" /> 
+<div  class="container" style="max-width: 710px; padding: 0px;">
+		<form class="form-horizontal" role="form" method="post" id="mainForm">
+			<input type="hidden" id="ids" class="ids" name="ids" /> 
+			<div class="portlet-body mypanel"
+				style="background-color:#f4f5f2; height: 76px; text-align: center; display: block; margin-top: 0px; margin-left: 0px;border: 1px solid transparent; max-width: 710px; top: 0px;">
+				<div class="swiper-container col-md-12 col-xs-12 col-sm-12"  style="height: 76px;;margin-left: 0px;margin-top: 0px;padding: 0px"  id="swiper-container">
+				<div class="swiper-wrapper" style="padding: 0px;margin-top: 4px">
+				<div class="swiper-slide" th:each="child:${childs}" style="width: 25%;height: 30px;" th:if="${childs!=''}">	
+					
+					<input type="hidden" th:value="${child.id}" th:id="${child.id}"
+						name="childs" class="childss" />
+						<img th:if="${child.image==null  or child.image=='' or child.image.id==0}" alt="tp"  src="../../img/chird.png" style="border-radius: 50% !important;" width="46px" height="46px;"	id="childI" />
+					    <img alt="tp"  th:if="${child.image!=null}"		th:src="@{'/image/show/' + ${child.image.id}}"	style="border-radius: 50% !important;" width="46px" height="46px;"		id="childI" />
+					<div th:text="${child.name}"
+						style="font-size:14px;"></div>
+						
+				</div>
+				</div>
+				</div>		
+			</div>
+		</form>
+	
+	      
+      	<div class="col-xs-12 col-md-12 col-sm-12" style="margin-top: 20px;margin-bottom: 100px;">
+			<!-- 	<div class="col-xs-12 col-md-12 col-sm-12" style="padding: 0px;margin-bottom: 20px;">
+				财脑指数
+					<div class="col-md-6 col-xs-6 col-sm-6" style="padding: 0px;">
+						<div class="col-md-12 col-xs-12 col-sm-12" style="background-color: white;height: 130px;width: 90%;cursor: pointer;border-radius: 10px;line-height: 50px;" onclick="gocainaozhishu();">
+							<div class="col-md-12 col-xs-12 col-sm-12 container" style="padding: 0px;margin-top: 15px"><img src="../../img/cainaozhishu.png" class="" style="height: 80px;"/></div>
+							<div class="col-md-12 col-xs-12 col-sm-12" style="padding: 0px;font-size: 14px;color: #333333;text-align: center;font-weight: bold;">财脑指数</div>
+						</div>
+					</div>
+					代币银行
+					<div class="col-md-6 col-xs-6 col-sm-6" style="padding: 0px;">
+				      	<div class="col-md-12 col-xs-12 col-sm-12 container" style="background-color: white;height: 130px;width: 90%;cursor: pointer;border-radius: 10px;line-height: 40px;" onclick="godaibiyinhang();">
+				      	<div class="col-md-12 col-xs-12 col-sm-12" style="padding: 0px;margin-top: 15px"><img src="../../img/daibiyinhang.png" class="" style="height: 86px"/></div>
+				      		<div class="col-md-12 col-xs-12 col-sm-12" style="padding: 0px;font-size: 14px;color: #333333;text-align: center;font-weight: bold;">代币银行</div>
+				      	</div>
+					</div>
+				</div> -->
+				<!-- <div class="col-xs-12 col-md-12 col-sm-12" style="padding: 0px;margin-bottom: 20px;">
+				需求评估
+					<div class="col-md-6 col-xs-6 col-sm-6" style="padding: 0px;">
+						<div class="col-md-12 col-xs-12 col-sm-12" style="background-color: white;height: 130px;width: 90%;cursor: pointer;border-radius: 10px;line-height: 50px;" onclick="goxuqiupinggu();">
+							<div class="col-md-12 col-xs-12 col-sm-12 container" style="padding: 0px;margin-top: 15px"><img src="../../img/xuqiupinggu.png" class="" style="height: 80px;"/></div>
+							<div class="col-md-12 col-xs-12 col-sm-12" style="padding: 0px;font-size: 14px;color: #333333;text-align: center;font-weight: bold;">需求评估</div>
+						</div>
+					</div>
+					课堂视频
+					<div class="col-md-6 col-xs-6 col-sm-6" style="padding: 0px;">
+				      	<div class="col-md-12 col-xs-12 col-sm-12 container" style="background-color: white;height: 130px;width: 90%;cursor: pointer;border-radius: 10px;line-height: 40px;" onclick="goketangshiping();">
+				      	<div class="col-md-12 col-xs-12 col-sm-12" style="padding: 0px;margin-top: 15px"><img src="../../img/ketangshiping.png"  style="height: 86px;width: 100%" class="col-md-8 col-xs-12 col-sm-12"/></div>
+				      		<div class="col-md-12 col-xs-12 col-sm-12" style="padding: 0px;font-size: 14px;color: #333333;text-align: center;font-weight: bold;">课堂视频</div>
+				      	</div>
+					</div>
+				</div> -->
+				<div class="col-xs-12 col-md-12 col-sm-12" style="padding: 0px;">
+				<!-- 家庭收入 -->
+					<div class="col-md-6 col-xs-6 col-sm-6" style="padding: 0px;">
+						<div class="col-md-12 col-xs-12 col-sm-12" style="background-color: white;height: 130px;width: 90%;cursor: pointer;border-radius: 10px;line-height: 50px;" onclick="gojiatingshouru();">
+							<div class="col-md-12 col-xs-12 col-sm-12 container" style="padding: 0px;margin-top: 15px"><img src="../../img/jiatingshouru.png" class="" style="height: 80px;"/></div>
+							<div class="col-md-12 col-xs-12 col-sm-12" style="padding: 0px;font-size: 14px;color: #333333;text-align: center;font-weight: bold;">家庭收入</div>
+						</div>
+					</div>
+					<!-- 家庭支出 -->
+					<div class="col-md-6 col-xs-6 col-sm-6" style="padding: 0px;">
+				      	<div class="col-md-12 col-xs-12 col-sm-12 container" style="background-color: white;height: 130px;width: 90%;cursor: pointer;border-radius: 10px;line-height: 40px;" onclick="gojiatingzhichu();">
+				      	<div class="col-md-12 col-xs-12 col-sm-12" style="padding: 0px;margin-top: 15px"><img src="../../img/jiatingzhichu.png" class="col-md-8 col-xs-12 col-sm-12" style="height: 80px;width: 100%"/></div>
+				      		<div class="col-md-12 col-xs-12 col-sm-12" style="padding: 0px;font-size: 14px;color: #333333;text-align: center;font-weight: bold;">家庭支出</div>
+				      	</div>
+					</div>
+				</div>
+				
+       </div>
+		
+	
+</div>
+<div th:replace="partial/tokennavibars" class="header" style="width: auto;"></div> 
+		<!-- 底层背景色 -->
+</div></div>
+    <script src="../../js/project/swiper.min.js" type="text/javascript"></script>
+												<!-- Initialize Swiper -->
+												<script>
+													var swiper = new Swiper('#swiper-container',
+															{
+																pagination :'.swiper-pagination',
+																slidesPerView : 5,
+																paginationClickable : true,
+																spaceBetween :4,
+																freeMode : true,
+																grabCursor:true,
+																mousewheelControl : true
+															});
+							</script>
+
+ <script src="../../js/percent/radialIndicator.js"
+		type="text/javascript"></script>
+			
+</body>
+</html>

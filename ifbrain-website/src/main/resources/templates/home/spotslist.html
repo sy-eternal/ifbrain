@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Insert title here</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<meta content="Metronic Shop UI description" name="description" />
+<meta content="Metronic Shop UI keywords" name="keywords" />
+<meta content="keenthemes" name="author" />
+
+<meta property="og:site_name" content="-CUSTOMER VALUE-" />
+<meta property="og:title" content="-CUSTOMER VALUE-" />
+<meta property="og:description" content="-CUSTOMER VALUE-" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="-CUSTOMER VALUE-" />
+<!-- link to image for socio -->
+<meta property="og:url" content="-CUSTOMER VALUE-" />
+
+<link rel="shortcut icon" href="favicon.ico" />
+
+<!-- Fonts START -->
+<link
+	href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all"
+	rel="stylesheet" type="text/css" />
+<!-- Fonts END -->
+
+<!-- Global styles START -->
+<link
+	href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" />
+<link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet" />
+<!-- Global styles END -->
+
+<!-- Page level plugin styles START -->
+<link
+	href="../../assets/global/plugins/fancybox/source/jquery.fancybox.css"
+	rel="stylesheet" />
+<link
+	href="../../assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css"
+	rel="stylesheet" />
+<link
+	href="../../assets/global/plugins/slider-revolution-slider/rs-plugin/css/settings.css"
+	rel="stylesheet" />
+<!-- Page level plugin styles END -->
+
+<!-- Theme styles START -->
+<link href="../../assets/global/css/components.css" rel="stylesheet" />
+<link href="../../assets/frontend/layout/css/style.css" rel="stylesheet" />
+<link href="../../assets/frontend/pages/css/style-revolution-slider.css"
+	rel="stylesheet" />
+<!-- metronic revo slider styles -->
+<link href="../../assets/frontend/layout/css/style-responsive.css"
+	rel="stylesheet" />
+<link href="../../assets/frontend/layout/css/themes/red.css"
+	rel="stylesheet" id="style-color" />
+<link href="../../assets/frontend/layout/css/custom.css"
+	rel="stylesheet" />
+
+<link
+	href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" />
+<link href="../../assets/frontend/onepage/css/style.css"
+	rel="stylesheet" />
+<link href="../../assets/frontend/onepage/css/themes/red.css"
+	rel="stylesheet" id="style-color" />
+<link
+	href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css"
+	rel="stylesheet" type="text/css" />
+
+<script src="../../assets/frontend/pages/scripts/top.js"></script>
+</head>
+
+<body>
+	<div class="header"
+		style="position: fixed; top: 0px; height: 60px; width: 100%; z-index: 99999;">
+		<div class="container" style="height: 60px; padding-top: 18px;">
+			<a href="/home/travelindex"> <img
+				src="../../assets/frontend/onepage/img/logo/xylogo.png" alt="嘻游旅行" />
+			</a> <a href="javascript:void(0);" class="mobi-toggler"> <i
+				class="fa fa-bars"></i>
+			</a>
+			<!-- BEGIN NAVIGATION -->
+			<div class="header-navigation pull-right">
+				<ul>
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" data-target="#" href="javascript:;"
+						style="padding: 0px;"> <span
+							class="username username-hide-on-mobile"
+							style="font-weight: 400; font-size: 18px; opacity: 0.8; color: #e6400c;"
+							th:text="${session.usertyoes}"></span> <span
+							class="username username-hide-on-mobile"></span>
+					</a> <!-- BEGIN DROPDOWN MENU -->
+						<ul class="dropdown-menu">
+							<li class="dropdown-submenu"><a href="/center"> <i
+									class="icon-calendar"></i> &nbsp;&nbsp;游客中心 <!-- <i class="fa fa-angle-right"></i> -->
+							</a></li>
+							<li class="dropdown-submenu"><a
+								th:href="@{/personalCenter/create}"> <i class="icon-user"></i>
+									&nbsp;&nbsp;个人中心 <!--  <i class="fa fa-angle-right"></i> -->
+							</a></li>
+							<li class="dropdown-submenu"><a th:href="@{/home/loginout}">
+									<i class="icon-key"></i> &nbsp;&nbsp;退出
+							</a></li>
+						</ul> <!-- END DROPDOWN MENU --></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12 blog-page"
+		style="background-color: white; padding-top: 80px;">
+
+		<div class="col-md-9 col-sm-8 article-block"
+			th:each="spotThemeRelate:${spotThemeRelate}">
+
+
+			<div class="col-md-4 blog-img blog-tag-data">
+				<!-- <img th:src="${spotThemeRelate.spot.image.filePath}" alt=""
+						class="img-responsive" /> -->
+				<img th:src="@{'/image/show/' + *{spotThemeRelate.spot.image.id}}"
+					alt="Amazing Project" class="img-responsive" width="800px;"
+					height="600px;" />
+
+				<ul class="list-inline">
+					<li><i class="fa fa-calendar"></i> <a href="javascript:;"
+						th:text="${spotThemeRelate.spot.cityid.cityName}"
+						style="color: #222222"> </a></li>
+					<li><i class="fa fa-comments"></i> <a href="javascript:;"
+						th:text="${spotThemeRelate.spot.specialnotes}"
+						style="color: #222222"> </a></li>
+
+				</ul>
+				<ul class="list-inline blog-tags">
+					<li><i class="fa fa-tags"></i> <a href="javascript:;"
+						th:each="spotTags:${spotThemeRelate.spot.spotTags}"
+						th:text="${spotTags.tag}"> </a></li>
+
+				</ul>
+				<ul class="list-inline">
+					<li><i class="fa fa-comments"></i> <a href="javascript:;"
+						th:text="${spotThemeRelate.spot.weathertips}"
+						style="color: #222222"> </a></li>
+				</ul>
+			</div>
+			<div class="col-md-8 blog-article" style="color: black;">
+				<h3>
+					<a href="page_blog_item.html"
+						th:text="${spotThemeRelate.spot.spotsename}"
+						style="color: #5b9bd1;"> </a>
+				</h3>
+
+				<p th:text="${spotThemeRelate.spot.spotsdescription}"></p>
+
+			</div>
+
+
+		</div>
+
+
+	</div>
+	<ul class="pagination pull-right"
+		style="background-color: white; width: 100%; text-align: right;">
+		<li><a href="javascript:;"> <i class="fa fa-angle-left"></i>
+		</a></li>
+		<li><a href="javascript:;"> 1 </a></li>
+		<li><a href="javascript:;"> 2 </a></li>
+		<li><a href="javascript:;"> 3 </a></li>
+		<li><a href="javascript:;"> 4 </a></li>
+		<li><a href="javascript:;"> 5 </a></li>
+		<li><a href="javascript:;"> 6 </a></li>
+		<li><a href="javascript:;"> <i class="fa fa-angle-right"></i>
+		</a></li>
+	</ul>
+	<!-- BEGIN FOOTER -->
+	<div class="pre-footer" id="contact">
+		<div class="container">
+			<div class="row">
+				<!-- BEGIN BOTTOM ABOUT BLOCK -->
+				<div class="col-md-4 col-sm-6 pre-footer-col">
+					<h2>关于我们</h2>
+					<p>
+						我们是一个专注于定制导游和目的地活动的公司。我们认为，一个完美的出国旅行应该每一个活动都由专业的旅行规划师量身定制，在旅行的全程都会有专业玩家开着专车去接应，体验旅行目的地真正的风土人情。<a
+							th:href="@{/home/aboutus}">更多</a>
+					</p>
+					<div class="pre-footer-subscribe-box">
+						<h2>邮件订阅</h2>
+						<form action="javascript:void(0);">
+							<div class="input-group">
+								<input type="text" placeholder="在此输入您的邮箱关注我们"
+									class="form-control" /> <span class="input-group-btn">
+									<button class="btn btn-primary" type="submit">订阅</button>
+								</span>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<!-- END BOTTOM ABOUT BLOCK -->
+
+				<div class="col-md-4 col-sm-6 pre-footer-col">
+					<h2>关注我们的微信公众号</h2>
+					<p>
+						<img th:src="@{/assets/frontend/onepage/img/wechatQR.jpg}" />
+					</p>
+				</div>
+
+				<div class="col-md-4 col-sm-6 pre-footer-col">
+					<!-- BEGIN BOTTOM CONTACTS -->
+					<h2>联系方式</h2>
+					<address class="margin-bottom-20">
+						广州总部地址：广州市天河区科韵北路106号<br /> 美国公司地址：<br />&nbsp;Puente Hills
+						Business Center #305<br /> &nbsp;17870 Castleton St.<br />
+						&nbsp;City of Industry, CA 91748<br /> 北京技术研发中心地址：北京市王府孵化器<br />
+
+						电子邮箱: <a href="service@x2our.com">service@x2our.com</a><br />
+						客服微信: youseetrip
+					</address>
+					<!-- END BOTTOM CONTACTS -->
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END PRE-FOOTER -->
+	<!-- BEGIN FOOTER -->
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<!-- BEGIN COPYRIGHT -->
+				<div class="col-md-6 col-sm-12 col-sm-12">
+					<div class="copyright">2015 © 广州西游信息科技有限公司. ALL Rights
+						Reserved.&nbsp;&nbsp;粤ICP备15064509号</div>
+				</div>
+				<!-- END COPYRIGHT -->
+				<!-- BEGIN SOCIAL ICONS -->
+				<div class="col-md-6  col-sm-12 col-sm-12 pull-right">
+					<ul class="social-icons">
+						<li><a class="rss" data-original-title="rss"
+							href="javascript:void(0);"></a></li>
+						<li><a class="facebook" data-original-title="facebook"
+							href="javascript:void(0);"></a></li>
+						<li><a class="twitter" data-original-title="twitter"
+							href="javascript:void(0);"></a></li>
+						<li><a class="googleplus" data-original-title="googleplus"
+							href="javascript:void(0);"></a></li>
+						<li><a class="linkedin" data-original-title="linkedin"
+							href="javascript:void(0);"></a></li>
+						<li><a class="youtube" data-original-title="youtube"
+							href="javascript:void(0);"></a></li>
+						<li><a class="vimeo" data-original-title="vimeo"
+							href="javascript:void(0);"></a></li>
+						<li><a class="skype" data-original-title="skype"
+							href="javascript:void(0);"></a></li>
+					</ul>
+				</div>
+				<!-- END SOCIAL ICONS -->
+			</div>
+		</div>
+	</div>
+	<!-- END FOOTER -->
+
+</body>
+</html>

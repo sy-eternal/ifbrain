@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+	<head>
+	<title>菜单权限</title>
+	<!-- DataTables -->
+	<link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+	<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+	<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+	<div layout:fragment="content" class="container-fluid">
+		<div class="page-header">
+			<h1>菜单权限</h1>
+		</div>
+		<form class="form-horizontal" role="form" method="post" th:action="@{/roles/menus}" th:object="${roles}">
+			<input type="hidden" name="_method" value="put" />
+			<input type="hidden" th:field="*{id}" name="id" value="id" id="id" />
+			<div>
+			<table>	
+			<tr>
+				<td></td><td>菜单名称</td><td>URL</td><td>父节点</td><td>顺序</td>
+			</tr>	
+			<tr th:each="menu:${menu}" th:value="menu.name">
+			<td><input type="checkbox" th:each="menu:${menu}" checked="checked" th:name="menu" th:value="${menu.id}"/></td>
+			<td th:each="menu:${menu}" th:value="${menu.name}"><input type="text" th:value="${menu.name}" readonly="readonly" th:name="${menu.name}"/></td>
+			<td th:each="menu:${menu}" th:value="${menu.url}"><input type="text" th:value="${menu.url}" readonly="readonly" th:name="${menu.url}"/></td>
+			<td th:each="menu:${menu}" th:value="${menu.parentId}"><input type="text" th:value="${menu.parentId}" readonly="readonly" th:name="${menu.parentId}"/></td>
+			<td th:each="menu:${menu}" th:value="${menu.displayOrder}"><input type="text" th:value="${menu.displayOrder}" readonly="readonly" th:name="${menu.displayOrder}"/></td>
+			</tr>			
+			</table>
+			</div>			
+			
+			<div>
+			<table>
+			<tr th:each="newmenu:${newmenu}" th:value="newmenu.name">
+			<td><input type="checkbox" th:each="newmenu:${newmenu}"  th:name="menu" th:value="${newmenu.id}"/></td>
+			<td th:each="newmenu:${newmenu}" th:value="${newmenu.name}"><input type="text" th:value="${newmenu.name}" readonly="readonly" th:name="${newmenu.name}"/></td>
+			<td th:each="newmenu:${newmenu}" th:value="${newmenu.url}"><input type="text" th:value="${newmenu.url}" readonly="readonly" th:name="${newmenu.url}"/></td>
+			<td th:each="newmenu:${newmenu}" th:value="${newmenu.parentId}"><input type="text" th:value="${newmenu.parentId}" readonly="readonly" th:name="${newmenu.parentId}"/></td>
+			<td th:each="newmenu:${newmenu}" th:value="${newmenu.displayOrder}"><input type="text" th:value="${newmenu.displayOrder}" readonly="readonly" th:name="${newmenu.displayOrder}"/></td>
+			</tr>
+			</table>
+			</div>
+			
+			<input type="submit" value="提交" class="btn btn-primary"/>
+		<!-- 	<a th:href="@{/roles}" >返回</a> -->
+			<a type="button" th:href="@{/roles}" class="btn btn-default">返回</a>
+		</form>
+	</div>
+</body>
+</html>

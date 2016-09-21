@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>信息提示</title>
+<!-- DataTables -->
+<!-- DataTables -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script
+	th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+<script th:src="@{/js/controller/visitorCenter-controller.js}"></script>
+</head>
+<body>
+	<div layout:fragment="content" class="container">
+		<div class="page-header">
+			<h1>信息提示</h1>
+		</div>
+		<div th:object="${order}">
+			您的订单<span th:text="*{orderNumber}">*TP2015050515130601</span>未提交
+			<br/>
+			<br/>
+			<br/>
+			<form class="form-horizontal" id="doCreate" role="form" method="post"
+				th:action="@{/trips/authCode}">
+				<input type="hidden" th:field="*{orderNumber}" />
+				<div class="form-group">
+					<label for="firstName" class="col-xs-3 control-label">请输入您的邀请码</label>
+					<div class="col-xs-6">
+						<input type="text" class="form-control" name="activityCode" id="activityCode"/>
+						<span class="text-warning"
+							th:if="${#fields.hasErrors('activityCode')}" th:errors="*{activityCode}"></span>
+					</div>
+					</div>
+				<div class="text-center">
+					<p class="text-danger" th:text="${message}"></p>
+					<button type="submit" class="btn btn-primary">提交</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

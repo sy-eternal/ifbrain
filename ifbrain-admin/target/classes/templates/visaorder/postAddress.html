@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>签证护照邮寄地址</title>
+<!-- DataTables -->
+<!-- DataTables -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script
+	th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+</head>
+<body>
+	<!--<div layout:fragment="content" class="container"> -->
+	<div layout:fragment="content">
+		<div class="page-header">
+			<h3>签证护照邮寄地址</h3>
+		</div>
+		<form  class="form-horizontal" id="doCreate" role="form" method="post" th:action="@{/visa/update}" th:object="${visaOrder}">
+		<input type="hidden" id="visaOrderId" name="visaOrderId" th:value="${visaOrder.id}"/>
+				<div class="form-group">
+				<label for="receiverName"  class="col-xs-3 control-label">收件人</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control"  id="receiverName" name="receiverName" th:field="*{receiverName}" readonly="readonly"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="postAddress" class="col-xs-3 control-label">收件地址</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control"  id="postAddress" name="postAddress" th:field="*{postAddress}" readonly="readonly"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="teleNumber" class="col-xs-3 control-label">收件人电话</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control"  id="teleNumber" name="teleNumber" th:field="*{teleNumber}" readonly="readonly"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="expressName" class="col-xs-3 control-label">快递公司</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control"  id="expressName" name="expressName" th:field="*{expressName}" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="expressNumber" class="col-xs-3 control-label">快递号</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control"  id="expressNumber" name="expressNumber" th:field="*{expressNumber}" />
+				</div>
+			</div>
+			<div class="text-center">
+				<button type="submit" class="btn btn-primary" >提交</button>
+				<button type="reset" class="btn btn-primary" >取消</button>
+			</div>
+		</form>
+	</div>
+	<div layout:fragment="script">
+		<script>
+			$(function() {
+				Metronic.init(); // init metronic core components
+				Layout.init(); // init current layout
+				QuickSidebar.init(); // init quick sidebar
+				Demo.init(); // init demo features
+			});
+		</script>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+	<title>课程信息管理</title>
+	<!-- DataTables -->
+	<link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+ <script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+<script th:src="@{/js/util/http-context.js}"></script>
+	<script th:src="@{/js/controller/ifbraintask/ifbraintask-controller.js}"></script>
+</head>
+<body>
+	<div layout:fragment="content" >
+		<div class="page-header">
+			<h1>孩子上传任务下载</h1>
+		</div>
+		 <table id="table" class="table table-striped table-bordered table-hover">
+		 <thead>
+		 <tr>
+		 <td>孩子</td>
+		 <td>任务</td>
+		 </tr>
+		 </thead>
+		    <tbody>
+		        <tr  th:each="ifbraintask : ${ifbraintask}"> 
+					<td  th:text="${ifbraintask.child.name}"></td>
+					<td><a  th:href="@{'/ifbraintask/downloads/'+${ifbraintask.id}}">下载</a>  <a  class="delete">删除</a><input type="hidden" th:value="${ifbraintask.id}" /></td>
+				</tr>
+		    </tbody>
+		</table>
+	<input type="hidden"  th:value="${courseid}"  id="courseid"/>
+	<input type="hidden"  th:value="${coursecodeid}"  id="coursecodeid"/>
+	</div>
+	
+</body>
+<!-- 
+ --></html>

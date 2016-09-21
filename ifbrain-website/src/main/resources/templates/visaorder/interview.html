@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>预约签证面试</title>
+<!-- DataTables -->
+<!-- DataTables -->
+<link rel="stylesheet" type="text/css"
+	th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script
+	th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+<script th:src="@{/js/controller/visaOrder-controller.js}"></script>
+
+<script >
+function clos(){
+	window.location.href="/visaOrder";
+}
+</script>
+</head>
+<body>
+	<!--<div layout:fragment="content" class="container"> -->
+	<div layout:fragment="content" class="col-md-9 col-sm-12 col-xs-12" >
+		<!-- <div class="page-header"> -->
+			<h3>预约签证面试详情</h3>
+		
+		<form  class="form-horizontal" id="doCreate" role="form"  th:object="${visaOrder}">
+				<div class="form-group">
+				<label for="interviewDate" class="col-xs-3 control-label">预约面试日期</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{interviewDate}" readonly="readonly"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="interviewTime" class="col-xs-3 control-label">预约面试时间</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{interviewTime}" readonly="readonly"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="interviewPlace" class="col-xs-3 control-label">预约面试地点</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{interviewPlace}" readonly="readonly"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="interviewMemo" class="col-xs-3 control-label">预约备注</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" th:field="*{interviewMemo}" readonly="readonly"/>
+				</div>
+			</div>
+			<div class="text-center">
+			<p><a target="_blank" th:href="@{/visaOrder/instructionFileRelate}">查看 面试所需带资料</a></p>
+				<button type="button" class="btn btn-primary" onclick="clos()">返回</button>
+			</div>
+		</form>
+	</div>
+	<div layout:fragment="script">
+		<script>
+			$(function() {
+				//Metronic.init(); // init metronic core components
+				Layout.init(); // init current layout
+				QuickSidebar.init(); // init quick sidebar
+				Demo.init(); // init demo features
+			});
+		</script>
+	</div>
+
+</body>
+</html>

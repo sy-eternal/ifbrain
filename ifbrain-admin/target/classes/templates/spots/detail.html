@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+	<title>景点详情</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+<meta content="" name="description"/>
+<meta content="" name="author"/>
+<link th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/simple-line-icons/simple-line-icons.min.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/uniform/css/uniform.default.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css}" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/select2/select2.css}"/>
+<link th:href="@{/assets/global/css/components.css}" id="style_components" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/global/css/plugins.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/admin/layout/css/layout.css}" rel="stylesheet" type="text/css"/>
+<link id="style_color" href="@{/assets/admin/layout/css/themes/darkblue.css}" rel="stylesheet" type="text/css"/>
+<link th:href="@{/assets/admin/layout/css/custom.css}" rel="stylesheet" type="text/css"/>
+<link rel="shortcut icon" href="favicon.ico"/>
+</head>
+<body>
+	<div class="clearfix">
+</div>
+	<div layout:fragment="content">
+		<div class="row">
+			<div class="col-md-9 col-sm-9 col-sm-offset-2">
+				<h1>景点详情</h1>
+				<div class="content-form-page">
+					<div class="row">
+						<div class="col-md-7 col-sm-7">
+							<form class="form-horizontal" role="form" method="post" th:action="@{/spots/update}" th:object="${spots}" enctype="multipart/form-data">
+				<input type="hidden" name="_method" value="put" />
+				<input type="hidden" th:field="*{spotsname}" />
+					<div class="form-group" th:classappend="${#fields.hasErrors('cityid')}? 'has-error'">
+							<label for="cityid" class="col-xs-3 control-label">城市名称</label>
+							<div class="col-xs-6">
+								<select class="form-control" th:field="*{cityid}" disabled="disabled">
+									<option th:each="cityid : ${cityid}" th:value="${cityid.id}" th:text="${cityid.cityName}"></option>
+								</select>
+								<span class="text-danger" th:if="${#fields.hasErrors('cityid')}" th:errors="*{cityid}"></span>
+							 </div>
+					 </div>
+					 <!-- 供应商名称 -->
+					 <div class="form-group" th:classappend="${#fields.hasErrors('supplierid')}? 'has-error'">
+							<label for="supplierid" class="col-xs-3 control-label">供应商名称</label>
+							<div class="col-xs-6">
+								<select class="form-control" th:field="*{supplierid}" disabled="disabled">
+									<option th:each="supplierid : ${supplierid}" th:value="${supplierid.id}" th:text="${supplierid.cnName}" ></option>
+								</select>
+								<span class="text-danger" th:if="${#fields.hasErrors('supplierid')}" th:errors="*{supplierid}"></span>
+							 </div>
+					 </div>
+					  
+					  <div class="form-group" th:classappend="${#fields.hasErrors('themeRelates')}? 'has-error'" style="border: none;">
+							<label for="theme" class="col-xs-3 control-label" disabled="disabled">主题名称</label>
+							<div class="col-xs-6">
+								<lable type="text" readonly="readonly" th:each="theme : ${theme}"  th:text="${theme.theme}"> </lable>
+							<!-- 	<span class="text-danger" th:if="${#fields.hasErrors('themeRelates')}" th:errors="*{themeRelates}"></span> -->
+							 </div>
+					 </div>  
+					 
+					 
+								<div class="form-group" th:classappend="${#fields.hasErrors('spotsname')}? 'has-error'">
+									<label for="spotsname" class="col-xs-3 control-label"> 景点名称</label>
+									<div class="col-lg-8">
+										<input type="text" class="form-control" th:field="*{spotsname}"  required="required"  disabled="disabled"/>
+										<span class="text-danger" th:if="${#fields.hasErrors('spotsname')}" th:errors="*{spotsname}"></span>
+									</div>
+									
+								</div>
+								
+								
+								<div class="form-group" th:classappend="${#fields.hasErrors('spotsename')}? 'has-error'">
+									<label for="spotsename" class="col-xs-3 control-label"> 景点英文名称 </label>
+									<div class="col-lg-8">
+										<input type="text" class="form-control" th:field="*{spotsename}"  disabled="disabled"/>
+										<span class="text-danger" th:if="${#fields.hasErrors('spotsename')}" th:errors="*{spotsename}"></span>
+									</div>
+								</div>
+								
+								
+								<div class="form-group" th:classappend="${#fields.hasErrors('location')}? 'has-error'">
+									<label for="location" class="col-xs-3 control-label"> 地点 </label>
+									<div class="col-lg-8">
+										<input type="text" class="form-control" th:field="*{location}"  disabled="disabled"/>
+										<span class="text-danger" th:if="${#fields.hasErrors('location')}" th:errors="*{location}"></span>
+									</div>
+								</div>
+								
+								<div class="form-group" th:classappend="${#fields.hasErrors('enlocation')}? 'has-error'">
+									<label for="enlocation" class="col-xs-3 control-label"> 地点英文名 </label>
+									<div class="col-lg-8">
+										<input type="text" class="form-control" th:field="*{enlocation}"  disabled="disabled"/>
+										<span class="text-danger" th:if="${#fields.hasErrors('enlocation')}" th:errors="*{enlocation}"></span>
+									</div>
+								</div>
+								
+								
+								<div class="form-group" th:classappend="${#fields.hasErrors('address')}? 'has-error'">
+									<label for="address" class="col-xs-3 control-label"> 地址 </label>
+									<div class="col-lg-8">
+										<input type="text" class="form-control" th:field="*{address}"  disabled="disabled"/>
+										<span class="text-danger" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></span>
+									</div>
+								</div>
+								
+								
+								<div class="form-group"> 
+						                             <label  class="control-label col-md-3">图片</label>
+						                                 <div class="col-md-4">
+                                                           	<img th:src="@{'/image/show/' + *{image.id}}" alt="Amazing Project" class="img-responsive"  width="800px;" height="600px;"/>
+                                                    </div>
+						           </div>
+						           
+						           
+								<div class="form-group" th:classappend="${#fields.hasErrors('spotsdescription')}? 'has-error'">
+									<label for="spotsdescription" class="col-xs-3 control-label"> 景点介绍 </label>
+									<div class="col-lg-8">
+									<textarea rows="5" cols="59" th:field="*{spotsdescription}"  disabled="disabled"></textarea>
+										<!-- <input type="text" class="form-control" th:field="*{spotsdescription}"   disabled="disabled"/> -->
+										<span class="text-danger" th:if="${#fields.hasErrors('spotsdescription')}" th:errors="*{spotsdescription}"></span>
+									</div>
+								</div>
+								
+								
+									<div class="form-group" th:classappend="${#fields.hasErrors('spotssummary')}? 'has-error'">
+									<label for="spotssummary" class="col-xs-3 control-label"> 景点概要 </label>
+									<div class="col-lg-8">
+									<textarea rows="5" cols="59" th:field="*{spotssummary}"  disabled="disabled"></textarea>
+										<!-- <input type="text" class="form-control" th:field="*{spotssummary}"  disabled="disabled"/> -->
+										<span class="text-danger" th:if="${#fields.hasErrors('spotssummary')}" th:errors="*{spotssummary}"></span>
+									</div>
+								</div>
+								
+								
+								<div class="form-group" th:classappend="${#fields.hasErrors('specialnotes')}? 'has-error'">
+									<label for="specialnotes" class="col-xs-3 control-label"> 特别提醒 </label>
+									<div class="col-lg-8">
+									<textarea rows="5" cols="59" th:field="*{specialnotes}"  disabled="disabled"></textarea>
+									<!-- 	<input type="text" class="form-control" th:field="*{specialnotes}"  disabled="disabled"/> -->
+										<span class="text-danger" th:if="${#fields.hasErrors('specialnotes')}" th:errors="*{specialnotes}"></span>
+									</div>
+								</div>
+								
+								
+								
+								<div class="form-group" th:classappend="${#fields.hasErrors('clothingtips')}? 'has-error'">
+									<label for="clothingtips" class="col-xs-3 control-label"> 穿衣建议 </label>
+									<div class="col-lg-8">
+									<textarea rows="5" cols="59" th:field="*{clothingtips}"  disabled="disabled"></textarea>
+									<!-- 	<input type="text" class="form-control" th:field="*{clothingtips}"  disabled="disabled"/> -->
+										<span class="text-danger" th:if="${#fields.hasErrors('clothingtips')}" th:errors="*{clothingtips}"></span>
+									</div>
+								</div>
+								
+								
+								
+								<div class="form-group" th:classappend="${#fields.hasErrors('spendingtips')}? 'has-error'">
+									<label for="spendingtips" class="col-xs-3 control-label"> 消费提醒 </label>
+									<div class="col-lg-8">
+									<textarea rows="5" cols="59" th:field="*{spendingtips}"  disabled="disabled"></textarea>
+										<!-- <input type="text" class="form-control" th:field="*{spendingtips}"  disabled="disabled"/> -->
+										<span class="text-danger" th:if="${#fields.hasErrors('spendingtips')}" th:errors="*{spendingtips}"></span>
+									</div>
+								</div>
+								
+								
+								
+								<div class="form-group" th:classappend="${#fields.hasErrors('weathertips')}? 'has-error'">
+									<label for="weathertips" class="col-xs-3 control-label"> 季节推荐 </label>
+									<div class="col-lg-8">
+									<textarea rows="5" cols="59" th:field="*{weathertips}"  disabled="disabled"></textarea>
+										<!-- <input type="text" class="form-control" th:field="*{weathertips}"  disabled="disabled"/> -->
+										<span class="text-danger" th:if="${#fields.hasErrors('weathertips')}" th:errors="*{weathertips}"></span>
+									</div>
+								</div>
+								
+								
+								<div class="row">
+									<div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+										<a type="button" th:href="@{/spots}" class="btn btn-default">关闭</a>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script th:src="@{/assets/global/plugins/jquery.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-migrate.min.js}" type="text/javascript"></script>
+<!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script th:src="@{/assets/global/plugins/jquery-ui/jquery-ui.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap/js/bootstrap.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.blockui.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.cokie.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/uniform/jquery.uniform.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js}" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" th:src="@{/assets/global/plugins/jquery-validation/js/jquery.validate.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/global/plugins/jquery-validation/js/additional-methods.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js}"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script th:src="@{/assets/global/scripts/metronic.js}" type="text/javascript"></script>
+<script th:src="@{/assets/admin/layout/scripts/layout.js}" type="text/javascript"></script>
+<script th:src="@{/assets/admin/layout/scripts/quick-sidebar.js}" type="text/javascript"></script>
+<script th:src="@{/assets/admin/layout/scripts/demo.js}" type="text/javascript"></script>
+<script th:src="@{/assets/admin/pages/scripts/form-wizard.js}"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<script>
+jQuery(document).ready(function() {       
+   // initiate layout and plugins
+   Metronic.init(); // init metronic core components
+Layout.init(); // init current layout
+QuickSidebar.init(); // init quick sidebar
+Demo.init(); // init demo features
+   FormWizard.init();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+
+*{padding:0; margin:0;}
+a,img{border:0;}
+:focus{outline:0;}
+#owl-vjr .item img{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+.owl-theme .owl-controls{margin-top:0;}
+.owl-theme .owl-controls .owl-buttons div{
+	position:absolute;
+	width:90px;
+	height:180px;
+	top:50%;
+	margin:0;
+	padding:0;
+	margin-top:-90px;
+	
+	text-indent:-9999px;
+	background-image:url(http://source.vipabc.com/Ext/images/website/abc/banner/homePage/banner_arrow.png);
+	background-repeat:no-repeat;
+	background-color:transparent;
+	background-position:-90px;
+	border-radius:0;
+	
+}
+.owl-theme .owl-controls .owl-buttons div.owl-prev{left:10px;}
+.owl-theme .owl-controls .owl-buttons div:hover{background-position:0;}
+.owl-theme .owl-controls .owl-buttons div.owl-next{
+	background-position:-180px;
+	right:10px;
+}
+.owl-theme .owl-controls .owl-buttons div.owl-next:hover{background-position:-270px;}
+
+
+.owl-theme .owl-controls .owl-pagination{
+	position:absolute;
+	bottom:25px;
+	left:50%;
+	margin-left:-52px;
+}
+.owl-theme .owl-controls .active span{
+	background-color:#f74c4c;
+}
+
+
+@media all and (max-width: 768px) {
+
+.owl-theme .owl-controls .owl-buttons{ display:none;}	
+	
+	
+}
+
+@media all and (max-width: 550px) {
+
+
+.owl-theme .owl-controls .owl-pagination{ bottom:0; margin-left:-28px;}
+.owl-theme .owl-controls .owl-page span{
+	width:6px;
+	height:6px;
+	margin:0 3px;
+	background-color:#999;
+}
+
+.owl-theme .owl-controls .active span{ background-color:#f74c4c;}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

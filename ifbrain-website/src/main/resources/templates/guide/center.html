@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="UTF-8"></meta>
+<title>个人信息</title>
+<!-- Global styles START -->
+
+<link
+	th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<script
+	th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+<script
+	th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+<script type="text/javascript">
+	function closess() {
+		window.location.href = "/home/travelindex";
+	}
+</script>
+</head>
+<body>
+	<div layout:fragment="content" class="col-md-9 col-sm-12 col-xs-12"
+		style="margin-top: 130px;">
+
+		<form class="form-horizontal" id="doCreate" role="form" method="post"
+			th:action="@{/personalCenter/doCreate1}" th:object="${guideInfo}">
+			<input type="hidden" th:field="*{id}" />
+			<div class="portlet-body">
+				<div class="tabbable-line">
+					<ul class="nav nav-tabs ">
+						<li class="active"><a href="#tab_15_1" data-toggle="tab"
+							aria-expanded="true"> 个人资料 </a></li>
+						<li class=""><a href="#tab_15_2" data-toggle="tab"
+							aria-expanded="false"> 个人介绍 </a></li>
+						<li class=""><a href="#tab_15_3" data-toggle="tab"
+							aria-expanded="false"> 个人风采 </a></li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane active" id="tab_15_1">
+
+
+							<input type="hidden" th:field="*{id}" />
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="firstName"
+											class=" col-md-3 col-sm-3 col-xs-3 control-label">姓</label>
+										<div class=" col-md-6 col-sm-12 col-xs-12">
+											<input type="text" class="form-control"
+												th:field="*{user.firstName}" readonly="readonly" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group ">
+								<div class="container">
+									<div class="row">
+										<label for="lastName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">名</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<input type="text" class="form-control"
+												th:field="*{user.lastName}" readonly="readonly" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">出生日期</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<input type="text" class="form-control"
+												th:field="*{birthday}" readonly="readonly" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">性别</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<span th:if="*{sex}==1"> <input type="text"
+												th:value="男" readonly="readonly" />
+											</span> <span th:if="*{sex}==2"> <input type="text"
+												th:value="女" readonly="readonly" />
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">国籍</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<input type="text" class="form-control"
+												th:field="*{nationality}" readonly="readonly" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">导游主地点</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<input type="text" class="form-control"
+												th:field="*{hostCity.cityName}" readonly="readonly" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">在该城市停留时间（年）</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<input type="text" class="form-control"
+												th:field="*{stayduration}" readonly="readonly" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">身份证或护照信息页</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<img th:src="@{'/image/show/' + ${image2}}"
+												alt="Amazing Project" class="img-responsive" width="800px;"
+												height="600px;" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">驾照号码</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<input type="text" class="form-control"
+												th:field="*{drivelicensecode}" readonly="readonly" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">驾照扫面件</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<img th:src="@{'/image/show/' + ${image}}"
+												alt="Amazing Project" class="img-responsive" width="800px;"
+												height="600px;" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">愿意到其他地点</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<span th:if="*{toothercity}==1"> <input type="text"
+												th:value="是" readonly="readonly" class="form-control" />
+											</span> <span th:if="*{toothercity}==2"> <input type="text"
+												th:value="否" readonly="readonly" class="form-control" />
+											</span>
+
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">是否愿意临时接送</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<span th:if="*{excursiontype}==1"> <input type="text"
+												th:value="是" readonly="readonly" class="form-control" />
+											</span> <span th:if="*{excursiontype}==2"> <input type="text"
+												th:value="否" readonly="readonly" class="form-control" />
+											</span>
+
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">支付方式</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<span th:if="*{paymethodcode}==1"> <input type="text"
+												th:value="支付方式1" readonly="readonly" class="form-control" />
+											</span> <span th:if="*{paymethodcode}==2"> <input type="text"
+												th:value="否" readonly="readonly" class="form-control" />
+											</span>
+
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">邮箱*</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<input type="text" class="form-control"
+												th:field="*{user.email}" readonly="readonly" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">手机号</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<input type="text" class="form-control"
+												th:field="*{user.mobile}" readonly="readonly" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">微信号</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<input type="text" class="form-control"
+												th:field="*{user.wechat}" readonly="readonly" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane" id="tab_15_2">
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">导游座右铭</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<input type="text" class="form-control" th:field="*{motto}"
+												readonly="readonly" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">个人介绍</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<p>简单描述一下你 是一个怎样的人？你有什么有趣的导游经历？</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label"></label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<input type="text" class="form-control"
+												th:field="*{selfdescription}" readonly="readonly" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">城市游记介绍</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<p>你眼中的这个城 市是怎样的？你与这个城市的有趣故事？</p>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label"></label>
+
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<input type="text" class="form-control"
+												th:field="*{citydescription}" readonly="readonly" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">专长领域</label>
+										<div class="col-md-6 col-sm-12 col-xs-12" >
+										<td>
+											<input type="text" class="form-control" name="tag" id="tag"
+											th:each="tags:${guideTags}"	th:value="${tags.tag}" readonly="readonly" /></td>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane" id="tab_15_3">
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">封面照</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<img th:src="@{'/image/show/' + ${image}}"
+												alt="Amazing Project" class="img-responsive" width="800px;"
+												height="600px;" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">配上当地风景照</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<p>（允许添加多个） 支持格式jpg，png，gif，图片小于20M</p>
+												<div th:each="image4:${image4}">
+												<img th:src="@{'/image/show/' + ${image4}}"
+												alt="Amazing Project" class="img-responsive" width="800px;"
+												height="600px;" /></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">上传个人生活照</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+												<p>（允许添加多个） 支持格式jpg，png，gif，图片小于20M</p>
+													<!-- <input type="text" class="form-control" name="tag" id="tag"
+											th:each="tags:${guideTags}"	th:value="${tags.tag}" readonly="readonly" /> -->
+											<div th:each="image5:${image5}">
+												<img th:src="@{'/image/show/' + ${image5}}"
+												alt="Amazing Project" class="img-responsive" width="800px;"
+												height="600px;" /></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">输入密码</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<input type="text" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="container">
+									<div class="row">
+										<label for="reveiverName"
+											class="col-md-3 col-sm-3 col-xs-3 control-label">密码确认</label>
+										<div class="col-md-6 col-sm-12 col-xs-12">
+											<input type="text" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="text-center">
+				<button type="button" class="btn btn-primary" onclick="closess()">返回</button>
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>

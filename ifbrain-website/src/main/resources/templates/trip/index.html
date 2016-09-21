@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<!-- 
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout"> -->
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+	<meta name="renderer" content="webkit"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta http-equiv="x-rim-auto-match" content="none"/>
+
+	<script th:src="@{/assets/wechat/hm.js}"></script>
+	<script>
+		var doc = document.documentElement;
+		doc.setAttribute('data-useragent', navigator.userAgent);
+	</script>
+
+	<meta name="keywords" content="美国 旅游 嘻游 定制 规划 X2OUR"/>
+
+<title>行程规划</title>
+<link type="text/css" th:href="@{/assets/global/plugins/fancybox/source/jquery.fancybox.css}" rel="stylesheet"/>
+<link type="text/css" th:href="@{/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css}" rel="stylesheet"/>
+<link th:href="@{/assets/global/css/components-trip.css}" rel="stylesheet" />
+<link th:href="@{/assets/global/css/plugins.css}" rel="stylesheet" />
+<link th:href="@{/assets/frontend/layout/css/style.css}" rel="stylesheet" />
+<link th:href="@{/assets/frontend/layout/css/style-responsive.css}" rel="stylesheet" />
+<link th:href="@{/assets/frontend/layout/css/themes/red.css}" rel="stylesheet" id="style-color" />
+<link th:href="@{/assets/frontend/layout/css/custom.css}" rel="stylesheet"/>
+
+	<!-- BEGIN PAGE LEVEL STYLES -->
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/bootstrap-select/bootstrap-select.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/select2/select2.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/jquery-multi-select/css/multi-select.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/assets/global/plugins/image-picker/image-picker/image-picker.css}" />
+
+
+<link type="text/css" rel="stylesheet" th:href="@{/assets/global/plugins/bootstrap/css/bootstrap.min.css}" />
+<link type="text/css" rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap-theme.min.css}" />
+<link th:href="@{/assets/global/plugins/font-awesome/css/font-awesome.min.css}" rel="stylesheet" />
+<link type="text/css" th:href="@{/css/settings.css}" rel="stylesheet" />
+<link type="text/css" th:href="@{/css/style-revolution-slider.css}" rel="stylesheet" />
+<link th:href="@{/css/layouts.css}" rel="stylesheet" type="text/css" />
+ <link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.4/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/global/plugins/jquery-migrate.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-ui/jquery-ui.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.blockui.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/jquery.cokie.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/plugins/uniform/jquery.uniform.min.js}" type="text/javascript"></script>
+<script	th:src="@{/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js}" type="text/javascript"></script>
+<script th:src="@{/assets/global/scripts/metronic.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/quick-sidebar.js}"></script>
+<script th:src="@{/assets/admin/layout/scripts/demo.js}"></script>
+
+<!--网页底部样式-->
+<style>
+/* footers */
+.footers {
+  background: #272626;
+  color: #fff;
+  font-size: 12px;
+  padding: 15px 0;
+}
+.footers-light {
+  background: #F9F9F9;
+  color: #3e4d5c;
+}
+.footers-gray {
+  background: #4A5866;
+}
+.footers a {
+  color: #fff;
+  text-decoration: underline;
+}
+.footers a:hover {
+  text-decoration: none;
+}
+.footers-light a {
+  color: inherit;
+}
+.footers .padding-top-10 {
+  opacity: 0.5;
+}
+.footers .list-inline > li:last-child {
+  padding-right: 0;
+}
+.footers ul {
+  margin: 0;
+  padding: 0;
+}
+.footers ul.social-footer {
+  font-size: 18px;
+  padding-top: 5px;
+}
+.footers .social-icons li {
+  float: right;
+  margin: 0 0 0 5px
+}
+.copyright {
+  padding-top: 7px;
+}
+
+.footers ul.social-icons li a {
+  opacity: 0.5;
+}
+.footers ul.social-icons li:hover a {
+  opacity: 1 !important;
+}
+
+
+</style>	
+	
+	
+	
+<!-- END PAGE LEVEL STYLES -->
+<script type="text/javascript">
+	$('#myModal').css({
+		width : "600px",
+		"margin-left" : function() {
+			return -($(this).width() / 2);
+		}
+	});
+</script>
+
+<script type="text/javascript">
+	function changetime(id){
+		$('.make-switch').bootstrapSwitch();
+        $('#defaultrange' + id).daterangepicker({
+            opens: (Metronic.isRTL() ? 'left' : 'right'),
+            format: 'YYYY-MM-DD',
+            separator: ' to ',
+            startDate: moment().add('days', 30),
+            endDate: moment().add('days', 30),
+            minDate: moment().add('days', 5),
+            maxDate: moment().add('years', 2),
+        },
+        function (start, end) {
+            $('#defaultrange' + id + ' input').val(start.format('YYYY年MMMM月D日') + ' 至 ' + end.format('YYYY年MMMM月D日'));
+        }
+    );  
+		
+	}
+</script>
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		//判断游客导游 
+		if (document.getElementById("show").value == "") {
+			$('#daoyou').css('display', 'none');
+			$('#youke').css('display', 'none');
+			$('#usertyposs').css('display', 'none')
+			$('#denglus').css('display', 'block')
+			$('#usertypos').css('display', 'none')
+		} else if (document.getElementById("show").value == 1) {
+			$('#youke').css('display', 'block');
+			$('#daoyou').css('display', 'none');
+			$('#usertyposs').css('display', 'block')
+			$('#denglus').css('display', 'none')
+			$('#usertypos').css('display', 'block')
+		} else if (document.getElementById("show").value == 2) {
+			$('#youke').css('display', 'none');
+			$('#daoyou').css('display', 'block');
+			$('#usertyposs').css('display', 'block')
+			$('#denglus').css('display', 'none')
+			$('#usertypos').css('display', 'block')
+		}
+	});
+</script>
+<script>
+	function clickAim(purpose) {
+		var selected = $("#select2_1").val();
+
+		if (selected == "") {
+			$("#select2_1").select2("val", [purpose]);
+		} else {
+			$("#select2_1").select2("val", [selected, purpose]);
+		}
+	}
+
+	function clickAccompany(accompanyType){
+		var selected = $("#select2_2").val();
+
+		if (selected == "") {
+			$("#select2_2").select2("val", [accompanyType]);
+		} else {
+			$("#select2_2").select2("val", [selected, accompanyType]);
+		}
+	}
+
+	function clickTheme(theme){
+		var selected = $("#select2_3").val();
+
+		if (selected == "") {
+			$("#select2_3").select2("val", [theme]);
+		} else {
+			$("#select2_3").select2("val", [selected, theme]);
+		}
+	}
+
+</script>
+
+<script type="text/javascript">
+	
+</script>
+<!-- <script type="text/javascript" th:src="@{/scripts/jquery-1.9.1.js}"></script> -->
+<script type="text/javascript"
+	th:src="@{/scripts/jquery.mousehovertip.js}"></script>
+</head>
+<body class="corporate" >
+	<!-- BEGIN HEADER  -->
+	<div th:replace="partial/header"></div>
+	<!-- END HEADER -->
+
+
+	<!-- <div class="pre-header" style="background-color: #DCDCDC">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-sm-6 additional-shop-info">
+					<ul class="list-unstyled list-inline">
+						 <li><i class="fa fa-phone"></i><span>+86 18672971315</span></li>
+						<li><i class="fa fa-envelope-o"></i><span>service@x2our.com</span></li>
+					</ul>
+				</div>
+				<div class="col-md-6 col-sm-6 additional-nav" >
+					<ul class=" list-inline pull-right">
+						<li><a th:href="@{/user/login}" id="denglus">登录</a> <label
+							th:text="${session.usertyoes}" id="usertypos"></label></li>
+						<li><a th:href="@{/user/register}">注册</a></li>
+						<li><a th:href="@{/home/loginout}" id="usertyposs">退出</a></li>
+						&nbsp;&nbsp;
+						<li><a th:href="@{/home/aboutus}" id="usertyposs">关于我们</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+	</div> -->
+
+	<!-- <div class="header" style="background-color:#DCDCDC;">
+		<div class="container" style="height: 60px;padding-top:18px;" >
+			<a  th:href="@{/}"> <img 
+				th:src="@{/assets/frontend/onepage/img/logo/xylogo.png}" alt="Metronic FrontEnd" />
+			</a> <a href="javascript:void(0);" class="mobi-toggler"> <i
+				class="fa fa-bars"></i>
+			</a> <input type="hidden" th:value="${session.usertyoe}" id="show" /> <input
+				type="hidden" th:value="${session.ordersstatus}" id="ordersstatus" />
+			<div class="header-navigation pull-right font-transform-inherit">
+				<ul style="height: 70px;">
+					<li class="" id="youke" style="display: none; height: 70px;">
+						<a style="height: 60px;" class="" data-toggle="dropdown"
+						data-target="#" onclick="window.location.href='/center'"> 游客中心
+					</a>
+					</li>
+					<li class="" id="daoyou" style="display: none; height: 70px;">
+						<a style="height: 70px;" class="" data-toggle="dropdown"
+						data-target="#"
+						onclick="window.location.href='/guidetaskarrangementtime/userArrangementtime'">
+							导游中心 </a>
+					</li>
+				</ul>
+			</div>
+			END NAVIGATION
+			
+			<div class="header-navigation pull-right">
+			<ul>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="javascript:;" style="padding: 0px;">
+						<span class="username username-hide-on-mobile"
+							style="font-weight: 400; font-size: 18px; opacity: 0.8; color: #e6400c;" th:text="${session.usertyoes}"></span>
+						<span class="username username-hide-on-mobile"></span>
+					</a>
+
+					BEGIN DROPDOWN MENU
+					<ul class="dropdown-menu">
+						<li class="dropdown-submenu">
+							<a href="/center">
+								<i class="icon-calendar"></i>
+								&nbsp;&nbsp;游客中心
+								<i class="fa fa-angle-right"></i>
+							</a>
+							<ul class="dropdown-menu" role="menu">
+                    <li><a href="shop-product-list.html">定制旅游订单</a></li>
+                    <li><a href="shop-product-list.html">定制签证订单</a></li>                   
+                  </ul>
+						</li>
+						<li class="dropdown-submenu">
+							<a th:href="@{/personalCenter/create}">
+								<i class="icon-user"></i>
+								&nbsp;&nbsp;个人中心
+								 <i class="fa fa-angle-right"></i>
+							</a>
+							<ul class="dropdown-menu" role="menu">
+                    <li><a href="shop-product-list.html">个人资料</a></li>
+                    <li><a href="shop-product-list.html">密码修改</a></li>                   
+                  </ul>
+						</li>
+						<li class="dropdown-submenu">
+							<a th:href="@{/home/loginout}">
+								<i class="icon-key"></i>
+								&nbsp;&nbsp;退出
+							</a>
+						</li>
+					</ul>
+					END DROPDOWN MENU
+				</li>
+			</ul>
+		</div>
+		</div>
+	</div> -->
+
+	 <!-- <div layout:fragment="content" style="margin-left: 10%">  -->
+		<div class="main" style="margin-top: 140px;"> 
+			<div class="container">
+				<!-- BEGIN SIDEBAR & CONTENT -->
+				<div class="row margin-bottom-40">
+					<!-- BEGIN CONTENT -->
+					<!-- BEGIN PAGE HEADER-->
+					<h3 class="page-title">
+						行程规划 <small>Trip Planner</small>
+					</h3>
+					<!-- END PAGE HEADER-->
+					<!-- BEGIN PAGE CONTENT-->
+					<!-- role="form"  method="post" th:action="@{/trips/doCreate}" -->
+					<!--  <input type="hidden" id="sessionid" value="<%=request.getsession().getid()%>-->
+					  <!--  <input type="text" id="tripplan" th:value="${tripPlan.tripPlan}"/> -->
+
+					<div class="row">
+						<div class="col-md-12 col-xs-12 col-sm-12">
+							<div class="portlet light bordered" id="form_wizard_1">
+								<div class="portlet-body form">
+									<form id="doCreate" class="form-horizontal" role="form"
+										method="post" 
+										th:action="@{/trips/doCreate(userId=${user})}">
+										<input type="hidden" id="userId" name="userId"
+											th:value="${user}" />
+											<input type="hidden" id="id" name="id" th:value="${tripPlan.id}" />
+										<div class="form-wizard">
+											<div class="form-body">
+												<ul class="nav nav-pills nav-justified steps">
+													<li><a href="#tab1" data-toggle="tab" class="step">
+															<span class="number"> 1 </span> <span class="desc">
+																<i class="fa fa-check"></i> 时间规划
+														</span>
+													</a></li>
+													<li><a href="#tab2" data-toggle="tab" class="step">
+															<span class="number"> 2 </span> <span class="desc">
+																<i class="fa fa-check"></i> 主题规划
+														</span>
+													</a></li>
+													<li><a href="#tab3" data-toggle="tab"
+														class="step active"> <span class="number"> 3 </span> <span
+															class="desc"> <i class="fa fa-check"></i> 地点规划
+														</span>
+													</a></li>
+													<li><a href="#tab4" data-toggle="tab" class="step">
+															<span class="number"> 4 </span> <span class="desc">
+																<i class="fa fa-check"></i> 游玩方式
+														</span>
+													</a></li>
+													<li><a href="#tab5" data-toggle="tab" class="step">
+															<span class="number"> 5 </span> <span class="desc">
+																<i class="fa fa-check"></i> 提交规划
+														</span>
+													</a></li>
+												</ul>
+												<div id="bar" class="progress progress-striped"
+													role="progressbar">
+													<div class="progress-bar progress-bar-success"></div>
+												</div>
+												<div class="tab-content">
+													<div class="alert alert-danger display-none">
+														<button class="close" data-dismiss="alert"></button>
+														You have some form errors. Please check below.
+													</div>
+													<div class="alert alert-success display-none">
+														<button class="close" data-dismiss="alert"></button>
+														Your form validation is successful!
+													</div>
+													<div class="tab-pane active" id="tab1">
+														<h3 class="form-section">请选择最适合您出行安排的一项</h3>
+														<input type="hidden" id="tripPlan" name="tripPlan" th:value="${tripPlan.tripPlan}"/>
+														<div class="form-group form-md-radios">
+															<div class="col-md-offset-1">
+																<div class="md-radio-list">
+																	<div class="md-radio">
+																		<input type="radio" id="time-arrangement1" 
+																			name="time-arrangement" value="0" class="md-radiobtn" />
+																		<label for="time-arrangement1"> <span></span>
+																			<span class="check"></span> <span class="box"></span>
+																			<h4>我的出行日期已经确定</h4>
+																		</label>
+																	</div>
+
+																	<div class="time-sel0" style="display: none;">
+																		<div class="form-group">
+																			<label class="control-label col-md-3">往返日期</label>
+																			<div class="col-md-4">
+																				<div class="input-group" id="defaultrange">
+																					<input type="text" class="form-control"
+																						id="startDate" name="startDate" th:value="${tripPlan.startDate}"/> <span
+																						class="input-group-btn">
+																						<button class="btn default date-range-toggle"
+																							type="button">
+																							<i class="fa fa-calendar"></i>
+																						</button>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+
+																	<div class="md-radio">
+																		<input type="radio" id="time-arrangement2"
+																			name="time-arrangement" value="1" class="md-radiobtn" />
+																		<label for="time-arrangement2"> <span></span>
+																			<span class="check"></span> <span class="box"></span>
+																			<h4>我还不确定具体出行日期</h4>
+																		</label>
+																	</div>
+																	<div class="time-sel1" style="display: none;">
+																		<div class="form-group">
+																			<label class="control-label col-md-3">我在下面的时间范围内都可以出行</label>
+																			<div class="col-md-4">
+																				<div class="input-group" id="defaultrange2">
+																					<input type="text" class="form-control" id="NoDate"
+																						name="NoDate" th:value="${tripPlan.NoDate}"/>
+																						
+																						 <span class="input-group-btn">
+																						<button class="btn default date-range-toggle"
+																							type="button">
+																							<i class="fa fa-calendar"></i>
+																						</button>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+
+																		<div class="form-group">
+																			<label class="control-label col-md-3">游玩天数 </label>
+																			<div class="col-md-8">
+																				<div class="md-checkbox">
+																					<input type="checkbox" id="num-days-chk"
+																						name="num-days-chk" class="md-check"
+																						checked="checked" />
+																				</div>
+																				<br />
+																				<div id="days-spinner">
+																					<div class="input-inline input-medium">
+																						<input id="touchspin_1" type="text" th:value="${tripPlan.playDay}"
+																							name="playDay" class="form-control" />
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="tab-pane" id="tab2">
+														<!-- BEGIN RECENT WORKS -->
+														<div class="row recent-work margin-bottom-40">
+															<div class="col-md-3  col-xs-3 col-sm-3 control-label">
+																<h4>出行目的</h4>
+																<p>请在右边选区您本次出行的目的，您也可以在文本框内自行输入。可多选。</p>
+															</div>
+
+															<div class="col-md-9 col-xs-9 col-sm-9 ">
+																<div class="form-group">
+																	<div class="col-md-12">
+																		<input type="text" id="select2_1" name="tripAim"
+																			class="form-control select2" th:value="${tripPlan.tripAim}" />
+																	</div>
+																</div>
+
+																<div class="owl-carousel owl-carousel6-brands">
+																	<div class="recent-work-item" th:each=" purpost:${purpostList}" th:value="${purpost.id}">
+																		<input type="hidden" id="startA" name="startA" th:value="${purpost.purpose}" />
+																		<em>
+																			<img th:src="@{'/image/show/' +*{purpost.pictureId}}" alt="Amazing Project" class="img-responsive" th:onclick= "'javascript:clickAim(\'' + ${purpost.purpose} + '\');'"/>
+																		</em>
+																		<a class="recent-work-description" href="javascript:;"> <strong th:text="${purpost.purpose}">purpose</strong></a>
+																	</div>
+
+																</div>
+															</div>
+														</div>
+														<!-- END RECENT WORKS -->
+														<hr />
+														<!-- BEGIN RECENT WORKS -->
+														<div class="row recent-work margin-bottom-40">
+															<div class="col-md-3  col-xs-3 col-sm-3 control-label">
+																<h4>随行人员</h4>
+																<p>请在右边选区您本次出行的人员，您也可以在文本框内自行输入。可多选。</p>
+															</div>
+															<div class="col-md-9  col-xs-9 col-sm-9">
+																<div class="form-group">
+																	<div class="col-md-12">
+																		<input type="text" id="select2_2"	class="form-control select2" name="entourage" th:value="${tripPlan.entourage}" />
+																	</div>
+																</div>
+
+																<div class="owl-carousel owl-carousel6-brands">
+																	<div class="recent-work-item" th:each="accompany:${accompanyList}" th:value="${accompany.id}">
+																		<input type="hidden" id="accompanyT" name="accompanyT" th:value="${accompany.accompanyType}" />
+																		<em>
+																			<img th:src="@{'/image/show/' +*{accompany.pictureId}}" alt="Amazing Project" class="img-responsive" th:onclick= "'javascript:clickAccompany(\'' + ${accompany.accompanyType} + '\');'"/>
+																		</em>
+																		<a class="recent-work-description" href="javascript:;">
+																			<strong th:text="${accompany.accompanyType}">accompanyType</strong>
+																		</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<!-- END RECENT WORKS -->
+														<hr />
+														<!-- BEGIN RECENT WORKS -->
+														<div class="row recent-work margin-bottom-40">
+															<div class="col-md-3  col-xs-3 col-sm-3 control-label">
+																<h4>旅行主题</h4>
+																<p>请在右边选择您感兴趣的主题，您也可以在文本框内自行输入。可多选。</p>
+															</div>
+															<div class="col-md-9  col-xs-9 col-sm-9">
+																<div class="form-group">
+																	<div class="col-md-12">
+																		<input type="hidden" id="select2_3" name="tripObject" class="form-control select2" th:value="${tripPlan.tripObject}" />
+																	</div>
+																</div>
+																<div class="owl-carousel owl-carousel6-brands">
+																	<div class="recent-work-item"
+																		th:each="theme:${themeList}" th:value="${theme.id}">
+																		<input type="hidden" id="themeA" name="themeA" th:value="${theme.theme}" />
+																		<em>
+																			<img th:src="@{'/image/show/' + ${theme.image.id}}" alt="Amazing Project" class="img-responsive" th:onclick= "'javascript:clickTheme(\'' + ${theme.theme} + '\');'"/>
+																		</em>
+																		<a class="recent-work-description" href="javascript:;">
+																			<strong th:text="${theme.theme}">theme</strong>
+																		</a>
+																	</div>
+
+																</div>
+															</div>
+														</div>
+														<!-- END RECENT WORKS -->
+														<hr />
+														<div class="form-group">
+															<label class="col-md-3 control-label">
+																<h4>目的地国家（地区）</h4>
+															</label>
+															<div class="col-md-4">
+																<select id="select2_4" class="form-control select2"
+																	name="selectCountry" th:field="${tripPlan.selectCountry}">
+																	<option th:each="country : ${countryList}"
+																		th:value="${country.name}" th:text="${country.name}"></option>
+																</select>
+															</div>
+														</div>
+
+														<hr />
+														<div class="form-group">
+															<label class="col-md-3 control-label">
+																<h4>出行人数</h4>
+															</label>
+															<div class="col-md-9">
+																<form>
+																	<div class="input-inline input-medium"
+																		id="iten-tabless">
+																		<input id="touchspin_2" type="text" 
+																			name="peopleNum" class="form-control" th:value="${tripPlan.peopleNum}"/>
+																			
+																			
+																			<!-- th:value="${tripPlan.peopleNum}" -->
+																		<!--   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"   size="9" id="more-iten-btnsss" name="memberage" />&nbsp;岁<br/><br/> -->
+																	</div>
+																	<div id="pad"></div>
+																</form>
+																			<input id="age" type="hidden" name="age" th:value="${tripPlan.memberage}" />
+																<button type="button" class="btn green"
+																	style="display: none;" id="more-iten-btnss"
+																	name="chuxing"></button>
+																<div id="pad"></div>
+															</div>
+
+														</div>
+														<hr />
+														<div class="form-group ">
+															<label class="col-md-3 control-label"
+																for="form_control_1">
+																<h4>规划方式</h4>
+															</label>
+															<div class="col-md-8">
+																<div class="md-radio-list">
+																	<div class="md-radio">
+																		<input type="hidden" id="plan" name="plan" th:value="${tripPlan.plan}"/> <input
+																			type="radio" id="plan-all1" name="service-req"
+																			value="0" class="md-radiobtn" /> <label
+																			for="plan-all1"> <span></span> <span
+																			class="check"></span> <span class="box"></span>
+																			<h4>
+																				我需要规划全部行程 <br /> <small>
+																					选择此项如果您不能确定具体哪一天在哪个城市游玩－ <font color="red">适用于大多数用户</font>
+																				</small>
+																			</h4>
+																		</label>
+																	</div>
+																	<div class="md-radio">
+																		<input type="radio" id="plan-all2" name="service-req"
+																			value="1" class="md-radiobtn" /> <label
+																			for="plan-all2"> <span></span> <span
+																			class="check"></span> <span class="box"></span>
+																			<h4>
+																				我已经确定下来部分行程安排 <br /> <small>
+																					选择此项如果您可以确定下来行程中的部分地点，如从美国洛杉矶入境，3月28日在纽约开会，4月3日－4月6日在洛杉矶陪客户，4月7日从美国纽约离境－
+																					<font color="red">仅适用于有此类需求的用户(请填入备注中)</font>
+																				</small>
+																			</h4>
+																		</label>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="confirmed-iten" style="display: none;">
+															<hr />
+															<div class="form-group">
+																<label class="col-md-3 control-label">
+																	<h4>已经确定下来的行程</h4>
+																</label>
+																<div class="col-md-8">
+																	<table class="table table-hover" id="iten-table">
+																		<thead>
+																			<tr>
+																				<th class="col-md-2">地点</th>
+																				<th class="col-md-4">时间</th>
+																				<th class="col-md-2">导游服务和景点安排</th>
+																				<th class="col-md-2">备注</th>
+																				<th class="col-md-1"></th>
+																			</tr>
+																		</thead>
+																		
+																		<tbody>
+																			<!--   <tr>
+																				<td><select id="select2_8" name="addr">
+																						<option th:each="city : ${cityList}"
+																							th:value="${city.cityName}"
+																							th:text="${city.cityName}"></option>
+																				</select>
+																					<div class="form-control-focus"></div></td>
+																				<td>
+																					<div class="input-group" id="defaultrange3">
+																						<input type="text" class="form-control" name="tim"
+																							id="tim" /> <span class="input-group-btn">
+																							<button class="btn default date-range-toggle"
+																								type="button">
+																								<i class="fa fa-calendar"></i>
+																							</button>
+																						</span>
+																					</div>
+																				</td>
+																				<td><input type="checkbox" class="make-switch"
+																					id="isServi" name="isServi" checked="checked" 
+																					data-on-color="success" data-off-color="warning"
+																					data-on-text="需要" data-off-text="不需要" /></td>
+																				<td><input type="text" class="form-control"
+																					name="beiz" id="beiz" style="width: 150px;"
+																					placeholder="请尽可能详细填写" /></td>
+																				<td></td>
+																			</tr>   -->
+
+																		</tbody>
+																	</table>
+																 				<!-- <div>
+																				<select id="select2_8" name="addr" >
+																						<option th:each="city : ${cityList}"
+																							th:value="${city.cityName}"
+																							th:text="${city.cityName}"></option>
+																				</select>
+																				</div>  --> 
+																				
+																				<div style="display: none;">
+																				<table>
+																				<tr>
+																				<td><select id="select2_8">
+																						<option th:each="city : ${cityList}"
+																							th:value="${city.cityName}"
+																							th:text="${city.cityName}"></option>
+																				</select>
+																					<div class="form-control-focus"></div></td>
+																				<td>
+																					<div class="input-group" id="defaultrange3">
+																						<input type="text" class="form-control"
+																							/> <span class="input-group-btn">
+																							<button class="btn default date-range-toggle"
+																								type="button">
+																								<i class="fa fa-calendar"></i>
+																							</button>
+																						</span>
+																					</div>
+																				</td>
+																				<td><input type="checkbox" class="make-switch"
+															
+																					data-on-color="success" data-off-color="warning"
+																					data-on-text="需要" data-off-text="不需要" /></td>
+																				<td><input type="text" class="form-control"
+																				 style="width: 150px;"
+																					placeholder="请尽可能详细填写" /></td>
+																				<td></td>
+																			</tr>  
+																			</table>
+																				
+																				</div>
+																	
+																	 <div th:each="city : ${cityList}" >
+																		<input type="hidden" id="citylist" name="citylist" 
+																		th:value="${city.cityName}"/>
+																	</div> 
+																	
+																	<input type="hidden" id="address" name="address"
+																		th:value="${tripPlan.address}" /> <input type="hidden" id="time"
+																		name="time" th:value="${tripPlan.time}" /> <input type="hidden"
+																		id="isService" name="isService" th:value="${tripPlan.isService}" />
+																		<input type="hidden" name="beizhu" id="beizhu" th:value="${tripPlan.beizhu}" />
+
+
+																	<div class="col-md-10">
+																		<button type="button" class="btn green"
+																			id="more-iten-btn">添加行程</button>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+													</div>
+
+													<div class="tab-pane" id="tab3">
+														<div class="form-group">
+															<label class="col-md-3 control-label">
+																<h4>出发城市</h4>
+															</label>
+															<div class="col-md-4">
+																<select id="select2_7" class="form-control select2"
+																	name="startCity" th:field="${tripPlan.startCity}">
+																	<option th:each="city : ${startCityList}"
+																		th:value="${city.cityName}" th:text="${city.cityName}"></option>
+																</select> <br></br>
+																<!-- 换一行 -->
+																<small>请选择您旅行出发城市，目前国内飞往美国有四个口岸城市（北京、上海、广州、香港）可供选择，您也可以自行预定从国内到美国的往返机票，把美国的城市作为您旅行的第一站。</small>
+															</div>
+														</div>
+
+														<div class="form-group">
+															<label class="col-md-3 control-label">
+																<h4>返回城市</h4>
+															</label>
+															<div class="col-md-4">
+																<select id="backCity" class="form-control select2"
+																	name="backCity" th:field="${tripPlan.backCity}">
+																	<option th:each="city : ${startCityList}"
+																		th:value="${city.cityName}" th:text="${city.cityName}"></option>
+																</select> <br></br>
+																<!-- 换一行 -->
+																<small>请选择您旅行返回城市，目前美国飞往国内有四个口岸城市（北京、上海、广州、香港）可供选择，您也可以自行预定从美国到国内的往返机票，把美国的城市作为您旅行的最后一站。</small>
+															</div>
+														</div>
+														<br></br>
+														<div class="form-group">
+															<label class="col-md-3 control-label"
+																for="form_control_1">
+																<h4>城市选择</h4>
+															</label>
+															<div class="col-md-8">
+																<div class="md-radio-list">
+																	<input type="hidden" id="cityS" name="cityS" th:value="${tripPlan.cityS}"/>
+																	<div class="md-radio">
+																		<input type="radio" id="city-sel1" 
+																			name="city-service-req" value="0" class="md-radiobtn"  />
+																		<label for="city-sel1"> <span></span> <span
+																			class="check"></span> <span class="box"></span>
+																			<h4>
+																				我不知道要去哪个城市 <br /> <small>适合不太了解旅行目的地的用户，我们的旅行规划师会根据您的喜好、出行主题、游玩天数安排最适合您的地点和行程。</small>
+																			</h4>
+																		</label>
+																	</div>
+																	<div class="md-radio">
+																		<input type="radio" id="city-sel2"
+																			name="city-service-req" value="1" class="md-radiobtn" />
+																		<label for="city-sel2"> <span></span> <span
+																			class="check"></span> <span class="box"></span>
+																			<h4>
+																				我有一些特别感兴趣的地方 <br />
+																			</h4>
+																		</label>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="interested-places" style="display: none;">
+															<hr />
+															<!-- BEGIN RECENT WORKS -->
+
+															<div class="row recent-work margin-bottom-40">
+
+																<div class="col-md-3 col-xs-3 col-sm-3 control-label">
+																	<h4>感兴趣的地方</h4>
+																	<p>
+																		请在右边选择您感兴趣的地方。
+																		<!-- 	根据您所选的出行主题和旅行类别，推荐您可以考虑下列城市： <font
+																			color="red">洛杉矶，旧金山，纽约，拉斯维加斯，圣地亚哥</font> 。 -->
+																		可多选。
+																	</p>
+																</div>
+																<div class="col-md-9 col-xs-9 col-sm-9">
+																	<div class="form-group">
+																		<div class="col-md-12">
+																			<input type="hidden" id="select2_5" name="cityI"
+																				class="form-control select2" th:value="${tripPlan.cityI}" />
+																		</div>
+																	</div>
+
+																	<div class="owl-carousel owl-carousel6-brands">
+																		<div class="recent-work-item"
+																			th:each="inCity:${inCityList}"
+																			th:value="${inCity.id}">
+																			<input type="hidden" id="inCityA" name="inCityA"
+																				th:value="${inCity.cityName}" /> <em> <img
+																				th:src="@{'/image/show/' +*{inCity.image.id}}"
+																				alt="Amazing Project" class="img-responsive" />
+																			</em> <a class="recent-work-description"
+																				href="javascript:;"> <strong
+																				th:text="${inCity.cityName}">cityName</strong>
+																			</a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<!-- END RECENT WORKS -->
+														</div>
+													</div>
+
+		<!-- 	<input type="text" id="id" name="id" th:value="${tripPlan.id}" /> -->
+													<div class="tab-pane" id="tab4">
+														<h3 class="form-section">城市交通</h3>
+														<div class="form-group">
+															<label class="col-md-3 control-label">
+																<h4>请在您计划安排的交通方式前面打勾（单选）</h4>
+															</label> 
+															<input type="hidden" id="driverS" name="driverS"
+																value="3" /> 
+																<input type="hidden" id="tourAndDriverS"
+																name="tourAndDriverS" value="3" />
+																<input type="hidden" id="tourS" name="tourS" th:value="${tripPlan.tourS}" />
+															
+															<div class="col-md-8 md-radio-inline">
+																<div class="md-radio">
+																	<input type="radio" class="md-radiobtn"
+																		id="guide-drive-chk" name="citytype" value="全程不开车" 
+																		/> <label for="guide-drive-chk">
+																		<span></span> <span class="check"></span> <span
+																		class="box"></span> 全程不开车（我们负责开车，您只管欣赏美景）
+																	</label>
+																</div>
+																<br></br> <br></br>
+																<div class="md-radio">
+																	<input type="radio" class="md-radiobtn"
+																		id="self-drive-chk" name="citytype" value="全程自驾" /> <label
+																		for="self-drive-chk"> <span></span> <span
+																		class="check"></span> <span class="box"></span>
+																		全程自驾（一个完美的美国之旅从开车开始，请确保您有有效国内驾照）
+																	</label>
+
+																</div>
+																<br></br>
+																<!-- break line -->
+																<br></br>
+																<!-- break line -->
+																<div class="md-radio">
+																	<input type="radio" class="md-radiobtn"
+																		id="public-trans-chk" name="citytype" value="部分自驾" />
+																	<label for="public-trans-chk"> <span></span> <span
+																		class="check"></span> <span class="box"></span>
+																		部分自驾（您将和导游分享驾驶的乐趣）
+																	</label>
+																	<p />
+																	<label>以上开车选项仅适用于距离比较近的城市，对于跨地区之间的交通（如从东海岸到西海岸），我们会在行程规划时安排飞机等交通方式。国内驾照在美国不适用的地区由导游代驾。</label>
+																</div>
+															</div>
+														</div>
+
+														<div class="driving-notes" style="display: none;">
+															<div class="form-group ">
+																<label class="col-md-3 control-label">
+																	<h4>自驾说明</h4>
+																</label>
+																<div class="col-md-8">
+																	<div class="form-group form-md-line-input col-md-12">
+																		<input type="text" class="form-control"
+																			id="form_control_1" name="selfDriver" th:value="${tripPlan.selfDriver}"
+																			placeholder="在此输入您计划自驾的城市/时间/比例等相关信息" /> <label
+																			for="form_control_1"> </label>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<h3 class="form-section">游玩标准</h3>
+														<p>我们的规划师会根据您的行程和需求安排合适的酒店、机票、租车等服务，您可以在收到旅行规划书之后自行选择是否需要预定这些服务。</p>
+														<div class="form-group">
+															<label class="control-label col-md-3">
+																<h4>酒店标准</h4>
+															</label>
+															<div class="col-md-6">
+																<div class="margin-bottom-10">
+																	<select class="bs-select form-control" name="hourseS"
+																		data-style="green" th:field="${tripPlan.hourseS}">
+																		<option th:each="hotel:${hotelList}"
+																			th:value="${hotel.value}" th:text="${hotel.classs}"></option>
+																	</select>
+																</div>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-3">
+																<h4>航班标准</h4>
+															</label>
+															<div class="col-md-6">
+																<div class="margin-bottom-10">
+																	<select class="bs-select form-control" name="flightS" th:field="${tripPlan.flightS}"
+																		data-style="green">
+																		<option th:each="flight:${flightList}"
+																			th:value="${flight.value}" th:text="${flight.classs}"></option>
+																	</select>
+																</div>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-3">
+																<h4>租车喜好</h4>
+															</label>
+															<div class="col-md-6">
+																<div class="margin-bottom-10">
+																	<select class="bs-select form-control" name="rentCar" th:field="${tripPlan.rentCar}"
+																		data-style="green">
+																		<option th:each="rentCar:${rentCarList}"
+																			th:value="${rentCar.value}"
+																			th:text="${rentCar.classs}"></option>
+																	</select>
+																</div>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-3">
+																<h4>需要酒店房间数</h4>
+															</label>
+															<div class="col-md-9">
+																<div class="input-inline input-medium">
+																	<input id="touchspin_3" type="text" th:value="${tripPlan.hourseNum}"
+																		name="hourseNum" class="form-control" />
+																</div>
+																<br /> 原则上来说一个双床房的酒店房间最多可以住四人，请根据实际情况填写您需要的房间总数。
+															</div>
+														</div>
+													</div>
+													<div class="tab-pane" id="tab5">
+														<h2 class="block">请再次确认下面的信息</h2>
+														<h3 class="form-section">时间规划</h3>
+														<div class="form-group">
+															<label class="control-label col-md-3">时间安排：</label>
+															<div class="col-md-4">
+																<p class="form-control-static"
+																	data-display="time-arrangement" id="shijian"></p>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-3">游玩天数：</label>
+															<div class="col-md-4">
+																<p class="form-control-static"
+																	data-display="confirm-play" id="confirmplay"></p>
+															</div>
+														</div>
+														<h3 class="form-section">主题规划</h3>
+														<div class="form-group">
+															<label class="control-label col-md-3">出行目的：</label>
+															<div class="col-md-4">
+																<p class="form-control-static" data-display="purpose"
+																	id="purpose"></p>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-3">随行人员：</label>
+															<div class="col-md-4">
+																<p class="form-control-static" data-display="people"
+																	id="people"></p>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-3">旅行主题：</label>
+															<div class="col-md-4">
+																<p class="form-control-static" data-display="theme"
+																	id="theme"></p>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-3">目的地国家（地区）：</label>
+															<div class="col-md-4">
+																<p class="form-control-static" data-display="country"
+																	id="country"></p>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-3">出行人数：</label>
+															<div class="col-md-4">
+																<p class="form-control-static" data-display="num-people"
+																	id="num"></p>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-3">年龄：</label>
+															<div class="col-md-4">
+																<p class="form-control-static" data-display="num-people"
+																	id="ages" ></p>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-3">规划方式：</label>
+															<div class="col-md-4">
+																<p class="form-control-static"
+																	data-display="service-req" id="serivce"></p>
+															</div>
+														</div>
+														<div class="form-group">
+															<hr />
+															<div class="form-group">
+																<label class="col-md-3 control-label">
+																	<h4>已经确定下来的行程</h4>
+																</label>
+																<div class="col-md-8">
+																	<table class="table table-hover" id="iten-table">
+																		<thead>
+																			<tr>
+																				<th class="col-md-2">地点</th>
+																				<th class="col-md-4">时间</th>
+																				<th class="col-md-2">导游服务和景点安排</th>
+																				<th class="col-md-1">备注</th>
+																			</tr>
+																		</thead>
+																		<tbody id="sureS">
+																		</tbody>
+																	</table>
+																</div>
+															</div>
+														</div>
+														<h3 class="form-section">地点规划</h3>
+														<div class="form-group">
+															<label class="control-label col-md-3">出发城市：</label>
+															<div class="col-md-4">
+																<p class="form-control-static"
+																	data-display="confirm-startCity" id="confirmstartCity"></p>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-3">返回城市：</label>
+															<div class="col-md-4">
+																<p class="form-control-static"
+																	data-display="confirm-startCity" id="backstartCity"></p>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-3">城市选择：</label>
+															<div class="col-md-4">
+																<p class="form-control-static"
+																	data-display="city-service-req" id="cityServiceReq"></p>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-3">感兴趣的地方：</label>
+															<div class="col-md-4">
+																<p class="form-control-static"
+																	data-display="interested-city" id="interestedCity"></p>
+															</div>
+														</div>
+														<h3 class="form-section">游玩方式</h3>
+														<div class="form-group">
+															<label class="control-label col-md-3">城市交通：</label>
+															<div class="col-md-4">
+																<p class="form-control-static"
+																	data-display="inner-trans" id="innerTrans"></p>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-3">自驾说明：</label>
+															<div class="col-md-4">
+																<p class="form-control-static"
+																	data-display="driving-req" id="drivingReq"></p>
+															</div>
+														</div>
+
+														<div class="form-group">
+															<label class="control-label col-md-3">酒店标准：</label>
+															<div class="col-md-4">
+																<p class="form-control-static" data-display="hotel-pref"
+																	id="hotelPref"></p>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-3">航班标准：</label>
+															<div class="col-md-4">
+																<p class="form-control-static"
+																	data-display="flight-pref" id="flightPref"></p>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-3">租车喜好：</label>
+															<div class="col-md-4">
+																<p class="form-control-static" data-display="car-pref"
+																	id="carPref"></p>
+															</div>
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-3">备注：</label>
+															<div class="col-md-4">
+																<!-- <input type="text" class="form-control" id="remark"
+																	name="remark" /> -->
+																<textarea class="form-control" id="remark" th:text="${tripPlan.remark}"
+																	cols="5" rows="5" name="remark"></textarea>
+																<!-- value="您可以在这里填写您喜好的航空公司和其他需求。 "  -->
+
+
+                                                                  <br/>
+																<span>如果有其他想告诉我们的请在此说明（如：有喜爱的航空公司，对于行程安排有任何特殊需求等等）</span>
+															</div>
+
+														</div>
+														<div class="form-group">
+															<label class="control-label col-md-3">温馨提示：</label>
+															<div class="col-md-4">
+																<p class="form-control-static" data-display="car-pref"
+																	id="carPref" style="color: red">请确保您已拿到去美国签证！</p>
+																<p class="form-control-static" data-display="car-pref"
+																	id="tishi" style="color:blue;">
+																	<img alt=""  th:src="@{/img/smile.jpg}" style="height: 40px;width: 40px;"/>
+																	<a th:href="@{/visa}" style="text-decoration: none;">想了解美国旅行签证代办事宜</a>
+																</p>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="form-actions">
+												<div class="row">
+													<div class="col-md-offset-3 col-md-9">
+														<a href="javascript:;" class="btn default button-previous">
+															<i class="m-icon-swapleft"></i> 返回
+														</a> <a href="javascript:;" class="btn blue button-next"
+															id="service-continue"> 继续 <i
+															class="m-icon-swapright m-icon-white"></i>
+														</a>
+														<!-- <button type="button" class="btn green button-submit"
+															onclick="doSubmit()">
+															提交 <i class="m-icon-swapright m-icon-white"></i>
+														</button> -->
+														
+														<button type="button" class="btn green button-submit"
+															onclick="doSettlement()">
+															去结算 <i class="m-icon-swapright m-icon-white"></i>
+														</button>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<!-- END PAGE CONTENT-->
+					</div>
+					<!-- END SIDEBAR & CONTENT -->
+				</div>
+			</div>
+	<!-- 	</div>  -->
+		<div layout:fragment="script">
+			<!-- BEGIN PAGE LEVEL PLUGINS -->
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/jquery-validation/js/jquery.validate.min.js}"></script>
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/jquery-validation/js/additional-methods.min.js}"></script>
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js}"></script>
+			<!-- END PAGE LEVEL PLUGINS -->
+
+			<!-- BEGIN PAGE LEVEL SCRIPTS -->
+			<script th:src="@{/assets/global/scripts/metronic.js}"
+				type="text/javascript"></script>
+			<script th:src="@{/assets/admin/layout/scripts/layout.js}"
+				type="text/javascript"></script>
+			<script th:src="@{/assets/admin/pages/scripts/form-wizard.js}"></script>
+			<!-- END PAGE LEVEL SCRIPTS -->
+
+			<!-- BEGIN PAGE LEVEL PLUGINS -->
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/bootstrap-daterangepicker/moment.min.js}"></script>
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js}"></script>
+			<script th:src="@{/assets/admin/pages/scripts/components-pickers.js}"></script>
+			<script
+				th:src="@{/assets/admin/pages/scripts/components-form-tools.js}"></script>
+			<!-- END PAGE LEVEL PLUGINS -->
+
+			<!-- BEGIN PAGE LEVEL PLUGINS -->
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/fuelux/js/spinner.min.js}"></script>
+			<script
+				th:src="@{/assets/global/plugins/bootstrap-touchspin/bootstrap.touchspin.js}"
+				type="text/javascript"></script>
+			<script
+				th:src="@{/assets/global/plugins/typeahead/handlebars.min.js}"
+				type="text/javascript"></script>
+			<script
+				th:src="@{/assets/global/plugins/typeahead/typeahead.bundle.min.js}"
+				type="text/javascript"></script>
+			<!-- END PAGE LEVEL PLUGINS -->
+
+			<!-- BEGIN PAGE LEVEL PLUGINS -->
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/bootstrap-select/bootstrap-select.min.js}"></script>
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+			<script type="text/javascript"
+				th:src="@{/assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js}"></script>
+			<!-- END PAGE LEVEL PLUGINS -->
+
+			<script
+				th:src="@{/assets/global/plugins/image-picker/image-picker/image-picker.js}"
+				type="text/javascript"></script>
+			<script
+				th:src="@{/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js}"
+				type="text/javascript"></script>
+			<script
+				th:src="@{/assets/admin/pages/scripts/components-dropdowns.js}"></script>
+
+			<script th:src="@{/assets/frontend/layout/scripts/layout.js}"
+				type="text/javascript"></script>
+
+			<!-- BEGIN CUSTOM SCRIPT -->
+			<script th:src="@{/assets/global/scripts/custom.js}"
+				type="text/javascript"></script>
+			<script th:src="@{/tripjs/trip.js}" type="text/javascript"></script>
+			<!-- END CUSTOM SCRIPT -->
+
+			<script>
+				$(function() {
+					// initiate layout and plugins
+					Metronic.init(); // init metronic core components
+					Layout.init(); // init current layout
+					Layout.initOWL();
+					/* FormWizard.init(); */
+					ComponentsPickers.init();
+					ComponentsDropdowns.init();
+					ComponentsFormTools.init();
+					CustomFormActions.init();
+					$("select").imagepicker();
+					/* trip.init(); */
+				});
+			</script>
+			<!-- END PAGE LEVEL JAVASCRIPTS -->
+		</div>
+	</div>
+
+  <div class="footers">
+    <div class="container">
+      <div class="row">
+        <!-- BEGIN COPYRIGHT -->
+        <div class="col-md-6 col-sm-12 col-xs-12">
+          <div class="copyright" style="padding-top:8px;">2015 © 广州西游信息科技有限公司. ALL Rights Reserved.&nbsp;&nbsp;粤ICP备15064509号</div>
+        </div>
+        <!-- END COPYRIGHT -->
+        <!-- BEGIN SOCIAL ICONS -->
+        <div class="col-md-6 col-sm-12 col-xs-12 pull-right"  >
+          <ul class="social-icons">
+            <li><a class="rss" data-original-title="rss" href="javascript:void(0);"></a></li>
+            <li><a class="facebook" data-original-title="facebook" href="javascript:void(0);"></a></li>
+            <li><a class="twitter" data-original-title="twitter" href="javascript:void(0);"></a></li>
+            <li><a class="googleplus" data-original-title="googleplus" href="javascript:void(0);"></a></li>
+            <li><a class="linkedin" data-original-title="linkedin" href="javascript:void(0);"></a></li>
+            <li><a class="youtube" data-original-title="youtube" href="javascript:void(0);"></a></li>
+            <li><a class="vimeo" data-original-title="vimeo" href="javascript:void(0);"></a></li>
+            <li><a class="skype" data-original-title="skype" href="javascript:void(0);"></a></li>
+          </ul>
+        </div>
+        <!-- END SOCIAL ICONS -->
+      </div>
+    </div>
+  </div>
+  <!-- END FOOTER -->
+</body>
+</html>

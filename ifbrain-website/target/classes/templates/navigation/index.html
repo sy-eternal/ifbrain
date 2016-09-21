@@ -1,0 +1,218 @@
+
+
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="application/json; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title th:if="${navigationbarTypeName!=''}" th:text="${navigationbarTypeName}"></title>
+   
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+   <script type="text/javascript"	th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+    <script type="text/javascript" language="javascript">
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = '';
+        }
+        else {
+            bp.src = '';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    </script>
+     <script type="text/javascript" th:src="@{/js/controller/pagecontroller/navigationbar.js}"></script>
+      <script type="text/javascript" th:src="@{/webjars/jquery/2.1.3/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/controller/pagecontroller/showmaterialnavigation.js}"> </script>
+    <style type="text/css">
+    	#hovwes:hover{
+    		text-decoration: none;
+    		}
+    </style>
+</head>
+<body>
+    <!-- old element javascript need -->
+    <div class="header-float"></div>
+    <div class="heaer-fixed"></div>
+    <!-- old element javascript need -->
+<input type="hidden" th:value="${session.usertyoes}" id="sessionuser" />
+ <input type="hidden" th:value="${session.childids}"  id="tokenfoot"/>	
+  
+    <div class="v-jr-slide-wrap">
+        
+  <div th:replace="partial/header-new" class="header" style="width: auto;"></div>
+        <div class="v-jr-slide-box v-jr-clear" id="js-slide-box">
+
+
+
+
+<style type="text/css">
+ 		.trackings{
+		    color:red !important;
+		    }
+		    .marginnav{
+		    	margin-right: 20% !important;
+		    	
+		    }
+ 	</style>
+            <div class="v-jr-clear">
+                <!-- Body Start -->
+                 
+
+<link rel="stylesheet" type="text/css" th:href="@{/assets/index/css/base1.css}" />
+<!-- <link rel="stylesheet" type="text/css" href="http://junior.vipabc.com/Styles/css/baike/vipabcUI.css" /> -->
+<link rel="stylesheet" type="text/css" th:href="@{/assets/index/css/small_device.css}" />
+<span data-current="Baike" class="current-page"></span>
+<input type="hidden" id="categoryID" value="" />
+<input type="hidden" id="page" value="1" />
+
+<div class="weChat-img" style="height:0; overflow:hidden; text-align:center;"> <img src="" width="100%" alt=" " /> </div>
+<div class="wrapper">
+    <!-- banner -->
+    <div class="banner-baike">
+        <div class="inside">
+           <!--  <a href="#" ><img src="../../img/daibisuz.jpg" alt="" width="100%" /></a> -->
+            <a href="#" ><img src="../../img/online.jpg" alt="" width="100%" /></a>
+            
+        </div>
+    </div>
+    <!-- banner end -->
+    <div class="clear"></div>
+    <!-- nav -->
+    <input type="hidden" th:value="${type}" id="navigationbartrype"/>
+    <div class="nav-baike  col-md-12 col-xs-12 col-sm-12">
+        <div class="inside ">
+            <div class="col-md-3"></div>
+            <ul class="nav-wrap col-md-9" th:if="${type}==1" style="padding: 0px;">
+                       <!--  <li class="nav-list" style="background-color:#0161A1;"><a href="" class="">课程体系</a></li>
+                        <li class="nav-list" style="background-color:#6C8DDA;"><a href="" class="">视频课程</a></li>
+                        <li class="nav-list" style="background-color:#4DBA79;"><a href="" class="">尊享课程</a></li>
+                        <li class="nav-list" style="background-color:#88BC3F;"><a href="" class="">学习手册</a></li>
+                        <li class="nav-list" style="background-color:#E67D96;"><a href="" class="">五大评测</a></li>
+                        <li class="nav-list" style="background-color:#4AACC6;"><a href="" class="">项目实践</a></li> -->
+                         <li class="nav-list listnav" th:if="${navigationbarModule!=''}"  th:each="navigationbarModule:${navigationbarModule}" style="background-color:#88BC3F;color: white;border-radius: 10px !important;"><a  class="" id="hovwes"  th:text="${navigationbarModule.shorttitle}"></a>  <input type="hidden" th:value="${navigationbarModule.type}" class="navigationbarModuletype"/></li>
+ 						<!-- <li class="nav-list" style="background-color:#4AACC6;color: white;border-radius: 10px !important;"><a href="#" class="">其它</a></li> -->
+            </ul>
+         <div class="col-md-12 col-xs-12  col-sm-12" style="padding: 0px;">
+             <div class="col-md-3 col-sm-2 " style=""></div>
+             
+             <div class="col-md-8 col-xs-12 col-sm-10" style="padding: 0px">
+            
+            <ul class="nav-wrap " th:if="${type}==2"  style="padding: 0px">
+                       <!--  <li class="nav-list" style="background-color:#0161A1;"><a href="" class="">易代币</a></li>
+                        <li class="nav-list" style="background-color:#6C8DDA;"><a href="" class="">财脑商城</a></li>
+                        <li class="nav-list" style="background-color:#4DBA79;"><a href="" class="">目标需求</a></li>
+                        <li class="nav-list" style="background-color:#88BC3F;"><a href="" class="">学习手册</a></li>
+                        <li class="nav-list" style="background-color:#E67D96;"><a href="" class="">五大评测</a></li>
+                        <li class="nav-list" style="background-color:#4AACC6;"><a href="" class="">项目实践</a></li> -->
+                         <li class="nav-list listnav2" th:if="${navigationbarModule!=''}"  th:each="navigationbarModule:${navigationbarModule}" style="background-color:#88BC3F;color: white;border-radius: 10px !important;"><a class="" id="hovwes" th:text="${navigationbarModule.shorttitle}"></a>  <input type="hidden" th:value="${navigationbarModule.type}" class="navigationbarModuletype"/></li>
+                        <!-- <li class="nav-list" style="background-color:#4AACC6;color: white;border-radius: 10px !important;"><a href="#" class="">其它</a></li> -->
+
+            </ul>
+            </div>
+            </div>
+           
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <!-- nav end-->
+    <!-- container -->
+    <div class="">
+        <div class="inside">
+         
+            <div class="item-content">
+                <div class="item" id="scrollHeight">
+                    <div class="item-content" id="item-content">
+                       
+                     <!-- <div style="margin-top: 10px;background-color: white;border-radius:10px !important; height: 130px;cursor: pointer;border-bottom: 1px solid #f0f0f0"  class=" col-md-12 col-xs-12 col-sm-12 materialtypeclick" th:if="${material!=''}" th:each="material:${material}">
+				<input type="hidden" id="materialid" class="materialid" th:value="${material.id}"/>
+				<div class="col-md-1"></div>
+				<div class="col-xs-4 col-md-3 col-sm-4" style="text-align: left;margin-top: 24px;padding: 0px" align="left"  >
+					<img  th:if="${material.headPortrait !=null}"  th:src="@{'/image/shownavibar/' + ${material.headPortrait.id}}" style="width:  80px;height: 80px" />
+				  </div>
+				<div class="col-xs-5 col-md-6 col-sm-6" style="text-align: left;margin-top: 24px;padding: 0px;" align="left"  >
+					<div class="col-xs-12 col-md-12 col-sm-12" style="padding: 0px;">
+						<div class="col-xs-12 col-md-3 col-sm-12" style="background-color:#6C8DDA;border-radius: 10px !important;line-height: 23px;color: white;text-align: center;overflow: hidden;height: 23px;"  th:text="${material.navigationbarmodule.shorttitle}"></div>
+					</div>
+					<div class="col-xs-12 col-md-12 col-sm-12" style="padding: 0px">
+						<div  class="col-xs-5 col-md-2 col-sm-5" style="font-size: 10px;color: #3a7fc2;padding: 0px;"></div>
+						<div  class="col-xs-7 col-md-10 col-sm-7 timesdiff" style="font-size: 10px;color: #6e6e6e;padding: 0px" id="timesdiff" ></div>
+					</div>
+					
+					<div class="col-xs-12 col-md-12 col-sm-12" style="padding: 0px;margin-top: 10px;margin-bottom: 10px">
+						<div  class="col-xs-12 col-md-12 col-sm-12" style="padding: 0px;font-size: 14px;color: #333333;font-weight: bold;" th:text="${material.publicmaterialName}"></div>
+					</div>
+					<div class="col-xs-12 col-md-12 col-sm-12" style="padding: 0px" th:if="${material.visitornumber==null}">
+						<div class="col-xs-12 col-md-2 col-sm-4" style="padding: 0px;font-size: 10px;color: #b7b7b7;">
+							<div  class="col-xs-6 col-md-6 col-sm-6" style="padding: 0px">阅读量</div>
+							<div  class="col-xs-6 col-md-6 col-sm-6" style="padding: 0px">10021</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-12 col-sm-12" style="padding: 0px" th:if="${material.visitornumber!=null}">
+						<div class="col-xs-12 col-md-2 col-sm-4" style="padding: 0px;font-size: 10px;color: #b7b7b7;">
+							<div  class="col-xs-6 col-md-6 col-sm-6" style="padding: 0px">阅读量</div>
+							<div  class="col-xs-6 col-md-6 col-sm-6" style="padding: 0px" th:text="${material.visitornumber}"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-3 col-md-2 col-sm-2" style="text-align: left;margin-top: 24px;padding: 0px;" align="left"  >  <a href="#"  class="more">阅读更多</a></div>
+		</div> -->
+		
+			<div id="mailsub" class="notification col-md-12 col-xs-12 col-sm-12 " align="center" style="" th:if="${type}==1">		
+			<div class="col-xs-12 col-md-12 col-sm-12" style="padding: 0px;margin-top: 10px;" th:if="${material!=''}">
+						<div class="col-md-4"></div>	<div class="col-xs-12 col-md-4 col-sm-12" style="background-color:#6C8DDA;border-radius: 10px !important;line-height: 23px;color: white;text-align: center;overflow: hidden;height: 23px;" th:text="${material.shorttitle}"></div>
+				</div>
+			<div class="col-xs-12 col-md-12 col-sm-12  " style="margin-top: 20px;padding: 0px;background-color: white;border-radius:10px !important;height: 30px; line-height: 30px;">
+				<input type="text" value="课程级别选择" style="text-align: center; background-color: transparent;border: none;color: #333333;font-size: 12px;" readonly="readonly"/>
+			</div>
+			<div class="col-xs-12 col-md-12 col-sm-12  " style="margin-top: 20px;padding: 0px;">
+			
+			<div class="col-xs-12 col-md-12 col-sm-12 " style="border-radius:10px !important;padding-bottom: 50px;">
+	
+			<div  style="margin-top: 10px; height: 50px;line-height: 50px; "  class=" col-md-6 col-xs-6 col-sm-6 clickmaterailtype"  th:each="course:${course}" >
+				<input type="text" class="clickmaterailtypecourseid" style="background-color: #ffd464;border-radius:10px !important;border: none;height: 50px;font-weight: bold;font-size: 12px;color: #0151a6;width: 100%;text-align: center;cursor: pointer;" th:value="${course.courseLevel}" th:id="${course.id}" readonly="readonly" />
+			</div>
+			
+			</div>
+			</div>
+	   </div>
+                    </div>
+                </div>
+
+            </div>
+         
+        </div>
+    </div>
+    <!-- container end -->
+    <!-- footer -->
+    <!-- footer end -->
+
+</div>
+
+
+
+
+            </div>
+            <!-- Body End -->
+            <!--footer-->
+            <div class="v-jr-clear">
+ 
+
+            </div>
+        </div>
+
+    </div>
+    <div class="float-lay-bg">
+    </div>
+    <div class="wrapper">
+    </div>
+</body>
+
+</html>

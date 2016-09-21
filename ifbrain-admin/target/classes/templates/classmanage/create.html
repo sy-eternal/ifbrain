@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+	<title>新增班级</title>
+	<!-- DataTables -->
+<!-- 使用jQuery Validation控件进行前端验证 -->
+	<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+	<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+	<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+	<script>
+		$(function() {
+			$("#mainForm").validate({
+				highlight : function(element) {
+					$(element).closest(".form-group").addClass("has-error");
+				},
+				success : function(label) {
+					label.closest(".form-group").removeClass("has-error");
+					label.closest(".form-group").addClass("has-success");
+				},
+				errorPlacement : function(error, element) {
+					element.parent("div").append(error);
+				},
+				submitHandler : function(form) {
+					form.submit();
+				}
+			});
+		});
+	</script>
+	
+</head>
+<body>
+	 <div layout:fragment="content">
+		<div class="page-header">
+			<h1>新增班级</h1>
+		</div>
+		
+	 	<form class="form-horizontal" role="form" method="post" th:action="@{/classes/create}" th:object="${courseclass}"  id="mainForm">
+			<div class="form-group" >
+							<label for="courseLevel" class="col-xs-3 control-label">课程级别</label>
+							<div class="col-xs-6">
+								<select class="form-control"  name="courseLevel"   onchange="changecourselevel()" id="courseLevel">
+										<option th:each="course: ${course}" th:value="${course.id}" th:text="${course.courseLevel}"></option>
+								</select>
+								
+							 </div>
+			</div> 
+			
+	 <!-- <div class="form-group">
+							<label for="ordinalNumber" class="col-xs-3 control-label">第</label>
+							<div class="col-xs-6 col-md-4">
+								<select class="form-control"    name="ordinalNumber" id="ordinalNumber">
+										<option   th:each="ordinalNum: ${ordinalNum}" th:value="${ordinalNum.id}" th:text="${ordinalNum.ordinalNumber}" ></option>
+								</select>
+								
+							 </div>
+							 <label for="ordinalNumber" class="col-xs-3 control-label col-md-1">节</label>
+			</div>  -->
+			
+			<div class="form-group" >
+				<label for="childNumber" class="col-xs-3 control-label">人数</label>
+				<div class="col-xs-6">
+					<input type="number" class="form-control"  required="required" id="childNumber" name="childNumber"/>
+						
+				</div>
+			</div>
+			<div class="form-group" >
+				<label for="childNumber" class="col-xs-3 control-label">开始时间</label>
+				<div class="col-xs-6">
+					<input type="date" class="form-control"  required="required" id="startDate" name="startDate"/>
+					
+				</div>
+			</div>
+			<div class="form-group" >
+				<label for="childNumber" class="col-xs-3 control-label">结束时间</label>
+				<div class="col-xs-6">
+					<input type="date" class="form-control"  required="required" id="endDate" name="endDate"/>
+						
+				</div>
+			</div>
+			<p class="text-center">
+				<button type="submit" class="btn btn-primary" >提交</button>
+				<a th:href="@{/classes/list}" class="btn btn-default">返回</a>
+			</p>
+			
+		                      
+			
+		</form>
+	
+	</div>
+	 
+</body>
+
+</html>

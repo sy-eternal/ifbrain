@@ -1,0 +1,1034 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head BEGIN -->
+<head>
+<meta charset="utf-8" />
+<title>嘻游定制旅行</title>
+
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<meta content="Metronic Shop UI description" name="description" />
+<meta content="Metronic Shop UI keywords" name="keywords" />
+<meta content="keenthemes" name="author" />
+
+<meta property="og:site_name" content="-CUSTOMER VALUE-" />
+<meta property="og:title" content="-CUSTOMER VALUE-" />
+<meta property="og:description" content="-CUSTOMER VALUE-" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="-CUSTOMER VALUE-" />
+<!-- link to image for socio -->
+<meta property="og:url" content="-CUSTOMER VALUE-" />
+
+<!-- 登录注册字体透明度样式 -->
+<style type="text/css">
+.liheader {
+	opacity: 0.8;
+	font-size: 12px;
+}
+</style>
+
+<link rel="shortcut icon" href="favicon.ico" />
+<!-- Fonts START -->
+<link
+	href="http://fonts.gooleapis.com/css?family=Open+Sans:300,400,600,700|Pathway+Gothic+One|PT+Sans+Narrow:400+700|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all"
+	rel="stylesheet" type="text/css" />
+<!-- Fonts END -->
+<!-- Global styles BEGIN -->
+<link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet" />
+<link
+	href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" />
+<link
+	href="../../assets/global/plugins/slider-revolution-slider/rs-plugin/css/settings.css"
+	rel="stylesheet" />
+<!-- Global styles END -->
+<!-- Page level plugin styles BEGIN -->
+<link
+	href="../../assets/global/plugins/fancybox/source/jquery.fancybox.css"
+	rel="stylesheet" />
+<!-- Page level plugin styles END -->
+<!-- Theme styles BEGIN -->
+<link href="../../assets/global/css/components.css" rel="stylesheet" />
+<link href="../../assets/frontend/onepage/css/style.css"
+	rel="stylesheet" />
+<link href="../../assets/frontend/onepage/css/style-responsive.css"
+	rel="stylesheet" />
+<link href="../../assets/frontend/onepage/css/themes/red.css"
+	rel="stylesheet" id="style-color" />
+<link href="../../assets/frontend/onepage/css/custom.css"
+	rel="stylesheet" />
+<!-- icon -->
+<link
+	href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css"
+	rel="stylesheet" type="text/css" />
+
+<!-- BEGIN MODAL DATIAL CSS -->
+<style type="text/css">
+.price-availability-blockm {
+	border-bottom: 1px solid #f4f4f4;
+	padding-bottom: 12px;
+	margin-bottom: 17px;
+}
+
+.price-availability-blockm .pricem {
+	float: left;
+	font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.price-availability-blockm .pricem strong {
+	color: #e84d1c;
+	font-size: 35px;
+	font-weight: normal;
+}
+
+.price-availability-blockm .pricem strong span {
+	font-size: 25px;
+}
+
+.price-availability-blockm .pricem em {
+	font-style: normal;
+	color: #bbb;
+	font-size: 17px;
+}
+
+.price-availability-blockm .pricem em span {
+	font-size: 23px;
+	text-decoration: line-through;
+}
+</style>
+
+<style type="text/css">
+.modal-li {
+	font-size: 18px;
+}
+
+.modal-price {
+	font-size: 18px;
+	color: #e6400c;
+	font-weight: bold;
+}
+
+.modal-des-p {
+	font-size: 15px;
+	text-align: left;
+	color: black;
+	line-height: 25px;
+	margin-left: 8%;
+	width: 100%;
+}
+</style>
+
+
+<style type="text/css">
+.floating_ck {
+	position: fixed;
+	right: 20px;
+	top: 30%;
+}
+
+.floating_ck dl dd {
+	position: relative;
+	width: 80px;
+	height: 80px;
+	background-color: #646577;
+	border-bottom: solid 1px #555666;
+	text-align: center;
+	background-repeat: no-repeat;
+	background-position: center 20%;
+	cursor: pointer;
+}
+
+.floating_ck dl dd:hover {
+	border-bottom: solid 1px #a40324;
+}
+
+.floating_ck dl dd:hover .floating_left {
+	display: block;
+}
+
+.consult, .words {
+	background-image: url(../../assets/img/kficon.png);
+}
+
+.quote {
+	background-image: url(../../assets/img/font-524.png);
+}
+
+.qrcord {
+	background-image: url(../../assets/img/erweima.png);
+}
+
+.return {
+	background-image: url(../../assets/img/fanhui.png);
+}
+
+.floating_ck dd span {
+	color: #fff;
+	display: block;
+	padding-top: 54px;
+}
+
+.floating_left {
+	position: absolute;
+	left: -160px;
+	top: 0px;
+	width: 160px;
+	height: 80px;
+	background-color: #e40231;
+	border-bottom: solid 1px #a40324;
+	display: none;
+}
+
+.floating_left a {
+	color: #fff;
+	line-height: 80px;
+}
+
+.floating_ewm {
+	height: 260px;
+	top: -180px;
+}
+
+.floating_ewm i {
+	background-image: url(../../assets/frontend/onepage/img/wechat.jpg);
+	display: block;
+	width: 145px;
+	height: 145px;
+	margin: auto;
+	margin-top: 7px;
+}
+
+.floating_ewm p {
+	color: #fff;
+	margin-top: 5px;
+}
+
+.floating_ewm .qrcord_p01 {
+	font-size: 12px;
+	line-height: 20px;
+}
+
+.floating_ewm .qrcord_p02 {
+	font-size: 18px;
+}
+</style>
+
+
+
+
+
+
+
+<script src="../../assets/global/plugins/jquery.min.js"
+	type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery-migrate.min.js"
+	type="text/javascript"></script>
+<script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js"
+	type="text/javascript"></script>
+<!-- Core plugins END (For ALL pages) -->
+
+<!-- BEGIN RevolutionSlider -->
+<script
+	src="../../assets/global/plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js"
+	type="text/javascript"></script>
+<script
+	src="../../assets/global/plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js"
+	type="text/javascript"></script>
+<script src="../../assets/frontend/onepage/scripts/revo-ini.js"
+	type="text/javascript"></script>
+<!-- END RevolutionSlider -->
+
+<!-- Core plugins BEGIN (required only for current page) -->
+<script
+	src="../../assets/global/plugins/fancybox/source/jquery.fancybox.pack.js"
+	type="text/javascript"></script>
+<!-- pop up -->
+<script src="../../assets/global/plugins/jquery.easing.js"></script>
+<script src="../../assets/global/plugins/jquery.parallax.js"></script>
+<script src="../../assets/global/plugins/jquery.scrollTo.min.js"></script>
+<script src="../../assets/frontend/onepage/scripts/jquery.nav.js"></script>
+<!-- Core plugins END (required only for current page) -->
+<!-- Global js BEGIN -->
+<script src="../../assets/frontend/onepage/scripts/layout.js"
+	type="text/javascript"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		//判断游客导游 
+		if (document.getElementById("shows").value == "") {
+			$('#daoyou').css('display', 'none');
+			$('#youke').css('display', 'none');
+			$('#usertyposs').css('display', 'none')
+			$('#denglus').css('display', 'block')
+			$('#usertypos').css('display', 'none')
+		} else if (document.getElementById("shows").value == 1) {
+			$('#youke').css('display', 'block');
+			$('#daoyou').css('display', 'none');
+			$('#usertyposs').css('display', 'block')
+			$('#denglus').css('display', 'none')
+			$('#register').css('display', 'none')
+			$('#usertypos').css('display', 'block')
+		} else if (document.getElementById("shows").value == 2) {
+			$('#youke').css('display', 'none');
+			$('#daoyou').css('display', 'block');
+			$('#usertyposs').css('display', 'block')
+			$('#denglus').css('display', 'none')
+			$('#register').css('display', 'none')
+			$('#usertypos').css('display', 'block')
+		}
+	});
+
+	if ($("#shows").val() == 2) {
+		$("#dingzhi3").css("display", "none");
+		$("#dingzhi2").css("display", "none");
+	}
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#returnTop").click(function(){
+		$("#top").click();
+	})
+});
+</script>
+
+
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+		Layout.init();
+		/* Layout.initOWL();
+		RevosliderInit.initRevoSlider(); */
+
+		//Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */
+		//Layout.initNavScrolling(); 
+	});
+</script>
+<!-- END PAGE LEVEL JAVASCRIPTS -->
+<!-- Global js END -->
+
+</head>
+<body>
+	<!-- BEGIN HEADER  -->
+	<div th:replace="partial/header"></div>
+	<!-- END HEADER -->
+
+	<!-- <input type="hidden" name="returnUrl" th:value="${returnUrl}" />
+	<input type="hidden" th:value="${session.usertyoe}" id="shows" />
+	定义了一个id 为shows的input，用于判断id为dengls是否显示
+	<div id="promo-block"></div>
+	Header BEGIN
+	<div class="header header-mobi-ext" id="header">
+		<div class="container">
+			<div class="row">
+				Logo BEGIN
+				<div class="col-md-1 col-sm-2 col-xs-2">
+					<a style="padding-top: 19px;float: left;" th:href="@{/home/travelindex}"><img
+						src="../../assets/frontend/onepage/img/logo/xylogo.png"
+						alt="Metronic One Page" /></a>
+				</div>
+				Logo END
+
+				<a href="javascript:void(0);" class="mobi-toggler"><i
+					class="fa fa-bars"></i></a>
+
+
+
+				Navigation BEGIN
+				<div class="col-md-9 col-sm-8 col-xs-10 ">
+					<ul class="header-navigation">
+						<li class="current"><a th:href="@{/trips/planofferlist}">自由定制</a></li>
+						<li><a href="#services">产品</a></li>
+						  <li ><a href="#team">团队</a></li>
+						<li class="dropdown dropdown-user"
+							th:if="${session.usertyoe==null}"><a href="javascript:;"
+							class="dropdown-toggle" data-toggle="dropdown"
+							data-hover="dropdown" data-close-others="true"> <span
+								class="username username-hide-on-mobile" th:text="团队"></span>
+								<span class="username username-hide-on-mobile"></span> <i
+								class="fa fa-angle-down"></i>
+						</a>
+							<ul class="dropdown-menu dropdown-menu-default">
+								<li><a th:href="@{/guide/login}"> <i class="icon-user"></i>&nbsp;&nbsp;导游登录
+								</a></li>
+
+								<li><a th:href="@{/guide/register}"> <i
+										class="icon-user"></i>&nbsp;&nbsp;导游注册
+								</a></li>
+
+							</ul></li>
+						<li class="dropdown dropdown-user" id="usertypos"
+							th:if="${session.guide}!=null"><a href="javascript:;"
+							class="dropdown-toggle" data-toggle="dropdown"
+							data-hover="dropdown" data-close-others="true"> <img alt="" class="img-circle" th:src="@{/assets/admin/layout/img/avatar3_small.jpg}" />
+								<span class="username username-hide-on-mobile"
+								th:text="${session.usertyoes}"></span> <span
+								class="username username-hide-on-mobile"></span> <i
+								class="fa fa-angle-down"></i>
+						</a>
+							<ul class="dropdown-menu dropdown-menu-default">
+								<li><a href="/center"> <i class="icon-calendar"
+										th:if="${session.usertyoe}==2"></i>&nbsp;&nbsp;导游中心
+								</a></li>
+								<li><a th:href="@{/personalCenter/doCreate1}"> <i
+										class="icon-user"></i>&nbsp;&nbsp;个人中心
+								</a></li>
+
+								<li><a th:href="@{/home/loginout}"> <i class="icon-key"></i>&nbsp;&nbsp;退出
+								</a></li>
+
+							</ul></li>
+
+						<li><a href="#portfolio1">精选路线</a></li>
+						<li><a href="#portfolio2">极品活动</a></li>
+						<li><a th:href="@{/home/spots}">景点</a></li>
+						<li ><a href="#benefits">优势</a></li>
+						<li ><a href="#prices">定价</a></li>
+						<li ><a href="#testimonials">见证</a></li>
+						<li class="dropdown dropdown-user"><a href="javascript:;"
+							class="dropdown-toggle" data-toggle="dropdown"
+							data-hover="dropdown" data-close-others="true"> <span
+								class="username username-hide-on-mobile" th:text="美国攻略"></span>
+								<span class="username username-hide-on-mobile"></span> <i
+								class="fa fa-angle-down"></i>
+						</a>
+							<ul class="dropdown-menu dropdown-menu-default">
+								<li><a href="/visa"> 签证攻略</a></li>
+
+								<li><a th:href="@{/strategyfood}"> 美国美食</a></li>
+								<li><a th:href="@{/hotel/hotelType}">特色酒店</a></li>
+
+							</ul></li>
+						<li><a href="#contact">联系我们</a></li>
+						<li><a th:href="@{/home/aboutus}">关于我们</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-2 col-sm-2 col-xs-12">
+					<ul class="header-navigation">
+
+						 <li th:if="${session.usertyoe}==1"><a  href="/center"><font color="red">游客中心</font></a></li> 
+            <li th:if="${session.usertyoe}==2"><a  href="/guidetaskarrangementtime/userArrangementtime"><font color="red">导游中心</font></a></li>
+
+						<li class="liheader"><a th:href="@{/user/login}" id="denglus">登录</a>
+						<li class="dropdown dropdown-user" id="usertypos"
+							th:if="${session.guide}==null"><a href="javascript:;"
+							class="dropdown-toggle" data-toggle="dropdown"
+							data-hover="dropdown" data-close-others="true"> <img alt="" class="img-circle" th:src="@{/assets/admin/layout/img/avatar3_small.jpg}" />
+								<span class="username username-hide-on-mobile"
+								th:text="${session.usertyoes}"></span> <span
+								class="username username-hide-on-mobile"></span> <i
+								class="fa fa-angle-down"></i>
+						</a>
+							<ul class="dropdown-menu dropdown-menu-default">
+								<li><a href="/center"> <i class="icon-calendar"
+										th:if="${session.usertyoe}==1"></i>&nbsp;&nbsp;游客中心
+								</a></li>
+								<li><a th:href="@{/personalCenter/create}"> <i
+										class="icon-user"></i>&nbsp;&nbsp;个人中心
+								</a></li>
+
+								<li><a th:href="@{/home/loginout}"> <i class="icon-key"></i>&nbsp;&nbsp;退出
+								</a></li>
+
+							</ul></li>
+						</li>
+						<li class="liheader"><a href="/user/register" id="register">注册</a></li>
+						  <li class="liheader"><a th:href="@{/home/loginout}"  id="usertyposs">退出</a></li>
+					</ul>
+				</div>
+				Navigation END
+			</div>
+		</div>
+	</div>
+ -->
+
+
+
+
+
+
+
+	<!-- 美国美食开始 -->
+	<!--  <div class="tabbable-line">
+								<ul class="nav nav-tabs ">
+									<li class="active">
+										<a href="#tab11" data-toggle="tab" aria-expanded="true">
+										经典美食 </a>
+									</li>
+									<li>
+										<a href="#tab12" data-toggle="tab">
+										特色餐厅 </a>
+									</li>
+									<li class="">
+										<a href="#tab13" data-toggle="tab" aria-expanded="false">
+										中餐在美国 </a>
+									</li>
+								</ul>
+								<div class="tab-content">
+									<div class="tab-pane active" id="tab_15_1">
+										<p>
+											 I'm in Section 1.
+										</p>
+										<p>
+											 Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.
+										</p>
+									</div>
+									<div class="tab-pane" id="tab_15_2">
+										<p>
+											 Howdy, I'm in Section 2.
+										</p>
+										<p>
+											 Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.
+										</p>
+										<p>
+											<a class="btn green" href="ui_tabs_accordions_navs.html#tab_15_2" target="_blank">
+											Activate this tab via URL </a>
+										</p>
+									</div>
+									<div class="tab-pane" id="tab_15_3">
+										<p>
+											 Howdy, I'm in Section 3.
+										</p>
+										<p>
+											 Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat
+										</p>
+										<p>
+											<a class="btn yellow" href="ui_tabs_accordions_navs.html#tab_15_3" target="_blank">
+											Activate this tab via URL </a>
+										</p>
+									</div>
+								</div>
+							</div>  -->
+
+	<!-- 美国美食结束 -->
+	
+	<!-- 测试开始 -->
+
+ <div class="container" style="margin-top: 108px">
+	<div class="tabbable-line">
+		
+		<div class="col-md-4"></div>
+								<ul class="nav nav-tabs ">
+									<li class="active">
+										<a href="#tab11" data-toggle="tab" aria-expanded="true">
+										经典美食 </a>
+									</li>
+									<li>
+										<a href="#tab12" data-toggle="tab">
+										特色餐厅 </a>
+									</li>
+									<li class="">
+										<a href="#tab13" data-toggle="tab" aria-expanded="false">
+										中餐在美国 </a>
+									</li>
+								</ul>
+								<div class="tab-content">
+								
+	
+		
+		
+		
+									<div class="tab-pane active" id="tab11">
+										<div class="row">
+								<div class="col-md-4 col-xs-6 blog-img blog-tag-data"> 
+									<img class="scale-up-box " alt="罗马美食" src="http://ccm.ddcdn.com/cms/img/landers/theme/jdms2.png" />
+															
+									<!--   <ul class="list-inline">
+										<li>
+											<i class="fa fa-calendar"></i>
+											<a href="javascript:;">
+											April 16, 2013 </a>
+										</li>
+										<li>
+											<i class="fa fa-comments"></i>
+											<a href="javascript:;">
+											38 Comments </a>
+										</li>
+										
+									</ul> -->
+									<span>所在城市：罗马</span>
+									<!-- <ul class="list-inline blog-tags">
+										<li>
+											<i class="fa fa-tags"></i>
+											<a href="javascript:;">
+											Technology </a>
+											<a href="javascript:;">
+											Education </a>
+											<a href="javascript:;">
+											Internet </a>
+										</li>
+									</ul> -->
+								</div>
+								<div class="col-md-6 col-xs-9 blog-article">
+									<h3>
+									餐厅名称：阿特米德酒店
+									</h3>
+									<p>
+阿特米德酒店位于罗马，是家4星级酒店。无论您是因为出差或度假而造访罗马，阿特米德酒店都会是您住宿的绝佳选择。在这里您将得到一份贴心服务、收获一份美丽心情。酒店位置较好，距离罗马斗兽场步行22分钟，或打车9分钟，车程约4.4公里。									</p>
+									<a class="btn blue" href="http://baike.baidu.com/link?url=6emQKGK2UhQS-J3GTJdhBIzi4YXVeSCRAKiaUOVG0eb3Xh-R5VMfzv6gwwffKIJT011230-G8gFh3TBrCC6nWq">
+									Read more <i class="m-icon-swapright m-icon-white"></i>
+									</a>
+								</div>
+							</div>
+							<hr />
+							
+							
+							
+							<div class="row">
+								<div class="col-md-4 col-xs-6 blog-img blog-tag-data">
+									<img class="scale-up-box " alt="纽约市美食" src="http://ccm.ddcdn.com/cms/img/landers/theme/jdms7.png" />
+									<!-- <ul class="list-unstyled">
+										<li>
+											<i class="fa fa-calendar"></i>
+											<a href="javascript:;">
+											April 16, 2013 </a>
+										</li>
+										 <li>
+											<i class="fa fa-comments"></i>
+											<a href="javascript:;">
+											38 Comments </a>
+										</li>  
+									</ul> -->
+									<span>所在城市：纽约</span>
+								</div>
+								<div class="col-md-6 col-xs-9 blog-article">
+									<h3>
+									餐厅名称：纽约驻桥套房酒店
+									</h3>
+									<p>
+纽约时代广场驻桥套房酒店位于纽约，是家4星级酒店。纽约时代广场驻桥套房酒店是您来纽约的最佳落脚点。这里，将一份温温软软，悄然安放于旅行的希冀之中，您定不会失望。酒店位置较好，距离第五大道步行15分钟。									</p>
+									<a class="btn blue" href="http://baike.baidu.com/view/14207241.htm">
+									Read more <i class="m-icon-swapright m-icon-white"></i>
+									</a>
+								</div>
+							</div>
+							<hr />
+							
+							<div class="row">
+								<div class="col-md-4 col-xs-6 blog-img blog-tag-data">
+									<img class="scale-up-box " alt="纽约市美食" src="http://ccm.ddcdn.com/cms/img/landers/theme/jdms7.png" />
+									<!-- <ul class="list-unstyled">
+										<li>
+											<i class="fa fa-calendar"></i>
+											<a href="javascript:;">
+											April 16, 2013 </a>
+										</li>
+										 <li>
+											<i class="fa fa-comments"></i>
+											<a href="javascript:;">
+											38 Comments </a>
+										</li>  
+									</ul> -->
+									<span>所在城市：纽约</span>
+								</div>
+								<div class="col-md-6 col-xs-9 blog-article">
+									<h3>
+									餐厅名称：纽约驻桥套房酒店
+									</h3>
+									<p>
+纽约时代广场驻桥套房酒店位于纽约，是家4星级酒店。纽约时代广场驻桥套房酒店是您来纽约的最佳落脚点。这里，将一份温温软软，悄然安放于旅行的希冀之中，您定不会失望。酒店位置较好，距离第五大道步行15分钟。									</p>
+									<a class="btn blue" href="http://baike.baidu.com/view/14207241.htm">
+									Read more <i class="m-icon-swapright m-icon-white"></i>
+									</a>
+								</div>
+							</div>
+							<hr />
+							
+							<div class="row">
+								<div class="col-md-4 col-xs-6 blog-img blog-tag-data">
+									<img class="scale-up-box " alt="纽约市美食" src="http://ccm.ddcdn.com/cms/img/landers/theme/jdms7.png" />
+									<!-- <ul class="list-unstyled">
+										<li>
+											<i class="fa fa-calendar"></i>
+											<a href="javascript:;">
+											April 16, 2013 </a>
+										</li>
+										 <li>
+											<i class="fa fa-comments"></i>
+											<a href="javascript:;">
+											38 Comments </a>
+										</li>  
+									</ul> -->
+									<span>所在城市：纽约</span>
+								</div>
+								<div class="col-md-6 col-xs-9 blog-article">
+									<h3>
+									餐厅名称：纽约驻桥套房酒店
+									</h3>
+									<p>
+纽约时代广场驻桥套房酒店位于纽约，是家4星级酒店。纽约时代广场驻桥套房酒店是您来纽约的最佳落脚点。这里，将一份温温软软，悄然安放于旅行的希冀之中，您定不会失望。酒店位置较好，距离第五大道步行15分钟。									</p>
+									<a class="btn blue" href="http://baike.baidu.com/view/14207241.htm">
+									Read more <i class="m-icon-swapright m-icon-white"></i>
+									</a>
+								</div>
+							</div>
+							<hr />
+							
+							
+							<div class="row">
+								<div class="col-md-4 col-xs-6 blog-img blog-tag-data">
+									<img class="scale-up-box " alt="伦敦美食" src="http://ccm.ddcdn.com/cms/img/landers/theme/jdms5.png" />
+									<!--  <ul class="list-unstyled">
+										<li>
+											<i class="fa fa-calendar"></i>
+											<a href="javascript:;">
+											April 16, 2013 </a>
+										</li>
+										 <li>
+											<i class="fa fa-comments"></i>
+											<a href="javascript:;">
+											38 Comments </a>
+										</li> 
+									</ul>  -->
+									<span>所在城市：伦敦
+									</span>
+								</div>
+								<div class="col-md-6 col-xs-9 blog-article">
+									<h3>
+									餐厅名称：蒙塔古花园酒店
+									</h3>
+									<p>
+红色康乃馨蒙塔古花园酒店位于伦敦，是家4星级酒店。是伦敦最受欢迎的酒店之一。凭借独有的人文素养和其婉约美丽的殷殷之情不断吸引着广大顾客的到访。酒店位置较好，距离大英博物馆步行4分钟。									</p>
+									<a class="btn blue" href="http://baike.baidu.com/link?url=nb1kVNGXQIt-xww0RIf2loXgNTk604uioX8MqrN7x0fBfGRKdliY3Igiz55o9Qs8d9G8SrfBP1NCOK9U_O1SPq">
+									Read more <i class="m-icon-swapright m-icon-white"></i>
+									</a>
+								</div>
+							</div>
+							<hr />
+							
+							
+							<div class="row">
+								<div class="col-md-4 col-xs-6 blog-img blog-tag-data">
+									<img class="scale-up-box " alt="巴塞罗那美食" src="http://ccm.ddcdn.com/cms/img/landers/theme/jdms3.png" />
+									<!-- <ul class="list-unstyled">
+										<li>
+											<i class="fa fa-calendar"></i>
+											<a href="javascript:;">
+											April 16, 2013 </a>
+										</li>
+										 <li>
+											<i class="fa fa-comments"></i>
+											<a href="javascript:;">
+											38 Comments </a>
+										</li> 
+									</ul> -->
+									<span>所在城市：巴塞罗那</span>
+								</div>
+								<div class="col-md-6 col-xs-9 blog-article">
+									<h3>
+									餐厅名称：营地之家酒店
+									</h3>
+									<p>
+营地之家酒店位于巴塞罗那，是家4星级酒店。营地之家酒店通过提供优质贴心的服务和方便实用的设施，受到了客人的普遍好评。酒店位置较好，距离圣家堂打车7分钟，车程约3.3公里。									</p>
+									<a class="btn blue" href="http://baike.baidu.com/view/14285686.htm">
+									Read more <i class="m-icon-swapright m-icon-white"></i>
+									</a>
+								</div>
+							</div>
+								<hr />
+									</div>
+									
+									
+									
+									
+									<div class="tab-pane" id="tab12">
+										<div class="row">
+								<div class="col-md-4 col-xs-6 blog-img blog-tag-data">
+									<img src="http://ccm.ddcdn.com/cms/img/landers/tc/g187427.png" alt="西班牙最佳餐厅" id="lazyload_764674655_3" class="scale-up-box" style="width: 378px;height: 225px;"/>
+									<!-- <ul class="list-unstyled">
+										<li>
+											<i class="fa fa-calendar"></i>
+											<a href="javascript:;">
+											April 16, 2013 </a>
+										</li>
+										 <li>
+											<i class="fa fa-comments"></i>
+											<a href="javascript:;">
+											38 Comments </a>
+										</li> 
+									</ul> -->
+									<span>所在城市：西班牙</span>
+								</div>
+								<div class="col-md-6 col-xs-9 blog-article">
+									<h3>
+									所在餐厅：西班牙赫罗那
+									</h3>
+									<p>
+“这里各方面都极为出众。 还能说什么呢？简直是完美了。”
+菜系： 面条, 西班牙料理									</p>
+									<a class="btn blue" href="http://www.tripadvisor.cn/Restaurant_Review-g187499-d996088-Reviews-El_Celler_de_Can_Roca-Girona_Province_of_Girona_Catalonia.html">
+									Read more <i class="m-icon-swapright m-icon-white"></i>
+									</a>
+								</div>
+							</div>
+							<hr />
+							<div class="row">
+								<div class="col-md-4 col-xs-6 blog-img blog-tag-data">
+									<img alt="\" src="http://himg2.huanqiu.com/attachment2010/2013/0522/20130522093011985.jpg" style="width: 378px; height: 225px;" />
+									<!-- <ul class="list-unstyled">
+										<li>
+											<i class="fa fa-calendar"></i>
+											<a href="javascript:;">
+											April 16, 2013 </a>
+										</li>
+										 <li>
+											<i class="fa fa-comments"></i>
+											<a href="javascript:;">
+											38 Comments </a>
+										</li> 
+									</ul> -->
+									<span>所在城市：纽约</span>
+								</div>
+								<div class="col-md-6 col-xs-9 blog-article">
+									<h3>
+									餐厅名称：十一麦迪逊公园餐厅
+									</h3>
+									<p>
+　这里的美食体验在纽约堪称一绝，独一无二。餐厅的菜单上附有配料表图解，山羊奶干酪，香葱、鹅肝酱、乳鸽肉，尤其是镶有可可粉花边的鹅肝酱，又有谁能禁得住这种美食诱惑呢?尽情享受这里的经典美味吧!									</p>
+									<a class="btn blue" href="http://go.huanqiu.com/northamerican/2013-05/3958362.html">
+									Read more <i class="m-icon-swapright m-icon-white"></i>
+									</a>
+								</div>
+							</div>
+							<hr />
+							<div class="row">
+								<div class="col-md-4 col-xs-6 blog-img blog-tag-data">
+									<img src="http://file21.mafengwo.net/M00/2E/3D/wKgB3FDxNxmACMtrAAGC0S-spm462.rbook_comment.w475.jpeg" width="378" height="225"  />
+									<!-- <ul class="list-unstyled">
+										<li>
+											<i class="fa fa-calendar"></i>
+											<a href="javascript:;">
+											April 16, 2013 </a>
+										</li>
+										 <li>
+											<i class="fa fa-comments"></i>
+											<a href="javascript:;">
+											38 Comments </a>
+										</li> 
+									</ul> -->
+									<span>所在城市：塞班岛</span>
+								</div>
+								<div class="col-md-6 col-xs-9 blog-article">
+									<h3>
+									餐厅名称：Hard Rock Cafe
+									</h3>
+									<p>
+世界知名的摇滚餐厅，店内墙上挂满了老唱片和歌手照片，每晚都有乐队演出									</p>
+									<a class="btn blue" href="http://www.mafengwo.cn/poi/5545896.html">
+									Read more <i class="m-icon-swapright m-icon-white"></i>
+									</a>
+								</div>
+							</div>
+							<hr />
+							</div>
+							
+							
+
+
+
+									
+									
+									
+									
+									<div class="tab-pane" id="tab13">
+										<div class="row">
+								<div class="col-md-4 col-xs-6 blog-img blog-tag-data">
+									<img class="scale-up-box " alt="悉尼中餐" src="http://ccm.ddcdn.com/cms/img/landers/theme/zczqq5.png" />	
+									<!-- <ul class="list-unstyled">
+										<li>
+											<i class="fa fa-calendar"></i>
+											<a href="javascript:;">
+											April 16, 2013 </a>
+										</li>
+										 <li>
+											<i class="fa fa-comments"></i>
+											<a href="javascript:;">
+											38 Comments </a>
+										</li> 
+									</ul> -->
+									<span>所在城市：悉尼</span>
+								</div>
+								<div class="col-md-6 col-xs-9 blog-article">
+									<h3>
+									餐厅名称：Le Pelican
+									</h3>
+									<p>
+“Beautiful food, lovely staff, cosy atmosphere”
+I dined here following a recommendation from a friend - very glad I went!
+
+The food is beautiful - we share scallops and a prawn entree, then had the fish pie (so yum) and the steak. We finished with the cherry soufflé. The food was flawless.									</p>
+									<a class="btn blue" href="http://www.tripadvisor.cn/Restaurant_Review-g255060-d948438-Reviews-Le_Pelican-Sydney_New_South_Wales.html">
+									Read more <i class="m-icon-swapright m-icon-white"></i>
+									</a>
+								</div>
+							</div>
+							<hr />
+							<div class="row">
+								<div class="col-md-4 col-xs-6 blog-img blog-tag-data">
+									<img class="scale-up-box " alt="爱丁堡中餐" src="http://ccm.ddcdn.com/cms/img/landers/theme/zczqq7.png" style="width:378px;height: 227px;"/>
+									<!-- <ul class="list-unstyled">
+										<li>
+											<i class="fa fa-calendar"></i>
+											<a href="javascript:;">
+											April 16, 2013 </a>
+										</li>
+										 <li>
+											<i class="fa fa-comments"></i>
+											<a href="javascript:;">
+											38 Comments </a>
+										</li> 
+									</ul> -->
+									<span>所在城市：爱丁堡</span>
+								</div>
+								<div class="col-md-6 col-xs-9 blog-article">
+									<h3>
+									餐厅名称：钓饵寿司(Tomoe Sushi)
+									</h3>
+									<p>
+　在这家寿司店就餐，即便等上30分钟也不足为奇，但是这里鲜美的寿司的确值得一等。菜单丰富多彩，富有特色，从巨蛤到金枪鱼再到多汁的海胆(8.5美元)，还有16块碟的组合生鱼片(36美元)，还有配套的日本米酒(5美元)。									</p>
+									<a class="btn blue" href="http://go.huanqiu.com/northamerican/2013-05/3958362.html">
+									Read more <i class="m-icon-swapright m-icon-white"></i>
+									</a>
+								</div>
+							</div>
+							<hr />
+							<div class="row">
+								<div class="col-md-4 col-xs-6 blog-img blog-tag-data">
+									<img class="scale-up-box " alt="柏林中餐" src="http://ccm.ddcdn.com/cms/img/landers/theme/zczqq6.png" />
+									<!-- <ul class="list-unstyled">
+										<li>
+											<i class="fa fa-calendar"></i>
+											<a href="javascript:;">
+											April 16, 2013 </a>
+										</li>
+										 <li>
+											<i class="fa fa-comments"></i>
+											<a href="javascript:;">
+											38 Comments </a>
+										</li> 
+									</ul> -->
+									<span>所在城市：柏林</span>
+								</div>
+								<div class="col-md-6 col-xs-9 blog-article">
+									<h3>
+									所在餐厅：马克餐厅(The Restaurant at the Mark)
+									</h3>
+									<p>
+　每到午饭时间，一些贵妇人便会光顾这里，晚饭时，华尔街巨富和一些百万富翁也会齐聚在此，享受这里美味的金枪鱼和茴香烤鲈鱼。在这里可以一边畅饮地道的金桔鸡尾酒，一边欣赏着过往的超级名模，这里是高端消费者的最佳选择。									</p>
+									<a class="btn blue" href="http://go.huanqiu.com/northamerican/2013-05/3958362.html">
+									Read more <i class="m-icon-swapright m-icon-white"></i>
+									</a>
+								</div>
+							</div>
+								<hr />
+				
+							
+							</div>
+							</div>
+							</div>
+						
+							
+
+	</div>
+	<!-- 测试结束 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- BEGIN FOOTER -->
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<!-- BEGIN COPYRIGHT -->
+				<div class="col-md-6 col-sm-6 col-xs-12 padding-top-10">2015 ©
+					广州西游信息科技有限公司. ALL Rights Reserved.&nbsp;&nbsp;粤ICP备15064509号</div>
+				<!-- END COPYRIGHT -->
+				<!-- BEGIN PAYMENTS -->
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<ul class="social-icons pull-right">
+						<li><a class="rss" data-original-title="rss"
+							href="javascript:;"></a></li>
+						<li><a class="facebook" data-original-title="facebook"
+							href="javascript:;"></a></li>
+						<li><a class="twitter" data-original-title="twitter"
+							href="javascript:;"></a></li>
+						<li><a class="googleplus" data-original-title="googleplus"
+							href="javascript:;"></a></li>
+						<li><a class="linkedin" data-original-title="linkedin"
+							href="javascript:;"></a></li>
+						<li><a class="youtube" data-original-title="youtube"
+							href="javascript:;"></a></li>
+						<li><a class="vimeo" data-original-title="vimeo"
+							href="javascript:;"></a></li>
+						<li><a class="skype" data-original-title="skype"
+							href="javascript:;"></a></li>
+					</ul>
+				</div>
+				<!-- END PAYMENTS -->
+			</div>
+		</div>
+
+	</div>
+	<!-- END FOOTER -->
+
+
+
+
+<div class="floating_ck" style="z-index: 9999; opacity: 0.9;">
+		<dl>
+			<dt></dt>
+			<dd class="consult">
+				<span>咨询热线</span>
+				<div class="floating_left">
+					<a style="font-size:20px;">400-856-5161</a>
+				</div>
+			</dd>
+			<dd class="quote">
+				<span>QQ客服</span>
+				<div class="floating_left">
+					<a href="#"></a>
+				</div>
+			</dd>
+			<dd class="qrcord">
+				<span>扫一扫</span>
+				<div class="floating_left floating_ewm">
+					<i></i>
+					<p class="qrcord_p01">扫一扫</p>
+					<p class="qrcord_p02">领红包</p>
+				</div>
+			</dd>
+			
+			<dd class="return">
+				<span id="returnTop">返回顶部</span>
+				<!-- onClick="gotoTop();return false;" -->
+			</dd>
+			
+		</dl>
+	</div>
+	<a href="#promo-block" id="top" class="go2top scroll">
+		<i class="fa fa-arrow-up"></i>
+	</a>
+
+
+</body>
+</html>

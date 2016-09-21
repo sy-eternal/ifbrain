@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>景点详情</title>
+<link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script th:src="@{/js/controller/visitorCenter-controller.js}"></script>
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid">
+		<div class="row">
+			<div class="page-header">
+				<h1>景点详情</h1>
+			</div>
+			<div class="row">
+				<div class="col-xs-11">
+					<form th:action="@{/order/spot}" class="form-horizontal" role="form" method="post">
+						<div class="form-group">
+							<label for="cityname" class="col-xs-3 control-label">所在城市</label>
+							<div class="col-xs-6">
+								<label class="form-control" th:text="${cityname}"></label>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="suppliername" class="col-xs-3 control-label">供应商名称</label>
+							<div class="col-xs-6">
+								<label class="form-control" th:text="${suppliername}"></label>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="spotsname" class="col-xs-3 control-label">景点名称</label>
+							<div class="col-xs-6">
+								<label class="form-control" th:text="${spot.spotsname}"></label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="spotsename" class="col-xs-3 control-label">景点英文名称</label>
+							<div class="col-xs-6">
+								<label class="form-control" th:text="${spot.spotsename}"></label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="location" class="col-xs-3 control-label">地点</label>
+							<div class="col-xs-6">
+								<label class="form-control" th:text="${spot.location}"></label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="enlocation" class="col-xs-3 control-label">地点英文名</label>
+							<div class="col-xs-6">
+								<label class="form-control" th:text="${spot.enlocation}"></label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="address" class="col-xs-3 control-label">地址</label>
+							<div class="col-xs-6">
+								<label class="form-control" th:text="${spot.address}"></label>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="image" class="col-xs-3 control-label">图片</label>
+							<div class="col-xs-6">
+								<img th:src="@{'/image/show/' + ${spot.image.id}}" alt="Amazing Project" class="img-responsive"/>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="spotsdescription" class="col-xs-3 control-label">景点介绍</label>
+							<div class="col-xs-6">
+								<textarea rows="5" cols="64" th:text="${spot.spotsdescription}"></textarea>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="spotssummary" class="col-xs-3 control-label">景点概要</label>
+							<div class="col-xs-6">
+								<textarea rows="5" cols="64" th:text="${spot.spotssummary}"></textarea>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="specialnotes" class="col-xs-3 control-label">特别提醒</label>
+							<div class="col-xs-6">
+								<textarea rows="5" cols="64" th:text="${spot.specialnotes}"></textarea>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="clothingtips" class="col-xs-3 control-label">穿衣建议</label>
+							<div class="col-xs-6">
+								<textarea rows="5" cols="64" th:text="${spot.clothingtips}"></textarea>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="spendingtips" class="col-xs-3 control-label">消费提醒</label>
+							<div class="col-xs-6">
+								<textarea rows="5" cols="64" th:text="${spot.spendingtips}"></textarea>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="spendingtips" class="col-xs-3 control-label">季节推荐</label>
+							<div class="col-xs-6">
+								<textarea rows="5" cols="64" th:weathertipstext="${spot.weathertips}"></textarea>
+							</div>
+						</div>
+						
+						<div class="form-group">
+						<p class="text-center">
+							<a type="button" th:href="@{/center}" class="btn btn-default">返回</a>
+						</p>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div layout:fragment="script">
+		<script th:src="@{/assets/global/plugins/select2/select2.min.js}"></script>
+		<script>
+			$(function() {
+				Metronic.init(); // init metronic core components
+				Layout.init(); // init current layout
+				QuickSidebar.init(); // init quick sidebar
+				Demo.init(); // init demo features
+			});
+		</script>
+	</div>
+</body>
+
+</html>

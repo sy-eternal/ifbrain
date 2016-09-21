@@ -1,0 +1,174 @@
+
+<!-- 游客 -->
+		<input type="hidden" th:value="${session.ordersstatus}" id="ordersstatus1"/>
+
+		<div class="sidebar col-md-3 col-xs-12 col-sm-12" style="float:left;top:108px;" id="visitorcenterId1" >
+            <ul class="list-group margin-bottom-25 sidebar-menu">
+              <!-- <li class="list-group-item clearfix dropdown " >
+                <a href="javascript:void(0);" class="collapsed">
+                  <i class="fa fa-angle-right"></i>
+                 		游客中心
+                </a>
+                <ul class="dropdown-menu" style="display:block;">
+
+                  <li class="list-group-item dropdown clearfix ">
+                    <a th:href="@{/center}" class="collapsed"><i class="fa fa-angle-right"></i> 定制旅行订单 </a>
+                      
+                  </li>
+
+                  <li class="list-group-item dropdown clearfix ">
+                    <a th:href="@{/visaOrder}" class="collapsed"><i class="fa fa-angle-right"></i> 代办签证订单 </a>
+                      
+                  </li>
+                </ul>
+                </li> -->
+                
+                  <li class="list-group-item clearfix dropdown">
+                <a href="javascript:void(0);" class="collapsed">
+                  <i class="fa fa-angle-right"></i>
+                  		个人中心
+                  
+                </a>
+                <ul class="dropdown-menu" style="display:block;">
+
+                  <li class="list-group-item dropdown clearfix ">
+                    <a th:href="@{/personalCenter/create}" class="collapsed"><i class="fa fa-angle-right"></i> 个人信息 </a>
+                      
+                  </li>
+
+                  <li class="list-group-item dropdown clearfix ">
+                    <a th:href="@{/personalCenter/passwordmain}" class="collapsed"><i class="fa fa-angle-right"></i> 密码修改 </a>
+                      
+                  </li>
+                </ul>
+              </li>
+              <!--  <li class="list-group-item clearfix dropdown">
+                <a href="javascript:void(0);" class="collapsed">
+                  <i class="fa fa-angle-right"></i>
+                  		任务设置
+                </a>
+                <ul class="dropdown-menu" style="display:block;">
+                 <li class="list-group-item dropdown clearfix ">
+                    <a th:href="@{/myinformation/task}" class="collapsed"><i class="fa fa-angle-right"></i> 任务设置 </a>         
+                  </li>
+                </ul>
+              </li> -->
+               <li class="list-group-item clearfix dropdown">
+                <a href="javascript:void(0);" class="collapsed">
+                  <i class="fa fa-angle-right"></i>
+                  		我的宝贝
+                </a>
+               <ul class="dropdown-menu" style="display:block;">
+                  <li class="list-group-item dropdown clearfix ">
+                    <a th:href="@{/myinformation/baby}" class="collapsed"><i class="fa fa-angle-right"></i> 我的宝贝 </a>
+                      
+                  </li>
+                </ul>
+              </li>
+               <li class="list-group-item clearfix dropdown">
+                <a href="javascript:void(0);" class="collapsed">
+                  <i class="fa fa-angle-right"></i>
+                  		购物
+                </a>
+               <ul class="dropdown-menu" style="display:block;">
+                  <li class="list-group-item dropdown clearfix ">
+                    <a th:href="@{/commodity/index}" class="collapsed"><i class="fa fa-angle-right"></i> 购物 </a>
+                      
+                  </li>
+                </ul>
+              </li>
+              <li class="list-group-item clearfix dropdown">
+                <a th:href="@{/project/li}" class="collapsed">
+                  <i class="fa fa-angle-right"></i>
+                  		任务中心
+                </a>
+           
+              </li>
+               <li class="list-group-item clearfix dropdown">
+                <a th:href="@{/analysis/choosechildanalysis}" class="collapsed">
+                  <i class="fa fa-angle-right"></i>
+                  		分析
+                </a>
+               <!-- <ul class="dropdown-menu" style="display:block;">
+                  <li class="list-group-item dropdown clearfix ">
+                    <a th:href="@{/analysis/workanalysis}" class="collapsed"><i class="fa fa-angle-right"></i> 任务分析 </a> 
+                  </li>
+                   <li class="list-group-item dropdown clearfix ">
+                    <a th:href="@{/analysis/shopanalysis}" class="collapsed"><i class="fa fa-angle-right"></i> 购物分析 </a> 
+                  </li>
+                   <li class="list-group-item dropdown clearfix ">
+                    <a th:href="@{/analysis/accountanalysis}" class="collapsed"><i class="fa fa-angle-right"></i> 账户分析 </a> 
+                  </li>
+                </ul> -->
+              </li>
+              </ul>
+          </div>
+          
+          
+          
+          <!-- 导游 -->
+          
+          <div class="sidebar col-md-3 col-xs-12 col-sm-12" style="float: left;display: none;" id="visitorcenterId2" >
+            <ul class="list-group margin-bottom-25 sidebar-menu">
+              <li class="list-group-item clearfix dropdown " >
+                <a href="javascript:void(0);" class="collapsed">
+                  <i class="fa fa-angle-right"></i>
+                 		导游工作台
+                </a>
+                <ul class="dropdown-menu" style="display:block;">
+
+                  <li class="list-group-item dropdown clearfix ">
+                    <a th:href="@{/guidetaskarrangementtime/userArrangementtime}" class="collapsed"><i class="fa fa-angle-right"></i> 导游及专车日历 </a>
+                      
+                  </li>
+
+                  <li class="list-group-item dropdown clearfix ">
+                    <a th:href="@{/guideoutstandingorders}" class="collapsed"><i class="fa fa-angle-right"></i> 未完成订单 </a>
+                      
+                  </li>
+                  
+                  <li class="list-group-item dropdown clearfix ">
+                    <a th:href="@{/guideinstandingorders}" class="collapsed"><i class="fa fa-angle-right"></i> 已完成订单 </a>
+                      
+                  </li>
+                </ul>
+                </li>
+                
+                  <li class="list-group-item clearfix dropdown">
+                	<a href="javascript:void(0);" class="collapsed">
+                  		<i class="fa fa-angle-right"></i>
+                  		个人中心
+                     </a>
+                <ul class="dropdown-menu" style="display:block;">
+
+                  <li class="list-group-item dropdown clearfix ">
+                    <a th:href="@{/personalCenter/create}" class="collapsed"><i class="fa fa-angle-right"></i> 个人信息 </a>
+                      
+                  </li>
+
+                  <li class="list-group-item dropdown clearfix ">
+                    <a th:href="@{/personalCenter/passwordmain}" class="collapsed"><i class="fa fa-angle-right"></i> 密码修改 </a>
+                      
+                  </li>
+                </ul>
+              </li>
+              
+              
+                <li class="list-group-item clearfix dropdown">
+                	<a href="javascript:void(0);" class="collapsed">
+                  		<i class="fa fa-angle-right"></i>
+                  		导游专车
+                     </a>
+                <ul class="dropdown-menu" style="display:block;">
+
+                  <li class="list-group-item dropdown clearfix ">
+                    <a th:href="@{/guidecar}" id="guidecarcreate" class="collapsed"><i class="fa fa-angle-right"></i> 专车注册 </a>
+                      
+                  </li>
+
+                </ul>
+              </li>
+              </ul>
+          </div>
+       
+

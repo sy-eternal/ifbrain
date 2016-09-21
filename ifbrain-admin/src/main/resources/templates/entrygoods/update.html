@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout" >
+<head>
+	<title>修改商品信息</title>
+	<!-- 使用jQuery Validation控件进行前端验证 -->
+	<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+	<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+	<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+	<link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+	<link src="../../assets/global/plugins/bootstrap-select/bootstrap-select.css"/>
+	<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+	<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+	<script th:src="@{/webjars/angularjs/1.3.16/angular.min.js}"></script> 
+	<script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+	<script type="text/javascript" src="../../assets/global/plugins/bootstrap-select/bootstrap-select.js"></script>
+	<script>
+		$(function() {
+			$("#mainForm").validate({
+				highlight : function(element) {
+					$(element).closest(".form-group").addClass("has-error");
+				},
+				success : function(label) {
+					label.closest(".form-group").removeClass("has-error");
+					label.closest(".form-group").addClass("has-success");
+				},
+				errorPlacement : function(error, element) {
+					element.parent("div").append(error);
+				},
+				submitHandler : function(form) {
+					form.submit();
+				}
+			});
+		});
+		
+		 
+	</script>
+</head>
+<body>
+	 <div layout:fragment="content">
+		<div class="page-header">
+	 		<h1>修改商品信息</h1>
+		</div>
+		
+	 	<form class="form-horizontal" role="form" method="post"  id="mainForm" th:action="@{/entrygoods/update}" enctype="multipart/form-data"  th:object="${entrygoods}">
+	 	<input type="hidden" th:field="*{id}"/>
+			<div class="form-group" >
+				<label for="commodityName" class="col-xs-3 control-label">商品名称：</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" style="background-color: transparent;border: none;"  required="required" id="commodityName" name="commodityName" th:field="*{commodityName}" readonly="readonly"/>
+				</div>
+			</div>
+			<div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">商品类型：</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" style="background-color: transparent;border: none;"  required="required" id="commodityType" name="commodityType" th:field="*{commodityMall.commodityType}"  th:value="${entrygoods.commodityMall.id}" readonly="readonly"/>
+				</div>
+			</div>
+			<div class="form-group" >
+				<label for="cityName" class="col-xs-3 control-label">需求层次：</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" style="background-color: transparent;border: none;"  required="required" id="demandName" name="demandName" th:field="*{demandLevel.demandName}" th:value="${entrygoods.demandLevel.id}" readonly="readonly"/>
+				</div>
+			</div>
+		   <div class="form-group" id="title" >
+				<label for="title" class="col-xs-3 control-label">商品图片</label>
+				<div class="col-xs-6">
+					<input type="file" class="form-control"   id="file" name="file"  multiple="multiple"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="price" class="col-xs-3 control-label">商品价格：</label>
+				<div class="col-xs-6">
+					<input type="number" class="form-control"  id="price" name="price"  required="required" th:field="*{price}"/>
+				</div>
+			</div>
+			<div class="form-group" >
+				<label for="commodityQuantity" class="col-xs-3 control-label">库存数量：</label>
+				<div class="col-xs-6">
+					<input type="number" class="form-control"  id="commodityQuantity" name="commodityQuantity" required="required" th:field="*{commodityQuantity}"/>
+				</div>
+			</div>
+			<div class="form-group" >
+				<label for="commodityQuantity" class="col-xs-3 control-label">描述：</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control"  id="description" name="description" required="required" th:field="*{description}"/>
+				</div>
+			</div>
+			<p class="text-center">
+				<button type="submit"  class="btn btn-primary" id="alltrue">提交</button>
+				<a th:href="@{/entrygoods/list}" class="btn btn-default">返回</a>
+			</p>
+			
+		                      
+			
+		</form>
+	
+	</div>
+	 
+</body>
+
+</html>

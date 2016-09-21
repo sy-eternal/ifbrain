@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>租车活动修改</title>
+<script th:src="@{/webjars/jquery-validation/1.13.1/jquery.validate.min.js}"></script>
+<script th:src="@{/webjars/jquery-validation/1.13.1/additional-methods.min.js}"></script>
+<script th:src="@{/js/lib/jquery-validation/messages_zh.js}"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<div layout:fragment="content" class="container-fluid">
+		<div class="row">
+			<div class="page-header">
+				<h1>租车活动修改</h1>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<form class="form-horizontal" role="form" method="post" th:action="@{/specialCar/update}"
+						th:object="${rentalCar}" id="mainForm">
+						<input type="hidden" name="_method" value="put" /> <input type="hidden" th:field="*{id}" />
+						
+						 <div class="form-group" th:classappend="${#fields.hasErrors('supplier')}? 'has-error'">
+							<label for="supplier" class="col-xs-3 control-label">供应商名称</label>
+							<div class="col-xs-6">
+								<select class="form-control" th:field="*{supplier}">
+									<option th:each="supplier : ${supplier}" th:value="${supplier.id}" th:text="${supplier.cnName}" ></option>
+								</select>
+								<span class="text-danger" th:if="${#fields.hasErrors('supplier')}" th:errors="*{supplier}"></span>
+							 </div>
+					 </div>
+						
+						
+
+						<div class="form-group" th:classappend="${#fields.hasErrors('cartype')}? 'has-error'">
+							<label for="cartype" class="col-xs-3 control-label">租车类型</label>
+							<div class="col-xs-6">
+								<input type="text" class="form-control" th:field="*{cartype}" required="required" /> <span
+									class="text-danger" th:if="${#fields.hasErrors('cartype')}" th:errors="*{cartype}"></span>
+							</div>
+						</div>
+
+						<div class="form-group" th:classappend="${#fields.hasErrors('count')}? 'has-error'">
+							<label for="count" class="col-xs-3 control-label">类型介绍</label>
+							<div class="col-xs-6">
+								<textarea rows="5" cols="71" th:field="*{count}" required="required"></textarea>
+								<!-- <input type="text" class="form-control" th:field="*{count}" required="required" />  -->
+								<span class="text-danger" th:if="${#fields.hasErrors('count')}" th:errors="*{count}"></span>
+							</div>
+						</div>
+
+						<p class="text-center">
+							<button type="submit" class="btn btn-primary">提交</button>
+							<a th:href="@{/specialCar}" class="btn btn-default">返回</a>
+						</p>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

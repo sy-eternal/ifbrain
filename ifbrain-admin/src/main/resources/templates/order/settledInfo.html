@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout">
+<head>
+      <meta charset="utf-8" />
+  <title>已规划订单详情</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.css}" />
+<script th:src="@{/webjars/datatables/1.10.6/js/jquery.dataTables.js}"></script>
+<script th:src="@{/js/lib/datatables/plug-ins/dataTables.bootstrap.min.js}"></script>
+
+<!-- 	<script th:src="@{/js/lib/jsog/JSOG.js}"></script>
+	<script th:src="@{/js/controller/order/step1-controller.js}"></script>  -->
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  <meta content="Metronic Shop UI description" name="description" />
+  <meta content="Metronic Shop UI keywords" name="keywords" />
+  <meta content="keenthemes" name="author" />
+
+  <meta property="og:site_name" content="-CUSTOMER VALUE-" />
+  <meta property="og:title" content="-CUSTOMER VALUE-" />
+  <meta property="og:description" content="-CUSTOMER VALUE-" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="-CUSTOMER VALUE-" /><!-- link to image for socio -->
+  <meta property="og:url" content="-CUSTOMER VALUE-" />
+  <link rel="shortcut icon" href="favicon.ico"/>
+  
+ <link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+ 
+<script type="text/javascript">
+
+
+function show(){
+	var orderId=$("#orderId").val();
+	var btn2 ="";
+	var numcount=$("#numcount").val();
+	 $("#maindiv").load("../../order/"+orderId+"/plan?_settleddetail"); 
+	 $("#todate").css("display", "none");	
+		$("#datenum").css("display", "none");
+	$("#guideplan").css("display", "block")
+}
+
+
+</script>
+
+<script type="text/javascript">
+</script>
+</head>
+<body onload="show();">
+<div class="row" layout:fragment="content">
+	
+    <form id="wizard" class="form-horizontal" role="form"   method="post">
+     <input type="hidden" id="orderId" th:value="${order.id}" name="orderId"/> 
+							<div  class="header-mobi-ext" style="margin-top: 50px;">
+						
+     <div class="form-group" id="todate">
+                    <div class="form-field">
+                        <label for="startDates" class="col-xs-2 control-label">出发日期：</label>
+                        <div class="col-xs-3">
+                   			 <input type="date" class="form-control"  name="startDates" id="startDates" />  
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="endDates" class="col-xs-2 control-label">到达日期：</label>
+                        <div class="col-xs-3">
+                   			 <input type="date" class="form-control"  name="endDates" id="endDates" />  
+                        </div>
+                    </div> 
+                 
+                </div>
+         
+                </div> 
+	               <div id="maindiv" style="margin-top: 100px;"></div>
+      
+					<div class="form-actions">
+						<div class="row">
+						  <div class="col-md-offset-5 col-md-7">
+                            <button type="button" form="wizard" name="_cancel" class="btn default button-previous"  onclick="hrefs();">
+                                <i class="m-icon-swapleft"></i>
+                                返回
+                            </button>
+                        </div>
+						</div>
+					</div>
+					</form>
+					
+    <script type="text/javascript">
+	     function hrefs(){
+	    	 window.location.href="../../order/planedlist";
+	     }
+</script>
+		
+	</div>
+</body>
+</html>
